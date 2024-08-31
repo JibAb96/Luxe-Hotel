@@ -1,0 +1,54 @@
+/* Ensure the navbar container uses Flexbox */
+.custom-navbar {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and nav links */
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+    color:#455d58;
+    margin-top: 0.3rem;
+}
+
+/* Style for the logo */
+.custom-navbar .logo {
+    font-size: 1.5rem;
+    
+}
+
+/* Ensure nav-links are aligned horizontally */
+.nav-links {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    font-size: small;
+}
+
+/* Style for each nav link */
+.nav-item {
+    margin: 0 2rem; /* Spacing between nav items */
+    letter-spacing: .1rem;
+}
+
+/* Special styling for the BOOK link */
+.navbar-nav .nav-link.book {
+    display: flex;
+    width: 6rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    border: .2rem solid transparent;
+    background-color: #455d58;
+    color: whitesmoke;
+    transition: all .3s ease;
+    letter-spacing: 1px;
+    box-sizing: border-box; /* Ensure padding is applied correctly */
+}
+
+.navbar-nav .nav-link.book:hover {
+    background-color: transparent;
+    border: .2rem solid #455d58;
+    color: #455d58;
+}
+
+.navbar-nav .nav-link.book::before {
+    transform: scaleX(0);
+}
+
