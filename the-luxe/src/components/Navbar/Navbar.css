@@ -3,7 +3,7 @@
     display: flex;
     align-items: center; /* Center items vertically */
     justify-content: space-between; /* Space between logo and nav links */
-    padding: 0.5rem 1rem; /* Adjust padding as needed */
+    padding: 0.5rem 1rem;
     color:#455d58;
     margin-top: 0.3rem;
 }
@@ -11,7 +11,7 @@
 /* Style for the logo */
 .custom-navbar .logo {
     font-size: 1.5rem;
-    
+    margin-left: -2rem;
 }
 
 /* Ensure nav-links are aligned horizontally */
@@ -39,7 +39,7 @@
     color: whitesmoke;
     transition: all .3s ease;
     letter-spacing: 1px;
-    box-sizing: border-box; /* Ensure padding is applied correctly */
+    box-sizing: border-box;
 }
 
 .navbar-nav .nav-link.book:hover {

@@ -1,0 +1,65 @@
+.hero {
+    background-image: linear-gradient(to right bottom, rgba(40, 180, 133, 0.8), rgb(69, 93, 88, 0.5)), url("../Hero/images/new-hero-image.jpg");
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 7.5rem);
+    clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+    position: relative;
+}
+.hero__text-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hero__text {
+    text-transform: uppercase;
+    color: aliceblue;
+    font-size: 3.4rem;
+    font-weight: bolder;
+    letter-spacing: .2rem;
+    line-height: 1.4;
+    margin-bottom: 5rem;
+}
+
+.hero__text span {
+    display: block;
+}
+.btn {
+    display: inline-block;
+    background: transparent;
+    border: .1rem solid aliceblue;
+    border-radius: .2rem;
+    cursor: pointer;
+    outline: none;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: .2rem;
+    overflow: hidden;
+    position: relative;
+    color: aliceblue;
+    transition: color .5s;
+    z-index: 100;
+}
+
+.btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 0;
+    height: 100%;
+    transform: skewX(25deg);
+    z-index: -1;
+    transition: width .7s;
+    background-color: aliceblue;
+}
+.btn-green:hover{
+    color: #455d58;
+}
+.btn:hover::before {
+    width: 120%;
+}

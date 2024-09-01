@@ -1,16 +1,16 @@
+import React from "react"
 import {Navbar, Nav, Container, NavDropdown} from "react-bootstrap"
 import "./Navbar.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const element = <FontAwesomeIcon icon={faUser} />
 
-function Menu() {
-  
+const TheNavbar = () => {
   return (
     <Navbar expand="lg" className="custom-navbar">
       <Container>
-        <Navbar.Brand href="#home" className="logo">The Luxe</Navbar.Brand>
+        <Navbar.Brand href="#home" className="logo">Luxe Hotel</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav-links ms-auto">
@@ -33,4 +33,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default TheNavbar;
