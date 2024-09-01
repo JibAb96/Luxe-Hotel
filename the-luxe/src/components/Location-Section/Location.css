@@ -1,0 +1,36 @@
+.info{
+    padding: 8rem 0;
+}
+.info-text {
+    margin-bottom: 3rem;
+    font-family: var(--main-font-2);
+}
+.text-green {
+    color: var(--main-color);
+}
+.container {
+    width: 100%;
+    max-width: 120rem;
+    padding: 0 2.4rem;
+    margin: 0 auto;
+}
+.row {
+    display: flex;
+    align-items: center;
+}
+.col-2 {
+    margin-bottom: 5rem;
+    flex-basis: 50%;
+    min-width: 30rem;
+}
+.padding-right {
+    padding-right: 8rem;
+}
+.image {
+    max-width: 50rem;
+    height: 22rem;
+    background-image: url(../../images/Hotel-lobby.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
