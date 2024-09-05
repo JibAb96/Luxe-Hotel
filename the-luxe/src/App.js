@@ -6,6 +6,7 @@ import Hero from "./components/Hero/Hero"
 import Location from "./components/Location-Section/Location";
 import RoomsSection from "./components/Rooms-Section/RoomsSection";
 import Reviews from "./components/Reviews/Reviews";
+import Footer from "./components/Footer/Footer"
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
         <Location />
         <RoomsSection />
         <Reviews />
+        <Footer />
       </div>
     )
    

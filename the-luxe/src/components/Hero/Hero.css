@@ -41,7 +41,7 @@
     overflow: hidden;
     position: relative;
     color: aliceblue;
-    transition: color .5s;
+    transition: color .5s, background-color .5s;
     z-index: 100;
 }
 
@@ -57,7 +57,8 @@
     transition: width .7s;
     background-color: aliceblue;
 }
-.btn-green:hover{
+.btn.btn-green:hover{
+    background-color: aliceblue;
     color: #455d58;
 }
 .btn:hover::before {
