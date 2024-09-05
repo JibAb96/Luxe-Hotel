@@ -5,6 +5,7 @@ import "./App.css"
 import Hero from "./components/Hero/Hero"
 import Location from "./components/Location-Section/Location";
 import RoomsSection from "./components/Rooms-Section/RoomsSection";
+import Reviews from "./components/Reviews/Reviews";
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
         <Hero />
         <Location />
         <RoomsSection />
+        <Reviews />
       </div>
     )
    
