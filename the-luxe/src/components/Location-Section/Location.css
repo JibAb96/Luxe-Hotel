@@ -1,5 +1,9 @@
 .info{
-    padding: 8rem 0;
+    padding: 2rem 0;
+}
+.city{
+    font-weight: bold;
+    font-size: large;
 }
 .info-text {
     margin-bottom: 3rem;
