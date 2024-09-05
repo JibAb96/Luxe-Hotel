@@ -5,12 +5,8 @@
 }
 
 .hotel-room {
-    width: 100%; /* Ensure it takes full width of the container */
-    height: 22rem; /* Adjust height as needed */
-    background-image: url(../../images/hotel-room.jpg); /* Ensure the path is correct */
-    background-size: cover; /* Cover the container */
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 80%; 
+    height: auto; 
 }
 
 

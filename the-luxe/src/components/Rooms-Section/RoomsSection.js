@@ -1,14 +1,16 @@
 import React from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
+import Image from "react-bootstrap/Image"
+import Room from "../../images/hotel-room.jpg"
 import "./RoomsSection.css"
 
 const RoomsSection = () => {
     return (
         <div className="rooms">
-            <Container>
+            <Container fluid>
                 <Row className="align-items-center">
                     <Col xs={12} md={6} className="d-flex justify-content-center">
-                        <div className="hotel-room"></div>
+                        <Image src={Room} className="hotel-room"/>
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="text-box">

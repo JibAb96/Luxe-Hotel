@@ -24,7 +24,7 @@ const Reviews = () => {
       
     return (
         <div className="reviews">
-            <Container>
+            <Container fluid>
                 <h2 className="text-center sec-title">CUSTOMERS REVIEWS</h2>
                 <FontAwesomeIcon icon={faQuoteLeft} className="quote" />
                 <Carousel>

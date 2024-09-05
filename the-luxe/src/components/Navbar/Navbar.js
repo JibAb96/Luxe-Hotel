@@ -9,7 +9,7 @@ const element = <FontAwesomeIcon icon={faUser} />
 const TheNavbar = () => {
   return (
     <Navbar expand="lg" className="custom-navbar">
-      <Container>
+      <Container fluid>
         <Navbar.Brand href="#home" className="logo">Luxe Hotel</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

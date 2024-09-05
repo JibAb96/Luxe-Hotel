@@ -1,17 +1,18 @@
 import React from "react";
+import { Button, Container } from "react-bootstrap";
 import "./Hero.css"
 const Hero = () => {
     return (
-    <div id="hero" class="hero">
-        <div class="container">
+    <div className="hero">
+        <Container fluid>
             <div class="hero__text-box">
                 <h1 class="hero__text">
                     <span class="hero__text-top">Luxury</span>
                     <span class="hero__text-bottom">Comfort</span>
                 </h1>
-                <button class="btn btn-green">Book a Room</button>
+                <Button class="btn btn-green">Book a Room</Button>
             </div>
-        </div>
+        </Container>
     </div>
     )
 }
