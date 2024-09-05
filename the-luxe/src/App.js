@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 import Hero from "./components/Hero/Hero"
 import Location from "./components/Location-Section/Location";
+import RoomsSection from "./components/Rooms-Section/RoomsSection";
 
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
         <TheNavbar />
         <Hero />
         <Location />
+        <RoomsSection />
       </div>
     )
    

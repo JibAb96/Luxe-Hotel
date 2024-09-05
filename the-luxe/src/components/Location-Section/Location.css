@@ -7,10 +7,9 @@
 }
 .info-text {
     margin-bottom: 3rem;
-    font-family: var(--main-font-2);
 }
 .text-green {
-    color: var(--main-color);
+    color: #455d58;
 }
 .container {
     width: 100%;
@@ -30,7 +29,7 @@
 .padding-right {
     padding-right: 8rem;
 }
-.image {
+.hotel-lobby {
     max-width: 50rem;
     height: 22rem;
     background-image: url(../../images/Hotel-lobby.jpg);

@@ -18,7 +18,11 @@ const TheNavbar = () => {
             <Nav.Link href="#link" className="nav-item">ROOMS</Nav.Link>
             <Nav.Link href="#link" className="nav-item">ABOUT</Nav.Link>
             <Nav.Link href="#link" className="nav-item book">BOOK</Nav.Link>
-            <NavDropdown title={element} id="basic-nav-dropdown" className="nav-item fs-5">
+            <NavDropdown 
+            title={element} 
+            id="basic-nav-dropdown" 
+            className="nav-item fs-5"
+            align="end">
               <NavDropdown.Item href="#action/3.1">
                 Register
               </NavDropdown.Item>

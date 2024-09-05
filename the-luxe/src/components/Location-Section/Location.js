@@ -14,7 +14,7 @@ const Location = () => {
                             Whether you're here for business or leisure, our dedicated concierge service is 
                             Experience the epitome of luxury and European charm in the vibrant city of Luxembourg.</p>
                     </div>
-                    <div className="col-2 image"></div>
+                    <div className="col-2 hotel-lobby"></div>
                 </div>
             </div>
         </div>
