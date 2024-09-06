@@ -2,7 +2,7 @@ import React from "react"
 import {Button} from "react-bootstrap"
 import "./GreenButton.css"
 
-const GreenButton = ({ children, ...rest }) => {    
+const TransparentButton = ({ children, ...rest }) => {    
     return (
         <Button className="button" {...rest}>
             {children}
@@ -10,4 +10,4 @@ const GreenButton = ({ children, ...rest }) => {
     );
 };
 
-export default GreenButton
+export default TransparentButton
