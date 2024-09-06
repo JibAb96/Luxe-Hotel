@@ -1,7 +1,8 @@
 import React from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Image from "react-bootstrap/Image"
 import Room from "../../images/hotel-room.jpg"
+import GreenButton from "../Buttons/GreenButton";
 import "./RoomsSection.css"
 
 const RoomsSection = () => {
@@ -20,7 +21,7 @@ const RoomsSection = () => {
                             Each room is designed with sophisticated décor, high-end furnishings, and 
                             modern amenities, providing a serene escape from the ordinary.
                             </p>
-                            <Button className="button button-green">Explore Now</Button>
+                            <GreenButton>Explore Now</GreenButton>
                         </div>
                     </Col>
                 </Row>

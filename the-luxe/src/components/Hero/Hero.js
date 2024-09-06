@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./Hero.css"
+import GreenButton from "../Buttons/GreenButton";
 const Hero = () => {
     return (
     <div className="hero">
@@ -10,7 +11,7 @@ const Hero = () => {
                     <span class="hero__text-top">Luxury</span>
                     <span class="hero__text-bottom">Comfort</span>
                 </h1>
-                <Button class="btn btn-green">Book a Room</Button>
+                <GreenButton>Book a Room</GreenButton>
             </div>
         </Container>
     </div>
