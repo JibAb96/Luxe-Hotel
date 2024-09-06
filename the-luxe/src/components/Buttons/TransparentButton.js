@@ -1,6 +1,6 @@
 import React from "react"
 import {Button} from "react-bootstrap"
-import "./GreenButton.css"
+import "./TransparentButton.css"
 
 const TransparentButton = ({ children, ...rest }) => {    
     return (

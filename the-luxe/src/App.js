@@ -7,6 +7,8 @@ import Location from "./components/Location-Section/Location";
 import RoomsSection from "./components/Rooms-Section/RoomsSection";
 import Reviews from "./components/Reviews/Reviews";
 import Footer from "./components/Footer/Footer"
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 
 class App extends Component {

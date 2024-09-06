@@ -8,7 +8,7 @@ const Location = () => {
         <div className="info">
             <Container fluid>
                 <Row>
-                    <Col xs={12} md={6} >
+                    <Col xs={12} md={6} className="description" >
                         <p className="info-text text-green">
                             Nestled in the heart of <span className="city">Luxembourg</span>, our luxury hotel offers an unparalleled blend of elegance, comfort, and 
                             sophistication, designed for the discerning traveler. Each room and suite is a haven of opulence, featuring panoramic views of the charming cityscape and 

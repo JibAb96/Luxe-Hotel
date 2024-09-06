@@ -1,7 +1,24 @@
+.footer{
+    padding: 5rem;
+    background-color: #455d58;
+    color: aliceblue;
+}
 .footer-h{
-    padding-top: 5rem;
     font-weight: 400;
     text-transform: uppercase;
-    font-size: large;
+    font-size: 1.1rem;
     letter-spacing: .1rem;
+}
+.payment-methods{
+    list-style-type: none;
+    display: flex;
+    margin-left: -2rem;
+}
+.icons{
+    padding: .5rem 1rem .5rem 0;
+    font-size: 1.5rem;
+}
+.icons:hover{
+    cursor: pointer;
+    opacity: .5;
 }

@@ -41,7 +41,7 @@ const Reviews = () => {
                         <p class="p">
                             From the moment we arrived, we were treated like royalty. 
                             The rooms were elegantly designed, and the view was breathtaking. 
-                            Perfect for a luxury getaway!
+                            
                         </p>
                         <div> {renderStarIcons()} </div>
                         <img src={UserTwo} alt="user" className="user"/>

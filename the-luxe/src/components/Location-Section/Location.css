@@ -5,12 +5,16 @@
     font-weight: bold;
     font-size: large;
 }
-.info-text {
-    margin-bottom: 3rem;
+.description {
+    margin-top: 4rem;
 }
-.text-green {
+.info-text{
+    max-width: 40rem;
+    padding-left: 3rem;
     color: #455d58;
+    font-weight: 350;
 }
+
 
 .padding-right {
     padding-right: 8rem;

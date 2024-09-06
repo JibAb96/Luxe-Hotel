@@ -5,11 +5,14 @@
     border-radius: .2rem;
     padding: 1rem 1.5rem;
     text-transform: uppercase;
+    overflow: hidden;
     font-size: 0.8rem;
     letter-spacing: .15rem;
     font-weight: 400;
+    position:relative;
     color: aliceblue;
     transition: color .5s, background-color .5s;
+    z-index: 100;
 }
 
 .button:hover {
@@ -28,4 +31,7 @@
     z-index: -1;
     transition: width .7s;
     background-color: aliceblue;
+}
+.button:hover::before {
+    width: 120%;
 }

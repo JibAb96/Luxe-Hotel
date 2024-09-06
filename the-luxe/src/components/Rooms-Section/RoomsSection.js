@@ -11,7 +11,7 @@ const RoomsSection = () => {
             <Container fluid>
                 <Row className="align-items-center">
                     <Col xs={12} md={6} className="d-flex justify-content-center">
-                        <Image src={Room} className="hotel-room" />
+                        <Image src={Room} className="hotel-room" rounded/>
                     </Col>
                     <Col xs={12} md={6}>
                         <div className="text-box">
