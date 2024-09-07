@@ -1,9 +1,25 @@
-.card-hover {
-    transition: transform 0.3s ease;
-  }
+.card{
+  transition: transform 0.3s ease;
+}
 
-.card-hover:hover {
+.card:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
   }
-  
+
+.card-body {
+    flex: 1;
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #455d58;
+    color: aliceblue;
+  }
+
+
+@media (max-width: 768px) {
+  .card:hover{
+    transition:none;
+    transform: none;
+  }
+}

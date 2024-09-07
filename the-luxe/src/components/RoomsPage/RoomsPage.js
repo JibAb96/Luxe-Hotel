@@ -9,9 +9,9 @@ import "./RoomsPage.css"
 const RoomsPage = () => {
 
     return(
-        <Container style={{padding:"5rem"}} fluid>
+        <Container style={{padding:"2rem"}} fluid>
             <h1 className="title">Rooms</h1>
-            <Row>
+            <Row className="card-container">
                 <RoomCard 
                     text={"Relax in our well-appointed standard room, featuring a king-sized bed, sleek en-suite bathroom, and all the essential amenities for a comfortable stay."}
                     picture={DoubleRoom} 
