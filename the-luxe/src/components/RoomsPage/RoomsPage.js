@@ -16,19 +16,22 @@ const RoomsPage = () => {
                     text={"Relax in our well-appointed standard room, featuring a king-sized bed, sleek en-suite bathroom, and all the essential amenities for a comfortable stay."}
                     picture={DoubleRoom} 
                     title={"Standard"}
-                    subtitle={"Double Bed, 2 Guests €120.00"} 
+                    subtitle={"Double Bed, 2 Guests €120.00"}
+                    route={"/standard"}
                 />
                 <RoomCard
                     text={"Upgrade to our deluxe room, offering a king-sized bed, modern en-suite bathroom, and additional features like a cozy seating area with plush armchairs and a coffee table."}
                     picture={DeluxeRoom}
                     title={"Deluxe"}
-                    subtitle={"Queen Bed, 2 Guests €150.00"} 
+                    subtitle={"Queen Bed, 2 Guests €150.00"}
+                    route={"/deluxe"}
                 />
                 <RoomCard
                     text={"Indulge in our luxurious suite, complete with a separate living area, king-sized bed, spacious en-suite bathroom, and premium amenities for an exceptional experience."}
                     picture={Suite}
                     title={"Suite"}
                     subtitle={"King Bed, 4 Guests €200.00"}
+                    route={"/suite"}
                 />
             </Row>
         </Container>

@@ -13,6 +13,11 @@
     color: aliceblue;
   }
 
+.card-btn{
+  position: absolute; 
+  bottom: 1rem;
+  left: 28%;
+}
 
 @media (max-width: 768px) {
   .card:hover{

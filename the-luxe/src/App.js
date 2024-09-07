@@ -29,6 +29,9 @@ class App extends Component {
                 </div>} 
             />
             <Route path="/rooms" element={<RoomsPage/>}/>
+            <Route path="/standard" element={<Location/>} />
+            <Route path="/deluxe" element={<Location/>} />
+            <Route path="/suite" element={<Location/>} />
           </Routes>
         </Layout>
       </Router>

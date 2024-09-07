@@ -3,8 +3,13 @@ import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col";
 import "./RoomCard.css"
 import TransparentButton from "../Buttons/TransparentButton";
-const RoomCard = ({picture, title, text, subtitle}) => {
- return(
+import { useNavigate } from "react-router-dom"
+const RoomCard = ({picture, title, text, subtitle, route}) => {
+ const navigate = useNavigate();
+ const handleClick = () => {
+  navigate(route)
+ }
+  return(
   <Col xs={12} sm={6} lg={4} className="p-1">
     <Card className="card" >
       <Card.Img  
@@ -20,7 +25,12 @@ const RoomCard = ({picture, title, text, subtitle}) => {
         <Card.Text>
           {text}
         </Card.Text>
-        <TransparentButton style={{position:"absolute", bottom:"1rem", left:"28%"}}>View Room</TransparentButton>
+        <TransparentButton 
+          style={{position:"absolute", bottom:"1rem", left:"28%"}}
+          onClick={handleClick}
+          >
+            View Room
+        </TransparentButton>
       </Card.Body>
     </Card>
   </Col>
