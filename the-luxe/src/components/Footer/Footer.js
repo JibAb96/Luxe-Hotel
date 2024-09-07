@@ -16,10 +16,11 @@ const Footer = () => {
         <Container fluid>
             <Row className="footer">
                 <Col xs={12} md={4} >
-                    <h3 className="footer-h">About</h3>
+                    <h3 className="footer-h">Contact us</h3>
                     <p className="text">
-                        Experience unparalleled luxury and comfort at our premier hotel in the heart of Luxembourg, 
-                        where elegance meets exceptional service for a truly unforgettable stay.
+                        Email: theluxehotel@gmail.com<br/>
+                        Phone: +35272345092 <br/>
+                        Address: 12 Rue Jean Engling, 1466 Dommeldange Luxembourg
                     </p>
                 </Col>
                 <Col xs={12} md={4} >
@@ -42,7 +43,7 @@ const Footer = () => {
                 </Col>
                 <Col xs={12} md={4} >
                     <h3 className="footer-h">Social Networks</h3>
-                    <p className="text">Follow us on social media and keep in touch with La Hotel.</p>
+                    <p className="text">Follow us on social media and keep in touch with Luxe Hotel.</p>
                     <ul className="payment-methods">
                         <li>
                             <FontAwesomeIcon icon={faFacebook} className="icons"/>

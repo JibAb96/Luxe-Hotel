@@ -24,10 +24,10 @@ const Reviews = () => {
       
     return (
         <div className="reviews">
-            <Container fluid>
+            <Container   fluid>
                 <h2 className="text-center sec-title">CUSTOMERS REVIEWS</h2>
                 <FontAwesomeIcon icon={faQuoteLeft} className="quote" />
-                <Carousel>
+                <Carousel data-bs-theme="dark" indicators={false}>
                     <Carousel.Item className="cons">
                         <p class="p">
                             Beautifully furnished rooms, top-tier amenities, and an outstanding restaurant. 
@@ -41,7 +41,6 @@ const Reviews = () => {
                         <p class="p">
                             From the moment we arrived, we were treated like royalty. 
                             The rooms were elegantly designed, and the view was breathtaking. 
-                            
                         </p>
                         <div> {renderStarIcons()} </div>
                         <img src={UserTwo} alt="user" className="user"/>
