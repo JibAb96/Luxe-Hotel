@@ -13,8 +13,8 @@ import {faCcMastercard,
 
 const Footer = () => {
     return(
-        <Container fluid>
-            <Row className="footer">
+        <Container className="footer" fluid>
+            <Row >
                 <Col xs={12} md={4} >
                     <h3 className="footer-h">Contact us</h3>
                     <p className="text">
