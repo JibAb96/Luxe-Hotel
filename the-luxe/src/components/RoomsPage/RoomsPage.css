@@ -5,8 +5,3 @@
     padding-bottom: 2rem;
 }
 
-.card-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
