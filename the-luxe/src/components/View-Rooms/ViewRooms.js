@@ -1,13 +1,15 @@
 import React from 'react';
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import StandardRoom from "../../images/double-room.jpg"
 import DeluxeRoom from "../../images/deluxe-room.jpg"
 import Suite from "../../images/hotel-suite.jpg"
+import TransparentButton from "../Buttons/TransparentButton"
+import "./ViewRooms.css"
 
 const roomDetails = {
   standard: {
-    title: "Standard Room",
+    title: "Standard",
     price: "€120.00",
     description: "Relax in our well-appointed standard room, featuring a king-sized bed, sleek en-suite bathroom, and all the essential amenities for a comfortable stay.",
     amenities: [
@@ -20,7 +22,7 @@ const roomDetails = {
     image: StandardRoom 
   },
   deluxe: {
-    title: "Deluxe Room",
+    title: "Deluxe",
     price: "€150.00",
     description: "Upgrade to our deluxe room, offering a king-sized bed, modern en-suite bathroom, and additional features like a cozy seating area with plush armchairs and a coffee table.",
     amenities: [
@@ -35,7 +37,7 @@ const roomDetails = {
     image: DeluxeRoom 
   },
   suite: {
-    title: "Suite Room",
+    title: "Suite",
     price: "€200.00",
     description: "Indulge in our luxurious suite, complete with a separate living area, king-sized bed, spacious en-suite bathroom, and premium amenities for an exceptional experience.",
     amenities: [
@@ -67,23 +69,30 @@ const ViewRooms = () => {
 
   return (
     <Container style={{ padding: "2rem" }} fluid>
-      <Row>
+      <Row className='outer'>
         <Col md={6}>
-          <Card>
+          <Card >
             <Card.Img variant="top" src={room.image} />
           </Card>
         </Col>
-        <Col md={6}>
-          <h1>{room.title}</h1>
+        <Col md={6} style={{color:"#455d58"}}>
+          <h1 className='room-type'>{room.title}</h1>
           <h2>Price: {room.price}</h2>
-          <p>{room.description}</p>
+          <p className='pg'>{room.description}</p>
+          <h3>Breakfast Included</h3>
+          <p className='pg'>
+          Start your day with an exquisite breakfast experience at our 
+          luxury hotel in Luxembourg. Indulge in a gourmet selection of 
+          freshly baked pastries, seasonal fruits, 
+          artisanal cheeses, and delicacies sourced from local farms.
+          </p>
           <h3>Amenities:</h3>
-          <ul>
+          <ul className='pg'>
             {room.amenities.map((amenity, index) => (
               <li key={index}>{amenity}</li>
             ))}
           </ul>
-          <Button variant="primary">Book Now</Button>
+          <TransparentButton style={{backgroundColor:"#455d58"}}>Book Now</TransparentButton>
         </Col>
       </Row>
     </Container>
