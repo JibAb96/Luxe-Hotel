@@ -8,6 +8,7 @@ import Reviews from "./components/Reviews/Reviews";
 import RoomsPage from "./components/RoomsPage/RoomsPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Layout from "./components/Layout/Layout";
+import ViewRooms from "./components/View-Rooms/ViewRooms";
 
 
 
@@ -29,9 +30,7 @@ class App extends Component {
                 </div>} 
             />
             <Route path="/rooms" element={<RoomsPage/>}/>
-            <Route path="/standard" element={<Location/>} />
-            <Route path="/deluxe" element={<Location/>} />
-            <Route path="/suite" element={<Location/>} />
+            <Route path="/rooms/:roomType" element={<ViewRooms/>} />
           </Routes>
         </Layout>
       </Router>
