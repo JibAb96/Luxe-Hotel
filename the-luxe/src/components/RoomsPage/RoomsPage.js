@@ -9,22 +9,26 @@ import "./RoomsPage.css"
 const RoomsPage = () => {
 
     return(
-        <Container fluid>
+        <Container style={{padding:"5rem"}} fluid>
+            <h1 className="title">Rooms</h1>
             <Row>
                 <RoomCard 
-                    text={"This here is a double room"} 
+                    text={"Relax in our well-appointed standard room, featuring a king-sized bed, sleek en-suite bathroom, and all the essential amenities for a comfortable stay."}
                     picture={DoubleRoom} 
-                    title={"Double Room"} 
+                    title={"Standard"}
+                    subtitle={"Double Bed, 2 Guests €120.00"} 
                 />
                 <RoomCard
-                    text={"This here is a deluxe room"}
+                    text={"Upgrade to our deluxe room, offering a king-sized bed, modern en-suite bathroom, and additional features like a cozy seating area with plush armchairs and a coffee table."}
                     picture={DeluxeRoom}
-                    title={"Deluxe Room"} 
+                    title={"Deluxe"}
+                    subtitle={"Queen Bed, 2 Guests €150.00"} 
                 />
                 <RoomCard
-                    text={"This here is suite"}
+                    text={"Indulge in our luxurious suite, complete with a separate living area, king-sized bed, spacious en-suite bathroom, and premium amenities for an exceptional experience."}
                     picture={Suite}
-                    title={"Suite"} 
+                    title={"Suite"}
+                    subtitle={"King Bed, 4 Guests €200.00"}
                 />
             </Row>
         </Container>
