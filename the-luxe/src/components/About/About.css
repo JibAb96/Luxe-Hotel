@@ -10,13 +10,12 @@
 .about-us-p{
     color: #455d58;
     max-width: 40rem;
-    padding-top: 3rem;
+    padding-top: 2rem;
     padding-left: 2rem;
     color: #455d58;
     font-weight: 350;
 }
 .about-img{
-    height: 20rem;
-    width: 35rem;
+    max-height: 20rem;
     object-fit: cover;
 }

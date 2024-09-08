@@ -1,6 +1,13 @@
-.Reservation-tite{
+.reservations{
+    padding: 7rem 2rem;
+}
+.reservation-title{
     color: #455d58;
-    padding-top: 3rem;
+    padding: 3rem 0; 
     letter-spacing: .2rem;
     text-align: center;
+}
+
+@media (max-width:"425px") {
+    
 }
