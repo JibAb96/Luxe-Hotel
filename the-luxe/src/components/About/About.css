@@ -1,5 +1,21 @@
-.reception{
-    background-image: url("../../images/Hotel-reception.avif");
-    background-repeat: no-repeat;
-    background-size: contain;
+.about{
+    padding: 2rem;
+}
+.about-us{
+    color: #455d58;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+.about-us-p{
+    color: #455d58;
+    max-width: 40rem;
+    padding-top: 3rem;
+    padding-left: 2rem;
+    color: #455d58;
+    font-weight: 350;
+}
+.about-img{
+    height: 20rem;
+    width: 35rem;
+    object-fit: cover;
 }
