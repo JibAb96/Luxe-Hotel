@@ -2,6 +2,7 @@ import React from "react";
 import {Col, Container, Row, Image} from "react-bootstrap"
 import Reception from "../../images/hotel-reception-2.webp"
 import "./About.css"
+import DiningSection from "../Dining-Section/Dining-Section";
 
 const About = () => {
     return(
@@ -22,6 +23,10 @@ const About = () => {
                     <Image className="about-img" src={Reception}/>
                 </Col>
             </Row>
+            <Row>
+                <DiningSection />    
+            </Row>
+            
         </Container>
     )
 }
