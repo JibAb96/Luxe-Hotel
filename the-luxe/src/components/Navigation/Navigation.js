@@ -17,7 +17,7 @@ const Navigation = () => {
           <Nav className="nav-links ms-auto">
             <Nav.Link as={Link} to="/" className="nav-item" >HOME</Nav.Link>
             <Nav.Link as={Link} to="/rooms"className="nav-item" >ROOMS</Nav.Link>
-            <Nav.Link href="#link" className="nav-item">ABOUT</Nav.Link>
+            <Nav.Link as={Link} to={"/about"} className="nav-item">ABOUT</Nav.Link>
             <Nav.Link href="#link" className="nav-item book">BOOK</Nav.Link>
             <NavDropdown 
             title={element} 
