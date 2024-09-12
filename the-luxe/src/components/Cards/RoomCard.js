@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col";
-import "./RoomCard.module.css"
+import "./RoomCard.css"
 import TransparentButton from "../Buttons/TransparentButton";
 import { useNavigate } from "react-router-dom"
 const RoomCard = ({picture, title, text, subtitle, route}) => {
@@ -11,7 +11,7 @@ const RoomCard = ({picture, title, text, subtitle, route}) => {
   }
   return(
     <Col xs={12} sm={6} lg={4} className="p-1">
-      <Card className="card" >
+      <Card className="room-option" >
         <Card.Img  
           variant="top" 
           src={picture} 
@@ -19,7 +19,7 @@ const RoomCard = ({picture, title, text, subtitle, route}) => {
           style={{height: '40vh', 
               objectFit: "cover"}}
         />
-        <Card.Body className="card-body" style={{minHeight:"20rem"}}>
+        <Card.Body className="room-option-body" style={{minHeight:"20rem"}}>
           <Card.Title>{title}</Card.Title>
           <Card.Subtitle className="mb-2">{subtitle}</Card.Subtitle>
           <Card.Text>

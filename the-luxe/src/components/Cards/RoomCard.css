@@ -1,26 +1,22 @@
-.card{
+.room-option{
   transition: transform 0.3s ease;
 }
 
-.card:hover {
+.room-option:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
   }
 
-.card-body {
+.room-option-body {
     min-height: 20rem;
     background-color: #455d58;
     color: aliceblue;
   }
 
-.card-btn{
-  position: absolute; 
-  bottom: 1rem;
-  left: 28%;
-}
+
 
 @media (max-width: 768px) {
-  .card:hover{
+  .room-option:hover{
     transition:none;
     transform: none;
   }

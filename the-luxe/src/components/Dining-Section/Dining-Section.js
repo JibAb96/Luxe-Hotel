@@ -14,9 +14,9 @@ const DiningSection = () => {
                 <Col className="dining-text-box" xs={12} md={6}>
                     <h2 className="dining-headline">Dining</h2>
                     <p className="dining-text">
-                        Experience the ultimate in comfort and elegance in our luxury hotel rooms.
-                        Each room is designed with sophisticated décor, high-end furnishings, and
-                        modern amenities, providing a serene escape from the ordinary.
+                    Savor exquisite culinary creations in our elegant dining area. Designed with refined décor 
+                    and offering a selection of gourmet dishes, each meal promises an 
+                    unforgettable gastronomic experience in an atmosphere of sophistication and indulgence.
                     </p>
                     <TransparentButton>Explore Now</TransparentButton>
                 </Col>

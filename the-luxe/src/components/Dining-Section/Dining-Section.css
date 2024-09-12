@@ -3,6 +3,7 @@
     background-color: #455d58;
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 .dining-img{
     width: 80%; 

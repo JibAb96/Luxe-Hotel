@@ -1,4 +1,4 @@
-.card-container{
+.reserve{
     max-width: 18rem;
     min-height: 8rem;
     color: #455d58;
@@ -8,7 +8,7 @@
 }
 
 @media (max-width:450px) {
-    .card-container{
+    .reserve{
         margin: 0 auto;
     }
 }
