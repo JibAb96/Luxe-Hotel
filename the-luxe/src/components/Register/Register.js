@@ -88,6 +88,14 @@ const Register = () => {
                         required
                     />
                 </Form.Group>
+                <Form.Group className="mb-2" controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        required
+                    />
+                </Form.Group>
                 <Form.Group className="mb-2" controlId="passwordv">
                     <Form.Label>Password (again)</Form.Label>
                     <Form.Control

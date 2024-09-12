@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button, Card, Row} from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton"
 import "./SignIn.css"
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
     return (
@@ -12,6 +13,8 @@ const SignIn = () => {
                         If you have not created an account yet, then please <Button
                         className="text-muted px-0"
                         variant="link"
+                        as={Link}
+                        to="/register"
                         > Register </Button> first.
                     </p>
                     <Form.Group className="mb-2" controlId="username">
