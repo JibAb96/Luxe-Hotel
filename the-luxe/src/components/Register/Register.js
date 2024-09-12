@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useContext }from "react";
 import { Form, Button, Card, Row} from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton"
 import "./Register.css"
 import { Link, useNavigate } from "react-router-dom";
 import FormInput from "../Form/Input";
+import { AlertContext } from "../Alert/Alert";
 const Register = () => {
+    const {setAlertMessage, setShowAlert} = useContext(AlertContext);
+
+    
     const navigate = useNavigate();
+    
     const handleSubmit = (e) => { 
         e.preventDefault();
+        setAlertMessage("You have successfully registered in!");
+        setShowAlert(true);
         navigate("/signin");
-    }
+        setTimeout(() => {
+            setShowAlert(false);
+        }, 2000);    }
     return (
         <Card className="register">
             <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit}>

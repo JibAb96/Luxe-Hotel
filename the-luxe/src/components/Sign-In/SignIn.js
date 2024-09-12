@@ -1,23 +1,23 @@
 import React, { useContext, useState } from 'react';
-import { Form, Button, Card, Row} from "react-bootstrap";
+import { Form, Button, Card, Row, Alert} from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton"
 import "./SignIn.css"
 import { Link, useNavigate } from "react-router-dom";
 import { AlertContext } from "../Alert/Alert";
 import FormInput from '../Form/Input';
+import { useEffect } from 'react';
 
 const SignIn = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const {setAlertMessage, setShowAlert} = useContext(AlertContext);
    
+    useEffect(() => { window.scrollTo(0, 0) }, [])
 
     const navigate = useNavigate();
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(!username || !password){
-            return;
-        }
         setAlertMessage("You have successfully logged in!");
         setShowAlert(true);
         navigate("/");
@@ -26,8 +26,10 @@ const SignIn = () => {
         }, 2000);
      
     }
+    const {alertMessage, showAlert} = useContext(AlertContext);
     return (
         <div>
+            {showAlert &&  <Alert className="alert alert-success" role="alert">{alertMessage}</Alert>}
             <Card className="signin">
                 <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit} >
                     <h1 className="h4 mb-2 text-center">Sign In</h1>
@@ -39,14 +41,14 @@ const SignIn = () => {
                         to="/register"
                         > Register </Button> first.
                     </p>
-                        <FormInput 
-                            label={"Username"} 
-                            type={"text"} 
-                            placeholder={"Username"} 
-                            value={username} 
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
+                    <FormInput 
+                        label={"Username"} 
+                        type={"text"} 
+                        placeholder={"Username"} 
+                        value={username} 
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
                     <FormInput 
                         label={"Password"} 
                         type={"password"} 
