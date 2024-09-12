@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import ReserveCard from "../Cards/Reserve-Card";
 import "./Reserve-Section.css"
+import TransparentButton from "../Buttons/TransparentButton";
 
 const ReserveSection = () => {
     return(
@@ -21,6 +22,14 @@ const ReserveSection = () => {
                     Title={"3. Cancel Reservations"}
                     Text={"Cancel your existing booking up to 24h before check in."}
                 />
+            </Row>
+            <Row>
+                <TransparentButton
+                style={{
+                    "backgroundColor": "#455d58",
+                    "margin": "5rem auto 0"
+                }}
+                >Your Reservations</TransparentButton>
             </Row>
         </Container>
     )
