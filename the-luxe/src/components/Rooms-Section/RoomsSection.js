@@ -4,7 +4,7 @@ import Image from "react-bootstrap/Image"
 import Room from "../../images/hotel-room.jpg"
 import TransparentButton from "../Buttons/TransparentButton";
 import "./RoomsSection.css"
-
+import { Link } from "react-router-dom";
 const RoomsSection = () => {
     return (
             <Container className="rooms" fluid>
@@ -19,7 +19,7 @@ const RoomsSection = () => {
                             Each room is designed with sophisticated décor, high-end furnishings, and
                             modern amenities, providing a serene escape from the ordinary.
                         </p>
-                        <TransparentButton>Explore Now</TransparentButton>
+                        <TransparentButton as={Link} to={"/rooms"}>Explore Now</TransparentButton>
                     </Col>
                 </Row>
             </Container>
