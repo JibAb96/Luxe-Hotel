@@ -1,4 +1,4 @@
-import {React, Component} from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 import RoomsPage from "./components/Rooms-Page/RoomsPage";
@@ -12,9 +12,7 @@ import Register from "./components/Register/Register";
 
 
 
-class App extends Component {
-  
-  render(){
+const App = () => {
     return(
       <Router>
         <Layout>
@@ -29,8 +27,6 @@ class App extends Component {
         </Layout>
       </Router>
     )
-   
-  }
 }
 
 export default App

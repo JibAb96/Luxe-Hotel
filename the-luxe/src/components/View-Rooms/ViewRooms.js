@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import StandardRoom from "../../images/double-room.jpg"
@@ -56,7 +56,7 @@ const roomDetails = {
 const ViewRooms = () => {
   const { roomType } = useParams();
   const room = roomDetails[roomType];
-  console.log(roomType)
+  useEffect(() => { window.scrollTo(0, 0); }, []);
  
   if (!room) {
     return (
