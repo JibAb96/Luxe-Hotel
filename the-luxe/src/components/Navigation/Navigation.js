@@ -24,7 +24,7 @@ const Navigation = () => {
             id="basic-nav-dropdown" 
             className="nav-item fs-5"
             align="end">
-              <NavDropdown.Item href="#action/3.1">
+              <NavDropdown.Item as={Link} to={"/register"}>
                 Register
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to={"/signin"}>

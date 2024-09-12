@@ -8,6 +8,7 @@ import ViewRooms from "./components/View-Rooms/ViewRooms";
 import About from "./components/About/About";
 import LandingPage from "./components/Landing-Page/LandingPage";
 import SignIn from "./components/Sign-In/SignIn";
+import Register from "./components/Register/Register";
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
             <Route path="/rooms/:roomType" element={<ViewRooms/>} />
             <Route path="/about" element={<About/>} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/register" element={<Register/>} />
           </Routes>
         </Layout>
       </Router>
