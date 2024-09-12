@@ -7,7 +7,7 @@
     letter-spacing: .2rem;
     text-align: center;
 }
-
-@media (max-width:"425px") {
-    
+.test{
+    margin: 0 auto;
 }
+
