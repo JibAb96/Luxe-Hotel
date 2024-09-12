@@ -1,33 +1,29 @@
-/* Ensure the navbar container uses Flexbox */
 .custom-navbar {
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between logo and nav links */
+    align-items: center; 
+    justify-content: space-between; 
     padding: 0.5rem 1rem;
     color:#455d58;
     margin-top: 0.3rem;
 }
 
-/* Style for the logo */
 .custom-navbar .logo {
     font-size: 1.5rem;
     color: #455d58;
 }
 
-/* Ensure nav-links are aligned horizontally */
+
 .nav-links {
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center; 
     font-size: small;
 }
 
-/* Style for each nav link */
 .nav-item {
-    margin: 0 2rem; /* Spacing between nav items */
+    margin: 0 2rem; 
     letter-spacing: .1rem;
 }
 
-/* Special styling for the BOOK link */
 .navbar-nav .nav-link.book {
     display: flex;
     width: 6rem;

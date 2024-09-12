@@ -27,7 +27,7 @@ const Navigation = () => {
               <NavDropdown.Item href="#action/3.1">
                 Register
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item as={Link} to={"/signin"}>
                 Sign in
               </NavDropdown.Item>
             </NavDropdown>
