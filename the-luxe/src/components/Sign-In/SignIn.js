@@ -4,9 +4,10 @@ import TransparentButton from "../Buttons/TransparentButton"
 import "./SignIn.css"
 import { Link, useNavigate } from "react-router-dom";
 import { AlertContext } from "../Alert/Alert";
+import FormInput from '../Form/Input';
 
 const SignIn = () => {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const {setAlertMessage, setShowAlert} = useContext(AlertContext);
    
@@ -14,7 +15,7 @@ const SignIn = () => {
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(!email || !password){
+        if(!username || !password){
             return;
         }
         setAlertMessage("You have successfully logged in!");
@@ -38,24 +39,22 @@ const SignIn = () => {
                         to="/register"
                         > Register </Button> first.
                     </p>
-                    <Form.Group className="mb-2" controlId="username">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Username"
-                            onChange={(e) => setEmail(e.target.value)}
+                        <FormInput 
+                            label={"Username"} 
+                            type={"text"} 
+                            placeholder={"Username"} 
+                            value={username} 
+                            onChange={(e) => setUsername(e.target.value)}
                             required
                         />
-                    </Form.Group>
-                    <Form.Group className="mb-2" controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            type="password"
-                            placeholder="Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </Form.Group>
+                    <FormInput 
+                        label={"Password"} 
+                        type={"password"} 
+                        placeholder={"Password"} 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
                     <Row className="d-flex justify-content-center">
                         <TransparentButton type="submit" style={{
                             "margin":"1rem",

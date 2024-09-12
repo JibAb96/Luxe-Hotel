@@ -2,12 +2,17 @@ import React from "react";
 import { Form, Button, Card, Row} from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton"
 import "./Register.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormInput from "../Form/Input";
 const Register = () => {
+    const navigate = useNavigate();
+    const handleSubmit = (e) => { 
+        e.preventDefault();
+        navigate("/signin");
+    }
     return (
         <Card className="register">
-            <Form className="shadow p-4 bg-white rounded" >
+            <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit}>
                 <h1 className="h4 mb-2 text-center">Register</h1>
                 <p>
                     If you have already created an account, then please <Button
@@ -17,23 +22,20 @@ const Register = () => {
                     to={"/signin"}
                     > Sign In. </Button>
                 </p>
-                <FormInput label={"Email"} type={"email"} placeholder={"Email Address"} />
-                <FormInput label={"Username"} type={"text"} placeholder={"Username"}/>
-                <FormInput label={"First-Name"} type={"text"} />
-                <FormInput label={"Last-Name"} type={"text"} />
-                <FormInput label={"Phone"} type={"tel"}/>
-                <FormInput label={"Address"} type={"text"}/>
-                <FormInput label={"City"} type={"text"}/>
-                <FormInput label={"Country"} type={"text"} />
-                <FormInput label={"Postal-Code"} type={"text"} />
-                <FormInput label={"Date of Birth"} type={"date"} />
-                <FormInput label={"Password"} type={"password"} placeholder={"Password"} />
-                <FormInput label={"Password (again)"} type={"password"} placeholder={"Password (again)"} />
+                <FormInput label={"Email"} type={"email"} placeholder={"Email Address"} required/>
+                <FormInput label={"Username"} type={"text"} placeholder={"Username"} required/>
+                <FormInput label={"First-Name"} type={"text"} required/>
+                <FormInput label={"Last-Name"} type={"text"} required/>
+                <FormInput label={"Phone"} type={"tel"} required/>
+                <FormInput label={"Address"} type={"text"} required/>
+                <FormInput label={"City"} type={"text"} required/>
+                <FormInput label={"Country"} type={"text"} required/>
+                <FormInput label={"Postal-Code"} type={"text"} required/>
+                <FormInput label={"Date of Birth"} type={"date"} required/>
+                <FormInput label={"Password"} type={"password"} placeholder={"Password"} required/>
+                <FormInput label={"Password (again)"} type={"password"} placeholder={"Password (again)"} required/>
                 <Row className="d-flex justify-content-center">
-                    <TransparentButton type="submit" style={{
-                        "margin":"1rem",
-                        "backgroundColor": "#455d58"
-                        }}>
+                    <TransparentButton type="submit" style={{"margin":"1rem","backgroundColor": "#455d58"}}>
                         Register
                     </TransparentButton>
                 </Row>
