@@ -9,22 +9,25 @@ import About from "./components/About/About";
 import LandingPage from "./components/Landing-Page/LandingPage";
 import SignIn from "./components/Sign-In/SignIn";
 import Register from "./components/Register/Register";
+import { AlertProvider } from "./components/Alert/Alert";
 
 
 
 const App = () => {
     return(
       <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/rooms" element={<RoomsPage/>} />
-            <Route path="/rooms/:roomType" element={<ViewRooms/>} />
-            <Route path="/about" element={<About/>} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/register" element={<Register/>} />
-          </Routes>
-        </Layout>
+        <AlertProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/rooms" element={<RoomsPage/>} />
+              <Route path="/rooms/:roomType" element={<ViewRooms/>} />
+              <Route path="/about" element={<About/>} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/register" element={<Register/>} />
+            </Routes>
+          </Layout>
+        </AlertProvider>
       </Router>
     )
 }
