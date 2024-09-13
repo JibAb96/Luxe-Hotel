@@ -10,6 +10,7 @@ import LandingPage from "./components/Landing-Page/LandingPage";
 import SignIn from "./components/Sign-In/SignIn";
 import Register from "./components/Register/Register";
 import { AlertProvider } from "./components/Alert/Alert";
+import Book from "./components/Book/Book";
 
 
 
@@ -23,6 +24,7 @@ const App = () => {
         <Layout isSignedIn={isSignedIn}>
           <Routes>
             <Route path="/" element={<LandingPage isSignedIn={isSignedIn} />} />
+            <Route path="/book" element={<Book/>}/>
             <Route path="/rooms" element={<RoomsPage/>} />
             <Route path="/rooms/:roomType" element={<ViewRooms/>} isSignedIn={isSignedIn}/>
             <Route path="/about" element={<About/>} />
