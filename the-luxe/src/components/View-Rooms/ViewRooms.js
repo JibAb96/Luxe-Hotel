@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import StandardRoom from "../../images/double-room.jpg"
 import DeluxeRoom from "../../images/deluxe-room.jpg"
 import Suite from "../../images/hotel-suite.jpg"
@@ -53,7 +53,7 @@ const roomDetails = {
   }
 };
 
-const ViewRooms = () => {
+const ViewRooms = ({isSignedIn}) => {
   const { roomType } = useParams();
   const room = roomDetails[roomType];
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -92,7 +92,9 @@ const ViewRooms = () => {
               <li key={index}>{amenity}</li>
             ))}
           </ul>
-          <TransparentButton style={{backgroundColor:"#455d58"}}>Book Now</TransparentButton>
+          { isSignedIn ? 
+            <TransparentButton as={Link} to={"/book"} style={{backgroundColor:"#455d58"}}>Book Now</TransparentButton>
+          : <TransparentButton as={Link} to={"/signin"} style={{backgroundColor:"#455d58"}}>Book Now</TransparentButton>}
         </Col>
       </Row>
     </Container>
