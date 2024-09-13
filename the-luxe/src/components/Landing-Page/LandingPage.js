@@ -7,13 +7,13 @@ import { useEffect, useContext } from "react";
 import { AlertContext } from "../Alert/Alert";
 import { Alert } from "react-bootstrap";
 
-const LandingPage = () => {
+const LandingPage = ({isSignedIn}) => {
     useEffect(() => { window.scrollTo(0, 0) }, [])
     const {alertMessage, showAlert} = useContext(AlertContext);
     return(
         <div>
             {showAlert &&  <Alert className="alert alert-success" role="alert">{alertMessage}</Alert>}
-            <Hero />
+            <Hero isSignedIn={isSignedIn} />
             <Location />
             <RoomsSection />
             <Reviews />

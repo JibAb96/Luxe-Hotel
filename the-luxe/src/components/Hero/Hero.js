@@ -2,7 +2,8 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import "./Hero.css"
 import TransparentButton from "../Buttons/TransparentButton";
-const Hero = () => {
+import { Link } from "react-router-dom";
+const Hero = ({isSignedIn}) => {
     return (
         
             <Container className="hero" fluid>
@@ -11,7 +12,9 @@ const Hero = () => {
                         <span>Luxury</span>
                         <span>Comfort</span>
                     </h1>
-                    <TransparentButton style={{marginLeft: "1rem"}}>Book a Room</TransparentButton>
+                    { isSignedIn ? 
+                        <TransparentButton as={Link} to={"/book"} style={{marginLeft: "1rem"}}>Book a Room</TransparentButton>
+                    :   <TransparentButton as={Link} to={"/signin"} style={{marginLeft: "1rem"}}>Book a Room</TransparentButton>}
                 </Row>
             </Container>
         

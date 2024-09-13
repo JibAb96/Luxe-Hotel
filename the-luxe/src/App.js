@@ -22,7 +22,7 @@ const App = () => {
       <AlertProvider>
         <Layout isSignedIn={isSignedIn}>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage isSignedIn={isSignedIn} />} />
             <Route path="/rooms" element={<RoomsPage/>} />
             <Route path="/rooms/:roomType" element={<ViewRooms/>} />
             <Route path="/about" element={<About/>} />
