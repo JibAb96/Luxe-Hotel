@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 import RoomsPage from "./components/Rooms-Page/RoomsPage";
@@ -14,22 +14,25 @@ import { AlertProvider } from "./components/Alert/Alert";
 
 
 const App = () => {
-    return(
-      <Router>
-        <AlertProvider>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/rooms" element={<RoomsPage/>} />
-              <Route path="/rooms/:roomType" element={<ViewRooms/>} />
-              <Route path="/about" element={<About/>} />
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/register" element={<Register/>} />
-            </Routes>
-          </Layout>
-        </AlertProvider>
-      </Router>
-    )
+
+  const[isSignedIn, setIsSignedIn] = useState(false)
+
+  return(
+    <Router>
+      <AlertProvider>
+        <Layout isSignedIn={isSignedIn}>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/rooms" element={<RoomsPage/>} />
+            <Route path="/rooms/:roomType" element={<ViewRooms/>} />
+            <Route path="/about" element={<About/>} />
+            <Route path="/signin" element={<SignIn setIsSignedIn={setIsSignedIn}/>} />
+            <Route path="/register" element={<Register/>} />
+          </Routes>
+        </Layout>
+      </AlertProvider>
+    </Router>
+  )
 }
 
 export default App

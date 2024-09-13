@@ -7,7 +7,7 @@ import { AlertContext } from "../Alert/Alert";
 import FormInput from '../Form/Input';
 import { useEffect } from 'react';
 
-const SignIn = () => {
+const SignIn = ({setIsSignedIn}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const {setAlertMessage, setShowAlert} = useContext(AlertContext);
@@ -20,6 +20,7 @@ const SignIn = () => {
         e.preventDefault();
         setAlertMessage("You have successfully logged in!");
         setShowAlert(true);
+        setIsSignedIn(true);
         navigate("/");
         setTimeout(() => {
             setShowAlert(false);

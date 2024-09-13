@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 
 const element = <FontAwesomeIcon icon={faUser} />
 
-const Navigation = () => {
+const Navigation = ({isSignedIn}) => {
   return (
     <Navbar expand="lg" className="custom-navbar">
       <Container fluid>
@@ -18,18 +18,35 @@ const Navigation = () => {
             <Nav.Link as={Link} to="/" className="nav-item" >HOME</Nav.Link>
             <Nav.Link as={Link} to="/rooms"className="nav-item" >ROOMS</Nav.Link>
             <Nav.Link as={Link} to={"/about"} className="nav-item">ABOUT</Nav.Link>
-            <Nav.Link href="#link" className="nav-item book">BOOK</Nav.Link>
+            {isSignedIn ? 
+            <Nav.Link as={Link} to={"/book"} className="nav-item book">BOOK</Nav.Link>
+            : <Nav.Link as={Link} to={"/signin"} className="nav-item book">BOOK</Nav.Link>}
             <NavDropdown 
             title={element} 
             id="basic-nav-dropdown" 
             className="nav-item fs-5"
             align="end">
-              <NavDropdown.Item as={Link} to={"/register"}>
-                Register
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={"/signin"}>
-                Sign in
-              </NavDropdown.Item>
+              {isSignedIn ? 
+              <>
+                <NavDropdown.Item as={Link} to={"/register"}>
+                  Profile
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/signin"}>
+                  Reservations 
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/signin"}>
+                  Logout 
+                </NavDropdown.Item>
+              </>
+              :<> 
+                <NavDropdown.Item as={Link} to={"/register"}>
+                  Register
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to={"/signin"}>
+                  Sign in
+                </NavDropdown.Item>
+              </>
+              }
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
