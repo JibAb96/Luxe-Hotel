@@ -14,9 +14,9 @@ const Book = () => {
      
     }
     return (
-        <div className='booking'>
-            <Card className="signin">
-                <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit} >
+        <div>
+            <Card className="booking">
+                <Form className="shadow p-4 rounded booking-form" onSubmit={handleSubmit} >
                     <h1 className="h4 mb-2 text-center">Book Your Stay</h1>
                     
                     <FormInput 

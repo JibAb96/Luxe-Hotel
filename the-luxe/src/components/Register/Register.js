@@ -23,6 +23,8 @@ const Register = () => {
         <Card className="register">
             <Form className="shadow p-4 rounded register-form" onSubmit={handleSubmit}>
                 <h1 className="h4 mb-2 text-center">Register</h1>
+                <p>We are collecting your details now, to simplify your booking later!</p>
+                <p>You can update your information in your profile page at anytime.</p>
                 <p>
                     If you have already created an account, then please <Button
                     className="text-muted px-0"
