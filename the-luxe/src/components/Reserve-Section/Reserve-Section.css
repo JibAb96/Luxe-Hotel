@@ -7,6 +7,10 @@
     letter-spacing: .2rem;
     text-align: center;
 }
+.reservation-card{
+    max-width: 18rem;
+    min-height: 8rem;
+}
 .test{
     margin: 0 auto;
 }

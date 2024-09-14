@@ -12,6 +12,7 @@ import Register from "./components/Register/Register";
 import { AlertProvider } from "./components/Alert/Alert";
 import Book from "./components/Book/Book";
 import LogOut from "./components/Log-Out/LogOut";
+import Profile from "./components/Profile/Profile";
 
 
 
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/signin" element={<SignIn setIsSignedIn={setIsSignedIn}/>} />
             <Route path="/register" element={<Register/>} />
             <Route path="/logout" element={<LogOut setIsSignedIn={setIsSignedIn}/>} /> 
+            <Route path="/profile" element={<Profile/>} />
           </Routes>
         </Layout>
       </AlertProvider>

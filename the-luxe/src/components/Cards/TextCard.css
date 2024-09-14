@@ -1,0 +1,19 @@
+.reserve{
+    color: #455d58;
+    border: 2px solid #455d58;
+}
+.reserve .card-text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .reserve-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between title/text and buttons */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-top: auto; /* Push to bottom */
+}

@@ -38,7 +38,7 @@ const Reviews = () => {
                         <h3 className="name">Allison Dubravka</h3>
                     </Carousel.Item>
                     <Carousel.Item className="cons">
-                        <p class="p">
+                        <p className="p">
                             From the moment we arrived, we were treated like royalty. 
                             The rooms were elegantly designed, and the view was breathtaking. 
                         </p>

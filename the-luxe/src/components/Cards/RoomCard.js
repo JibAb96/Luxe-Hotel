@@ -19,7 +19,7 @@ const RoomCard = ({picture, title, text, subtitle, route}) => {
           style={{height: '40vh', 
               objectFit: "cover"}}
         />
-        <Card.Body className="room-option-body" style={{minHeight:"20rem"}}>
+        <Card.Body className="room-option-body">
           <Card.Title>{title}</Card.Title>
           <Card.Subtitle className="mb-2">{subtitle}</Card.Subtitle>
           <Card.Text>
