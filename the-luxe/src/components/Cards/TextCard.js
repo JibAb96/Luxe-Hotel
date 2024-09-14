@@ -1,12 +1,12 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
 import "./TextCard.css"
-const ReserveCard = ({Title, Text, Element, ...rest}) => {
+const TextCard = ({Title, Text, Element, titleClass, ...rest}) => {
     return(
         <Col  xs={12} sm={6} lg={4}>
             <Card className="reserve shadow p-1 rounded" {...rest}>
                 <Card.Body className="reserve-card-body ">
-                    <Card.Title>{Title}</Card.Title>
+                    <Card.Title className={titleClass}>{Title}</Card.Title>
                     <Card.Text>
                         {Text}
                     </Card.Text>
@@ -19,4 +19,4 @@ const ReserveCard = ({Title, Text, Element, ...rest}) => {
     )
 }
 
-export default ReserveCard
+export default TextCard

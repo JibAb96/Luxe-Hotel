@@ -4,3 +4,13 @@
     letter-spacing: .2rem;
     text-align: center;
 }
+.titleClass{
+    font-size: 2.3rem;
+    font-weight: 650;
+    padding-bottom: 2rem;
+}
+
+.bold{
+    font-weight: 600;
+    color: black;
+}
