@@ -31,7 +31,7 @@ const Navigation = ({isSignedIn, setIsSignedIn}) => {
                 <NavDropdown.Item as={Link} to={"/profile"}>
                   Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/signin"}>
+                <NavDropdown.Item as={Link} to={"/reservations"}>
                   Reservations 
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to={"/logout"}>

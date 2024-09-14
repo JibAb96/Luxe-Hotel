@@ -17,7 +17,7 @@ const Profile = () => {
     };
 
     return (
-        <Container fluid>
+        <Container style={{padding: "3rem 0"}}fluid>
             <h1 className='profile-title'>Profile</h1>
             <Row className='d-flex justify-content-center gap-5' >
                 <TextCard

@@ -8,7 +8,7 @@ const ReserveSection = () => {
     return(
         <Container className="reservations" fluid>
             <h1 className="reservation-title">Manage Your Booking</h1>
-            <Row className="d-flex justify-content-center p-5 test">
+            <Row className="d-flex justify-content-center p-5 ">
                 <TextCard 
                     style={{maxWidth: "18rem", minHeight: "8rem"}}
                     Title={"1. Review Details"}

@@ -13,12 +13,47 @@ import { AlertProvider } from "./components/Alert/Alert";
 import Book from "./components/Book/Book";
 import LogOut from "./components/Log-Out/LogOut";
 import Profile from "./components/Profile/Profile";
-
+import Reservations from "./components/Reservations/Reservations";
 
 
 const App = () => {
 
   const[isSignedIn, setIsSignedIn] = useState(false)
+  
+  const reservations = [
+    {
+      id: 1,
+      room: "Standard",
+      checkin: "2021-10-01",
+      checkout: "2021-10-07",
+      guests: 2,
+      price: 1000,
+    },
+    {
+      id: 2,
+      room: "Deluxe",
+      checkin: "2021-10-01",
+      checkout: "2021-10-07",
+      guests: 2,
+      price: 2000,
+    },
+    {
+      id: 3,
+      room: "Suite",
+      checkin: "2021-10-01",
+      checkout: "2021-10-07",
+      guests: 2,
+      price: 3000,
+    },
+    {
+      id: 4,
+      room: "Suite",
+      checkin: "2021-10-01",
+      checkout: "2021-10-07",
+      guests: 2,
+      price: 3000,
+    }
+]
 
   return(
     <Router>
@@ -34,6 +69,7 @@ const App = () => {
             <Route path="/register" element={<Register/>} />
             <Route path="/logout" element={<LogOut setIsSignedIn={setIsSignedIn}/>} /> 
             <Route path="/profile" element={<Profile/>} />
+            <Route path="/reservations" element={<Reservations reservations={reservations}/>} />
           </Routes>
         </Layout>
       </AlertProvider>

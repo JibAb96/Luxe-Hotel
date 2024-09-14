@@ -29,7 +29,7 @@ const Reviews = () => {
                 <FontAwesomeIcon icon={faQuoteLeft} className="quote" />
                 <Carousel data-bs-theme="dark" indicators={false}>
                     <Carousel.Item className="cons">
-                        <p class="p">
+                        <p className="p">
                             Beautifully furnished rooms, top-tier amenities, and an outstanding restaurant. 
                             The staff made our stay memorable with their warmth and professionalism.
                         </p>
