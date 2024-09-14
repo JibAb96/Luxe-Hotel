@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
 import "./TextCard.css"
-const TextCard = ({Title, Text, Element, titleClass, ...rest}) => {
+const TextCard = ({Title, Text, Element, titleClass, lg = 4, ...rest}) => {
     return(
-        <Col  xs={12} sm={6} lg={4} className="d-flex justify-content-center">
+        <Col  xs={12} sm={6} lg={lg} className="d-flex justify-content-center">
             <Card className="color shadow p-1 rounded" {...rest}>
                 <Card.Body className="structure-card-body ">
                     <Card.Title className={titleClass}>{Title}</Card.Title>

@@ -17,18 +17,17 @@ const Profile = () => {
     };
 
     return (
-        <Container style={{padding: "3rem 0"}}fluid>
+        <Container style={{padding: "3rem 0", overflowX:"hidden"}}fluid>
             <h1 className='profile-title'>Profile</h1>
-            <Row className='d-flex justify-content-center gap-5' >
+            <Row className='d-flex justify-content-center' style={{}}>
                 <TextCard
-                    style={{ width: '100%', minHeight: '32rem', }}
+                    lg={6}
+                    style={{ width: '30rem', minHeight: '10rem', }}
                     Title={user.name.split(' ')[0]}
                     Text={
                         <>
                         <p><span className='bold'>Full Name:</ span> {user.name}</p>
-                        <br/>
                         <p><span className='bold'>Date of Birth:</span> {user.dob}</p>
-                        <br/>
                         <p><span className='bold'>Joined:</span> {user.joined}</p>
                         </>}
                     titleClass={"titleClass"}
@@ -40,24 +39,18 @@ const Profile = () => {
                             }      
                 />
                 <TextCard
-                    style={{ width: '100%', minHeight: '32rem' }}
-                    Title="More Info"
+                    lg={6}
+                    style={{ width: '30rem', minHeight: '10rem' }}
                     Text={
                         <>
                             <p><span className='bold'>Email:</ span> {user.email}</p>
-                            <br/>
                             <p><span className='bold'>Phone:</span> {user.phone}</p>
-                            <br/>
                             <p><span className='bold'>Country:</span> {user.country}</p>
-                            <br/>
                             <p><span className='bold'>City:</ span> {user.city}</p>
-                            <br/>
                             <p><span className='bold'>Address:</span> {user.address}</p>
-                            <br/>
                             <p><span className='bold'>Postal Code:</span> {user.postalcode}</p>
                         </>
                         }
-                    titleClass={"titleClass"}
                 />
             </Row>
         </Container>
