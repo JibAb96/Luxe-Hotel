@@ -3,6 +3,7 @@ import Dining from "../../images/hotel-dining.jpg"
 import { Container, Row, Col, Image } from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton";
 import "./Dining-Section.css"
+import { Link } from "react-router-dom";
 
 const DiningSection = () => {
     return(
@@ -18,7 +19,7 @@ const DiningSection = () => {
                     and offering a selection of gourmet dishes, each meal promises an 
                     unforgettable gastronomic experience in an atmosphere of sophistication and indulgence.
                     </p>
-                    <TransparentButton>Explore Now</TransparentButton>
+                    <TransparentButton as={Link} to={"/rooms"}>Explore Now</TransparentButton>
                 </Col>
             </Row>
         </Container>
