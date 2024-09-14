@@ -15,11 +15,11 @@ const Reservations = ({ reservations }) => {
                         Title={reservation.room}
                         Text={
                             <>
-                                <p>Booking Id: {reservation.id}</p>
-                                <p>Check-In: {reservation.checkin}</p>
-                                <p>Check-Out: {reservation.checkout}</p>
-                                <p>Guests: {reservation.guests}</p>
-                                <p>Total-price: {reservation.price}</p>
+                                <p><span className="bold">Booking Id:</span> {reservation.id}</p>
+                                <p><span className="bold">Check-In</span>: {reservation.checkin}</p>
+                                <p><span className="bold">Check-Out:</span> {reservation.checkout}</p>
+                                <p><span className="bold">Guests:</span> {reservation.guests}</p>
+                                <p><span className="bold">Total-price:</span> €{reservation.price}</p>
                             </>
                             }
                             Element={
