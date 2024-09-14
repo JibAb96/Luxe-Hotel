@@ -21,7 +21,7 @@ const Register = () => {
         }, 2000);    }
     return (
         <Card className="register">
-            <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit}>
+            <Form className="shadow p-4 rounded register-form" onSubmit={handleSubmit}>
                 <h1 className="h4 mb-2 text-center">Register</h1>
                 <p>
                     If you have already created an account, then please <Button
