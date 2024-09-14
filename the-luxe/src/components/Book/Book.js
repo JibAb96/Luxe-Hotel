@@ -33,9 +33,9 @@ const Book = () => {
                         <Form.Label>Room Category</Form.Label>
                         <Form.Select aria-label="Room-Type">
                             <option>--------</option>
-                            <option value="1">STANDARD || Bed: DOUBLE - Guests: 4 || Price: €200</option>
+                            <option value="1">STANDARD || Bed: DOUBLE - Guests: 4 || Price: €120</option>
                             <option value="2">DELUXE || Bed: QUEEN - Guests: 2 || Price: €150</option>
-                            <option value="3">SUITE ||Bed: KING - Guests: 4 || Price: €120</option>
+                            <option value="3">SUITE ||Bed: KING - Guests: 4 || Price: €200</option>
                         </Form.Select>
                     </Form.Group>
                     <FormInput 

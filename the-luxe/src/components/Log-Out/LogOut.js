@@ -9,7 +9,7 @@ const LogOut = ({setIsSignedIn}) => {
         <Container className="logout" fluid>
             <h1 className="logout-title">Log Out</h1>
             <p className="logout-p">Are you sure you want to log out?</p>
-            <Row className="d-flex flex-row">
+            <Row>
                 <TransparentButton 
                     onClick={() => setIsSignedIn(false)}
                     as={Link}

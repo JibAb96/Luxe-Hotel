@@ -32,7 +32,7 @@ const SignIn = ({setIsSignedIn}) => {
         <div>
             {showAlert &&  <Alert className="alert alert-success" role="alert">{alertMessage}</Alert>}
             <Card className="signin">
-                <Form className="shadow p-4 bg-white rounded" onSubmit={handleSubmit} >
+                <Form className="shadow p-4 rounded signin-form" onSubmit={handleSubmit} >
                     <h1 className="h4 mb-2 text-center">Sign In</h1>
                     <p>
                         If you have not created an account yet, then please <Button
