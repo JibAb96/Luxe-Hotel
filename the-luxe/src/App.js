@@ -11,6 +11,7 @@ import SignIn from "./components/Sign-In/SignIn";
 import Register from "./components/Register/Register";
 import { AlertProvider } from "./components/Alert/Alert";
 import Book from "./components/Book/Book";
+import LogOut from "./components/Log-Out/LogOut";
 
 
 
@@ -21,7 +22,7 @@ const App = () => {
   return(
     <Router>
       <AlertProvider>
-        <Layout isSignedIn={isSignedIn}>
+        <Layout isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}>
           <Routes>
             <Route path="/" element={<LandingPage isSignedIn={isSignedIn} />} />
             <Route path="/book" element={<Book/>}/>
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/about" element={<About/>} />
             <Route path="/signin" element={<SignIn setIsSignedIn={setIsSignedIn}/>} />
             <Route path="/register" element={<Register/>} />
+            <Route path="/logout" element={<LogOut setIsSignedIn={setIsSignedIn}/>} /> 
           </Routes>
         </Layout>
       </AlertProvider>

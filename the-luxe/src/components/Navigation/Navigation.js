@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 
 const element = <FontAwesomeIcon icon={faUser} />
 
-const Navigation = ({isSignedIn}) => {
+const Navigation = ({isSignedIn, setIsSignedIn}) => {
   return (
     <Navbar expand="lg" className="custom-navbar">
       <Container fluid>
@@ -34,7 +34,7 @@ const Navigation = ({isSignedIn}) => {
                 <NavDropdown.Item as={Link} to={"/signin"}>
                   Reservations 
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/signin"}>
+                <NavDropdown.Item as={Link} to={"/logout"}>
                   Logout 
                 </NavDropdown.Item>
               </>
