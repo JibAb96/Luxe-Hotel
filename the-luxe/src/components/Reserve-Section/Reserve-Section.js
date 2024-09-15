@@ -3,8 +3,9 @@ import { Container, Row } from "react-bootstrap";
 import TextCard from "../Cards/TextCard";
 import "./Reserve-Section.css"
 import TransparentButton from "../Buttons/TransparentButton";
+import { Link } from "react-router-dom";
 
-const ReserveSection = () => {
+const ReserveSection = ({isSignedIn}) => {
     return(
         <Container className="reservations" fluid>
             <h1 className="reservation-title">Manage Your Booking</h1>
@@ -27,12 +28,25 @@ const ReserveSection = () => {
                 />
             </Row>
             <Row>
-                <TransparentButton
-                style={{
-                    "backgroundColor": "#455d58",
-                    "margin": "5rem auto 0"
-                }}
-                >Your Reservations</TransparentButton>
+                {isSignedIn ? <>
+                                <TransparentButton 
+                                    style={{"backgroundColor": "#455d58","margin": "5rem auto 0"}}
+                                    as={Link}
+                                    to={"/reservations"}
+                                >
+                                    Your Reservations
+                                </TransparentButton>
+                              </>  
+                        : <>
+                            <TransparentButton 
+                                style={{"backgroundColor": "#455d58","margin": "5rem auto 0"}}
+                                as={Link}
+                                to={"/signin"}
+                            > 
+                                Your Reservations
+                            </TransparentButton>
+                           </>   
+                            }
             </Row>
         </Container>
     )

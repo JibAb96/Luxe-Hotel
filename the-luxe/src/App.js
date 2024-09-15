@@ -64,7 +64,7 @@ const App = () => {
             <Route path="/book" element={<Book/>}/>
             <Route path="/rooms" element={<RoomsPage/>} />
             <Route path="/rooms/:roomType" element={<ViewRooms/>} isSignedIn={isSignedIn}/>
-            <Route path="/about" element={<About/>} />
+            <Route path="/about" element={<About isSignedIn={isSignedIn}/>}  />
             <Route path="/signin" element={<SignIn setIsSignedIn={setIsSignedIn}/>} />
             <Route path="/register" element={<Register/>} />
             <Route path="/logout" element={<LogOut setIsSignedIn={setIsSignedIn}/>} /> 

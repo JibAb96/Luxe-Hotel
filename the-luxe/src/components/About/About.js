@@ -5,7 +5,7 @@ import "./About.css"
 import DiningSection from "../Dining-Section/Dining-Section";
 import ReserveSection from "../Reserve-Section/Reserve-Section";
 
-const About = () => {
+const About = ({isSignedIn}) => {
     return(
         <Container  fluid>
             <h1 className="about-us">About us</h1>
@@ -28,7 +28,7 @@ const About = () => {
                 <DiningSection />    
             </Row>
             <Row>
-                <ReserveSection/>
+                <ReserveSection isSignedIn={isSignedIn}/>
             </Row>
             
         </Container>
