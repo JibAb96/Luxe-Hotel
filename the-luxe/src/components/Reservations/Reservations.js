@@ -8,11 +8,11 @@ const Reservations = ({ reservations }) => {
     return (
         <Container fluid>
             <Row className="d-flex justify-content-center">
-                <h1 className="heading">Your Reservations</h1>
+                <h1 className="page-heading">Your Reservations</h1>
                 {reservations.map((reservation, index) => (
                     <TextCard 
                         key={index}
-                        Title={reservation.room}
+                        Title={<span className="heading">{reservation.room}</span>}
                         Text={
                             <>
                                 <p><span className="bold">Booking Id:</span> {reservation.id}</p>

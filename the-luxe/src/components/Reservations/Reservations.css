@@ -1,6 +1,15 @@
-.heading{
+.page-heading{
     color: #455d58;
     padding-top: 3rem;
     letter-spacing: .2rem;
     text-align: center;
+}
+
+.heading{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: 6px;
+    color: #455d58;
+    text-transform: uppercase;
+    font-weight: 400;
 }
