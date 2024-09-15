@@ -18,13 +18,25 @@ const SignIn = ({setIsSignedIn}) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        setAlertMessage("You have successfully logged in!");
-        setShowAlert(true);
-        setIsSignedIn(true);
-        navigate("/");
-        setTimeout(() => {
+        fetch("https://improved-happiness-44q47qgrr46cvw-3000.app.github.dev/signin", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        }).then(res => res.json())
+        .then(data => {if(data === "success"){
+            setAlertMessage("You have successfully logged in!");
+            setShowAlert(true);
+            setIsSignedIn(true);
+            navigate("/");
+            setTimeout(() => {
             setShowAlert(false);
-        }, 2000);
+            }, 2000);
+        }})
      
     }
     const {alertMessage, showAlert} = useContext(AlertContext);

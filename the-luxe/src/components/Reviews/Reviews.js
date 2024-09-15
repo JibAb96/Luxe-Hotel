@@ -47,7 +47,7 @@ const Reviews = () => {
                         <h3 className="name">Muhammad Arifagic</h3>
                     </Carousel.Item>
                     <Carousel.Item className="cons">
-                        <p class="p">
+                        <p className="p">
                             The attention to detail at this hotel is unmatched. The spa, dining, 
                             and service were impeccable. Every corner of the hotel exudes elegance.
                         </p>
