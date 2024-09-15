@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 import RoomsPage from "./components/Rooms-Page/RoomsPage";
@@ -18,7 +18,14 @@ import Reservations from "./components/Reservations/Reservations";
 
 const App = () => {
 
-  const[isSignedIn, setIsSignedIn] = useState(false)
+  const[isSignedIn, setIsSignedIn] = useState(() => {
+    const saved = localStorage.getItem("isSignedIn");
+    return saved === "true" ? true : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("isSignedIn", isSignedIn);
+  }, [isSignedIn]);
   
   const reservations = [
     {
