@@ -3,6 +3,8 @@ import cors from "cors";
 import pkg from "body-parser";
 import knex from "knex";
 import bcrypt from "bcrypt";
+import handleRegistration from "./controllers/handleRegistration";
+import handleSignIn from "./controllers/handleSignIn";
 
 const db = {
     username: "Arnold",
@@ -22,17 +24,7 @@ app.use(json());
 app.get("/", (req, res) => { res.send("success") });
 
 
-app.post("/signin", (req, res) => {
-    const { username, password } = req.body;
-    if (!username || !password) {
-        return res.status(400).json("incorrect form submission");
-    }
-    if (username === db.username && password === db.password) {
-        res.json("success");
-    } else {
-        res.status(400).json("error logging in");
-    }
-})
+app.post("/signin", handle)
 
 app.listen(3000,() => {
     console.log("Server is running on port 3000");
