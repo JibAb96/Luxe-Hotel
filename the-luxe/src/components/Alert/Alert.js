@@ -5,15 +5,17 @@ export const AlertContext = createContext();
 export const AlertProvider = ({ children }) => {
     const [alertMessage, setAlertMessage] = useState("");
     const [showAlert, setShowAlert] = useState(false);
-    const showAlertWithTimeout = (message, duration) => {
+    const [alertStyle, setAlertStyle] = useState("");
+    const showAlertWithTimeout = (message, style) => {
         setAlertMessage(message);
+        setAlertStyle(style);
         setShowAlert(true);
         setTimeout(() => {
             setShowAlert(false);
         }, 3000);
     };
     return (
-        <AlertContext.Provider value={{ alertMessage, setAlertMessage, showAlert, setShowAlert, showAlertWithTimeout }}>
+        <AlertContext.Provider value={{ alertMessage, setAlertMessage, showAlert, alertStyle, setAlertStyle, setShowAlert, showAlertWithTimeout }}>
             {children}
         </AlertContext.Provider>
     );

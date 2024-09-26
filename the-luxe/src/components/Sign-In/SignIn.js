@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 const SignIn = ({setIsSignedIn}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const {setAlertMessage, setShowAlert} = useContext(AlertContext);
+    const {setAlertMessage, setShowAlert, setAlertStyle, alertMessage, showAlert, alertStyle} = useContext(AlertContext);
    
     useEffect(() => { window.scrollTo(0, 0) }, [])
 
@@ -18,7 +18,7 @@ const SignIn = ({setIsSignedIn}) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("https://improved-happiness-44q47qgrr46cvw-3000.app.github.dev/signin", {
+        fetch("https://obscure-rotary-phone-56v6qv4999wfw9x-3000.app.github.dev/signin", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,21 +28,29 @@ const SignIn = ({setIsSignedIn}) => {
                 password: password
             })
         }).then(res => res.json())
-        .then(data => {if(data === "success"){
+        .then(data => {
+            if(data === "success"){
             setAlertMessage("You have successfully logged in!");
             setShowAlert(true);
+            setAlertStyle("alert-success");
             setIsSignedIn(true);
             navigate("/");
             setTimeout(() => {
             setShowAlert(false);
-            }, 2000);
-        }})
+            }, 2000)
+        } else{
+            setAlertMessage("Invalid username or password");
+            setAlertStyle("alert-danger");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false)}, 2000);
+        }
+    })
      
     }
-    const {alertMessage, showAlert} = useContext(AlertContext);
     return (
         <div>
-            {showAlert &&  <Alert className="alert alert-success" role="alert">{alertMessage}</Alert>}
+            {showAlert &&  <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
             <Card className="signin">
                 <Form className="shadow p-4 rounded signin-form" onSubmit={handleSubmit} >
                     <h1 className="h4 mb-2 text-center">Sign In</h1>
