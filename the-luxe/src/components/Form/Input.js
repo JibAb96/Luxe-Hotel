@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-const FormInput = ({ label, type, placeholder, value, onChange }) => {
+const FormInput = ({ label, type, placeholder, value, onChange, helperText }) => {
     return (
         <Form.Group className="mb-2" controlId={label}>
             <Form.Label>{label}</Form.Label>
@@ -12,6 +12,7 @@ const FormInput = ({ label, type, placeholder, value, onChange }) => {
                 onChange={onChange}
                 required
             />
+            {helperText && <Form.Text className="text-muted">{helperText}</Form.Text>}
         </Form.Group>
     )
 }
