@@ -1,4 +1,4 @@
-import React, { useContext }from "react";
+import React, { useContext, useState }from "react";
 import { Form, Button, Card, Row} from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton"
 import "./Register.css"
@@ -7,18 +7,35 @@ import FormInput from "../Form/Input";
 import { AlertContext } from "../Alert/Alert";
 const Register = () => {
     const {setAlertMessage, setShowAlert} = useContext(AlertContext);
+    const [email, setEmail] = useState("");
+    
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
 
+    const validateEmail = (email) => {
+        const emailRegex = /\S+@\S+\.\S+/;
+        return emailRegex.test(email);
+    };
     
     const navigate = useNavigate();
     
     const handleSubmit = (e) => { 
-        e.preventDefault();
-        setAlertMessage("You have successfully registered in!");
-        setShowAlert(true);
-        navigate("/signin");
-        setTimeout(() => {
+        if (validateEmail){
+            e.preventDefault();
+            setAlertMessage("You have successfully registered in!");
+            setShowAlert(true);
+            navigate("/signin");
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 2000);}
+            else {
+                setAlertMessage("Invalid email");
+                setShowAlert(true);
+            setTimeout(() => {
             setShowAlert(false);
-        }, 2000);    }
+            }, 2000);
+            }    }
     return (
         <Card className="register">
             <Form className="shadow p-4 rounded register-form" onSubmit={handleSubmit}>
@@ -33,7 +50,13 @@ const Register = () => {
                     to={"/signin"}
                     > Sign In. </Button>
                 </p>
-                <FormInput label={"Email"} type={"email"} placeholder={"Email Address"} required/>
+                <FormInput 
+                    label={"Email"} 
+                    type={"email"} 
+                    placeholder={"Email Address"} 
+                    value={email}
+                    onChange={handleEmailChange}
+                    required/>
                 <FormInput label={"Username"} type={"text"} placeholder={"Username"} required/>
                 <FormInput label={"First-Name"} type={"text"} required/>
                 <FormInput label={"Last-Name"} type={"text"} required/>
