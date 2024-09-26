@@ -15,39 +15,56 @@ const SignIn = ({setIsSignedIn}) => {
     useEffect(() => { window.scrollTo(0, 0) }, [])
 
     const navigate = useNavigate();
-    
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        fetch("https://obscure-rotary-phone-56v6qv4999wfw9x-3000.app.github.dev/signin", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password
-            })
-        }).then(res => res.json())
-        .then(data => {
-            if(data === "success"){
-            setAlertMessage("You have successfully logged in!");
-            setShowAlert(true);
-            setAlertStyle("alert-success");
-            setIsSignedIn(true);
-            navigate("/");
-            setTimeout(() => {
-            setShowAlert(false);
-            }, 2000)
-        } else{
-            setAlertMessage("Invalid username or password");
+        
+        try {
+            const response = await fetch("https://obscure-rotary-phone-56v6qv4999wfw9x-3000.app.github.dev/signin", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            });
+    
+            const data = await response.json();
+    
+            if (data === "success") {
+                setAlertMessage("You have successfully logged in!");
+                setShowAlert(true);
+                setAlertStyle("alert-success");
+                setIsSignedIn(true);
+                navigate("/");
+    
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 2000);
+            } else {
+                setAlertMessage("Invalid username or password");
+                setAlertStyle("alert-danger");
+                setShowAlert(true);
+    
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 2000);
+            }
+        } catch (error) {
+            console.error("Error logging in:", error);
+            setAlertMessage("An error occurred. Please try again.");
             setAlertStyle("alert-danger");
             setShowAlert(true);
+    
             setTimeout(() => {
-                setShowAlert(false)}, 2000);
+                setShowAlert(false);
+            }, 2000);
         }
-    })
-     
-    }
+    };
+    
+
     return (
         <div>
             {showAlert &&  <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
