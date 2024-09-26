@@ -8,9 +8,17 @@ import { AlertContext } from "../Alert/Alert";
 const Register = () => {
     const {setAlertMessage, setShowAlert} = useContext(AlertContext);
     const [email, setEmail] = useState("");
+    const [helperText, setHelperText] = useState("");
+    const [helperTextColor, setHelperTextColor] = useState("text-danger");
     
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
+        if (!validateEmail(e.target.value)){
+            setHelperText("Oops! That doesn’t look like a valid email. Try again.");      
+        } else {
+            setHelperText("Perfect! Your email is valid.");
+            setHelperTextColor("text-success");
+        }
     };
 
     const validateEmail = (email) => {
@@ -56,6 +64,8 @@ const Register = () => {
                     placeholder={"Email Address"} 
                     value={email}
                     onChange={handleEmailChange}
+                    helperText={helperText}
+                    helperTextColor={helperTextColor}
                     required/>
                 <FormInput label={"Username"} type={"text"} placeholder={"Username"} required/>
                 <FormInput label={"First-Name"} type={"text"} required/>
