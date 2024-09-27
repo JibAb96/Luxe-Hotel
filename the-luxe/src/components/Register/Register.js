@@ -70,7 +70,7 @@ const Register = () => {
     
     const navigate = useNavigate();
     
-    const handleSubmit = (e) => { 
+    const handleSubmit = async (e) => { 
         
         e.preventDefault();
         
@@ -86,13 +86,45 @@ const Register = () => {
             return;
         }
 
-        setAlertMessage("You have successfully registered in!");
-        setShowAlert(true);
-        navigate("/signin");
-        setTimeout(() => {
-            setShowAlert(false);
-        }, 2000)
+        const formData = {
+            email,
+            password,
+            firstName: firstNameRef.current.value,
+            lastName: lastNameRef.current.value,
+            phone: phoneRef.current.value,
+            address: addressRef.current.value,
+            city: cityRef.current.value,
+            country: countryRef.current.value,
+            postalCode: postalCodeRef.current.value,
+            dob: dobRef.current.value,
+        };
+
+        try {
+            const response = await fetch("https://obscure-rotary-phone-56v6qv4999wfw9x-3000.app.github.dev/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+            const data = await response.json();
+            if (data === "success") {
+                setAlertMessage("You have successfully registered in!");
+                setShowAlert(true);
+                navigate("/signin");
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 2000)
+            } 
+        } catch (error) {
+            console.error("Error registering in:", error);
+            setAlertMessage("An error occurred. Please try again.");
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 2000)
         }
+    }
     return (
         <Card className="register">
             <Form className="shadow p-4 rounded register-form" onSubmit={handleSubmit}>
