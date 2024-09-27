@@ -1,9 +1,25 @@
+const validateInputs = (email, username, password) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+    if (!emailRegex.test(email)) {
+        return 'Invalid email format';
+    }
+    if (!passwordRegex.test(password)) {
+        return 'Password must contain at least 8 characters, one uppercase letter, one lowercase letter, and one number';
+    }
+    if (!username) {
+        return 'Username is required';
+    }
+    return null;
+};
+
 const handleRegistration = async (req, res, pool, bcrypt) => {
     const { email, password, username, firstName, lastName, phone, address, city, country, postalCode, dob} = req.body;
 
-    // Validate input
-    if (!email || !username || !password) {
-        return res.status(400).json({ error: 'Email, username, and password are required' });
+    const validationError = validateInputs(email, username, password);
+    if (validationError) {
+        return res.status(400).json({ error: validationError });
     }
 
     const saltRounds = 10;
