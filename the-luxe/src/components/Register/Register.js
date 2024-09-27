@@ -8,42 +8,82 @@ import { AlertContext } from "../Alert/Alert";
 const Register = () => {
     const {setAlertMessage, setShowAlert} = useContext(AlertContext);
     const [email, setEmail] = useState("");
-    const [helperText, setHelperText] = useState("");
-    const [helperTextColor, setHelperTextColor] = useState("text-danger");
+    const [helperEmailText, setHelperEmailText] = useState("");
+    const [helperPasswordText, setHelperPasswordText] = useState("");
+    const [helperEmailTextColor, setHelperEmailTextColor] = useState("text-danger");
+    const [helperPasswordTextColor, setHelperPasswordTextColor] = useState("text-danger");
+    const [password, setPassword] = useState("");
+    const [passwordAgain, setPasswordAgain] = useState("");
+    const [helperPasswordAgainText, setHelperPasswordAgainText] = useState("");
+    const [helperPasswordAgainTextColor, setHelperPasswordAgainTextColor] = useState("text-danger");
     
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
         if (!validateEmail(e.target.value)){
-            setHelperText("Oops! That doesn’t look like a valid email. Try again.");      
+            setHelperEmailText("Oops! That doesn’t look like a valid email. Try again.");      
         } else {
-            setHelperText("Perfect! Your email is valid.");
-            setHelperTextColor("text-success");
+            setHelperEmailText("Perfect! Your email is valid.");
+            setHelperEmailTextColor("text-success");
         }
     };
 
-    const validateEmail = (email) => {
-        const emailRegex = /\S+@\S+\.\S+/;
-        return emailRegex.test(email);
+    const passwordChange = (e) => {
+        setPassword(e.target.value);
+        if(!validatePassword(e.target.value)){
+            setHelperPasswordText("Your password must contain at least 8 characters, one uppercase letter, lowercase letter, and number.");
+            setHelperPasswordTextColor("text-danger");
+        } else {
+            setHelperPasswordText("Your password is strong!");
+            setHelperPasswordTextColor("text-success");
+        }
     };
+
+    const passwordAgainChange = (e) => {
+        setPasswordAgain(e.target.value);
+        if(!validatePasswordAgain(password, e.target.value)){
+            setHelperPasswordAgainText("Your passwords do not match.");
+            setHelperPasswordAgainTextColor("text-danger");
+        } else {
+            setHelperPasswordAgainText("Your passwords match!");
+            setHelperPasswordAgainTextColor("text-success");
+        }
+    };
+    
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    
+    const validatePassword = (password) => passwordRegex.test(password);
+
+    const validatePasswordAgain = (password, passwordAgain) => password === passwordAgain;
+    
+    const emailRegex = /\S+@\S+\.\S+/;
+    
+    const validateEmail = (email) => emailRegex.test(email);
     
     const navigate = useNavigate();
     
     const handleSubmit = (e) => { 
-        if (validateEmail){
-            e.preventDefault();
-            setAlertMessage("You have successfully registered in!");
-            setShowAlert(true);
-            navigate("/signin");
-            setTimeout(() => {
-                setShowAlert(false);
-            }, 2000);}
-            else {
-                setAlertMessage("Invalid email");
-                setShowAlert(true);
-            setTimeout(() => {
+        
+        e.preventDefault();
+        
+        const isEmailValid = validateEmail(email);
+        const isPasswordValid = validatePassword(password);
+        const isPasswordAgainValid = validatePasswordAgain(password, passwordAgain);
+
+        if (!isEmailValid || !isPasswordValid || !isPasswordAgainValid) {
+            const invalidInput = document.querySelector('.text-danger');
+            if (invalidInput) {
+                invalidInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+        }
+
+        setAlertMessage("You have successfully registered in!");
+        setShowAlert(true);
+        navigate("/signin");
+        setTimeout(() => {
             setShowAlert(false);
-            }, 2000);
-            }    }
+        }, 2000)
+        }
     return (
         <Card className="register">
             <Form className="shadow p-4 rounded register-form" onSubmit={handleSubmit}>
@@ -64,8 +104,8 @@ const Register = () => {
                     placeholder={"Email Address"} 
                     value={email}
                     onChange={handleEmailChange}
-                    helperText={helperText}
-                    helperTextColor={helperTextColor}
+                    helperText={helperEmailText}
+                    helperTextColor={helperEmailTextColor}
                     required/>
                 <FormInput label={"Username"} type={"text"} placeholder={"Username"} required/>
                 <FormInput label={"First-Name"} type={"text"} required/>
@@ -76,8 +116,24 @@ const Register = () => {
                 <FormInput label={"Country"} type={"text"} required/>
                 <FormInput label={"Postal-Code"} type={"text"} required/>
                 <FormInput label={"Date of Birth"} type={"date"} required/>
-                <FormInput label={"Password"} type={"password"} placeholder={"Password"} required/>
-                <FormInput label={"Password (again)"} type={"password"} placeholder={"Password (again)"} required/>
+                <FormInput 
+                    label={"Password"} 
+                    type={"password"} 
+                    placeholder={"Password"} 
+                    value={password}
+                    onChange={passwordChange}
+                    helperText={helperPasswordText}
+                    helperTextColor={helperPasswordTextColor}
+                    required/>
+                <FormInput 
+                    label={"Password (again)"} 
+                    type={"password"} 
+                    placeholder={"Password (again)"} 
+                    value={passwordAgain}
+                    onChange={passwordAgainChange}
+                    helperText={helperPasswordAgainText}
+                    helperTextColor={helperPasswordAgainTextColor}
+                    required/>
                 <Row className="d-flex justify-content-center">
                     <TransparentButton type="submit" style={{"margin":"1rem","backgroundColor": "#455d58"}}>
                         Register
