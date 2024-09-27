@@ -25,6 +25,7 @@ const Register = () => {
     const countryRef = useRef();
     const postalCodeRef = useRef();
     const dobRef = useRef();
+    const usernameRef = useRef();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -89,6 +90,7 @@ const Register = () => {
         const formData = {
             email,
             password,
+            username: usernameRef.current.value,
             firstName: firstNameRef.current.value,
             lastName: lastNameRef.current.value,
             phone: phoneRef.current.value,
@@ -148,7 +150,7 @@ const Register = () => {
                     helperText={helperEmailText}
                     helperTextColor={helperEmailTextColor}
                     required/>
-                <FormInput label={"Username"} type={"text"} placeholder={"Username"} required/>
+                <FormInput label={"Username"} type={"text"} placeholder={"Username"} ref={usernameRef} required/>
                 <FormInput label={"First-Name"} type={"text"} ref={firstNameRef} required/>
                 <FormInput label={"Last-Name"} type={"text"} ref={lastNameRef} required/>
                 <FormInput label={"Phone"} type={"tel"} ref={phoneRef} required/>
