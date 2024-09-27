@@ -3,9 +3,11 @@ import cors from "cors";
 import pkg from "body-parser";
 import knex from "knex";
 import bcrypt from "bcrypt";
-import handleRegistration from "./controllers/handleRegistration";
-import handleSignIn from "./controllers/handleSignIn";
-import { Pool } from "pg";
+import handleRegistration from "./controllers/handleRegistration.js";
+import handleSignIn from "./controllers/handleSignIn.js";
+import pg from "pg";
+
+const { Pool } = pg;
 
 const pool = new Pool({
     user: "postgres",
@@ -27,9 +29,9 @@ app.use(json());
 
 app.get("/", (req, res) => { res.send("success") });
 
-app.post("/register", handleRegistration(db, bcrypt));
+app.post("/register",(req, res) => handleRegistration(req, res, pool, bcrypt));
 
-app.post("/signin", handleSignIn(db, bcrypt));
+app.post("/signin",(req, res) =>  handleSignIn(req, res, pool, bcrypt));
 
 app.listen(3000,() => {
     console.log("Server is running on port 3000");
