@@ -8,7 +8,7 @@ import FormInput from '../Form/Input';
 import { useEffect } from 'react';
 
 const SignIn = ({setIsSignedIn}) => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const {setAlertMessage, setShowAlert, setAlertStyle, alertMessage, showAlert, alertStyle} = useContext(AlertContext);
    
@@ -26,7 +26,7 @@ const SignIn = ({setIsSignedIn}) => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    username: username,
+                    emai: email,
                     password: password
                 })
             });
@@ -44,7 +44,7 @@ const SignIn = ({setIsSignedIn}) => {
                     setShowAlert(false);
                 }, 2000);
             } else {
-                setAlertMessage("Invalid username or password");
+                setAlertMessage("Invalid email or password");
                 setAlertStyle("alert-danger");
                 setShowAlert(true);
     
@@ -80,11 +80,11 @@ const SignIn = ({setIsSignedIn}) => {
                         > Register </Button> first.
                     </p>
                     <FormInput 
-                        label={"Username"} 
+                        label={"Email"} 
                         type={"text"} 
-                        placeholder={"Username"} 
-                        value={username} 
-                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder={"Email"} 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)}
                         required
                     />
                     <FormInput 
