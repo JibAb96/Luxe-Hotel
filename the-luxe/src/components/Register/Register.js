@@ -1,4 +1,4 @@
-import React, { useContext, useState }from "react";
+import React, { useContext, useState, useRef }from "react";
 import { Form, Button, Card, Row} from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton"
 import "./Register.css"
@@ -17,6 +17,15 @@ const Register = () => {
     const [helperPasswordAgainText, setHelperPasswordAgainText] = useState("");
     const [helperPasswordAgainTextColor, setHelperPasswordAgainTextColor] = useState("text-danger");
     
+    const firstNameRef = useRef();
+    const lastNameRef = useRef();
+    const phoneRef = useRef();
+    const addressRef = useRef();
+    const cityRef = useRef();
+    const countryRef = useRef();
+    const postalCodeRef = useRef();
+    const dobRef = useRef();
+
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
         if (!validateEmail(e.target.value)){
@@ -108,14 +117,14 @@ const Register = () => {
                     helperTextColor={helperEmailTextColor}
                     required/>
                 <FormInput label={"Username"} type={"text"} placeholder={"Username"} required/>
-                <FormInput label={"First-Name"} type={"text"} required/>
-                <FormInput label={"Last-Name"} type={"text"} required/>
-                <FormInput label={"Phone"} type={"tel"} required/>
-                <FormInput label={"Address"} type={"text"} required/>
-                <FormInput label={"City"} type={"text"} required/>
-                <FormInput label={"Country"} type={"text"} required/>
-                <FormInput label={"Postal-Code"} type={"text"} required/>
-                <FormInput label={"Date of Birth"} type={"date"} required/>
+                <FormInput label={"First-Name"} type={"text"} ref={firstNameRef} required/>
+                <FormInput label={"Last-Name"} type={"text"} ref={lastNameRef} required/>
+                <FormInput label={"Phone"} type={"tel"} ref={phoneRef} required/>
+                <FormInput label={"Address"} type={"text"} ref={addressRef} required/>
+                <FormInput label={"City"} type={"text"} ref={cityRef} required/>
+                <FormInput label={"Country"} type={"text"} ref={countryRef} required/>
+                <FormInput label={"Postal-Code"} type={"text"} ref={postalCodeRef} required/>
+                <FormInput label={"Date of Birth"} type={"date"} ref={dobRef} required/>
                 <FormInput 
                     label={"Password"} 
                     type={"password"} 
