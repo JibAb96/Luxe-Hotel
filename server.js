@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import pkg from "body-parser";
-import knex from "knex";
 import bcrypt from "bcrypt";
 import handleRegistration from "./controllers/handleRegistration.js";
 import handleSignIn from "./controllers/handleSignIn.js";

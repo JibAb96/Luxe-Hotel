@@ -39,13 +39,13 @@ const handleRegistration = async (req, res, pool, bcrypt) => {
         }
         
         const resultLogin = await pool.query(
-            `INSERT INTO login (email, password) VALUES ($1, $2) RETURNING email`,
+            `INSERT INTO login (email, hash) VALUES ($1, $2) RETURNING email`,
             [email, hash]
         );
 
         // Insert into users table
         const resultUser = await pool.query(
-            `INSERT INTO users (email, username, first_name, last_name, phone, address, city, country, postal_code, date_of_birth) 
+            `INSERT INTO profiles (email, username, first_name, last_name, phone, address, city, country, postal_code, date_of_birth) 
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
             [resultLogin.rows[0].email, username, firstName, lastName, phone, address, city, country, postalCode, dob]
         );

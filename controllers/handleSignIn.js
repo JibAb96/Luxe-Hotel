@@ -1,4 +1,4 @@
-const handleSignIn = (req, res, db, bcrypt) => {
+const handleSignIn = (req, res, pool, bcrypt) => {
 
 };
 
