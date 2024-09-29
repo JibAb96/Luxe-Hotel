@@ -3,7 +3,7 @@ import { Form, Button, Card, Row, Alert} from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton"
 import "./SignIn.css"
 import { Link, useNavigate } from "react-router-dom";
-import { AlertContext } from "../Alert/Alert";
+import { AlertContext } from "../../contexts/Alert";
 import FormInput from '../Form/Input';
 import { useEffect } from 'react';
 

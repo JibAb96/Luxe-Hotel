@@ -9,7 +9,7 @@ import About from "./components/About/About";
 import LandingPage from "./components/Landing-Page/LandingPage";
 import SignIn from "./components/Sign-In/SignIn";
 import Register from "./components/Register/Register";
-import { AlertProvider } from "./components/Alert/Alert";
+import { AlertProvider } from "./contexts/Alert";
 import Book from "./components/Book/Book";
 import LogOut from "./components/Log-Out/LogOut";
 import Profile from "./components/Profile/Profile";

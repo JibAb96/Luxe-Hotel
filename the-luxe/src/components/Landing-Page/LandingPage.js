@@ -4,7 +4,7 @@ import Location from "../Location-Section/Location";
 import RoomsSection from "../Rooms-Section/RoomsSection"
 import Reviews from "../Reviews/Reviews";
 import { useEffect, useContext } from "react";
-import { AlertContext } from "../Alert/Alert";
+import { AlertContext } from "../../contexts/Alert";
 import { Alert } from "react-bootstrap";
 
 const LandingPage = ({isSignedIn}) => {

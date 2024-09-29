@@ -4,7 +4,7 @@ import TransparentButton from "../Buttons/TransparentButton"
 import "./Register.css"
 import { Link, useNavigate } from "react-router-dom";
 import FormInput from "../Form/Input";
-import { AlertContext } from "../Alert/Alert";
+import { AlertContext } from "../../contexts/Alert";
 const Register = () => {
     const {setAlertMessage, setShowAlert, setAlertStyle} = useContext(AlertContext);
     
