@@ -20,20 +20,20 @@ const SignIn = ({setIsSignedIn}) => {
         e.preventDefault();
         
         try {
-            const response = await fetch("https://obscure-rotary-phone-56v6qv4999wfw9x-3000.app.github.dev/signin", {
+            const response = await fetch("http://localhost:3000/signin", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    emai: email,
+                    email: email,
                     password: password
                 })
             });
-    
+                
             const data = await response.json();
-    
-            if (data === "success") {
+
+            if(response.ok){
                 setAlertMessage("You have successfully logged in!");
                 setShowAlert(true);
                 setAlertStyle("alert-success");
@@ -43,25 +43,25 @@ const SignIn = ({setIsSignedIn}) => {
                 setTimeout(() => {
                     setShowAlert(false);
                 }, 2000);
-            } else {
-                setAlertMessage("Invalid email or password");
+                } else {
+                    setAlertMessage("Invalid email or password");
+                    setAlertStyle("alert-danger");
+                    setShowAlert(true);
+        
+                    setTimeout(() => {
+                        setShowAlert(false);
+                    }, 2000);
+                }
+            } catch (error) {
+                console.error("Error logging in:", error);
+                setAlertMessage("An error occurred. Please try again.");
                 setAlertStyle("alert-danger");
                 setShowAlert(true);
-    
+        
                 setTimeout(() => {
                     setShowAlert(false);
                 }, 2000);
             }
-        } catch (error) {
-            console.error("Error logging in:", error);
-            setAlertMessage("An error occurred. Please try again.");
-            setAlertStyle("alert-danger");
-            setShowAlert(true);
-    
-            setTimeout(() => {
-                setShowAlert(false);
-            }, 2000);
-        }
     };
     
 
