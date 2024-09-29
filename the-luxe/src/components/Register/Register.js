@@ -102,7 +102,7 @@ const Register = () => {
         };
 
         try {
-            const response = await fetch("https://obscure-rotary-phone-56v6qv4999wfw9x-3000.app.github.dev/register", {
+            const response = await fetch("http://localhost:3000/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
