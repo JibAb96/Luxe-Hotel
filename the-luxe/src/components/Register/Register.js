@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef }from "react";
+import React, { useContext, useState }from "react";
 import { Form, Button, Card, Row} from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton"
 import "./Register.css"
@@ -6,27 +6,35 @@ import { Link, useNavigate } from "react-router-dom";
 import FormInput from "../Form/Input";
 import { AlertContext } from "../Alert/Alert";
 const Register = () => {
-    const {setAlertMessage, setShowAlert} = useContext(AlertContext);
+    const {setAlertMessage, setShowAlert, setAlertStyle} = useContext(AlertContext);
+    
     const [email, setEmail] = useState("");
-    const [helperEmailText, setHelperEmailText] = useState("");
-    const [helperPasswordText, setHelperPasswordText] = useState("");
-    const [helperEmailTextColor, setHelperEmailTextColor] = useState("text-danger");
-    const [helperPasswordTextColor, setHelperPasswordTextColor] = useState("text-danger");
     const [password, setPassword] = useState("");
     const [passwordAgain, setPasswordAgain] = useState("");
+    const [firstName,  setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [address, setAddress] = useState("");
+    const [city, setCity] = useState("");
+    const [country, setCountry] = useState("");
+    const [postalCode, setPostalCode] = useState("");
+    const [dob, setDob] = useState("");
+    const [username, setUsername] = useState("");
+
+    
+    
+    const [helperEmailText, setHelperEmailText] = useState("");
+    const [helperPasswordText, setHelperPasswordText] = useState("");
     const [helperPasswordAgainText, setHelperPasswordAgainText] = useState("");
+
+    const [helperEmailTextColor, setHelperEmailTextColor] = useState("text-danger");
+    const [helperPasswordTextColor, setHelperPasswordTextColor] = useState("text-danger");
     const [helperPasswordAgainTextColor, setHelperPasswordAgainTextColor] = useState("text-danger");
     
-    const firstNameRef = useRef();
-    const lastNameRef = useRef();
-    const phoneRef = useRef();
-    const addressRef = useRef();
-    const cityRef = useRef();
-    const countryRef = useRef();
-    const postalCodeRef = useRef();
-    const dobRef = useRef();
-    const usernameRef = useRef();
-
+    const setChange = (e, setState) => {
+        setState(e.target.value)
+    }
+   
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
         if (!validateEmail(e.target.value)){
@@ -90,15 +98,15 @@ const Register = () => {
         const formData = {
             email,
             password,
-            username: usernameRef.current.value,
-            firstName: firstNameRef.current.value,
-            lastName: lastNameRef.current.value,
-            phone: phoneRef.current.value,
-            address: addressRef.current.value,
-            city: cityRef.current.value,
-            country: countryRef.current.value,
-            postalCode: postalCodeRef.current.value,
-            dob: dobRef.current.value,
+            username,
+            firstName,
+            lastName,
+            phone,
+            address,
+            city,
+            country,
+            postalCode,
+            dob
         };
 
         try {
@@ -112,6 +120,7 @@ const Register = () => {
             const data = await response.json();
             if (data === "success") {
                 setAlertMessage("You have successfully registered in!");
+                setAlertStyle("alert-success")
                 setShowAlert(true);
                 navigate("/signin");
                 setTimeout(() => {
@@ -150,15 +159,15 @@ const Register = () => {
                     helperText={helperEmailText}
                     helperTextColor={helperEmailTextColor}
                     required/>
-                <FormInput label={"Username"} type={"text"} placeholder={"Username"} ref={usernameRef} required/>
-                <FormInput label={"First-Name"} type={"text"} ref={firstNameRef} required/>
-                <FormInput label={"Last-Name"} type={"text"} ref={lastNameRef} required/>
-                <FormInput label={"Phone"} type={"tel"} ref={phoneRef} required/>
-                <FormInput label={"Address"} type={"text"} ref={addressRef} required/>
-                <FormInput label={"City"} type={"text"} ref={cityRef} required/>
-                <FormInput label={"Country"} type={"text"} ref={countryRef} required/>
-                <FormInput label={"Postal-Code"} type={"text"} ref={postalCodeRef} required/>
-                <FormInput label={"Date of Birth"} type={"date"} ref={dobRef} required/>
+                <FormInput label={"Username"} type={"text"} placeholder={"Username"} onChange={(e) => setChange(e, setUsername)} required/>
+                <FormInput label={"First-Name"} type={"text"} onChange={(e) => setChange(e, setFirstName)} required/>
+                <FormInput label={"Last-Name"} type={"text"} onChange={(e) => setChange(e, setLastName)} required/>
+                <FormInput label={"Phone"} type={"tel"} onChange={(e) => setChange(e, setPhone)} required/>
+                <FormInput label={"Address"} type={"text"} onChange={(e) => setChange(e, setAddress)} required/>
+                <FormInput label={"City"} type={"text"} onChange={(e) => setChange(e, setCity)} required/>
+                <FormInput label={"Country"} type={"text"} onChange={(e) => setChange(e, setCountry)} required/>
+                <FormInput label={"Postal-Code"} type={"text"} onChange={(e) => setChange(e, setPostalCode)} required/>
+                <FormInput label={"Date of Birth"} type={"date"} onChange={(e) => setChange(e, setDob)} required/>
                 <FormInput 
                     label={"Password"} 
                     type={"password"} 
