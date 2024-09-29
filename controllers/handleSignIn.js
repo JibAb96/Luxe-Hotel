@@ -23,8 +23,7 @@ const handleSignIn = async (req, res, pool, bcrypt) => {
                 const profileResult = await pool.query(profileQuery, [email])
 
                 if(profileResult.rows.length > 0){
-                    res.status(200).json('success')
-                    res.json(profileResult.rows[0])
+                    res.json(profileResult.rows[0]);
                 } else{
                     res.status(400).json('Unable to get user')
                 }
