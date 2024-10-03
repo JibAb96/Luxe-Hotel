@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import pkg from "body-parser";
 import bcrypt from "bcrypt";
-import handleRegistration from "./controllers/handleRegistration.js";
-import handleSignIn from "./controllers/handleSignIn.js";
+import handleRegistration from "./controllers/register.js";
+import handleSignIn from "./controllers/signin.js";
 import pg from "pg";
 
 const { Pool } = pg;
@@ -27,7 +27,6 @@ const { json } = pkg;
 app.use(json());
 
 app.get("/", (req, res) => { res.send("success") });
-
 app.post("/register",(req, res) => handleRegistration(req, res, pool, bcrypt));
 
 app.post("/signin",(req, res) =>  handleSignIn(req, res, pool, bcrypt));
