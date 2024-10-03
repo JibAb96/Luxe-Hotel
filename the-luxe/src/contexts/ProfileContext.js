@@ -4,7 +4,16 @@ export const ProfileContext = createContext();
 
 export const ProfileProvider = ({children}) => {
     const [profileData, setProfileData] = useState(null);
-
+    const[isSignedIn, setIsSignedIn] = useState(() => {
+        const saved = localStorage.getItem("isSignedIn");
+        return saved === "true" ? true : false;
+      });
+    
+      useEffect(() => {
+        localStorage.setItem("isSignedIn", isSignedIn);
+      }, [isSignedIn]);
+    
+    
     useEffect(() => {
         const savedData = localStorage.getItem("profileData");
         if(savedData){
@@ -19,7 +28,7 @@ export const ProfileProvider = ({children}) => {
         }
     }, [profileData])
     return (
-        <ProfileContext.Provider value={{profileData, setProfileData}}>
+        <ProfileContext.Provider value={{profileData, setProfileData, isSignedIn, setIsSignedIn}}>
             {children}
         </ProfileContext.Provider>
     )
