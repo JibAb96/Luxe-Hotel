@@ -43,7 +43,6 @@ const handleRegistration = async (req, res, pool, bcrypt) => {
             [email, hash]
         );
 
-        // Insert into users table
         const resultUser = await pool.query(
             `INSERT INTO profiles (email, username, first_name, last_name, phone, address, city, country, postal_code, date_of_birth) 
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
