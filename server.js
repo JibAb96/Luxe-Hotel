@@ -4,6 +4,7 @@ import pkg from "body-parser";
 import bcrypt from "bcrypt";
 import handleRegistration from "./controllers/register.js";
 import handleSignIn from "./controllers/signin.js";
+import deleteProfile from "./controllers/deleteProfile.js"
 import pg from "pg";
 
 const { Pool } = pg;
