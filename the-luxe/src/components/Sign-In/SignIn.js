@@ -1,18 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Form, Button, Card, Row, Alert} from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton"
 import "./SignIn.css"
 import { Link, useNavigate } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
 import FormInput from '../Form/Input';
-import { useEffect } from 'react';
-
+import { ProfileContext } from '../../contexts/ProfileContext';
 const SignIn = ({setIsSignedIn}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const {setAlertMessage, setShowAlert, setAlertStyle, alertMessage, showAlert, alertStyle} = useContext(AlertContext);
    
     useEffect(() => { window.scrollTo(0, 0) }, [])
+
+    const { setProfileData } = useContext(ProfileContext)
 
     const navigate = useNavigate();
 
@@ -34,6 +35,7 @@ const SignIn = ({setIsSignedIn}) => {
             const data = await response.json();
 
             if(response.ok){
+                setProfileData(data)
                 setAlertMessage("You have successfully logged in!");
                 setShowAlert(true);
                 setAlertStyle("alert-success");
