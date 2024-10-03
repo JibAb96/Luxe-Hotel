@@ -6,14 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
 import FormInput from '../Form/Input';
 import { ProfileContext } from '../../contexts/ProfileContext';
-const SignIn = ({setIsSignedIn}) => {
+const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const {setAlertMessage, setShowAlert, setAlertStyle, alertMessage, showAlert, alertStyle} = useContext(AlertContext);
    
     useEffect(() => { window.scrollTo(0, 0) }, [])
 
-    const { setProfileData } = useContext(ProfileContext)
+    const { setProfileData, setIsSignedIn } = useContext(ProfileContext)
 
     const navigate = useNavigate();
 
