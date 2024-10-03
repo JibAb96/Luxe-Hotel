@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import TextCard from "../Cards/TextCard";
 import "./Reserve-Section.css"
 import TransparentButton from "../Buttons/TransparentButton";
 import { Link } from "react-router-dom";
+import { ProfileContext } from "../../contexts/ProfileContext";
 
-const ReserveSection = ({isSignedIn}) => {
+const ReserveSection = () => {
+    
+    const { isSignedIn } = useContext(ProfileContext)
+
     return(
         <Container className="reservations" fluid>
             <h1 className="reservation-title">Manage Your Booking</h1>
