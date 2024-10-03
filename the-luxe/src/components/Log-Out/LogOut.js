@@ -5,13 +5,18 @@ import { Link } from "react-router-dom";
 import "./LogOut.css";
 
 const LogOut = ({setIsSignedIn}) => {
+    const logOut = () => {
+        setIsSignedIn(false);
+        localStorage.setItem("profileData", null)
+    }
+    
     return (
         <Container className="logout" fluid>
             <h1 className="logout-title">Log Out</h1>
             <p className="logout-p">Are you sure you want to log out?</p>
             <Row>
                 <TransparentButton 
-                    onClick={() => setIsSignedIn(false)}
+                    onClick={() => logOut}
                     as={Link}
                     to={"/"}
                     style={{backgroundColor: "#800020", marginBottom: "1rem"}}
