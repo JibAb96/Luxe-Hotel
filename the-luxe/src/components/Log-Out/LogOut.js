@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton";
 import { Link } from "react-router-dom";
 import "./LogOut.css";
+import { ProfileContext } from "../../contexts/ProfileContext";
 
-const LogOut = ({setIsSignedIn}) => {
+const LogOut = () => {
+    
+    const { setIsSignedIn } = useContext(ProfileContext)
+    
     const logOut = () => {
         setIsSignedIn(false);
-        localStorage.setItem("profileData", null)
+        localStorage.removeItem("isSignedIn")
     }
     
     return (
@@ -16,7 +20,7 @@ const LogOut = ({setIsSignedIn}) => {
             <p className="logout-p">Are you sure you want to log out?</p>
             <Row>
                 <TransparentButton 
-                    onClick={() => logOut}
+                    onClick={logOut}
                     as={Link}
                     to={"/"}
                     style={{backgroundColor: "#800020", marginBottom: "1rem"}}
