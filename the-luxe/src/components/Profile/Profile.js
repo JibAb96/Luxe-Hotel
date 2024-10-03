@@ -6,11 +6,6 @@ import TransparentButton from '../Buttons/TransparentButton';
 import { ProfileContext } from '../../contexts/ProfileContext';
 const Profile = () => {
     const { profileData } = useContext(ProfileContext)
-    if(!profileData){
-        fetch("localhost:3000/profile/", {
-            method: "GET",
-        })
-    }
     const dob = profileData.date_of_birth.substring(0, profileData.date_of_birth.indexOf("T"))
     const joined = profileData.joined.substring(0, profileData.joined.indexOf("T"))
 
