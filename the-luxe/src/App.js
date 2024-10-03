@@ -9,21 +9,24 @@ import About from "./components/About/About";
 import LandingPage from "./components/Landing-Page/LandingPage";
 import SignIn from "./components/Sign-In/SignIn";
 import Register from "./components/Register/Register";
-import { AlertProvider } from "./contexts/Alert";
 import Book from "./components/Book/Book";
 import LogOut from "./components/Log-Out/LogOut";
 import Profile from "./components/Profile/Profile";
 import Reservations from "./components/Reservations/Reservations";
+import { AlertProvider } from "./contexts/Alert";
+import { ProfileProvider } from "./contexts/ProfileContext";
 
 
 const App = () => {
 
   const[isSignedIn, setIsSignedIn] = useState(() => {
+    //Solve Later
     const saved = localStorage.getItem("isSignedIn");
     return saved === "true" ? true : false;
   });
 
   useEffect(() => {
+    //Solve Later
     localStorage.setItem("isSignedIn", isSignedIn);
   }, [isSignedIn]);
   
@@ -65,20 +68,22 @@ const App = () => {
   return(
     <Router>
       <AlertProvider>
-        <Layout isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}>
-          <Routes>
-            <Route path="/" element={<LandingPage isSignedIn={isSignedIn} />} />
-            <Route path="/book" element={<Book/>}/>
-            <Route path="/rooms" element={<RoomsPage/>} />
-            <Route path="/rooms/:roomType" element={<ViewRooms/>} isSignedIn={isSignedIn}/>
-            <Route path="/about" element={<About isSignedIn={isSignedIn}/>}  />
-            <Route path="/signin" element={<SignIn setIsSignedIn={setIsSignedIn}/>} />
-            <Route path="/register" element={<Register/>} />
-            <Route path="/logout" element={<LogOut setIsSignedIn={setIsSignedIn}/>} /> 
-            <Route path="/profile" element={<Profile/>} />
-            <Route path="/reservations" element={<Reservations reservations={reservations}/>} />
-          </Routes>
-        </Layout>
+        <ProfileProvider>
+          <Layout isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}>
+            <Routes>
+              <Route path="/" element={<LandingPage isSignedIn={isSignedIn} />} />
+              <Route path="/book" element={<Book/>}/>
+              <Route path="/rooms" element={<RoomsPage/>} />
+              <Route path="/rooms/:roomType" element={<ViewRooms/>} isSignedIn={isSignedIn}/>
+              <Route path="/about" element={<About isSignedIn={isSignedIn}/>}  />
+              <Route path="/signin" element={<SignIn setIsSignedIn={setIsSignedIn}/>} />
+              <Route path="/register" element={<Register/>} />
+              <Route path="/logout" element={<LogOut setIsSignedIn={setIsSignedIn}/>} /> 
+              <Route path="/profile" element={<Profile/>} />
+              <Route path="/reservations" element={<Reservations reservations={reservations}/>} />
+            </Routes>
+          </Layout>
+        </ProfileProvider>
       </AlertProvider>
     </Router>
   )
