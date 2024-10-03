@@ -1,13 +1,17 @@
-import React from "react"
+import React, { useContext } from "react"
 import {Navbar, Nav, Container, NavDropdown} from "react-bootstrap"
 import "./Navigation.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import {Link} from "react-router-dom"
+import { ProfileContext } from "../../contexts/ProfileContext"
 
-const element = <FontAwesomeIcon icon={faUser} />
+
 
 const Navigation = ({isSignedIn, setIsSignedIn}) => {
+  const element = <FontAwesomeIcon icon={faUser} />
+  const { profileData } = useContext(ProfileContext);
+
   return (
     <Navbar expand="lg" className="custom-navbar">
       <Container fluid>
@@ -28,7 +32,7 @@ const Navigation = ({isSignedIn, setIsSignedIn}) => {
             align="end">
               {isSignedIn ? 
               <>
-                <NavDropdown.Item as={Link} to={"/profile"}>
+                <NavDropdown.Item as={Link} to={`/profile/${profileData ? profileData.id : ""}`}>
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to={"/reservations"}>
