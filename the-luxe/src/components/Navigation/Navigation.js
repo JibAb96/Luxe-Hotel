@@ -8,9 +8,10 @@ import { ProfileContext } from "../../contexts/ProfileContext"
 
 
 
-const Navigation = ({isSignedIn, setIsSignedIn}) => {
+const Navigation = () => {
   const element = <FontAwesomeIcon icon={faUser} />
-  const { profileData } = useContext(ProfileContext);
+  
+  const { isSignedIn, profileData } = useContext(ProfileContext);
 
   return (
     <Navbar expand="lg" className="custom-navbar">
