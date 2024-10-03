@@ -27,9 +27,12 @@ const { json } = pkg;
 app.use(json());
 
 app.get("/", (req, res) => { res.send("success") });
-app.post("/register",(req, res) => handleRegistration(req, res, pool, bcrypt));
 
-app.post("/signin",(req, res) =>  handleSignIn(req, res, pool, bcrypt));
+app.post("/register", (req, res) => handleRegistration(req, res, pool, bcrypt));
+
+app.post("/signin", (req, res) =>  handleSignIn(req, res, pool, bcrypt));
+
+app.delete("/profile/:id", (req, res) => deleteProfile(req, res, pool))
 
 app.listen(3000,() => {
     console.log("Server is running on port 3000");
