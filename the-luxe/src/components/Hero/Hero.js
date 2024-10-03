@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import "./Hero.css"
 import TransparentButton from "../Buttons/TransparentButton";
 import { Link } from "react-router-dom";
-const Hero = ({isSignedIn}) => {
+import { ProfileContext } from "../../contexts/ProfileContext";
+
+const Hero = () => {
+    const { isSignedIn } = useContext(ProfileContext) 
     return (
-        
             <Container className="hero" fluid>
                 <Row className="hero__text-box">
                     <h1 className="hero__text">
