@@ -79,7 +79,7 @@ const App = () => {
               <Route path="/signin" element={<SignIn setIsSignedIn={setIsSignedIn}/>} />
               <Route path="/register" element={<Register/>} />
               <Route path="/logout" element={<LogOut setIsSignedIn={setIsSignedIn}/>} /> 
-              <Route path="/profile" element={<Profile/>} />
+              <Route path="/profile/:id" element={<Profile/>} />
               <Route path="/reservations" element={<Reservations reservations={reservations}/>} />
             </Routes>
           </Layout>
