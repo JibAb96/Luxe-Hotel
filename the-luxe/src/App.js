@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 import RoomsPage from "./components/Rooms-Page/RoomsPage";
@@ -19,17 +19,6 @@ import { ProfileProvider } from "./contexts/ProfileContext";
 
 const App = () => {
 
-  const[isSignedIn, setIsSignedIn] = useState(() => {
-    //Solve Later
-    const saved = localStorage.getItem("isSignedIn");
-    return saved === "true" ? true : false;
-  });
-
-  useEffect(() => {
-    //Solve Later
-    localStorage.setItem("isSignedIn", isSignedIn);
-  }, [isSignedIn]);
-  
   const reservations = [
     {
       id: 1,
@@ -69,16 +58,16 @@ const App = () => {
     <Router>
       <AlertProvider>
         <ProfileProvider>
-          <Layout isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}>
+          <Layout>
             <Routes>
-              <Route path="/" element={<LandingPage isSignedIn={isSignedIn} />} />
+              <Route path="/" element={<LandingPage/>} />
               <Route path="/book" element={<Book/>}/>
               <Route path="/rooms" element={<RoomsPage/>} />
-              <Route path="/rooms/:roomType" element={<ViewRooms/>} isSignedIn={isSignedIn}/>
-              <Route path="/about" element={<About isSignedIn={isSignedIn}/>}  />
-              <Route path="/signin" element={<SignIn setIsSignedIn={setIsSignedIn}/>} />
+              <Route path="/rooms/:roomType" element={<ViewRooms/>}/>
+              <Route path="/about" element={<About/>}  />
+              <Route path="/signin" element={<SignIn/>} />
               <Route path="/register" element={<Register/>} />
-              <Route path="/logout" element={<LogOut setIsSignedIn={setIsSignedIn}/>} /> 
+              <Route path="/logout" element={<LogOut/>} /> 
               <Route path="/profile/:id" element={<Profile/>} />
               <Route path="/reservations" element={<Reservations reservations={reservations}/>} />
             </Routes>
