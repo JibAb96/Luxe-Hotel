@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import FormInput from "../Form/Input";
 import { AlertContext } from "../../contexts/Alert";
 const Register = () => {
-    const {setAlertMessage, setShowAlert, setAlertStyle} = useContext(AlertContext);
+    const {showAlertWithTimeout} = useContext(AlertContext);
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -78,6 +78,7 @@ const Register = () => {
     const validateEmail = (email) => emailRegex.test(email);
     
     const navigate = useNavigate();
+
     
     const handleSubmit = async (e) => { 
         
@@ -119,21 +120,13 @@ const Register = () => {
             });
             const data = await response.json();
             if (data === "success") {
-                setAlertMessage("You have successfully registered in!");
-                setAlertStyle("alert-success")
-                setShowAlert(true);
+                showAlertWithTimeout("You have successfully registered in!", "alert-success")
                 navigate("/signin");
-                setTimeout(() => {
-                    setShowAlert(false);
-                }, 2000)
+                
             } 
         } catch (error) {
             console.error("Error registering in:", error);
-            setAlertMessage("An error occurred. Please try again.");
-            setShowAlert(true);
-            setTimeout(() => {
-                setShowAlert(false);
-            }, 2000)
+            showAlertWithTimeout("An error occurred. Please try again.", "alert-danger")
         }
     }
     return (
