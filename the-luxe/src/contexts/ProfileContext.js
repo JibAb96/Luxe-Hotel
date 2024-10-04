@@ -5,14 +5,15 @@ export const ProfileContext = createContext();
 export const ProfileProvider = ({children}) => {
     const [profileData, setProfileData] = useState(null);
     const[isSignedIn, setIsSignedIn] = useState(() => {
-        const saved = localStorage.getItem("isSignedIn");
-        return saved === "true" ? true : false;
+        return JSON.parse(localStorage.getItem("isSignedIn")) || false;
       });
     
       useEffect(() => {
-        localStorage.setItem("isSignedIn", isSignedIn);
-      }, [isSignedIn]);
-    
+    const saved = JSON.parse(localStorage.getItem("isSignedIn"));
+    if (saved !== isSignedIn) {
+        localStorage.setItem("isSignedIn", JSON.stringify(isSignedIn));
+    }
+}, [isSignedIn]);
     
     useEffect(() => {
         const savedData = localStorage.getItem("profileData");
@@ -25,6 +26,8 @@ export const ProfileProvider = ({children}) => {
         if(profileData){
             localStorage.setItem("profileData", JSON.stringify(profileData))
             localStorage.setItem("userID", JSON.stringify(profileData.id))
+        } else{
+            
         }
     }, [profileData])
     return (
