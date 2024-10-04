@@ -15,19 +15,26 @@ const DeleteProfile = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const userId = location.pathname.split("/")[2];
+
+
     const deleteUser = async () => {    
-        const userId = location.pathname.split("/")[2];
         console.log("before setting is Signed in", isSignedIn)
         try {
             const response = await fetch(`http://localhost:3000/profile/${userId}`, {
                 method: "DELETE"
             })
-            if(response.ok){
+
+            const data = await response.json();
+            if(data === "Profile and login deleted successfully"){
                 setIsSignedIn(false);
                 navigate("/");
                 setAlertMessage("You have successfully deleted your profile!");
                 setShowAlert(true);
                 setAlertStyle("alert-success");
+                setTimeout(() => {
+                    setShowAlert(false);
+                }, 2000);
                 localStorage.removeItem("profileData");
             } else{
                 setAlertMessage("An error occurred. Please try again.");
@@ -70,7 +77,7 @@ const DeleteProfile = () => {
                     </TransparentButton>
                     <TransparentButton 
                         as={Link} 
-                        to={"/"} 
+                        to={`/profile/${userId}`} 
                         style={{backgroundColor: "#455d58"}}
                     >
                         Keep
