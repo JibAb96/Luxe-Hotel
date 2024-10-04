@@ -9,7 +9,7 @@ import { ProfileContext } from '../../contexts/ProfileContext';
 const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const {setAlertMessage, setShowAlert, setAlertStyle, alertMessage, showAlert, alertStyle} = useContext(AlertContext);
+    const {showAlertWithTimeout, alertMessage, showAlert, alertStyle} = useContext(AlertContext);
    
     useEffect(() => { window.scrollTo(0, 0) }, [])
 
@@ -36,33 +36,15 @@ const SignIn = () => {
 
             if(response.ok){
                 setProfileData(data)
-                setAlertMessage("You have successfully logged in!");
-                setShowAlert(true);
-                setAlertStyle("alert-success");
                 setIsSignedIn(true);
+                showAlertWithTimeout("You have successfully logged in!", "alert-success")
                 navigate("/");
-    
-                setTimeout(() => {
-                    setShowAlert(false);
-                }, 2000);
                 } else {
-                    setAlertMessage("Invalid email or password");
-                    setAlertStyle("alert-danger");
-                    setShowAlert(true);
-        
-                    setTimeout(() => {
-                        setShowAlert(false);
-                    }, 2000);
+                    showAlertWithTimeout("Invalid email or password", "alert-danger")
                 }
             } catch (error) {
                 console.error("Error logging in:", error);
-                setAlertMessage("An error occurred. Please try again.");
-                setAlertStyle("alert-danger");
-                setShowAlert(true);
-        
-                setTimeout(() => {
-                    setShowAlert(false);
-                }, 2000);
+                showAlertWithTimeout("An error occurred. Please try again later.", "alert-danger")
             }
     };
     
