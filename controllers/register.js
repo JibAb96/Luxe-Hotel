@@ -15,7 +15,7 @@ const validateInputs = (email, username, password) => {
 };
 
 const handleRegistration = async (req, res, pool, bcrypt) => {
-    const { email, password, username, firstName, lastName, phone, address, city, country, postalCode, dob} = req.body;
+    const { email, password, username, firstName, lastName, phone, address, city, country, postalCode, dobDate} = req.body;
 
     const validationError = validateInputs(email, username, password);
     if (validationError) {
@@ -46,13 +46,13 @@ const handleRegistration = async (req, res, pool, bcrypt) => {
         const resultUser = await pool.query(
             `INSERT INTO profiles (email, username, first_name, last_name, phone, address, city, country, postal_code, date_of_birth) 
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
-            [resultLogin.rows[0].email, username, firstName, lastName, phone, address, city, country, postalCode, dob]
+            [resultLogin.rows[0].email, username, firstName, lastName, phone, address, city, country, postalCode, dobDate]
         );
 
         await pool.query('COMMIT');
         res.status(201).json("success");
     } catch (error) {
-        await pool.query('ROLLBACK'); // Rollback transaction on error
+        await pool.query('ROLLBACK');
         
         if (error.code === '23505') {
             return res.status(409).json({ error: 'Email already exists' });
