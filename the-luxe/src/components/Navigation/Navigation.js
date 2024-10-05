@@ -24,7 +24,7 @@ const Navigation = () => {
             <Nav.Link as={Link} to="/rooms"className="nav-item" >ROOMS</Nav.Link>
             <Nav.Link as={Link} to={"/about"} className="nav-item">ABOUT</Nav.Link>
             {isSignedIn ? 
-            <Nav.Link as={Link} to={"/book"} className="nav-item book">BOOK</Nav.Link>
+            <Nav.Link as={Link} to={`/book/${profileData ? profileData.id : ""}`} className="nav-item book">BOOK</Nav.Link>
             : <Nav.Link as={Link} to={"/signin"} className="nav-item book">BOOK</Nav.Link>}
             <NavDropdown 
             title={element} 
@@ -36,10 +36,10 @@ const Navigation = () => {
                 <NavDropdown.Item as={Link} to={`/profile/${profileData ? profileData.id : ""}`}>
                   Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/reservations"}>
+                <NavDropdown.Item as={Link} to={`/reservations/${profileData ? profileData.id : ""}`}>
                   Reservations 
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"/logout"}>
+                <NavDropdown.Item as={Link} to={`/logout/${profileData ? profileData.id : ""}`}>
                   Logout 
                 </NavDropdown.Item>
               </>
