@@ -8,6 +8,7 @@ import handleSignIn from "./controllers/signin.js";
 import deleteProfile from "./controllers/deleteProfile.js"
 import updateProfile from "./controllers/updateProfile.js"
 import booking from "./controllers/booking.js";
+import reservations from "./controllers/reservations.js";
 
 
 const { Pool } = pg;
@@ -32,13 +33,15 @@ app.use(json());
 
 app.get("/", (req, res) => { res.send("success") });
 
+app.get("/reservations/:id", (req, res) => reservations(req, res, pool))
+
 app.post("/register", (req, res) => handleRegistration(req, res, pool, bcrypt));
 
 app.post("/signin", (req, res) =>  handleSignIn(req, res, pool, bcrypt));
 
 app.post("/profile/:id", (req, res) => updateProfile(req, res, pool));
 
-app.post("/book", (req, res) => booking(req, res, pool));
+app.post("/book/:id", (req, res) => booking(req, res, pool));
 
 app.delete("/profile/:id", (req, res) => deleteProfile(req, res, pool));
 
