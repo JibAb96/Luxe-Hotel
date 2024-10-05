@@ -1,19 +1,25 @@
-.color{
+.text-card{
     color: #455d58;
     border: 2px solid #455d58;
 }
-.color .card-text {
+
+.text-card:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+  }
+  
+.text-card .card-text {
     white-space: pre-wrap;
     word-wrap: break-word;
   }
 .structure-card-body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Space between title/text and buttons */
+    justify-content: space-between;
 }
 
 .elements-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    margin-top: auto; /* Push to bottom */
+    justify-content: center;
+    margin-top: auto;
 }
