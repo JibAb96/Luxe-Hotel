@@ -12,23 +12,19 @@ const Profile = () => {
     const [showDeleteProfile, setShowDeleteProfile] = useState(false);
     const [showEditProfile, setShowEditProfile] = useState(false);
     
-    const { profileData } = useContext(ProfileContext)
-    const { alertStyle, alertMessage, showAlert } = useContext(AlertContext)
+    const { profileData } = useContext(ProfileContext);
+    const { alertStyle, alertMessage, showAlert } = useContext(AlertContext);
 
     const handleDeleteSwitch = () => {
-        setShowDeleteProfile(true)
+        setShowDeleteProfile(!showDeleteProfile);
     }
 
     const handleEditSwitch = () => {
-        setShowEditProfile(true)
+        setShowEditProfile(!showEditProfile);
     }
 
-    const handleExit = () => {
-        setShowEditProfile(false)
-    }
-    
-    const dob = profileData.date_of_birth
-    const joined = profileData.joined.substring(0, profileData.joined.indexOf("T"))
+    const dob = profileData.date_of_birth.substring(0, 10);
+    const joined = profileData.joined.substring(0, 10);
 
     return (
         <>
@@ -75,12 +71,12 @@ const Profile = () => {
                 </Row>
                 {showDeleteProfile && (
                     <div className="overlay">
-                        <DeleteProfile/>
+                        <DeleteProfile handleExit={handleDeleteSwitch}/>
                     </div>
                 )}
                 {showEditProfile && (
                     <div className="overlay">
-                        <UpdateProfile handleExit={handleExit}/>
+                        <UpdateProfile handleExit={handleEditSwitch}/>
                     </div>
                 )}
             </Container>
