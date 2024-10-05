@@ -23,6 +23,8 @@ const UpdateProfile = ({ handleExit }) => {
     const location = useLocation();
     const userId = location.pathname.split("/")[2];
 
+    const DOB = profileData.date_of_birth.length > 11 ? profileData.date_of_birth.substring(0, profileData.date_of_birth.indexOf("T")) : profileData.date_of_birth
+
     useEffect(() => {
         setFirstName(profileData.first_name);
         setLastName(profileData.last_name);
@@ -31,8 +33,8 @@ const UpdateProfile = ({ handleExit }) => {
         setCity(profileData.city);
         setCountry(profileData.country);
         setPostalCode(profileData.postal_code);
-        setDob(profileData.date_of_birth);
-    }, [profileData]);
+        setDob(DOB);
+    }, [profileData, DOB]);
 
     const setChange = (e, setState) => {
         setState(e.target.value);
