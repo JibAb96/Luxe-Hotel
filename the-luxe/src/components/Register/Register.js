@@ -96,6 +96,7 @@ const Register = () => {
             return;
         }
 
+        const dobDate = dob.substring(0,10);
         const formData = {
             email,
             password,
@@ -107,7 +108,7 @@ const Register = () => {
             city,
             country,
             postalCode,
-            dob
+            dobDate
         };
 
         try {
@@ -122,7 +123,6 @@ const Register = () => {
             if (data === "success") {
                 showAlertWithTimeout("You have successfully registered in!", "alert-success")
                 navigate("/signin");
-                
             } 
         } catch (error) {
             console.error("Error registering in:", error);
