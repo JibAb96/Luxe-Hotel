@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Alert } from "react-bootstrap";
 import { AlertContext } from "../../contexts/Alert";
 import "./DeleteProfile.css"
 import { ProfileContext } from "../../contexts/ProfileContext";
 
-const DeleteProfile = () => {
+const DeleteProfile = ({ handleExit }) => {
      
     const {setAlertMessage, setShowAlert, setAlertStyle, alertMessage, showAlert, alertStyle} = useContext(AlertContext);
     const { setIsSignedIn, isSignedIn } = useContext(ProfileContext);
@@ -62,7 +62,16 @@ const DeleteProfile = () => {
     return (
         <>
             {showAlert &&  <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
+            
             <Container className="deleteProfile" fluid>
+            <button 
+                        type="button" 
+                        className="exit-button" 
+                        onClick={handleExit} 
+                        aria-label="Close"
+                    >
+                    &times;
+            </button>            
                 <h1 className="deleteProfile-title">Delete Profile</h1>
                 <p className="deleteProfile-p">Are you sure you want to delete your 
                     <span className="bold"> Profile</span>, 
@@ -76,8 +85,7 @@ const DeleteProfile = () => {
                         Delete
                     </TransparentButton>
                     <TransparentButton 
-                        as={Link} 
-                        to={`/profile/${userId}`} 
+                        onClick={handleExit}
                         style={{backgroundColor: "#455d58"}}
                     >
                         Keep
