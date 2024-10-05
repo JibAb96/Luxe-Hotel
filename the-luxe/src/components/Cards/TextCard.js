@@ -4,7 +4,7 @@ import "./TextCard.css"
 const TextCard = ({Title, Text, Element, titleClass, lg = 4, ...rest}) => {
     return(
         <Col  xs={12} sm={6} lg={lg} className="d-flex justify-content-center">
-            <Card className="color shadow p-1 rounded" {...rest}>
+            <Card className="text-card shadow p-1 rounded" {...rest}>
                 <Card.Body className="structure-card-body ">
                     <Card.Title className={titleClass}>{Title}</Card.Title>
                     <Card.Text>
