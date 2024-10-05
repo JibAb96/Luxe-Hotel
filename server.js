@@ -2,10 +2,13 @@ import express from "express";
 import cors from "cors";
 import pkg from "body-parser";
 import bcrypt from "bcrypt";
+import pg from "pg";
 import handleRegistration from "./controllers/register.js";
 import handleSignIn from "./controllers/signin.js";
 import deleteProfile from "./controllers/deleteProfile.js"
-import pg from "pg";
+import updateProfile from "./controllers/updateProfile.js"
+import booking from "./controllers/booking.js";
+
 
 const { Pool } = pg;
 
@@ -33,8 +36,11 @@ app.post("/register", (req, res) => handleRegistration(req, res, pool, bcrypt));
 
 app.post("/signin", (req, res) =>  handleSignIn(req, res, pool, bcrypt));
 
-app.delete("/profile/:id", (req, res) => deleteProfile(req, res, pool))
+app.post("/profile/:id", (req, res) => updateProfile(req, res, pool));
 
-app.listen(3000,() => {
-    console.log("Server is running on port 3000");
-})
+app.post("/book", (req, res) => booking(req, res, pool));
+
+app.delete("/profile/:id", (req, res) => deleteProfile(req, res, pool));
+
+
+app.listen(3000,() => { console.log("Server is running on port 3000"); })
