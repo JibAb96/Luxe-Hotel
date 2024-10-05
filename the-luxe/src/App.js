@@ -19,41 +19,6 @@ import { ProfileProvider } from "./contexts/ProfileContext";
 
 const App = () => {
 
-  const reservations = [
-    {
-      id: 1,
-      room: "Standard",
-      checkin: "2021-10-01",
-      checkout: "2021-10-07",
-      guests: 2,
-      price: 1000,
-    },
-    {
-      id: 2,
-      room: "Deluxe",
-      checkin: "2021-10-01",
-      checkout: "2021-10-07",
-      guests: 2,
-      price: 2000,
-    },
-    {
-      id: 3,
-      room: "Suite",
-      checkin: "2021-10-01",
-      checkout: "2021-10-07",
-      guests: 2,
-      price: 3000,
-    },
-    {
-      id: 4,
-      room: "Suite",
-      checkin: "2021-10-01",
-      checkout: "2021-10-07",
-      guests: 2,
-      price: 3000,
-    }
-]
-
   return(
     <Router>
       <AlertProvider>
@@ -61,7 +26,7 @@ const App = () => {
           <Layout>
             <Routes>
               <Route path="/" element={<LandingPage/>} />
-              <Route path="/book" element={<Book/>}/>
+              <Route path="/book/:id" element={<Book/>}/>
               <Route path="/rooms" element={<RoomsPage/>} />
               <Route path="/rooms/:roomType" element={<ViewRooms/>}/>
               <Route path="/about" element={<About/>}  />
@@ -69,7 +34,7 @@ const App = () => {
               <Route path="/register" element={<Register/>} />
               <Route path="/logout" element={<LogOut/>} /> 
               <Route path="/profile/:id" element={<Profile/>} />
-              <Route path="/reservations" element={<Reservations reservations={reservations}/>} />
+              <Route path="/reservations/:id" element={<Reservations/>} />
             </Routes>
           </Layout>
         </ProfileProvider>
