@@ -9,6 +9,8 @@ import deleteProfile from "./controllers/deleteProfile.js"
 import updateProfile from "./controllers/updateProfile.js"
 import booking from "./controllers/booking.js";
 import reservations from "./controllers/reservations.js";
+import editBooking from "./controllers/editBooking.js";
+import deleteBooking from "./controllers/deleteBooking.js";
 
 
 const { Pool } = pg;
@@ -39,11 +41,14 @@ app.post("/register", (req, res) => handleRegistration(req, res, pool, bcrypt));
 
 app.post("/signin", (req, res) =>  handleSignIn(req, res, pool, bcrypt));
 
-app.post("/profile/:id", (req, res) => updateProfile(req, res, pool));
-
 app.post("/book/:id", (req, res) => booking(req, res, pool));
 
-app.delete("/profile/:id", (req, res) => deleteProfile(req, res, pool));
+app.put("/update-profile/:id", (req, res) => updateProfile(req, res, pool));
 
+app.put("/edit-booking/:id", (req, res) => editBooking(req, res, pool))
+
+app.delete("/delete-profile/:id", (req, res) => deleteProfile(req, res, pool));
+
+app.delete("/delete-booking/:id", (req, res) => deleteBooking(req, res, pool))
 
 app.listen(3000,() => { console.log("Server is running on port 3000"); })
