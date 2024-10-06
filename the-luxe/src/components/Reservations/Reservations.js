@@ -6,10 +6,12 @@ import TransparentButton from "../Buttons/TransparentButton";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { AlertContext } from "../../contexts/Alert";
 import EditBooking from "../Edit-Booking/EditBooking";
+import CancelBooking from "../Cancel-Booking/CancelBooking";
 
 const Reservations = () => {
     const [bookings, setBookings] = useState([]);
     const [showEditBooking, setShowEditBooking] = useState(false);
+    const [showCancelBooking, setShowCancelBooking] = useState(false);
     const [selectedBooking, setSelectedBooking] = useState(null);
 
     const { profileData } = useContext(ProfileContext)
@@ -46,9 +48,21 @@ const Reservations = () => {
         setShowEditBooking(false); // Close edit form
     }
 
+    const handleCancelledBooking = (deleteBooking) => {
+        console.log(bookings)
+        console.log(deleteBooking.id)
+        const updatedBookings = bookings.filter(booking => booking.id !== deleteBooking.id)
+        setBookings(updatedBookings)
+        console.log(updatedBookings)
+    }
+
     const handleEditSwitch = (booking) => {
         setSelectedBooking(booking);
         setShowEditBooking(!showEditBooking);
+    }
+    const handleCancelSwitch = (booking) => {
+        setSelectedBooking(booking);
+        setShowCancelBooking(!showCancelBooking);
     }
 
     return (
@@ -80,7 +94,12 @@ const Reservations = () => {
                                 >
                                     Edit
                                 </TransparentButton>
-                                <TransparentButton style={{ minWidth: "7rem", backgroundColor: "#455d58" }}>Cancel</TransparentButton>
+                                <TransparentButton 
+                                    style={{ minWidth: "7rem", backgroundColor: "#455d58" }}
+                                    onClick={() => handleCancelSwitch(booking)}
+                                >
+                                    Cancel
+                                </TransparentButton>
                             </div>
                         }
                         style={{ margin: ".5rem" }}
@@ -88,9 +107,23 @@ const Reservations = () => {
                 ))}
                 {showEditBooking && (
                     <div className="overlay-r">
-                        <EditBooking booking={selectedBooking} handleExit={handleEditSwitch} onUpdate={handleUpdateBooking} />
+                        <EditBooking 
+                            booking={selectedBooking} 
+                            handleExit={handleEditSwitch} 
+                            onUpdate={handleUpdateBooking} 
+                        />
                     </div>
-                )}
+                )}{
+                    showCancelBooking && (
+                    <div className="overlay-r">
+                        <CancelBooking 
+                            booking={selectedBooking}  
+                            handleExit={handleCancelSwitch}
+                            onDeletion={handleCancelledBooking}
+                        />
+                    </div>
+                    )
+                }
             </Row>
         </Container>
     );
