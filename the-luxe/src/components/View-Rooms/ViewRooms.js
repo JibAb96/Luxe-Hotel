@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import StandardRoom from "../../images/double-room.jpg"
@@ -6,6 +6,7 @@ import DeluxeRoom from "../../images/deluxe-room.jpg"
 import Suite from "../../images/hotel-suite.jpg"
 import TransparentButton from "../Buttons/TransparentButton"
 import "./ViewRooms.css"
+import { ProfileContext } from '../../contexts/ProfileContext';
 
 const roomDetails = {
   standard: {
@@ -53,9 +54,13 @@ const roomDetails = {
   }
 };
 
-const ViewRooms = ({isSignedIn}) => {
+const ViewRooms = () => {
   const { roomType } = useParams();
+  
+  const { isSignedIn, profileData } = useContext(ProfileContext)
+
   const room = roomDetails[roomType];
+  
   useEffect(() => { window.scrollTo(0, 0); }, []);
  
   if (!room) {
@@ -93,7 +98,7 @@ const ViewRooms = ({isSignedIn}) => {
             ))}
           </ul>
           { isSignedIn ? 
-            <TransparentButton as={Link} to={"/book"} style={{backgroundColor:"#455d58"}}>Book Now</TransparentButton>
+            <TransparentButton as={Link} to={`/book/${profileData.id}`} style={{backgroundColor:"#455d58"}}>Book Now</TransparentButton>
           : <TransparentButton as={Link} to={"/signin"} style={{backgroundColor:"#455d58"}}>Book Now</TransparentButton>}
         </Col>
       </Row>
