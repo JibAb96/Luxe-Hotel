@@ -1,10 +1,15 @@
 const booking = async (req, res, pool) => {
-    const { id } = req.body;
+    const { id } = req.params;
     const {checkIn, checkOut, roomType, guests, price} = req.body;
 
     if(!id || !checkIn || !checkOut || !roomType || !guests || !price){
         console.log({userId, checkIn, checkOut, roomType, guests, price})
         return res.status(400).json("All fields need to be field out")
+    }
+
+    if (checkIn >= checkOut) {
+        res.status(400).json("Check-in date must be before check-out date.", "alert-danger");
+        return;
     }
 
     try{
