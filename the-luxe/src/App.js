@@ -1,8 +1,8 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 import RoomsPage from "./components/Rooms-Page/RoomsPage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Layout from "./components/Layout/Layout";
 import ViewRooms from "./components/View-Rooms/ViewRooms";
 import About from "./components/About/About";
