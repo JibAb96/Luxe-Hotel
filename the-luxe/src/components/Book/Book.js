@@ -31,7 +31,10 @@ const Book = () => {
         
         const checkInDate = new Date(checkIn);
         const checkOutDate = new Date(checkOut);
-
+    
+        const utcCheckIn = checkInDate.toISOString(); 
+        const utcCheckOut = checkOutDate.toISOString(); 
+        
         if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
             showAlertWithTimeout("Please provide valid dates.", "alert-danger");
             return;
@@ -45,8 +48,8 @@ const Book = () => {
         const price = prices[roomType] * calculateDaysBetween(checkIn, checkOut);
 
         const formData = { 
-                            checkIn: [checkIn.substring(0,10)], 
-                            checkOut: [checkOut.substring(0,10)], 
+                            checkIn: [utcCheckIn], 
+                            checkOut: [utcCheckOut], 
                             roomType, 
                             guests, 
                             price
