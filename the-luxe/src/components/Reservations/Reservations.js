@@ -8,46 +8,58 @@ import { AlertContext } from "../../contexts/Alert";
 import EditBooking from "../Edit-Booking/EditBooking";
 
 const Reservations = () => {
-
     const [bookings, setBookings] = useState([]);
     const [showEditBooking, setShowEditBooking] = useState(false);
     const [selectedBooking, setSelectedBooking] = useState(null);
 
     const { profileData } = useContext(ProfileContext)
-    const {showAlert, alertMessage, alertStyle} = useContext(AlertContext)
+    const { showAlert, alertMessage, alertStyle } = useContext(AlertContext)
 
-    useEffect(()  => {
-        if( !profileData.id ){ return }
-        const fetchBookings = async () =>  {
-        try {
-            const response = await fetch(`http://localhost:3000/reservations/${profileData.id}`)
-            if(!response.ok){
-                throw new Error("Failed to fetch bookings")
+    useEffect(() => {
+        if (!profileData.id) { return; }
+        const fetchBookings = async () => {
+            try {
+                const response = await fetch(`http://localhost:3000/reservations/${profileData.id}`)
+                if (!response.ok) {
+                    throw new Error("Failed to fetch bookings")
+                }
+                const data = await response.json();
+                const bookingsWithLocalDates = data.map(booking => ({
+                    ...booking,
+                    check_in: new Date(booking.check_in).toLocaleDateString(), 
+                    check_out: new Date(booking.check_out).toLocaleDateString(), 
+                }));
+                setBookings(bookingsWithLocalDates);
             }
-            const data = await response.json();
-            setBookings(data);
-            console.log(data)
+            catch (error) {
+                console.error(error);
+            }
         }
-        catch(error){
-            console.error(error)
-        }}
         fetchBookings();
     }, [profileData.id])
-    
+
+    // Callback function to update bookings
+    const handleUpdateBooking = (updatedBooking) => {
+        setBookings(prevBookings => prevBookings.map(booking =>
+            booking.id === updatedBooking.id ? updatedBooking : booking
+        ));
+        setShowEditBooking(false); // Close edit form
+    }
+
     const handleEditSwitch = (booking) => {
-        setSelectedBooking(booking)
-        setShowEditBooking(!showEditBooking)
+        setSelectedBooking(booking);
+        setShowEditBooking(!showEditBooking);
     }
 
     return (
-        <Container style={{padding: "1rem"}} fluid>
-            {showAlert &&  <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
+        <Container style={{ padding: "1rem" }} fluid>
+            {showAlert && <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
             <Row className="d-flex justify-content-center">
                 <h1 className="page-heading">Your Reservations</h1>
             </Row>
-            <Row className="d-flex justify-content-center" style={{padding: "2rem 0 7rem"}}>   
+            <Row className="d-flex justify-content-center" style={{ padding: "2rem 0 7rem" }}>
                 {bookings.map((booking, index) => (
-                    <TextCard 
+                    <TextCard
                         key={index}
                         titleClass={"heading"}
                         Title={booking.room_type}
@@ -59,26 +71,24 @@ const Reservations = () => {
                                 <p><span className="bold">Guests:</span> {booking.guests}</p>
                                 <p><span className="bold">Total-price:</span> €{booking.price}</p>
                             </>
-                            }
-                            Element={
-                                <div>
-                                    <TransparentButton 
-                                        style={{minWidth:"7rem", backgroundColor:"#455d58" }}
-                                        onClick={() => handleEditSwitch(booking)}
-                                    >
-                                                Edit
-                                    </TransparentButton>
-                                    <TransparentButton style={{minWidth:"7rem", backgroundColor:"#455d58" }}>Cancel</TransparentButton>
-                                </div>
-                            
-                            }   
-                            style={{margin: ".5rem"}}
-                        />
-        
+                        }
+                        Element={
+                            <div>
+                                <TransparentButton
+                                    style={{ minWidth: "7rem", backgroundColor: "#455d58" }}
+                                    onClick={() => handleEditSwitch(booking)}
+                                >
+                                    Edit
+                                </TransparentButton>
+                                <TransparentButton style={{ minWidth: "7rem", backgroundColor: "#455d58" }}>Cancel</TransparentButton>
+                            </div>
+                        }
+                        style={{ margin: ".5rem" }}
+                    />
                 ))}
                 {showEditBooking && (
                     <div className="overlay-r">
-                        <EditBooking booking={selectedBooking} handleExit={handleEditSwitch} />
+                        <EditBooking booking={selectedBooking} handleExit={handleEditSwitch} onUpdate={handleUpdateBooking} />
                     </div>
                 )}
             </Row>
