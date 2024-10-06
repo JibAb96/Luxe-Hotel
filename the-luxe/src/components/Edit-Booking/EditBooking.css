@@ -6,3 +6,14 @@
     color: #455d58;
     border: #455d58 5px solid;
 }
+.x-button {
+    background: none;
+    border: none;
+    font-size: 2.3rem;
+    color: #455d58;
+    cursor: pointer;
+}
+
+.x-button:hover {
+    color: #ff7875;
+}
