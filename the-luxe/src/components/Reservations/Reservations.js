@@ -1,15 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Alert } from "react-bootstrap";
 import TextCard from "../Cards/TextCard";
 import "./Reservations.css"
 import TransparentButton from "../Buttons/TransparentButton";
 import { ProfileContext } from "../../contexts/ProfileContext";
+import { AlertContext } from "../../contexts/Alert";
+import EditBooking from "../Edit-Booking/EditBooking";
 
 const Reservations = () => {
 
     const [bookings, setBookings] = useState([]);
+    const [showEditBooking, setShowEditBooking] = useState(false);
+    const [selectedBooking, setSelectedBooking] = useState(null);
 
     const { profileData } = useContext(ProfileContext)
+    const {showAlert, alertMessage, alertStyle} = useContext(AlertContext)
+
     useEffect(()  => {
         if( !profileData.id ){ return }
         const fetchBookings = async () =>  {
@@ -20,21 +26,26 @@ const Reservations = () => {
             }
             const data = await response.json();
             setBookings(data);
+            console.log(data)
         }
         catch(error){
             console.error(error)
         }}
         fetchBookings();
-    }, [profileData.id, bookings])
+    }, [profileData.id])
     
+    const handleEditSwitch = (booking) => {
+        setSelectedBooking(booking)
+        setShowEditBooking(!showEditBooking)
+    }
 
     return (
         <Container style={{padding: "1rem"}} fluid>
-            {console.log("Bookings:", bookings)}
+            {showAlert &&  <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
             <Row className="d-flex justify-content-center">
                 <h1 className="page-heading">Your Reservations</h1>
-             </Row>
-             <Row className="d-flex justify-content-center" style={{padding: "2rem 0 7rem"}}>   
+            </Row>
+            <Row className="d-flex justify-content-center" style={{padding: "2rem 0 7rem"}}>   
                 {bookings.map((booking, index) => (
                     <TextCard 
                         key={index}
@@ -43,23 +54,33 @@ const Reservations = () => {
                         Text={
                             <>
                                 <p><span className="bold">Booking Id:</span> {booking.id}</p>
-                                <p><span className="bold">Check-In</span>: {booking.check_in.substring(0,10)}</p>
-                                <p><span className="bold">Check-Out:</span> {booking.check_out.substring(0,10)}</p>
+                                <p><span className="bold">Check-In:</span> {new Date(booking.check_in).toLocaleDateString('sv-SE')}</p>
+                                <p><span className="bold">Check-Out:</span> {new Date(booking.check_out).toLocaleDateString('sv-SE')}</p>
                                 <p><span className="bold">Guests:</span> {booking.guests}</p>
                                 <p><span className="bold">Total-price:</span> €{booking.price}</p>
                             </>
                             }
                             Element={
                                 <div>
-                                    <TransparentButton style={{minWidth:"7rem", backgroundColor:"#455d58" }}>Edit</TransparentButton>
+                                    <TransparentButton 
+                                        style={{minWidth:"7rem", backgroundColor:"#455d58" }}
+                                        onClick={() => handleEditSwitch(booking)}
+                                    >
+                                                Edit
+                                    </TransparentButton>
                                     <TransparentButton style={{minWidth:"7rem", backgroundColor:"#455d58" }}>Cancel</TransparentButton>
                                 </div>
                             
                             }   
                             style={{margin: ".5rem"}}
                         />
-                    
+        
                 ))}
+                {showEditBooking && (
+                    <div className="overlay-r">
+                        <EditBooking booking={selectedBooking} handleExit={handleEditSwitch} />
+                    </div>
+                )}
             </Row>
         </Container>
     );
