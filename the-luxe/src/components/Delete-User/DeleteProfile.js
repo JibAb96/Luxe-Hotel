@@ -21,7 +21,7 @@ const DeleteProfile = ({ handleExit }) => {
     const deleteUser = async () => {    
         console.log("before setting is Signed in", isSignedIn)
         try {
-            const response = await fetch(`http://localhost:3000/profile/${userId}`, {
+            const response = await fetch(`http://localhost:3000/delete-profile/${userId}`, {
                 method: "DELETE"
             })
 
