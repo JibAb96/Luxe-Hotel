@@ -39,7 +39,7 @@ const Navigation = () => {
                 <NavDropdown.Item as={Link} to={`/reservations/${profileData ? profileData.id : ""}`}>
                   Reservations 
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={`/logout/${profileData ? profileData.id : ""}`}>
+                <NavDropdown.Item as={Link} to={"/logout"}>
                   Logout 
                 </NavDropdown.Item>
               </>
