@@ -45,8 +45,8 @@ const UpdateProfile = ({ handleExit }) => {
         const formData = { firstName, lastName, phone, address, city, country, postalCode, dob };
 
         try {
-            const response = await fetch(`http://localhost:3000/profile/${userId}`, {
-                method: "POST",
+            const response = await fetch(`http://localhost:3000/update-profile/${userId}`, {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
