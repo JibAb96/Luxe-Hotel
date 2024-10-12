@@ -13,9 +13,10 @@ const Reservations = () => {
     const [showEditBooking, setShowEditBooking] = useState(false);
     const [showCancelBooking, setShowCancelBooking] = useState(false);
     const [selectedBooking, setSelectedBooking] = useState(null);
+    const [haveReservations, setHaveReservations] = useState(false);
 
-    const { profileData } = useContext(ProfileContext)
-    const { showAlert, alertMessage, alertStyle } = useContext(AlertContext)
+    const { profileData } = useContext(ProfileContext);
+    const { showAlert, alertMessage, alertStyle } = useContext(AlertContext);
 
     useEffect(() => {
         if (!profileData.id) { return; }
@@ -32,13 +33,15 @@ const Reservations = () => {
                     check_out: new Date(booking.check_out).toLocaleDateString(), 
                 }));
                 setBookings(bookingsWithLocalDates);
+                setHaveReservations(bookingsWithLocalDates.length > 0)
             }
             catch (error) {
                 console.error(error);
+                setHaveReservations(false)
             }
         }
         fetchBookings();
-    }, [profileData.id])
+    }, [profileData.id, haveReservations])
 
     // Callback function to update bookings
     const handleUpdateBooking = (updatedBooking) => {
@@ -49,11 +52,10 @@ const Reservations = () => {
     }
 
     const handleCancelledBooking = (deleteBooking) => {
-        console.log(bookings)
-        console.log(deleteBooking.id)
         const updatedBookings = bookings.filter(booking => booking.id !== deleteBooking.id)
         setBookings(updatedBookings)
-        console.log(updatedBookings)
+        if(!updatedBookings.length > 0){setHaveReservations(false)}
+        console.log("inside:", haveReservations)
     }
 
     const handleEditSwitch = (booking) => {
@@ -64,13 +66,14 @@ const Reservations = () => {
         setSelectedBooking(booking);
         setShowCancelBooking(!showCancelBooking);
     }
-
+    console.log("outside:", haveReservations)
     return (
         <Container style={{ padding: "1rem" }} fluid>
             {showAlert && <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
             <Row className="d-flex justify-content-center">
                 <h1 className="page-heading">Your Reservations</h1>
             </Row>
+            { haveReservations ?
             <Row className="d-flex justify-content-center" style={{ padding: "2rem 0 7rem" }}>
                 {bookings.map((booking, index) => (
                     <TextCard
@@ -103,7 +106,7 @@ const Reservations = () => {
                             </div>
                         }
                         style={{ margin: ".5rem" }}
-                    />
+                    /> 
                 ))}
                 {showEditBooking && (
                     <div className="overlay-r">
@@ -124,7 +127,11 @@ const Reservations = () => {
                     </div>
                     )
                 }
-            </Row>
+            </Row> : 
+            <div className="text-center p-5 m-5" > 
+                <p>You don't have any reservations.</p>
+                <p>Check out our rooms and book your stay <a href="http://localhost:3001/rooms">here</a>.</p>
+            </div>}
         </Container>
     );
 };
