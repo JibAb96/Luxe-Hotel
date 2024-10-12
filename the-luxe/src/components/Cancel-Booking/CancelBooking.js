@@ -41,7 +41,7 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
                         >
                         &times;
                 </button>            
-                <h1 className="delete-booking--title">Cancel Reservation</h1>
+                <h1 className="delete-booking-title">Cancel Reservation</h1>
                 <p className="delete-booking-p">Are you sure you want to delete your 
                     <span className="bold"> Reservation</span>?</p>
                 <Row>
