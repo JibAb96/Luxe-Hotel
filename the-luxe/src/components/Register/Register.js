@@ -81,7 +81,7 @@ const Register = () => {
 
     
     const handleSubmit = async (e) => { 
-        
+
         e.preventDefault();
         
         const isEmailValid = validateEmail(email);
