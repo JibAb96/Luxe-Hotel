@@ -91,6 +91,8 @@ const SignIn = () => {
                         <Button
                             className="text-muted px-0"
                             variant="link"
+                            as={Link}
+                            to={"/forgot-password"}
                         >
                             Forgot password?
                         </Button>
