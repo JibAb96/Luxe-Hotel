@@ -104,7 +104,7 @@ const Book = () => {
                             required
                         >
                             <option></option>
-                            <option value="standard">STANDARD || Bed: DOUBLE - Guests: 4 || Price: €120</option>
+                            <option value="standard">STANDARD || Bed: DOUBLE - Guests: 2 || Price: €120</option>
                             <option value="deluxe">DELUXE || Bed: QUEEN - Guests: 2 || Price: €150</option>
                             <option value="suite">SUITE ||Bed: KING - Guests: 4 || Price: €200</option>
                         </Form.Select>
