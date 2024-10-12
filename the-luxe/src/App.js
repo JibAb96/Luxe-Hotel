@@ -15,6 +15,8 @@ import Profile from "./components/Profile/Profile";
 import Reservations from "./components/Reservations/Reservations";
 import { AlertProvider } from "./contexts/Alert";
 import { ProfileProvider } from "./contexts/ProfileContext";
+import ForgotPassword from "./components/Forgot-Password/ForgotPassword";
+import ResetPassword from "./components/Reset-Password/ResetPassword";
 
 
 const App = () => {
@@ -35,6 +37,8 @@ const App = () => {
               <Route path="/logout" element={<LogOut/>} /> 
               <Route path="/profile/:id" element={<Profile/>} />
               <Route path="/reservations/:id" element={<Reservations/>} />
+              <Route path="/forgot-password" element={<ForgotPassword/>} />
+              <Route path="/reset-password/:id" element={<ResetPassword/>} />
             </Routes>
           </Layout>
         </ProfileProvider>
