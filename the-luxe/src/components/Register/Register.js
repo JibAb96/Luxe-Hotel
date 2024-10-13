@@ -111,8 +111,10 @@ const Register = () => {
             dobDate
         };
 
+        const apiURL = process.env.REACT_APP_API_BASE_URL
+
         try {
-            const response = await fetch("http://localhost:3000/register", {
+            const response = await fetch(`${apiURL}/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
