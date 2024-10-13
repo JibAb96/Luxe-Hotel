@@ -18,7 +18,7 @@ const Footer = () => {
                 <Col xs={12} md={4} >
                     <h3 className="footer-h">Contact us</h3>
                     <p className="text">
-                        Email: theluxehotel@gmail.com<br/>
+                        Email: officialluxehotel@gmail.com<br/>
                         Phone: +35272345092 <br/>
                         Address: 12 Rue Jean Engling, 1466 Dommeldange Luxembourg
                     </p>
