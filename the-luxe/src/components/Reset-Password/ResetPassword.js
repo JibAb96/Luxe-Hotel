@@ -26,8 +26,10 @@ const ResetPassword = () => {
             return;
         }
 
+        const apiURL = process.env.REACT_APP_API_BASE_URL
+
         try{
-            const response = await fetch(`http://localhost:3000/reset-password/${id}`, {
+            const response = await fetch(`${apiURL}/reset-password/${id}`, {
                 method: "PUT",
                 headers:{
                     "Content-Type": "application/json"
