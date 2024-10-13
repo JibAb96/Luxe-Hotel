@@ -70,8 +70,11 @@ const EditBooking = ({ booking, handleExit, onUpdate }) => {
             guests, 
             price 
         };
+
+        const apiURL = process.env.REACT_APP_API_BASE_URL
+
         try {
-            const response = await fetch(`http://localhost:3000/edit-booking/${booking.id}`, {
+            const response = await fetch(`${apiURL}/edit-booking/${booking.id}`, {
                 method: "PUT",
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify(formData)
