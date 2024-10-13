@@ -19,11 +19,13 @@ const ForgotPassword = () => {
     
         const validateEmail = (email) => emailRegex.test(email);
         
+        const apiURL = process.env.REACT_APP_API_BASE_URL
+
         try{
             if(!validateEmail(email)){
                 return showAlertWithTimeout("Invalid email format", "alert-danger")
             }
-            const response = await fetch("http://localhost:3000/forgot-password", {
+            const response = await fetch(`${apiURL}/forgot-password`, {
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json"
