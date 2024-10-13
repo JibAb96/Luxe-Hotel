@@ -8,7 +8,7 @@ const booking = async (req, res, pool) => {
     }
 
     if (checkIn >= checkOut) {
-        res.status(400).json("Check-in date must be before check-out date.", "alert-danger");
+        res.status(400).json("Check-in date must be before check-out date." );
         return;
     }
 
