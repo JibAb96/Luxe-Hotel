@@ -5,6 +5,7 @@ import "./Book.css"
 import FormInput from '../Form/Input';
 import { ProfileContext } from '../../contexts/ProfileContext';
 import { AlertContext } from '../../contexts/Alert';
+import { useNavigate } from 'react-router-dom';
 
 const Book = () => {
     
@@ -15,6 +16,8 @@ const Book = () => {
     
     const { profileData } = useContext(ProfileContext);
     const { showAlertWithTimeout, showAlert, alertMessage, alertStyle } = useContext(AlertContext);
+
+    const navigate = useNavigate();
 
     const setChange = (e, setState) => {
         setState(e.target.value )
@@ -54,9 +57,10 @@ const Book = () => {
                             guests, 
                             price
                         };
-        console.log(formData)
+        
+        const apiURL = process.env.REACT_APP_API_BASE_URL
         try {
-            const response = await fetch(`http://localhost:3000/book/${profileData.id}`, {
+            const response = await fetch(`${apiURL}/book/${profileData.id}`, {
                 method: "POST",
                 headers:{
                     "Content-type" : "application/json"
@@ -65,7 +69,8 @@ const Book = () => {
             });
 
             const data = await response.json();
-            if(data){
+            if(data && data.id){
+                navigate(`/confirm-booking/${data.id}`)
                 showAlertWithTimeout("Your booking was successful!", "alert-success")               
             } else{
                 showAlertWithTimeout("There was an error making your booking.", "alert-danger")               
