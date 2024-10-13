@@ -4,7 +4,7 @@ export const ProfileContext = createContext();
 
 export const ProfileProvider = ({children}) => {
     const [profileData, setProfileData] = useState(null);
-    const[isSignedIn, setIsSignedIn] = useState(() => {
+    const [isSignedIn, setIsSignedIn] = useState(() => {
         return JSON.parse(localStorage.getItem("isSignedIn")) || false;
       });
     
