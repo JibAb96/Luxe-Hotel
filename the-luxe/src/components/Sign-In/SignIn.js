@@ -20,8 +20,10 @@ const SignIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
+        const apiURL = process.env.REACT_APP_API_BASE_URL
+
         try {
-            const response = await fetch("http://localhost:3000/signin", {
+            const response = await fetch(`${apiURL}/signin`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
