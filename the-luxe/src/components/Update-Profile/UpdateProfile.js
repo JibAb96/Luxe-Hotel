@@ -44,8 +44,10 @@ const UpdateProfile = ({ handleExit }) => {
 
         const formData = { firstName, lastName, phone, address, city, country, postalCode, dob };
 
+        const apiURL = process.env.REACT_APP_API_BASE_URL
+
         try {
-            const response = await fetch(`http://localhost:3000/update-profile/${userId}`, {
+            const response = await fetch(`${apiURL}/update-profile/${userId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
