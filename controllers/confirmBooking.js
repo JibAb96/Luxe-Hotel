@@ -5,7 +5,7 @@ const confirmBookings = async (req, res, pool) => {
         if (!data.rows.length > 0){
             return res.status(500).json({message: "Booking doesn't exist"})
         }
-        res.json(data)
+        res.json(data.rows[0])
     } 
     catch (error){
         res.status(500).json({message: "Server Error"})
