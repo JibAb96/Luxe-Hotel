@@ -7,8 +7,10 @@ import { ProfileContext } from "../../contexts/ProfileContext";
 import { AlertContext } from "../../contexts/Alert";
 import EditBooking from "../Edit-Booking/EditBooking";
 import CancelBooking from "../Cancel-Booking/CancelBooking";
-
+import Loader from "../Spinner/Spinner";
 const Reservations = () => {
+
+    const [loading, setLoading] = useState(true);
     const [bookings, setBookings] = useState([]);
     const [showEditBooking, setShowEditBooking] = useState(false);
     const [showCancelBooking, setShowCancelBooking] = useState(false);
@@ -21,8 +23,11 @@ const Reservations = () => {
     useEffect(() => {
         if (!profileData.id) { return; }
         const fetchBookings = async () => {
+            
+            const apiURL = process.env.REACT_APP_API_BASE_URL
+            
             try {
-                const response = await fetch(`http://localhost:3000/reservations/${profileData.id}`)
+                const response = await fetch(`${apiURL}/reservations/${profileData.id}`)
                 if (!response.ok) {
                     throw new Error("Failed to fetch bookings")
                 }
@@ -38,6 +43,8 @@ const Reservations = () => {
             catch (error) {
                 console.error(error);
                 setHaveReservations(false)
+            } finally {
+                setLoading(false)
             }
         }
         fetchBookings();
@@ -66,14 +73,32 @@ const Reservations = () => {
         setSelectedBooking(booking);
         setShowCancelBooking(!showCancelBooking);
     }
-    console.log("outside:", haveReservations)
+
+    if(loading){
+        return(
+        <Loader />
+        )
+    }
+
+    if(!haveReservations){
+        return(
+            <Container> 
+                    <Row className="d-flex justify-content-center">
+                        <h1 className="page-heading">Your Reservations</h1>
+                    </Row>
+                    <div className="text-center p-5 m-5">
+                        <p>You don't have any reservations.</p>
+                        <p>Check out our rooms and book your stay <a href="http://localhost:3001/rooms">here</a>.</p>
+                    </div>
+            </Container>
+        )
+    }
     return (
         <Container style={{ padding: "1rem" }} fluid>
             {showAlert && <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
             <Row className="d-flex justify-content-center">
                 <h1 className="page-heading">Your Reservations</h1>
             </Row>
-            { haveReservations ?
             <Row className="d-flex justify-content-center" style={{ padding: "2rem 0 7rem" }}>
                 {bookings.map((booking, index) => (
                     <TextCard
@@ -127,11 +152,7 @@ const Reservations = () => {
                     </div>
                     )
                 }
-            </Row> : 
-            <div className="text-center p-5 m-5" > 
-                <p>You don't have any reservations.</p>
-                <p>Check out our rooms and book your stay <a href="http://localhost:3001/rooms">here</a>.</p>
-            </div>}
+            </Row> 
         </Container>
     );
 };
