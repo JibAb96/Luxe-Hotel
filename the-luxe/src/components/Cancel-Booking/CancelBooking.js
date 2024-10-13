@@ -8,9 +8,10 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
      
     const {showAlertWithTimeout} = useContext(AlertContext);
     
-    const deleteBooking = async () => {    
+    const deleteBooking = async () => {
+        const apiURL = process.env.REACT_APP_API_BASE_URL    
         try {
-            const response = await fetch(`http://localhost:3000/delete-booking/${booking.id}`, {
+            const response = await fetch(`${apiURL}/delete-booking/${booking.id}`, {
                 method: "DELETE"
             })
             const data = await response.json();
@@ -42,7 +43,7 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
                         &times;
                 </button>            
                 <h1 className="delete-booking-title">Cancel Reservation</h1>
-                <p className="delete-booking-p">Are you sure you want to delete your 
+                <p>Are you sure you want to delete your 
                     <span className="bold"> Reservation</span>?</p>
                 <Row>
                     <TransparentButton 
@@ -59,7 +60,7 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
                     </TransparentButton>
                 </Row>
                 <h1 className="delete-booking-title"> We are sorry to see you go!</h1>
-                <p className="delete-booking-p">If there is anything we can do to assist
+                <p>If there is anything we can do to assist
                      you in the future, please don't hesitate to reach out.</p>
             </Container>
         </>
