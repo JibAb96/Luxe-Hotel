@@ -2,15 +2,14 @@ import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Alert } from "react-bootstrap";
 import { AlertContext } from "../../contexts/Alert";
 import "./DeleteProfile.css"
 import { ProfileContext } from "../../contexts/ProfileContext";
 
 const DeleteProfile = ({ handleExit }) => {
      
-    const {setAlertMessage, setShowAlert, setAlertStyle, alertMessage, showAlert, alertStyle} = useContext(AlertContext);
-    const { setIsSignedIn, isSignedIn } = useContext(ProfileContext);
+    const {showAlerWithTimeout} = useContext(AlertContext);
+    const { setIsSignedIn } = useContext(ProfileContext);
     
     const location = useLocation();
     const navigate = useNavigate();
@@ -19,9 +18,11 @@ const DeleteProfile = ({ handleExit }) => {
 
 
     const deleteUser = async () => {    
-        console.log("before setting is Signed in", isSignedIn)
+
+        const apiURL = process.env.REACT_APP_API_BASE_URL
+
         try {
-            const response = await fetch(`http://localhost:3000/delete-profile/${userId}`, {
+            const response = await fetch(`${apiURL}/delete-profile/${userId}`, {
                 method: "DELETE"
             })
 
@@ -29,40 +30,22 @@ const DeleteProfile = ({ handleExit }) => {
             if(data === "Profile and login deleted successfully"){
                 setIsSignedIn(false);
                 navigate("/");
-                setAlertMessage("You have successfully deleted your profile!");
-                setShowAlert(true);
-                setAlertStyle("alert-success");
-                setTimeout(() => {
-                    setShowAlert(false);
-                }, 2000);
+                showAlerWithTimeout("You have successfully deleted your profile!","alert-success")
                 localStorage.removeItem("profileData");
             } else{
-                setAlertMessage("An error occurred. Please try again.");
-                setAlertStyle("alert-danger");
-                setShowAlert(true);
-                setTimeout(() => {
-                    setShowAlert(false);
-                }, 2000);
+                showAlerWithTimeout("An error occurred. Please try again.", "alert-danger")
             }
         }
         catch (error){
             console.error(error.message)
             console.error("Error logging in:", error);
-            setAlertMessage("An error occurred. Please try again.");
-            setAlertStyle("alert-danger");
-            setShowAlert(true);
-    
-            setTimeout(() => {
-                setShowAlert(false);
-            }, 2000);
+            showAlerWithTimeout("An error occurred. Please try again.", "alert-danger");
         }
         
     }
     
     return (
         <>
-            {showAlert &&  <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
-            
             <Container className="deleteProfile" fluid>
             <button 
                         type="button" 
