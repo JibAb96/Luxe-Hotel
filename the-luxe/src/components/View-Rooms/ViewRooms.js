@@ -7,6 +7,8 @@ import Suite from "../../images/hotel-suite.jpg"
 import TransparentButton from "../Buttons/TransparentButton"
 import "./ViewRooms.css"
 import { ProfileContext } from '../../contexts/ProfileContext';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const roomDetails = {
   standard: {
@@ -76,7 +78,13 @@ const ViewRooms = () => {
     <Container style={{ padding: "2rem" }} fluid>
       <Row className='outer'>
         <Col md={6}>
-          <Card >
+          <a href="/rooms">  
+            <FontAwesomeIcon 
+              icon={faArrowLeft} 
+              style={{fontSize: "1.5rem", margin: "1rem", color: "#455d58"}}
+              />
+          </a>
+          <Card>
             <Card.Img variant="top" src={room.image} />
           </Card>
         </Col>
