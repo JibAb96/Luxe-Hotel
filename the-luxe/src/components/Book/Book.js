@@ -34,7 +34,10 @@ const Book = () => {
         
         const checkInDate = new Date(checkIn);
         const checkOutDate = new Date(checkOut);
-    
+
+        const currentDate = new Date();
+        currentDate.setHours(0,0,0,0);
+
         const utcCheckIn = checkInDate.toISOString(); 
         const utcCheckOut = checkOutDate.toISOString(); 
         
@@ -45,6 +48,22 @@ const Book = () => {
 
         if (checkInDate >= checkOutDate) {
             showAlertWithTimeout("Check-in date must be before check-out date.", "alert-danger");
+            return;
+        }
+
+        if(checkInDate < currentDate){
+            showAlertWithTimeout("Check-in date cannot be in the past", "alert-danger");
+            return;
+        }
+        
+        if((roomType === "deluxe" || roomType === "standard") && guests > 2){
+            showAlertWithTimeout("Maximum guests for selected room is 2", "alert-danger");
+            return;
+        } else if( guests > 4){
+            showAlertWithTimeout("Maximum guests for the suite is 4", "alert-danger");
+            ;
+        } else if(guests <= 0){
+            showAlertWithTimeout("Please state how many guests this booking is for", "alert-danger");
             return;
         }
 
