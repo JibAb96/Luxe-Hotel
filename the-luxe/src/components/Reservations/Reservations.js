@@ -8,6 +8,8 @@ import { AlertContext } from "../../contexts/Alert";
 import EditBooking from "../Edit-Booking/EditBooking";
 import CancelBooking from "../Cancel-Booking/CancelBooking";
 import Loader from "../Spinner/Spinner";
+import { format, parseISO } from 'date-fns'; 
+
 const Reservations = () => {
 
     const [loading, setLoading] = useState(true);
@@ -32,13 +34,8 @@ const Reservations = () => {
                     throw new Error("Failed to fetch bookings")
                 }
                 const data = await response.json();
-                const bookingsWithLocalDates = data.map(booking => ({
-                    ...booking,
-                    check_in: new Date(booking.check_in).toLocaleDateString(), 
-                    check_out: new Date(booking.check_out).toLocaleDateString(), 
-                }));
-                setBookings(bookingsWithLocalDates);
-                setHaveReservations(bookingsWithLocalDates.length > 0)
+                setBookings(data);
+                setHaveReservations(data.length > 0)
             }
             catch (error) {
                 console.error(error);
@@ -82,7 +79,8 @@ const Reservations = () => {
 
     if(!haveReservations){
         return(
-            <Container> 
+            <Container>
+                    {showAlert && <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>} 
                     <Row className="d-flex justify-content-center">
                         <h1 className="page-heading">Your Reservations</h1>
                     </Row>
@@ -93,6 +91,13 @@ const Reservations = () => {
             </Container>
         )
     }
+    
+    const formatDate = (dateString) => {
+        const date = parseISO(dateString);
+        return format(date, 'yyyy-MM-dd');
+    };
+
+    
     return (
         <Container style={{ padding: "1rem" }} fluid>
             {showAlert && <Alert className={`alert ${alertStyle}`} role="alert">{alertMessage}</Alert>}
@@ -108,8 +113,8 @@ const Reservations = () => {
                         Text={
                             <>
                                 <p><span className="bold">Booking Id:</span> {booking.id}</p>
-                                <p><span className="bold">Check-In:</span> {new Date(booking.check_in).toLocaleDateString('sv-SE')}</p>
-                                <p><span className="bold">Check-Out:</span> {new Date(booking.check_out).toLocaleDateString('sv-SE')}</p>
+                                <p><span className="bold">Check-In:</span> {formatDate(booking.check_in)}</p>
+                                <p><span className="bold">Check-Out:</span> {formatDate(booking.check_out)}</p>
                                 <p><span className="bold">Guests:</span> {booking.guests}</p>
                                 <p><span className="bold">Total-price:</span> €{booking.price}</p>
                             </>
