@@ -36,7 +36,7 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
             <Container className="delete-booking" fluid>
                 <button 
                             type="button" 
-                            className="exit-button" 
+                            className="leave-button" 
                             onClick={handleExit} 
                             aria-label="Close"
                         >
