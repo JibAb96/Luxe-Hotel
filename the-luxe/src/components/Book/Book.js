@@ -6,6 +6,9 @@ import FormInput from '../Form/Input';
 import { ProfileContext } from '../../contexts/ProfileContext';
 import { AlertContext } from '../../contexts/Alert';
 import { useNavigate } from 'react-router-dom';
+import { parseISO, formatISO} from "date-fns"
+
+const prices = {standard: 120, deluxe: 150, suite: 200};
 
 const Book = () => {
     
@@ -19,54 +22,57 @@ const Book = () => {
 
     const navigate = useNavigate();
 
-    const setChange = (e, setState) => {
-        setState(e.target.value )
-    }
     useEffect(() => { window.scrollTo(0, 0) }, [])
-
-    const prices = {standard: 120, deluxe: 150, suite: 200};
     
     const calculateDaysBetween = (checkIn, checkOut) => 
         (new Date(checkOut) - new Date(checkIn)) / (1000 * 3600 * 24);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        const checkInDate = new Date(checkIn);
-        const checkOutDate = new Date(checkOut);
-
+    const validateForm = (checkIn, checkOut, roomType, guests) => {
         const currentDate = new Date();
         currentDate.setHours(0,0,0,0);
-
-        const utcCheckIn = checkInDate.toISOString(); 
-        const utcCheckOut = checkOutDate.toISOString(); 
         
-        if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
+        if (isNaN(checkIn.getTime()) || isNaN(checkOut.getTime())) {
             showAlertWithTimeout("Please provide valid dates.", "alert-danger");
-            return;
+            return false;
         }
 
-        if (checkInDate >= checkOutDate) {
+        if (checkIn >= checkOut) {
             showAlertWithTimeout("Check-in date must be before check-out date.", "alert-danger");
-            return;
+            return false;
         }
 
-        if(checkInDate < currentDate){
+        if(checkIn < currentDate){
             showAlertWithTimeout("Check-in date cannot be in the past", "alert-danger");
-            return;
+            return false;
         }
         
         if((roomType === "deluxe" || roomType === "standard") && guests > 2){
             showAlertWithTimeout("Maximum guests for selected room is 2", "alert-danger");
-            return;
+            return false;
         } else if( guests > 4){
             showAlertWithTimeout("Maximum guests for the suite is 4", "alert-danger");
-            ;
+            return false;
         } else if(guests <= 0){
             showAlertWithTimeout("Please state how many guests this booking is for", "alert-danger");
-            return;
+            return false;
         }
+        
+        return true;
+    }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const checkInDate = checkIn ? parseISO(checkIn) : null;
+        const checkOutDate = checkOut ? parseISO(checkOut) : null;
+
+        const utcCheckIn = formatISO(checkInDate);
+        const utcCheckOut = formatISO(checkOutDate);
+        
+        if(!validateForm(checkInDate, checkOutDate, roomType, guests)){
+            return
+        }
+            
         const price = prices[roomType] * calculateDaysBetween(checkIn, checkOut);
 
         const formData = { 
@@ -110,13 +116,13 @@ const Book = () => {
                     <FormInput 
                         label={"Check-in"} 
                         type={"date"}
-                        onChange={(e) => setChange(e, setCheckIn)}  
+                        onChange={(e) => setCheckIn(e.target.value)}  
                         required
                     />
-                   <FormInput 
+                    <FormInput 
                         label={"Check-out"} 
                         type={"date"} 
-                        onChange={(e) => setChange(e, setCheckOut)}  
+                        onChange={(e) => setCheckOut(e.target.value)}  
                         required
                     />
                     <Form.Group className="mb-2" controlId="Room-Type">
@@ -124,7 +130,7 @@ const Book = () => {
                         <Form.Select 
                             aria-label="Room-Type" 
                             as="select" 
-                            onChange={(e) => setChange(e,setRoomType)}
+                            onChange={(e) => setRoomType(e.target.value)}
                             required
                         >
                             <option></option>
@@ -136,7 +142,7 @@ const Book = () => {
                     <FormInput 
                         label={"Guests"} 
                         type={"number"}
-                        onChange={(e) => setChange(e, setGuests)}  
+                        onChange={(e) => setGuests(Number(e.target.value))}  
                         required    />
                     <Row className="d-flex justify-content-center">
                         <TransparentButton type="submit" style={{
@@ -151,7 +157,5 @@ const Book = () => {
         </div>
   );
 };
-
-
 
 export default Book;
