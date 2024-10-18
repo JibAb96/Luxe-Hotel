@@ -1,21 +1,21 @@
-.about{
-    padding: 7rem 0;
+.about {
+  padding: 7rem 0;
 }
-.about-us{
-    color: #455d58;
-    padding-top: 3rem;
-    letter-spacing: .2rem;
-    text-align: center;
+.about-us {
+  color: #455d58;
+  padding-top: 3rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
 }
-.about-us-p{
-    color: #455d58;
-    max-width: 40rem;
-    padding-top: 2rem;
-    padding-left: 2rem;
-    color: #455d58;
-    font-weight: 350;
+.about-us-p {
+  color: #455d58;
+  max-width: 40rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  color: #455d58;
+  font-weight: 350;
 }
-.about-img{
-    max-height: 20rem;
-    object-fit: cover;
+.about-img {
+  max-height: 20rem;
+  object-fit: cover;
 }

@@ -1,35 +1,35 @@
-.profile-title{
-    color: #455d58;
-    padding-bottom: 3rem;
-    letter-spacing: .2rem;
-    text-align: center;
+.profile-title {
+  color: #455d58;
+  padding-bottom: 3rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
 }
-.titleClass{
-    font-size: 2.3rem;
-    font-weight: 650;
-    padding-bottom: 2rem;
+.titleClass {
+  font-size: 2.3rem;
+  font-weight: 650;
+  padding-bottom: 2rem;
 }
 
-.bold{
-    font-weight: 650;
-    color: black;
+.bold {
+  font-weight: 650;
+  color: black;
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .overlay > * {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
 }

@@ -1,25 +1,25 @@
-.text-card{
-    color: #455d58;
-    border: 2px solid #455d58;
+.text-card {
+  color: #455d58;
+  border: 2px solid #455d58;
 }
 
 .text-card:hover {
-    transform: scale(1.03);
-    transition: transform 0.3s ease;
-  }
-  
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
 .text-card .card-text {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
 .structure-card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .elements-container {
-    display: flex;
-    justify-content: center;
-    margin-top: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
 }

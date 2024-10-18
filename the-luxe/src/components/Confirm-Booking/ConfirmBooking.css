@@ -1,22 +1,22 @@
-.confirm-booking{
-    margin: 5rem auto 7rem;
-    width: 80vw;
-    max-width: 90vw;  
-    max-height: 80vh; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.confirm-booking {
+  margin: 5rem auto 7rem;
+  width: 80vw;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.confirm-booking-title{
-    color: #455d58;
-    letter-spacing: .2rem;
-    margin-top: 2rem;
-    font-weight: 600;
-    font-size: 2rem;
-    text-align: center;
+.confirm-booking-title {
+  color: #455d58;
+  letter-spacing: 0.2rem;
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
 }
-.bold{
-    font-weight: 700;
+.bold {
+  font-weight: 700;
 }

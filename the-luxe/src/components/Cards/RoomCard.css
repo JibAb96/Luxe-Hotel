@@ -1,23 +1,21 @@
-.room-option{
+.room-option {
   transition: transform 0.3s ease;
 }
 
 .room-option:hover {
-    transform: scale(1.03);
-    transition: transform 0.3s ease;
-  }
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
 
 .room-option-body {
-    min-height: 20rem;
-    background-color: #455d58;
-    color: aliceblue;
-  }
-
-
+  min-height: 20rem;
+  background-color: #455d58;
+  color: aliceblue;
+}
 
 @media (max-width: 768px) {
-  .room-option:hover{
-    transition:none;
+  .room-option:hover {
+    transition: none;
     transform: none;
   }
 }

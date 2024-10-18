@@ -1,51 +1,49 @@
 .custom-navbar {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    background-color: transparent;
-    padding: 0.5rem 1rem;
-    color:#455d58;
-    margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  color: #455d58;
+  margin-top: 0.3rem;
 }
 
 .custom-navbar .logo {
-    font-size: 1.5rem;
-    color: #455d58;
+  font-size: 1.5rem;
+  color: #455d58;
 }
 
-
 .nav-links {
-    display: flex;
-    align-items: center; 
-    font-size: small;
+  display: flex;
+  align-items: center;
+  font-size: small;
 }
 
 .nav-item {
-    margin: 0 2rem; 
-    letter-spacing: .1rem;
+  margin: 0 2rem;
+  letter-spacing: 0.1rem;
 }
 
 .navbar-nav .nav-link.book {
-    display: flex;
-    width: 6rem;
-    height: 3rem;
-    justify-content: center;
-    align-items: center;
-    border: .2rem solid transparent;
-    background-color: #455d58;
-    color: whitesmoke;
-    transition: all .3s ease;
-    letter-spacing: 1px;
-    box-sizing: border-box;
+  display: flex;
+  width: 6rem;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  border: 0.2rem solid transparent;
+  background-color: #455d58;
+  color: whitesmoke;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  box-sizing: border-box;
 }
 
 .navbar-nav .nav-link.book:hover {
-    background-color: transparent;
-    border: .2rem solid #455d58;
-    color: #455d58;
+  background-color: transparent;
+  border: 0.2rem solid #455d58;
+  color: #455d58;
 }
 
 .navbar-nav .nav-link.book::before {
-    transform: scaleX(0);
+  transform: scaleX(0);
 }
-

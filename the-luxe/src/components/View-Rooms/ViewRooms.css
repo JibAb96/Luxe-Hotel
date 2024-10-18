@@ -1,18 +1,18 @@
-.room-type{
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    letter-spacing: 6px;
-    color: #455d58; 
-    text-transform: uppercase;
-    font-weight: 400;
-    margin: 50px 0;
+.room-type {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  letter-spacing: 6px;
+  color: #455d58;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 50px 0;
 }
 
-.pg{
-    font-weight: 350;
+.pg {
+  font-weight: 350;
 }
-.outer{
-    border: 1px solid black;
-    padding: 1rem;
-    border-radius: .5rem;
+.outer {
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }

@@ -1,24 +1,24 @@
-.footer{
-    padding: 5rem;
-    background-color: #455d58;
-    color: aliceblue;
+.footer {
+  padding: 5rem;
+  background-color: #455d58;
+  color: aliceblue;
 }
-.footer-h{
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    letter-spacing: .1rem;
+.footer-h {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
 }
-.payment-methods{
-    list-style-type: none;
-    display: flex;
-    margin-left: -2rem;
+.payment-methods {
+  list-style-type: none;
+  display: flex;
+  margin-left: -2rem;
 }
-.icons{
-    padding: .5rem 1rem .5rem 0;
-    font-size: 1.5rem;
+.icons {
+  padding: 0.5rem 1rem 0.5rem 0;
+  font-size: 1.5rem;
 }
-.icons:hover{
-    cursor: pointer;
-    opacity: .5;
+.icons:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }

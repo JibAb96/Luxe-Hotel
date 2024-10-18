@@ -1,34 +1,34 @@
-.page-heading{
-    color: #455d58;
-    padding-top: 3rem;
-    letter-spacing: .2rem;
-    text-align: center;
+.page-heading {
+  color: #455d58;
+  padding-top: 3rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
 }
 
-.heading{
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    color: #455d58;
-    text-transform: uppercase;
-    font-weight: 600;
+.heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: #455d58;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .overlay-r {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .overlay-r > * {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
 }

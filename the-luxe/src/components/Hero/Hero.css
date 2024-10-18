@@ -1,27 +1,32 @@
 .hero {
-    background-image: linear-gradient(to right bottom, rgba(40, 180, 133, 0.8), rgb(69, 93, 88, 0.5)), url("../../images/new-hero-image.jpg");
-    background-size: cover;
-    background-position: center;
-    height: calc(100vh - 7.5rem);
-    clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
-    position: relative;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(40, 180, 133, 0.8),
+      rgb(69, 93, 88, 0.5)
+    ),
+    url("../../images/new-hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 7.5rem);
+  clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+  position: relative;
 }
 .hero__text-box {
-    position:absolute;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .hero__text {
-    text-transform: uppercase;
-    color: aliceblue;
-    font-size: 3.4rem;
-    font-weight: bolder;
-    letter-spacing: .2rem;
-    line-height: 1.4;
-    margin-bottom: 5rem;
+  text-transform: uppercase;
+  color: aliceblue;
+  font-size: 3.4rem;
+  font-weight: bolder;
+  letter-spacing: 0.2rem;
+  line-height: 1.4;
+  margin-bottom: 5rem;
 }
 
 .hero__text span {
-    display: block;
+  display: block;
 }

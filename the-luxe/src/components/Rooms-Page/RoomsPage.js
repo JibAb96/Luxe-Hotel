@@ -8,7 +8,7 @@ import "./RoomsPage.css";
 
 const roomsData = [
   {
-    id: 1, 
+    id: 1,
     title: "Standard",
     description:
       "Relax in our well-appointed standard room, featuring a king-sized bed, sleek en-suite bathroom, and all the essential amenities for a comfortable stay.",
@@ -17,7 +17,7 @@ const roomsData = [
     route: "/rooms/standard",
   },
   {
-    id: 2, 
+    id: 2,
     title: "Deluxe",
     description:
       "Upgrade to our deluxe room, offering a queen-sized bed, modern en-suite bathroom, and additional features like a cozy seating area with plush armchairs and a coffee table.",
@@ -48,7 +48,7 @@ const RoomsPage = () => {
         {roomsData.map((room) => {
           return (
             <RoomCard
-              key={room.id} 
+              key={room.id}
               title={room.title}
               text={room.description}
               picture={room.picture}

@@ -1,26 +1,25 @@
-.info{
-    padding: 5rem 0;
+.info {
+  padding: 5rem 0;
 }
-.city{
-    font-weight: bold;
-    font-size: large;
+.city {
+  font-weight: bold;
+  font-size: large;
 }
 .description {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
-.info-text{
-    max-width: 40rem;
-    padding-left: 3rem;
-    color: #455d58;
-    font-weight: 350;
+.info-text {
+  max-width: 40rem;
+  padding-left: 3rem;
+  color: #455d58;
+  font-weight: 350;
 }
-
 
 .padding-right {
-    padding-right: 8rem;
+  padding-right: 8rem;
 }
 .hotel-lobby {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }

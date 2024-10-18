@@ -1,32 +1,32 @@
 .update {
-    margin: 4rem auto 7rem;
-    overflow-y: auto;
-    width: 80vw;
-    max-width: 90vw;  
-    max-height: 80vh; 
-    padding: 2rem;
-    background-color: white;
-    border-radius: 10px; 
+  margin: 4rem auto 7rem;
+  overflow-y: auto;
+  width: 80vw;
+  max-width: 90vw;
+  max-height: 80vh;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .update-form {
-    color: #455d58;
-    border: #455d58 5px solid;
-    padding: 1.5rem;
-    width: 100%;   
-    height: auto; 
-    max-height: 100%;
-    overflow-y: auto;  
+  color: #455d58;
+  border: #455d58 5px solid;
+  padding: 1.5rem;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .close-button {
-    background: none;
-    border: none;
-    font-size: 2.3rem;
-    color: #455d58;
-    cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 2.3rem;
+  color: #455d58;
+  cursor: pointer;
 }
 
 .close-button:hover {
-    color: #ff7875;
+  color: #ff7875;
 }

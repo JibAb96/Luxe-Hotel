@@ -1,42 +1,42 @@
-.deleteProfile{
-    margin: 4rem auto 7rem;
-    overflow-y: auto;
-    width: 80vw;
-    max-width: 90vw;  
-    max-height: 80vh; 
-    background-color: white;
-    border-radius: 10px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.deleteProfile {
+  margin: 4rem auto 7rem;
+  overflow-y: auto;
+  width: 80vw;
+  max-width: 90vw;
+  max-height: 80vh;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.deleteProfile-title{
-    color: #455d58;
-    letter-spacing: .2rem;
-    margin-top: 2rem;
+.deleteProfile-title {
+  color: #455d58;
+  letter-spacing: 0.2rem;
+  margin-top: 2rem;
 }
 
-.deleteProfile-p{
-    color: #455d58;
-    max-width: 40rem;
-    color: #455d58;
-    font-weight: 400;
-    font-size: 1.5rem;
+.deleteProfile-p {
+  color: #455d58;
+  max-width: 40rem;
+  color: #455d58;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
 
 .exit-button {
-    position: relative;
-    background: none;
-    border: none;
-    font-size: 2.3rem;
-    color: #455d58;
-    cursor: pointer;
-    right: 28rem;
-    top: 2rem;
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 2.3rem;
+  color: #455d58;
+  cursor: pointer;
+  right: 28rem;
+  top: 2rem;
 }
 
 .exit-button:hover {
-    color: #ff7875;
+  color: #ff7875;
 }

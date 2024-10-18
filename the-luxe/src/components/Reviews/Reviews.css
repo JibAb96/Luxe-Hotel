@@ -1,54 +1,54 @@
-.reviews{
-    padding-bottom: 2rem;
+.reviews {
+  padding-bottom: 2rem;
 }
-.sec-title{
-    font-size: 2.3rem;
-    padding-top: 5rem;
-    color: #455d58;
-    font-weight: 650;
+.sec-title {
+  font-size: 2.3rem;
+  padding-top: 5rem;
+  color: #455d58;
+  font-weight: 650;
 }
 
 .sec-title::after {
-    content: '';
-    display: block;
-    width: 7rem;
-    height: .1rem;
-    background-color: #455d58;
-    margin: 0 auto;
-    margin-top: 2rem;
+  content: "";
+  display: block;
+  width: 7rem;
+  height: 0.1rem;
+  background-color: #455d58;
+  margin: 0 auto;
+  margin-top: 2rem;
 }
-.quote{
-    position: relative;
-    margin-top: 3rem;
-    left: 48.5%;
-    color: #455d58;
-    font-size: 2.8rem;
+.quote {
+  position: relative;
+  margin-top: 3rem;
+  left: 48.5%;
+  color: #455d58;
+  font-size: 2.8rem;
 }
-.cons{
-    text-align: center;
+.cons {
+  text-align: center;
 }
-.star{
-    color: gold;
-    padding-right: .2rem;
-    font-size: .8rem;
+.star {
+  color: gold;
+  padding-right: 0.2rem;
+  font-size: 0.8rem;
 }
 .user {
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-top: 2rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 2rem;
 }
 
 .p {
-    max-width: 40rem;
-    font-size: larger;
-    font-weight: 300;
-    margin: 2rem auto;
+  max-width: 40rem;
+  font-size: larger;
+  font-weight: 300;
+  margin: 2rem auto;
 }
-.name{
-    color:#455d58;
-    font-size:larger;
-    font-weight: 600;
-    margin-top: .5rem;
+.name {
+  color: #455d58;
+  font-size: larger;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }
