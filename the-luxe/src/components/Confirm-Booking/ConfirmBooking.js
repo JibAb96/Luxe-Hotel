@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Col, Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import "./ConfirmBooking.css";
 import TransparentButton from "../Buttons/TransparentButton";
 import Loader from "../Spinner/Spinner";
+import { format, parseISO } from 'date-fns'; 
 
 const ConfirmBooking = () => {
     const { id } = useParams();
@@ -31,6 +32,12 @@ const ConfirmBooking = () => {
         fetchBooking();
     }, [id]);
 
+    const formatDate = (dateString) => {
+        const date = parseISO(dateString);
+        return format(date, 'yyyy-MM-dd');
+    };
+
+
     if (loading) {
         return (
            <Loader/>
@@ -53,7 +60,11 @@ const ConfirmBooking = () => {
             <h1 className="confirm-booking-title">Booking Successful</h1>
             <p>Thanks for booking with us, {profileData.first_name}!</p>
             <p>Your booking reference is <span className="bold">{booking.id}</span>.</p>
-            <p>You booked a <span className="bold">{capitalize(booking.room_type)}</span> room from {new Date(booking.check_in.substring(0,10)).toLocaleDateString()} to {new Date(booking.check_out.substring(0,10)).toLocaleDateString()} for {booking.guests} guests.</p>
+            <p>
+                You booked a <span className="bold">{capitalize(booking.room_type)}</span> room 
+                from {formatDate(booking.check_in)} to {formatDate(booking.check_out)} for 
+                {booking.guests} guests.
+            </p>
             <p>Total price: €{booking.price}</p>
             <h2 className="confirm-booking-title">We look forward to welcoming you to our hotel!</h2>
             <p className="fw-bold">Check-in time is at 15:00 (3PM)</p>
@@ -61,8 +72,20 @@ const ConfirmBooking = () => {
             <p>We hope you'll enjoy your stay!</p>
             <p>You can view your booking <a href={`http://localhost:3001/reservations/${id}`}>here</a>.</p>
             <Col>
-                <TransparentButton style={{"backgroundColor": "#455d58"}}>Homepage</TransparentButton>
-                <TransparentButton style={{"backgroundColor": "#455d58"}}>Book another</TransparentButton>
+                <TransparentButton 
+                    style={{"backgroundColor": "#455d58"}}
+                    as={Link}
+                    to={"/"}
+                >
+                    Homepage
+                </TransparentButton>
+                <TransparentButton 
+                    style={{"backgroundColor": "#455d58"}}
+                    as={Link}
+                    to={`/book/${profileData.id}`}
+                >
+                    Book another
+                </TransparentButton>
             </Col>
         </Container>
     );
