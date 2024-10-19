@@ -81,10 +81,7 @@ const ResetPassword = () => {
           <Row className="d-flex justify-content-center">
             <TransparentButton
               type="submit"
-              style={{
-                margin: "1rem",
-                backgroundColor: "#455d58",
-              }}
+              className={"m-1"}
             >
               Change Password
             </TransparentButton>
