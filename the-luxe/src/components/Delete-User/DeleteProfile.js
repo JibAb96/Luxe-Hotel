@@ -69,13 +69,12 @@ const DeleteProfile = ({ handleExit }) => {
         <Row>
           <TransparentButton
             onClick={deleteUser}
-            style={{ backgroundColor: "#800020", marginBottom: "1rem" }}
+            className={"deleteProfile-button"}
           >
             Delete
           </TransparentButton>
           <TransparentButton
             onClick={handleExit}
-            style={{ backgroundColor: "#455d58" }}
           >
             Keep
           </TransparentButton>
