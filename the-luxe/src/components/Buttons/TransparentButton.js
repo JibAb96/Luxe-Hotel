@@ -2,9 +2,13 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import "./TransparentButton.css";
 
-const TransparentButton = ({ children, type, ...rest }) => {
+const TransparentButton = ({ children, type, className, ...rest }) => {
   return (
-    <Button className="button" {...rest} type={type}>
+    <Button 
+      className={`button ${className || ""}`} 
+      {...rest} 
+      type={type}
+    >
       {children}
     </Button>
   );
