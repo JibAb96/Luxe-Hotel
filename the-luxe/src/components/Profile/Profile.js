@@ -58,13 +58,13 @@ const Profile = () => {
             Element={
               <div>
                 <TransparentButton
-                  style={{ minWidth: "7rem", backgroundColor: "#455d58" }}
+                  className={"min-w"}
                   onClick={handleEditSwitch}
                 >
                   Edit
                 </TransparentButton>
                 <TransparentButton
-                  style={{ minWidth: "7rem", backgroundColor: "#455d58" }}
+                  className={"min-w"}
                   onClick={handleDeleteSwitch}
                 >
                   Delete
@@ -74,7 +74,7 @@ const Profile = () => {
           />
           <TextCard
             lg={6}
-            style={{ width: "30rem", minHeight: "10rem" }}
+            className={"profile-card"}
             Text={
               <>
                 <p>
