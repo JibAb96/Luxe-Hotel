@@ -18,7 +18,7 @@ const Hero = () => {
           <TransparentButton
             as={Link}
             to={"/book"}
-            style={{ marginLeft: "1rem" }}
+            className={"hero-button"}
           >
             Book a Room
           </TransparentButton>
@@ -26,7 +26,7 @@ const Hero = () => {
           <TransparentButton
             as={Link}
             to={"/signin"}
-            style={{ marginLeft: "1rem" }}
+            className={"hero-button"}
           >
             Book a Room
           </TransparentButton>
