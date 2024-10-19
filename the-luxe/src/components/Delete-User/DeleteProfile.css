@@ -40,3 +40,8 @@
 .exit-button:hover {
   color: #ff7875;
 }
+
+.deleteProfile-button{
+  background-color: #800020;
+  margin-bottom: 1rem;
+}
