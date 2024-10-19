@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { Form, Button, Card, Row } from "react-bootstrap";
+import { Form, Card, Row } from "react-bootstrap";
 import TransparentButton from "../Buttons/TransparentButton";
 import "./Register.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FormInput from "../Form/Input";
 import { AlertContext } from "../../contexts/Alert";
 const Register = () => {
@@ -154,15 +154,13 @@ const Register = () => {
         <p>You can update your information in your profile page at anytime.</p>
         <p>
           If you have already created an account, then please{" "}
-          <Button
+          <a
             className="text-muted px-0"
-            variant="link"
-            as={Link}
-            to={"/signin"}
+            href="http://localhost:3001/signin"
           >
             {" "}
             Sign In.{" "}
-          </Button>
+          </a>
         </p>
         <FormInput
           label={"Email"}
@@ -252,7 +250,7 @@ const Register = () => {
         <Row className="d-flex justify-content-center">
           <TransparentButton
             type="submit"
-            style={{ margin: "1rem", backgroundColor: "#455d58" }}
+            className={"m-1"}
           >
             Register
           </TransparentButton>
