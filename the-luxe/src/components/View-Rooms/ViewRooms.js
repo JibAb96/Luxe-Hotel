@@ -69,21 +69,34 @@ const ViewRooms = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  
+  
   if (!room) {
     return (
-      <Container style={{ padding: "2rem" }} fluid>
-        <h1>Room Not Found</h1>
+      <Container 
+        className="error-handling" 
+         fluid>
+        <h1 className="room-type">Room Not Found</h1>
         <p>
           The room you are looking for does not exist. Please check the URL or
-          return to the home page.
+          choose from our available rooms:
         </p>
+        <ul>
+          {Object.keys(roomDetails).map(type => (
+            <li key={type}>
+              <Link to={`/rooms/${type}`}>{roomDetails[type].title}</Link>
+            </li>
+          ))}
+        </ul>
+        <Link to="/rooms">
+          <TransparentButton style={{backgroundColor: "#455d58"}}>View Rooms</TransparentButton>
+        </Link>
       </Container>
-    );
+      )
   }
 
   return (
-    <Container style={{ padding: "2rem" }} fluid>
+    <Container className="pad" fluid>
       <Row className="outer">
         <Col md={6}>
           <a href="/rooms">
@@ -93,10 +106,10 @@ const ViewRooms = () => {
             />
           </a>
           <Card>
-            <Card.Img variant="top" src={room.image} />
+            <Card.Img variant="top" src={room.image} alt="Picture of room" />
           </Card>
         </Col>
-        <Col md={6} style={{ color: "#455d58" }}>
+        <Col md={6} className="text-color">
           <h1 className="room-type">{room.title}</h1>
           <h2>Price: {room.price}</h2>
           <p className="pg">{room.description}</p>
@@ -117,7 +130,6 @@ const ViewRooms = () => {
             <TransparentButton
               as={Link}
               to={`/book/${profileData.id}`}
-              style={{ backgroundColor: "#455d58" }}
             >
               Book Now
             </TransparentButton>
@@ -125,7 +137,6 @@ const ViewRooms = () => {
             <TransparentButton
               as={Link}
               to={"/signin"}
-              style={{ backgroundColor: "#455d58" }}
             >
               Book Now
             </TransparentButton>
