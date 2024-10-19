@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import { Link } from "react-router-dom";
 import "./LogOut.css";
 import { ProfileContext } from "../../contexts/ProfileContext";
@@ -18,20 +18,20 @@ const LogOut = () => {
       <h1 className="logout-title">Log Out</h1>
       <p className="logout-p">Are you sure you want to log out?</p>
       <Row>
-        <TransparentButton
+        <GreenButton
           onClick={logOut}
           as={Link}
           to={"/"}
           className={"logout-button"}
         >
           Yes
-        </TransparentButton>
-        <TransparentButton
+        </GreenButton>
+        <GreenButton
           as={Link}
           to={"/"}
         >
           Cancel
-        </TransparentButton>
+        </GreenButton>
       </Row>
       <h1 className="logout-title">Thank You For Visiting Us!</h1>
       <p className="logout-p">We hope to see you again soon.</p>

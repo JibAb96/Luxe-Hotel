@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import "./Hero.css";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import { Link } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
 
@@ -15,21 +15,21 @@ const Hero = () => {
           <span>Comfort</span>
         </h1>
         {isSignedIn ? (
-          <TransparentButton
+          <GreenButton
             as={Link}
             to={"/book"}
             className={"hero-button"}
           >
             Book a Room
-          </TransparentButton>
+          </GreenButton>
         ) : (
-          <TransparentButton
+          <GreenButton
             as={Link}
             to={"/signin"}
             className={"hero-button"}
           >
             Book a Room
-          </TransparentButton>
+          </GreenButton>
         )}
       </Row>
     </Container>

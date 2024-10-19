@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
 import "./DeleteProfile.css";
@@ -67,17 +67,17 @@ const DeleteProfile = ({ handleExit }) => {
           <span className="bold"> Reservations</span>?
         </p>
         <Row>
-          <TransparentButton
+          <GreenButton
             onClick={deleteUser}
             className={"deleteProfile-button"}
           >
             Delete
-          </TransparentButton>
-          <TransparentButton
+          </GreenButton>
+          <GreenButton
             onClick={handleExit}
           >
             Keep
-          </TransparentButton>
+          </GreenButton>
         </Row>
         <h1 className="deleteProfile-title">
           {" "}

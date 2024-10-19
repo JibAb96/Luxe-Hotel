@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import TextCard from "../Cards/TextCard";
 import "./Reserve-Section.css";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import { Link } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
 
@@ -33,23 +33,23 @@ const ReserveSection = () => {
       <Row>
         {isSignedIn ? (
           <>
-            <TransparentButton
+            <GreenButton
               className={"reserve-s-button"}
               as={Link}
               to={"/reservations"}
             >
               Your Reservations
-            </TransparentButton>
+            </GreenButton>
           </>
         ) : (
           <>
-            <TransparentButton
+            <GreenButton
               className={"reserve-s-button"}
               as={Link}
               to={"/signin"}
             >
               Your Reservations
-            </TransparentButton>
+            </GreenButton>
           </>
         )}
       </Row>

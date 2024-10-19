@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import Room from "../../images/hotel-room.jpg";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import "./RoomsSection.css";
 import { Link } from "react-router-dom";
 const RoomsSection = () => {
@@ -20,9 +20,9 @@ const RoomsSection = () => {
             furnishings, and modern amenities, providing a serene escape from
             the ordinary.
           </p>
-          <TransparentButton as={Link} to={"/rooms"}>
+          <GreenButton as={Link} to={"/rooms"}>
             Explore Now
-          </TransparentButton>
+          </GreenButton>
         </Col>
       </Row>
     </Container>

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import { AlertContext } from "../../contexts/Alert";
 import "./CancelBooking.css";
 
@@ -54,17 +54,17 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
           <span className="bold"> Reservation</span>?
         </p>
         <Row>
-          <TransparentButton
+          <GreenButton
             onClick={deleteBooking}
             className={"delete-button"}
           >
             Delete
-          </TransparentButton>
-          <TransparentButton
+          </GreenButton>
+          <GreenButton
             onClick={handleExit}
           >
             Keep
-          </TransparentButton>
+          </GreenButton>
         </Row>
         <h1 className="delete-booking-title"> We are sorry to see you go!</h1>
         <p>

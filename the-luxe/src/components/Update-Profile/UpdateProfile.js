@@ -3,7 +3,7 @@ import { Card, Form, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
 import FormInput from "../Form/Input";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import "./UpdateProfile.css";
 
@@ -164,12 +164,12 @@ const UpdateProfile = ({ handleExit }) => {
           required
         />
         <Row className="d-flex justify-content-center">
-          <TransparentButton
+          <GreenButton
             type="submit"
             className={"m-1"}
           >
             Save Changes
-          </TransparentButton>
+          </GreenButton>
         </Row>
       </Form>
     </Card>

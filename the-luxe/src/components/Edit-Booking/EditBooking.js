@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Form, Card, Row } from "react-bootstrap";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import "./EditBooking.css";
 import FormInput from "../Form/Input";
 import { AlertContext } from "../../contexts/Alert";
@@ -171,12 +171,12 @@ const EditBooking = ({ booking, handleExit, onUpdate }) => {
             required
           />
           <Row className="d-flex justify-content-center">
-            <TransparentButton
+            <GreenButton
               type="submit"
               className={"m-1"}
             >
               Book
-            </TransparentButton>
+            </GreenButton>
           </Row>
         </Form>
       </Card>

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import TextCard from "../Cards/TextCard";
 import "./Profile.css";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { AlertContext } from "../../contexts/Alert";
 import DeleteProfile from "../Delete-User/DeleteProfile";
@@ -57,18 +57,18 @@ const Profile = () => {
             titleClass={"titleClass"}
             Element={
               <div>
-                <TransparentButton
+                <GreenButton
                   className={"min-w"}
                   onClick={handleEditSwitch}
                 >
                   Edit
-                </TransparentButton>
-                <TransparentButton
+                </GreenButton>
+                <GreenButton
                   className={"min-w"}
                   onClick={handleDeleteSwitch}
                 >
                   Delete
-                </TransparentButton>
+                </GreenButton>
               </div>
             }
           />

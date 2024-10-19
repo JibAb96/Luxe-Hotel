@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Card, Form, Row, Alert } from "react-bootstrap";
 import FormInput from "../Form/Input";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import "./ForgotPassword.css";
 import { AlertContext } from "../../contexts/Alert";
 import { useNavigate } from "react-router-dom";
@@ -76,12 +76,12 @@ const ForgotPassword = () => {
             required
           />
           <Row className="d-flex justify-content-center">
-            <TransparentButton
+            <GreenButton
               type="submit"
               className={"m-1"}
             >
               Reset Password
-            </TransparentButton>
+            </GreenButton>
           </Row>
           <p className="bold">
             Contact us if you have any trouble resetting your password.

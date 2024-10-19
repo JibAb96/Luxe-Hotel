@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import StandardRoom from "../../images/double-room.jpg";
 import DeluxeRoom from "../../images/deluxe-room.jpg";
 import Suite from "../../images/hotel-suite.jpg";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import "./ViewRooms.css";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -89,7 +89,7 @@ const ViewRooms = () => {
           ))}
         </ul>
         <Link to="/rooms">
-          <TransparentButton style={{backgroundColor: "#455d58"}}>View Rooms</TransparentButton>
+          <GreenButton style={{backgroundColor: "#455d58"}}>View Rooms</GreenButton>
         </Link>
       </Container>
       )
@@ -127,19 +127,19 @@ const ViewRooms = () => {
             ))}
           </ul>
           {isSignedIn ? (
-            <TransparentButton
+            <GreenButton
               as={Link}
               to={`/book/${profileData.id}`}
             >
               Book Now
-            </TransparentButton>
+            </GreenButton>
           ) : (
-            <TransparentButton
+            <GreenButton
               as={Link}
               to={"/signin"}
             >
               Book Now
-            </TransparentButton>
+            </GreenButton>
           )}
         </Col>
       </Row>

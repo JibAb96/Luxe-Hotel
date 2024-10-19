@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import "./RoomCard.css";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import { useNavigate } from "react-router-dom";
 const RoomCard = ({ picture, title, text, subtitle, route }) => {
   const navigate = useNavigate();
@@ -22,12 +22,12 @@ const RoomCard = ({ picture, title, text, subtitle, route }) => {
           <Card.Title>{title}</Card.Title>
           <Card.Subtitle className="mb-2">{subtitle}</Card.Subtitle>
           <Card.Text>{text}</Card.Text>
-          <TransparentButton
+          <GreenButton
             onClick={handleClick}
             className={"room-card-button"}
           >
             View Room
-          </TransparentButton>
+          </GreenButton>
         </Card.Body>
       </Card>
     </Col>

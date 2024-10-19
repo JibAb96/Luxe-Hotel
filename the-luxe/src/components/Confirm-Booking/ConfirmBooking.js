@@ -3,7 +3,7 @@ import { Col, Container } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import "./ConfirmBooking.css";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import Loader from "../Spinner/Spinner";
 import { format, parseISO } from "date-fns";
 
@@ -77,18 +77,18 @@ const ConfirmBooking = () => {
         <a href={`http://localhost:3001/reservations/${id}`}>here</a>.
       </p>
       <Col>
-        <TransparentButton
+        <GreenButton
           as={Link}
           to={"/"}
         >
           Homepage
-        </TransparentButton>
-        <TransparentButton
+        </GreenButton>
+        <GreenButton
           as={Link}
           to={`/book/${profileData.id}`}
         >
           Book another
-        </TransparentButton>
+        </GreenButton>
       </Col>
     </Container>
   );

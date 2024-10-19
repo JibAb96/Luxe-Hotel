@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Form, Card, Row } from "react-bootstrap";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../Form/Input";
@@ -248,12 +248,12 @@ const Register = () => {
           required
         />
         <Row className="d-flex justify-content-center">
-          <TransparentButton
+          <GreenButton
             type="submit"
             className={"m-1"}
           >
             Register
-          </TransparentButton>
+          </GreenButton>
         </Row>
       </Form>
     </Card>

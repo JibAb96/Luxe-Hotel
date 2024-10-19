@@ -1,7 +1,7 @@
 import React from "react";
 import Dining from "../../images/hotel-dining.jpg";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import "./Dining-Section.css";
 import { Link } from "react-router-dom";
 
@@ -20,9 +20,9 @@ const DiningSection = () => {
             dishes, each meal promises an unforgettable gastronomic experience
             in an atmosphere of sophistication and indulgence.
           </p>
-          <TransparentButton as={Link} to={"/rooms"}>
+          <GreenButton as={Link} to={"/rooms"}>
             Explore Now
-          </TransparentButton>
+          </GreenButton>
         </Col>
       </Row>
     </Container>

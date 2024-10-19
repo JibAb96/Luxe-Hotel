@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Form, Button, Card, Row, Alert } from "react-bootstrap";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import "./SignIn.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
@@ -102,12 +102,12 @@ const SignIn = () => {
             required
           />
           <Row className="d-flex justify-content-center">
-            <TransparentButton
+            <GreenButton
               type="submit"
               className={"m-1"}
             >
               Log In
-            </TransparentButton>
+            </GreenButton>
           </Row>
           <Row className="d-grid justify-content-end">
             <a

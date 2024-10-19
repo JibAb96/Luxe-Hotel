@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container, Row, Alert } from "react-bootstrap";
 import TextCard from "../Cards/TextCard";
 import "./Reservations.css";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { AlertContext } from "../../contexts/Alert";
 import EditBooking from "../Edit-Booking/EditBooking";
@@ -150,18 +150,18 @@ const Reservations = () => {
             }
             Element={
               <div>
-                <TransparentButton
+                <GreenButton
                   className={"min-width"}
                   onClick={() => handleEditSwitch(booking)}
                 >
                   Edit
-                </TransparentButton>
-                <TransparentButton
+                </GreenButton>
+                <GreenButton
                   className={"min-width"}
                   onClick={() => handleCancelSwitch(booking)}
                 >
                   Cancel
-                </TransparentButton>
+                </GreenButton>
               </div>
             }
           />

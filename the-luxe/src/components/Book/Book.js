@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Form, Card, Row, Alert } from "react-bootstrap";
-import TransparentButton from "../Buttons/TransparentButton";
+import GreenButton from "../Buttons/GreenButton";
 import "./Book.css";
 import FormInput from "../Form/Input";
 import { ProfileContext } from "../../contexts/ProfileContext";
@@ -175,7 +175,7 @@ const Book = () => {
             required
           />
           <Row className="d-flex justify-content-center">
-            <TransparentButton
+            <GreenButton
               type="submit"
               style={{
                 margin: "1rem",
@@ -183,7 +183,7 @@ const Book = () => {
               }}
             >
               Book
-            </TransparentButton>
+            </GreenButton>
           </Row>
         </Form>
       </Card>

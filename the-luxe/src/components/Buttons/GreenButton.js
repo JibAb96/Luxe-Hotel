@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import "./TransparentButton.css";
+import "./GreenButton.css";
 
-const TransparentButton = ({ children, type, className, ...rest }) => {
+const GreenButton = ({ children, type, className, ...rest }) => {
   return (
     <Button 
       className={`button ${className || ""}`} 
@@ -14,4 +14,4 @@ const TransparentButton = ({ children, type, className, ...rest }) => {
   );
 };
 
-export default TransparentButton;
+export default GreenButton;
