@@ -42,7 +42,7 @@ const RoomsPage = () => {
   }, []);
 
   return (
-    <Container style={{ padding: "2rem" }} fluid>
+    <Container className="pad" fluid>
       <h1 className="title">Rooms</h1>
       <Row className="card-container">
         {roomsData.map((room) => {
