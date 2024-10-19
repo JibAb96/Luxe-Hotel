@@ -35,3 +35,7 @@
 .leave-button:hover {
   color: #ff7875;
 }
+.delete-button{
+  background-color: #800020;
+  margin-bottom: 1rem
+}
