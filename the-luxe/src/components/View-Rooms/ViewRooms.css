@@ -16,3 +16,22 @@
   padding: 1rem;
   border-radius: 0.5rem;
 }
+
+.error-handling{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.pad{
+  padding: 2rem;
+}
+
+.text-color{
+  color: #455d58;
+}
+.button-color{
+  background-color: #455d58;
+}
