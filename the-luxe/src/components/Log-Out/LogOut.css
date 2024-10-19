@@ -21,3 +21,8 @@
   font-weight: 400;
   font-size: 1.5rem;
 }
+
+.logout-button{
+  background-color: #800020;
+  margin-bottom: 1rem;
+}
