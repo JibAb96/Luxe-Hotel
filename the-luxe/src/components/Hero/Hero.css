@@ -30,3 +30,7 @@
 .hero__text span {
   display: block;
 }
+.hero-button{
+  background-color: transparent !important;
+  margin-left: 1rem;
+}
