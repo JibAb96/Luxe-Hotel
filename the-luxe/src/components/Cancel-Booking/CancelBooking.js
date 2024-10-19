@@ -56,13 +56,12 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
         <Row>
           <TransparentButton
             onClick={deleteBooking}
-            style={{ backgroundColor: "#800020", marginBottom: "1rem" }}
+            className={"delete-button"}
           >
             Delete
           </TransparentButton>
           <TransparentButton
             onClick={handleExit}
-            style={{ backgroundColor: "#455d58" }}
           >
             Keep
           </TransparentButton>
