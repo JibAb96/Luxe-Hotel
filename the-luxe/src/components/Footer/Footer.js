@@ -53,16 +53,24 @@ const Footer = () => {
           </p>
           <ul className="payment-methods">
             <li>
-              <FontAwesomeIcon icon={faFacebook} className="icons" />
+              <a rel="noreferrer" target="_blank" style={{color:"inherit"}} href="http://www.facebook.com">
+                <FontAwesomeIcon icon={faFacebook} className="icons" />
+              </a>     
             </li>
             <li>
-              <FontAwesomeIcon icon={faTwitter} className="icons" />
+              <a rel="noreferrer" target="_blank" style={{color:"inherit"}} href="http://www.twitter.com">
+                <FontAwesomeIcon icon={faTwitter} className="icons" />
+              </a>
             </li>
             <li>
-              <FontAwesomeIcon icon={faLinkedinIn} className="icons" />
+              <a rel="noreferrer" target="_blank" style={{color:"inherit"}} href="http://www.linkedin.com">
+                <FontAwesomeIcon icon={faLinkedinIn} className="icons" />
+              </a>
             </li>
             <li>
-              <FontAwesomeIcon icon={faInstagram} className="icons" />
+              <a rel="noreferrer" target="_blank" style={{color:"inherit"}} href="http://www.instagram.com">
+                <FontAwesomeIcon icon={faInstagram} className="icons" />
+              </a>
             </li>
           </ul>
         </Col>
