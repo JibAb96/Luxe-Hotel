@@ -22,14 +22,13 @@ const LogOut = () => {
           onClick={logOut}
           as={Link}
           to={"/"}
-          style={{ backgroundColor: "#800020", marginBottom: "1rem" }}
+          className={"logout-button"}
         >
           Yes
         </TransparentButton>
         <TransparentButton
           as={Link}
           to={"/"}
-          style={{ backgroundColor: "#455d58" }}
         >
           Cancel
         </TransparentButton>
