@@ -33,3 +33,12 @@
   padding: 2rem;
   border-radius: 10px;
 }
+
+.min-w{
+  min-width: 7rem;
+}
+
+.profile-card{
+  width:30rem;
+  min-height: 10rem;
+}
