@@ -110,7 +110,7 @@ const Reservations = () => {
   };
 
   return (
-    <Container style={{ padding: "1rem" }} fluid>
+    <Container className="p-3" fluid>
       {showAlert && (
         <Alert className={`alert ${alertStyle}`} role="alert">
           {alertMessage}
@@ -120,8 +120,7 @@ const Reservations = () => {
         <h1 className="page-heading">Your Reservations</h1>
       </Row>
       <Row
-        className="d-flex justify-content-center"
-        style={{ padding: "2rem 0 7rem" }}
+        className="d-flex justify-content-center reservations-p"
       >
         {bookings.map((booking, index) => (
           <TextCard
@@ -152,20 +151,19 @@ const Reservations = () => {
             Element={
               <div>
                 <TransparentButton
-                  style={{ minWidth: "7rem", backgroundColor: "#455d58" }}
+                  className={"min-width"}
                   onClick={() => handleEditSwitch(booking)}
                 >
                   Edit
                 </TransparentButton>
                 <TransparentButton
-                  style={{ minWidth: "7rem", backgroundColor: "#455d58" }}
+                  className={"min-width"}
                   onClick={() => handleCancelSwitch(booking)}
                 >
                   Cancel
                 </TransparentButton>
               </div>
             }
-            style={{ margin: ".5rem" }}
           />
         ))}
         {showEditBooking && (
