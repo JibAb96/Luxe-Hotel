@@ -14,18 +14,18 @@ const ReserveSection = () => {
       <h1 className="reservation-title">Manage Your Booking</h1>
       <Row className="d-flex justify-content-center p-5 ">
         <TextCard
-          style={{ maxWidth: "18rem", minHeight: "8rem" }}
+          className={"reservation-card"}
           Title={"1. Review Details"}
           Text={"View details of your reservation."}
         />
         <TextCard
-          style={{ maxWidth: "18rem", minHeight: "8rem" }}
+          className={"reservation-card"}
           Title={"2. Modify Reservations"}
           Text={"Make changes to your reservation."}
         />
 
         <TextCard
-          style={{ maxWidth: "18rem", minHeight: "8rem" }}
+          className={"reservation-card"}
           Title={"3. Cancel Reservations"}
           Text={"Cancel your existing booking up to 24h before check in."}
         />
@@ -34,7 +34,7 @@ const ReserveSection = () => {
         {isSignedIn ? (
           <>
             <TransparentButton
-              style={{ backgroundColor: "#455d58", margin: "5rem auto 0" }}
+              className={"reserve-s-button"}
               as={Link}
               to={"/reservations"}
             >
@@ -44,7 +44,7 @@ const ReserveSection = () => {
         ) : (
           <>
             <TransparentButton
-              style={{ backgroundColor: "#455d58", margin: "5rem auto 0" }}
+              className={"reserve-s-button"}
               as={Link}
               to={"/signin"}
             >
