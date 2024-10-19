@@ -78,14 +78,12 @@ const ConfirmBooking = () => {
       </p>
       <Col>
         <TransparentButton
-          style={{ backgroundColor: "#455d58" }}
           as={Link}
           to={"/"}
         >
           Homepage
         </TransparentButton>
         <TransparentButton
-          style={{ backgroundColor: "#455d58" }}
           as={Link}
           to={`/book/${profileData.id}`}
         >
