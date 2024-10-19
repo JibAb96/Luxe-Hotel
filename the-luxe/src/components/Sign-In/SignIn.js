@@ -104,23 +104,18 @@ const SignIn = () => {
           <Row className="d-flex justify-content-center">
             <TransparentButton
               type="submit"
-              style={{
-                margin: "1rem",
-                backgroundColor: "#455d58",
-              }}
+              className={"m-1"}
             >
               Log In
             </TransparentButton>
           </Row>
           <Row className="d-grid justify-content-end">
-            <Button
+            <a
               className="text-muted px-0"
-              variant="link"
-              as={Link}
-              to={"/forgot-password"}
+              href="http:localhost:3001/forgot-password"
             >
               Forgot password?
-            </Button>
+            </a>
           </Row>
         </Form>
       </Card>
