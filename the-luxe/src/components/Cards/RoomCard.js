@@ -23,8 +23,8 @@ const RoomCard = ({ picture, title, text, subtitle, route }) => {
           <Card.Subtitle className="mb-2">{subtitle}</Card.Subtitle>
           <Card.Text>{text}</Card.Text>
           <TransparentButton
-            style={{ position: "absolute", bottom: "1rem", left: "28%" }}
             onClick={handleClick}
+            className={"room-card-button"}
           >
             View Room
           </TransparentButton>
