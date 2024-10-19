@@ -1,13 +1,20 @@
 .reservations {
   padding: 7rem 2rem;
 }
+
 .reservation-title {
   color: #455d58;
   padding: 3rem 0;
   letter-spacing: 0.2rem;
   text-align: center;
 }
+
 .reservation-card {
   max-width: 18rem;
   min-height: 8rem;
+  margin-bottom: 1rem;
+}
+
+.reserve-s-button{
+  margin: 3rem auto 0;
 }
