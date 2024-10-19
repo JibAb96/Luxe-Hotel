@@ -13,6 +13,13 @@
   color: aliceblue;
 }
 
+.room-card-button{
+  position: absolute;
+  bottom: 1rem;
+  left: 28%;
+  background-color: transparent;
+}
+
 @media (max-width: 768px) {
   .room-option:hover {
     transition: none;
