@@ -8,6 +8,7 @@
 .dining-img {
   width: 80%;
   height: auto;
+  margin-left: 2rem;
 }
 .dining-text-box {
   display: flex;
