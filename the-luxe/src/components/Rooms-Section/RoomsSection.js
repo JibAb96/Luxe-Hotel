@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
-import Room from "../../images/hotel-room.jpg";
+import OptimizedImage from "../Optimized-Image/OptimizedImage"
+import Room from "../../images/hotel-room.webp"
+import RoomBackUp from "../../images/hotel-room.jpg";
 import GreenButton from "../Buttons/GreenButton";
 import "./RoomsSection.css";
 import { Link } from "react-router-dom";
@@ -10,7 +11,12 @@ const RoomsSection = () => {
     <Container className="rooms" fluid>
       <Row className="align-items-center">
         <Col xs={12} md={6} className="d-flex justify-content-center">
-          <Image src={Room} className="hotel-room" rounded />
+          <OptimizedImage 
+            src={Room} 
+            fallbackSrc={RoomBackUp} 
+            alt={"Hotel Room"} 
+            className="hotel-room"
+            rounded/>
         </Col>
         <Col className="text-box" xs={12} md={6}>
           <h2 className="headline">ROOMS</h2>
