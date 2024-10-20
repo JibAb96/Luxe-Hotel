@@ -4,19 +4,22 @@ import Col from "react-bootstrap/Col";
 import "./RoomCard.css";
 import GreenButton from "../Buttons/GreenButton";
 import { useNavigate } from "react-router-dom";
-const RoomCard = ({ picture, title, text, subtitle, route }) => {
+const RoomCard = ({ picture, title, text, subtitle, route, fallbackSrc }) => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(route);
   };
+  const handleImageError = (e) => {
+    e.target.src = fallbackSrc; 
+  };  
   return (
     <Col xs={12} sm={6} lg={4} className="p-1">
       <Card className="room-option">
         <Card.Img
           variant="top"
           src={picture}
-          className="image-fluid"
-          style={{ height: "40vh", objectFit: "cover" }}
+          className="image-fluid room-card-img"
+          onError={handleImageError}
         />
         <Card.Body className="room-option-body">
           <Card.Title>{title}</Card.Title>
