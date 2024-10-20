@@ -19,7 +19,10 @@
   left: 28%;
   background-color: transparent;
 }
-
+.room-card-img{
+  object-fit: cover;
+  height: 40vh;
+}
 @media (max-width: 768px) {
   .room-option:hover {
     transition: none;
