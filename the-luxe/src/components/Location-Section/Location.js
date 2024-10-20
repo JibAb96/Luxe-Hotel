@@ -1,8 +1,9 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
-import Lobby from "../../images/Hotel-lobby.jpg";
+import Lobby from "../../images/Hotel-lobby.webp"
+import LobbyJPG from "../../images/Hotel-lobby.jpg";
 import "./Location.css";
+import OptimizedImage from "../Optimized-Image/OptimizedImage";
 const Location = () => {
   return (
     <div className="info">
@@ -24,7 +25,12 @@ const Location = () => {
             </p>
           </Col>
           <Col xs={12} md={6}>
-            <Image src={Lobby} className="hotel-lobby" rounded />
+            <OptimizedImage 
+              src={Lobby} 
+              className="hotel-lobby" 
+              fallbackSrc={LobbyJPG}
+              alt={"Hotel Lobby"}
+              rounded />
           </Col>
         </Row>
       </Container>
