@@ -17,11 +17,18 @@ const SignIn = () => {
   const [lockedUntil, setLockedUntil] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const { showAlertWithTimeout, alertMessage, showAlert, alertStyle } =
     useContext(AlertContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    const savedEmail = localStorage.getItem("rememberedEmail");
+    if (savedEmail) {
+      setEmail(savedEmail);
+      setRememberMe(true); // Set Remember Me checked if email was remembered
+    }
   }, []);
 
   const { setProfileData, setIsSignedIn } = useContext(ProfileContext);
@@ -91,6 +98,13 @@ const SignIn = () => {
           "You have successfully logged in!",
           "alert-success",
         );
+
+        if (rememberMe) {
+          localStorage.setItem("rememberedEmail", email);
+        } else {
+          localStorage.removeItem("rememberedEmail");
+        }
+
         navigate("/");
       } else {
         showAlertWithTimeout("Invalid email or password", "alert-danger");
@@ -164,6 +178,15 @@ const SignIn = () => {
             }
             required
           />
+          <Form.Group className="mb-3">
+            <Form.Check
+              type="checkbox"
+              id="rememberMe"
+              label="Remember Me"
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
+          </Form.Group>
           <Row className="d-flex justify-content-center">
             <GreenButton
               type="submit"
@@ -183,7 +206,7 @@ const SignIn = () => {
           <Row className="d-grid justify-content-end">
             <a
               className="text-muted px-0"
-              href="http:localhost:3001/forgot-password"
+              href="/forgot-password"
             >
               Forgot password?
             </a>
