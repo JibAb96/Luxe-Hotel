@@ -142,15 +142,11 @@ const SignIn = () => {
           <h1 className="h4 mb-2 text-center">Sign In</h1>
           <p>
             If you have not created an account yet, then please{" "}
-            <Button
-              className="text-muted px-0"
-              variant="link"
-              as={Link}
-              to="/register"
-            >
+            <a href="/register" className="anchor">
               {" "}
-              Register{" "}
-            </Button>{" "}
+              Register
+            </a>
+            {" "}
             first.
           </p>
           <FormInput
