@@ -68,12 +68,14 @@ const Profile = () => {
                 <GreenButton
                   className={"min-w"}
                   onClick={handleEditSwitch}
+                  disabled={ showEditProfile || showDeleteProfile }
                 >
                   Edit
                 </GreenButton>
                 <GreenButton
                   className={"min-w"}
                   onClick={handleDeleteSwitch}
+                  disabled={ showDeleteProfile || showEditProfile }
                 >
                   Delete
                 </GreenButton>
