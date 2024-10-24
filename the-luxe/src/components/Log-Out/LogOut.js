@@ -6,12 +6,7 @@ import "./LogOut.css";
 import { ProfileContext } from "../../contexts/ProfileContext";
 
 const LogOut = () => {
-  const { setIsSignedIn } = useContext(ProfileContext);
-
-  const logOut = () => {
-    setIsSignedIn(false);
-    localStorage.removeItem("isSignedIn");
-  };
+  const { logOutUser } = useContext(ProfileContext);
 
   return (
     <Container className="logout" fluid>
@@ -19,12 +14,12 @@ const LogOut = () => {
       <p className="logout-p">Are you sure you want to log out?</p>
       <Row>
         <GreenButton
-          onClick={logOut}
+          onClick={logOutUser}
           as={Link}
           to={"/"}
           className={"logout-button"}
         >
-          Yes
+          Log Out
         </GreenButton>
         <GreenButton
           as={Link}
