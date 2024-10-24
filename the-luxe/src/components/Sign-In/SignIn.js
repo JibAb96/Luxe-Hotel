@@ -6,9 +6,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
 import FormInput from "../Form/Input";
 import { ProfileContext } from "../../contexts/ProfileContext";
+
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_TIME = 15 * 60 * 1000;
+
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginAttempts, setLoginAttempts] = useState(0);
+  const [lockedUntil, setLockedUntil] = useState(null);
   const { showAlertWithTimeout, alertMessage, showAlert, alertStyle } =
     useContext(AlertContext);
 
@@ -19,6 +25,17 @@ const SignIn = () => {
   const { setProfileData, setIsSignedIn } = useContext(ProfileContext);
 
   const navigate = useNavigate();
+
+  if (lockedUntil && Date.now() < lockedUntil) {
+    const minutesLeft = Math.ceil((lockedUntil - Date.now()) / 60000);
+    showAlertWithTimeout(
+      `Too many failed attempts. Please try again in ${minutesLeft} minutes`,
+      "alert-danger"
+    );
+    return;
+  }
+  
+  
 
   const emailIsValid = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -80,6 +97,13 @@ const SignIn = () => {
         "An error occurred. Please try again later.",
         "alert-danger",
       );
+
+      setLoginAttempts(prev => prev + 1);
+      
+      if (loginAttempts + 1 >= MAX_ATTEMPTS) {
+        setLockedUntil(Date.now() + LOCKOUT_TIME);
+        setLoginAttempts(0);
+      }
     }
   };
 
