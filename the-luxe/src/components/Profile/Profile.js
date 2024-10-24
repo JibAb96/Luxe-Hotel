@@ -23,8 +23,16 @@ const Profile = () => {
     setShowEditProfile(!showEditProfile);
   };
 
-  const dob = profileData.date_of_birth.substring(0, 10);
-  const joined = profileData.joined.substring(0, 10);
+  const name = profileData?.first_name || "N/A";
+  const dob = profileData?.date_of_birth?.substring(0, 10) || "N/A";
+  const joined = profileData?.joined?.substring(0, 10) || "N/A";
+  const email = profileData?.email || "N/A";
+  const phone = profileData?.phone || "N/A";
+  const country = profileData?.country || "N/A";
+  const city = profileData?.city || "N/A";
+  const address = profileData?.address || "N/A";
+  const postalCode = profileData?.postal_code || "N/A";
+  
 
   return (
     <>
@@ -33,18 +41,18 @@ const Profile = () => {
           {alertMessage}
         </Alert>
       )}
-      <Container style={{ padding: "3rem 0", overflowX: "hidden" }} fluid>
+      <Container className="profile-container" fluid>
         <h1 className="profile-title">Profile</h1>
         <Row className="d-flex justify-content-center">
           <TextCard
             lg={6}
             style={{ width: "30rem", minHeight: "10rem" }}
-            Title={profileData.first_name}
+            Title={name}
             Text={
               <>
                 <p>
                   <span className="bold">Full Name:</span>{" "}
-                  {profileData.first_name}
+                  {name}
                 </p>
                 <p>
                   <span className="bold">Date of Birth:</span> {dob}
@@ -78,23 +86,23 @@ const Profile = () => {
             Text={
               <>
                 <p>
-                  <span className="bold">Email:</span> {profileData.email}
+                  <span className="bold">Email:</span> {email}
                 </p>
                 <p>
-                  <span className="bold">Phone:</span> {profileData.phone}
+                  <span className="bold">Phone:</span> {phone}
                 </p>
                 <p>
-                  <span className="bold">Country:</span> {profileData.country}
+                  <span className="bold">Country:</span> {country}
                 </p>
                 <p>
-                  <span className="bold">City:</span> {profileData.city}
+                  <span className="bold">City:</span> {city}
                 </p>
                 <p>
-                  <span className="bold">Address:</span> {profileData.address}
+                  <span className="bold">Address:</span> {address}
                 </p>
                 <p>
                   <span className="bold">Postal Code:</span>{" "}
-                  {profileData.postal_code}
+                  {postalCode}
                 </p>
               </>
             }
