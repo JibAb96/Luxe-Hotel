@@ -16,6 +16,7 @@ const SignIn = () => {
   const [loginAttempts, setLoginAttempts] = useState(0);
   const [lockedUntil, setLockedUntil] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const { showAlertWithTimeout, alertMessage, showAlert, alertStyle } =
     useContext(AlertContext);
 
@@ -148,10 +149,19 @@ const SignIn = () => {
           />
           <FormInput
             label={"Password"}
-            type={"password"}
+            type={showPassword ? "text" : "password"}
             placeholder={"Password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            rightElement={
+              <Button
+                type="button"
+                variant="outline-secondary"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </Button>
+            }
             required
           />
           <Row className="d-flex justify-content-center">
