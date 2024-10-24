@@ -19,56 +19,48 @@ const Register = () => {
   const [country, setCountry] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [dob, setDob] = useState("");
-  const [username, setUsername] = useState("");
 
-  const [helperEmailText, setHelperEmailText] = useState("");
-  const [helperPasswordText, setHelperPasswordText] = useState("");
-  const [helperPasswordAgainText, setHelperPasswordAgainText] = useState("");
 
-  const [helperEmailTextColor, setHelperEmailTextColor] =
-    useState("text-danger");
-  const [helperPasswordTextColor, setHelperPasswordTextColor] =
-    useState("text-danger");
-  const [helperPasswordAgainTextColor, setHelperPasswordAgainTextColor] =
-    useState("text-danger");
 
-  const setChange = (e, setState) => {
-    setState(e.target.value);
+  const [helperText, setHelperText] = useState({
+    email: { text: "", color: "" },
+    password: { text: "", color: "text-danger" },
+    passwordAgain: { text: "", color: "text-danger" },
+  });
+
+  const updateHelperText = (field, text, color) => {
+    setHelperText((prev) => ({ ...prev, [field]: { text, color } }));
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
     if (!validateEmail(e.target.value)) {
-      setHelperEmailText(
-        "Oops! That doesn’t look like a valid email. Try again.",
-      );
+      updateHelperText("email", "Oops! That doesn’t look like a valid email. Try again.", "text-danger");
     } else {
-      setHelperEmailText("Perfect! Your email is valid.");
-      setHelperEmailTextColor("text-success");
+      updateHelperText("email", "Perfect! Your email is valid.", "text-success");
+
     }
   };
 
   const passwordChange = (e) => {
     setPassword(e.target.value);
     if (!validatePassword(e.target.value)) {
-      setHelperPasswordText(
-        "Your password must contain at least 8 characters, one uppercase letter, lowercase letter, and number.",
-      );
-      setHelperPasswordTextColor("text-danger");
+      updateHelperText(
+        "password",
+         "Your password must contain at least 8 characters, one uppercase letter, lowercase letter, and number.",
+         "text-danger"
+      )
     } else {
-      setHelperPasswordText("Your password is strong!");
-      setHelperPasswordTextColor("text-success");
+      updateHelperText("password", "Your password is strong!", "text-success");
     }
   };
 
   const passwordAgainChange = (e) => {
     setPasswordAgain(e.target.value);
     if (!validatePasswordAgain(password, e.target.value)) {
-      setHelperPasswordAgainText("Your passwords do not match.");
-      setHelperPasswordAgainTextColor("text-danger");
+      updateHelperText("passwordAgain", "Your passwords do not match", "text-danger");
     } else {
-      setHelperPasswordAgainText("Your passwords match!");
-      setHelperPasswordAgainTextColor("text-success");
+      updateHelperText("passwordAgain", "Your password match!", "text-success");
     }
   };
 
@@ -84,19 +76,23 @@ const Register = () => {
   const validateEmail = (email) => emailRegex.test(email);
 
   const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  
+  const validateForm = () => {
     const isEmailValid = validateEmail(email);
     const isPasswordValid = validatePassword(password);
     const isPasswordAgainValid = validatePasswordAgain(password, passwordAgain);
-
+  
     if (!isEmailValid || !isPasswordValid || !isPasswordAgainValid) {
       const invalidInput = document.querySelector(".text-danger");
-      if (invalidInput) {
-        invalidInput.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+      invalidInput?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
+    }
+    return true;
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if(!validateForm()){
       return;
     }
 
@@ -104,7 +100,6 @@ const Register = () => {
     const formData = {
       email,
       password,
-      username,
       firstName,
       lastName,
       phone,
@@ -132,6 +127,8 @@ const Register = () => {
           "alert-success",
         );
         navigate("/signin");
+      } else {
+        showAlertWithTimeout(data.message || "Registration failed", "alert-danger");
       }
     } catch (error) {
       console.error("Error registering in:", error);
@@ -156,7 +153,7 @@ const Register = () => {
           If you have already created an account, then please{" "}
           <a
             className="text-muted px-0"
-            href="http://localhost:3001/signin"
+            href="/signin"
           >
             {" "}
             Sign In.{" "}
@@ -168,63 +165,56 @@ const Register = () => {
           placeholder={"Email Address"}
           value={email}
           onChange={handleEmailChange}
-          helperText={helperEmailText}
-          helperTextColor={helperEmailTextColor}
-          required
-        />
-        <FormInput
-          label={"Username"}
-          type={"text"}
-          placeholder={"Username"}
-          onChange={(e) => setChange(e, setUsername)}
+          helperText={helperText.email.text}
+          helperTextColor={helperText.email.color}
           required
         />
         <FormInput
           label={"First-Name"}
           type={"text"}
-          onChange={(e) => setChange(e, setFirstName)}
+          onChange={(e) => setFirstName(e.target.value)}
           required
         />
         <FormInput
           label={"Last-Name"}
           type={"text"}
-          onChange={(e) => setChange(e, setLastName)}
+          onChange={(e) => setLastName(e.target.value)}
           required
         />
         <FormInput
           label={"Phone"}
           type={"tel"}
-          onChange={(e) => setChange(e, setPhone)}
+          onChange={(e) => setPhone(e.target.value)}
           required
         />
         <FormInput
           label={"Address"}
           type={"text"}
-          onChange={(e) => setChange(e, setAddress)}
+          onChange={(e) => setAddress(e.target.value)}
           required
         />
         <FormInput
           label={"City"}
           type={"text"}
-          onChange={(e) => setChange(e, setCity)}
+          onChange={(e) => setCity(e.target.value)}
           required
         />
         <FormInput
           label={"Country"}
           type={"text"}
-          onChange={(e) => setChange(e, setCountry)}
+          onChange={(e) => setCountry(e.target.value)}
           required
         />
         <FormInput
           label={"Postal-Code"}
           type={"text"}
-          onChange={(e) => setChange(e, setPostalCode)}
+          onChange={(e) => setPostalCode(e.target.value)}
           required
         />
         <FormInput
           label={"Date of Birth"}
           type={"date"}
-          onChange={(e) => setChange(e, setDob)}
+          onChange={(e) => setDob(e.target.value)}
           required
         />
         <FormInput
@@ -233,8 +223,8 @@ const Register = () => {
           placeholder={"Password"}
           value={password}
           onChange={passwordChange}
-          helperText={helperPasswordText}
-          helperTextColor={helperPasswordTextColor}
+          helperText={helperText.password.text}
+          helperTextColor={helperText.password.color}
           required
         />
         <FormInput
@@ -243,8 +233,8 @@ const Register = () => {
           placeholder={"Password (again)"}
           value={passwordAgain}
           onChange={passwordAgainChange}
-          helperText={helperPasswordAgainText}
-          helperTextColor={helperPasswordAgainTextColor}
+          helperText={helperText.passwordAgain.text}
+          helperTextColor={helperText.passwordAgain.color}
           required
         />
         <Row className="d-flex justify-content-center">
