@@ -20,9 +20,33 @@ const SignIn = () => {
 
   const navigate = useNavigate();
 
+  const emailIsValid = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email)
+  }
+
+  const passwordIsValid = (password) => {
+    const passwordRegex =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return passwordRegex.test(password)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(!email | !password){
+      showAlertWithTimeout( "All fields are required", "alert-danger")
+      return
+    }
+
+    if(!emailIsValid(email)){
+      showAlertWithTimeout( "Invalid email or password", "alert-danger")
+      return
+    }
+
+    if(!passwordIsValid(password)){
+      showAlertWithTimeout( "Invalid email or password", "alert-danger")
+      return
+    }
     const apiURL = process.env.REACT_APP_API_BASE_URL;
 
     try {
@@ -87,7 +111,7 @@ const SignIn = () => {
           </p>
           <FormInput
             label={"Email"}
-            type={"text"}
+            type={"email"}
             placeholder={"Email"}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
