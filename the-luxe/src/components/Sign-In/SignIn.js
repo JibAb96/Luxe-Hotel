@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Form, Button, Card, Row, Alert } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
 import "./SignIn.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
 import FormInput from "../Form/Input";
 import { ProfileContext } from "../../contexts/ProfileContext";
@@ -18,6 +18,7 @@ const SignIn = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const { setProfileData, setIsSignedIn } = useContext(ProfileContext);
   const { showAlertWithTimeout, alertMessage, showAlert, alertStyle } =
     useContext(AlertContext);
 
@@ -31,20 +32,20 @@ const SignIn = () => {
     }
   }, []);
 
-  const { setProfileData, setIsSignedIn } = useContext(ProfileContext);
+  useEffect(() => {
+    const savedLockedUntil = localStorage.getItem("lockedUntil");
+    if (savedLockedUntil && Date.now() < savedLockedUntil) {
+      setLockedUntil(savedLockedUntil);
+    } 
+    if (lockedUntil) {
+      localStorage.setItem("lockedUntil", lockedUntil);
+    }
+  }, [lockedUntil]);
+  
+ 
+  
 
   const navigate = useNavigate();
-
-  if (lockedUntil && Date.now() < lockedUntil) {
-    const minutesLeft = Math.ceil((lockedUntil - Date.now()) / 60000);
-    showAlertWithTimeout(
-      `Too many failed attempts. Please try again in ${minutesLeft} minutes`,
-      "alert-danger"
-    );
-    return;
-  }
-  
-  
 
   const emailIsValid = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -56,25 +57,39 @@ const SignIn = () => {
     return passwordRegex.test(password)
   }
 
+  const validateInputs = (email, password) => {
+    if(!email || !password){
+      showAlertWithTimeout( "All fields are required", "alert-danger")
+      console.log(email, password)
+      return false
+    }
+
+    if(!emailIsValid(email) || !passwordIsValid(password)){
+      showAlertWithTimeout( "Invalid email or password", "alert-danger")
+      return false 
+    }
+    return true
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (lockedUntil && Date.now() < lockedUntil) {
+      const minutesLeft = Math.ceil((lockedUntil - Date.now()) / 60000);
+      showAlertWithTimeout(
+        `Too many failed attempts. Please try again in ${minutesLeft} minutes`,
+        "alert-danger"
+      );
+      return;
+    }
+
     setIsLoading(true);
 
-    if(!email | !password){
-      showAlertWithTimeout( "All fields are required", "alert-danger")
-      return
+    if (!validateInputs(email, password)) {
+      setIsLoading(false);  
+      return;
     }
-
-    if(!emailIsValid(email)){
-      showAlertWithTimeout( "Invalid email or password", "alert-danger")
-      return
-    }
-
-    if(!passwordIsValid(password)){
-      showAlertWithTimeout( "Invalid email or password", "alert-danger")
-      return
-    }
+    
     const apiURL = process.env.REACT_APP_API_BASE_URL;
 
     try {
@@ -108,6 +123,16 @@ const SignIn = () => {
         navigate("/");
       } else {
         showAlertWithTimeout("Invalid email or password", "alert-danger");
+        console.error(`Server Error: ${response.status}`);
+        
+        setLoginAttempts((prevAttempts) => {
+          const newAttempts = prevAttempts + 1;
+          if (newAttempts >= MAX_ATTEMPTS) {
+            setLockedUntil(Date.now() + LOCKOUT_TIME);
+            return 0; 
+          }
+          return newAttempts;
+        });
       }
     } catch (error) {
       console.error("Error logging in:", error);
@@ -115,13 +140,6 @@ const SignIn = () => {
         "An error occurred. Please try again later.",
         "alert-danger",
       );
-
-      setLoginAttempts(prev => prev + 1);
-      
-      if (loginAttempts + 1 >= MAX_ATTEMPTS) {
-        setLockedUntil(Date.now() + LOCKOUT_TIME);
-        setLoginAttempts(0);
-      }
     } finally {
       setIsLoading(false);
     }
@@ -130,7 +148,7 @@ const SignIn = () => {
   return (
     <div>
       {showAlert && (
-        <Alert className={`alert ${alertStyle}`} role="alert">
+        <Alert className={`alert ${alertStyle}`} role="alert" >
           {alertMessage}
         </Alert>
       )}
