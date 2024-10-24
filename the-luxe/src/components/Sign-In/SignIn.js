@@ -15,6 +15,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [loginAttempts, setLoginAttempts] = useState(0);
   const [lockedUntil, setLockedUntil] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const { showAlertWithTimeout, alertMessage, showAlert, alertStyle } =
     useContext(AlertContext);
 
@@ -49,6 +50,8 @@ const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     if(!email | !password){
       showAlertWithTimeout( "All fields are required", "alert-danger")
@@ -104,6 +107,8 @@ const SignIn = () => {
         setLockedUntil(Date.now() + LOCKOUT_TIME);
         setLoginAttempts(0);
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -152,9 +157,17 @@ const SignIn = () => {
           <Row className="d-flex justify-content-center">
             <GreenButton
               type="submit"
-              className={"m-1"}
+              className={`m-1 ${isLoading ? 'opacity-50' : ''}`}
+              disabled={isLoading}
             >
-              Log In
+              {isLoading ? (
+                  <>
+                    <span className="spinner-border spinner-border-sm me-2" />
+                    Signing in...
+                  </>
+                  ) : (
+                  'Log In'
+                  )}
             </GreenButton>
           </Row>
           <Row className="d-grid justify-content-end">
