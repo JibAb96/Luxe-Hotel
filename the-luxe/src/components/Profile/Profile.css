@@ -42,3 +42,8 @@
   width:30rem;
   min-height: 10rem;
 }
+
+.profile-container{
+  padding: 3rem 0;
+  overflow-x: hidden;
+}
