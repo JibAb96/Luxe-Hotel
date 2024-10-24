@@ -7,7 +7,7 @@ import "./DeleteProfile.css";
 import { ProfileContext } from "../../contexts/ProfileContext";
 
 const DeleteProfile = ({ handleExit }) => {
-  const { showAlerWithTimeout } = useContext(AlertContext);
+  const { showAlertWithTimeout } = useContext(AlertContext);
   const { setIsSignedIn } = useContext(ProfileContext);
 
   const location = useLocation();
@@ -27,13 +27,13 @@ const DeleteProfile = ({ handleExit }) => {
       if (data === "Profile and login deleted successfully") {
         setIsSignedIn(false);
         navigate("/");
-        showAlerWithTimeout(
+        showAlertWithTimeout(
           "You have successfully deleted your profile!",
           "alert-success",
         );
         localStorage.removeItem("profileData");
       } else {
-        showAlerWithTimeout(
+        showAlertWithTimeout(
           "An error occurred. Please try again.",
           "alert-danger",
         );
@@ -41,7 +41,7 @@ const DeleteProfile = ({ handleExit }) => {
     } catch (error) {
       console.error(error.message);
       console.error("Error logging in:", error);
-      showAlerWithTimeout(
+      showAlertWithTimeout(
         "An error occurred. Please try again.",
         "alert-danger",
       );
