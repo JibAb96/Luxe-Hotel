@@ -3,20 +3,23 @@ import { Form } from "react-bootstrap";
 
 const FormInput = React.forwardRef(
   (
-    { label, type, placeholder, value, onChange, helperText, helperTextColor },
+    { label, type, placeholder, value, onChange, helperText, helperTextColor, rightElement },
     ref,
   ) => {
     return (
       <Form.Group className="mb-2" controlId={label}>
         <Form.Label>{label}</Form.Label>
-        <Form.Control
-          type={type}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          ref={ref}
-          required
-        />
+        <div className="input-group">
+          <Form.Control
+            type={type}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            ref={ref}
+            required
+          />
+          {rightElement}
+        </div>
         {helperText && (
           <Form.Text className={`textmuted ${helperTextColor}`}>
             {helperText}
