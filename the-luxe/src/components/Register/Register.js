@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Form, Card, Row } from "react-bootstrap";
+import { Form, Card, Row, Alert } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../Form/Input";
 import { AlertContext } from "../../contexts/Alert";
 const Register = () => {
-  const { showAlertWithTimeout } = useContext(AlertContext);
+  const { showAlertWithTimeout, showAlert, alertMessage, alertStyle } = useContext(AlertContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +19,9 @@ const Register = () => {
   const [country, setCountry] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [dob, setDob] = useState("");
+  const [username, setUsername] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
 
 
 
@@ -96,9 +99,12 @@ const Register = () => {
       return;
     }
 
+    setIsLoading(true);
+
     const dobDate = dob.substring(0, 10);
     const formData = {
       email,
+      username,
       password,
       firstName,
       lastName,
@@ -128,125 +134,160 @@ const Register = () => {
         );
         navigate("/signin");
       } else {
-        showAlertWithTimeout(data.message || "Registration failed", "alert-danger");
+        window.scrollTo(0, 0);
+        showAlertWithTimeout(data.error || "Registration failed", "alert-danger");
       }
     } catch (error) {
+      window.scrollTo(0, 0);
       console.error("Error registering in:", error);
       showAlertWithTimeout(
         "An error occurred. Please try again.",
         "alert-danger",
       );
+    } finally{
+      setIsLoading(false);
     }
   };
   return (
-    <Card className="register">
-      <Form
-        className="shadow p-4 rounded register-form"
-        onSubmit={handleSubmit}
-      >
-        <h1 className="h4 mb-2 text-center">Register</h1>
-        <p>
-          We are collecting your details now, to simplify your booking later!
-        </p>
-        <p>You can update your information in your profile page at anytime.</p>
-        <p>
-          If you have already created an account, then please{" "}
-          <a
-            className="text-muted px-0"
-            href="/signin"
-          >
-            {" "}
-            Sign In.{" "}
-          </a>
-        </p>
-        <FormInput
-          label={"Email"}
-          type={"email"}
-          placeholder={"Email Address"}
-          value={email}
-          onChange={handleEmailChange}
-          helperText={helperText.email.text}
-          helperTextColor={helperText.email.color}
-          required
-        />
-        <FormInput
-          label={"First-Name"}
+    <div>
+      {showAlert && (
+        <Alert className={`alert ${alertStyle}`} role="alert" >
+          {alertMessage}
+        </Alert>
+      )}  
+      <Card className="register">
+        <Form
+          className="shadow p-4 rounded register-form"
+          onSubmit={handleSubmit}
+        >
+          <h1 className="h4 mb-2 text-center">Register</h1>
+          <p>
+            We are collecting your details now, to simplify your booking later!
+          </p>
+          <p>You can update your information in your profile page at anytime.</p>
+          <p>
+            If you have already created an account, then please{" "}
+            <a
+              className="text-muted px-0"
+              href="/signin"
+            >
+              {" "}
+              Sign In.{" "}
+            </a>
+          </p>
+          <FormInput
+            label={"Email"}
+            type={"email"}
+            placeholder={"Email Address"}
+            value={email}
+            onChange={handleEmailChange}
+            helperText={helperText.email.text}
+            helperTextColor={helperText.email.color}
+            required
+          />
+          <FormInput
+          label={"Username"}
           type={"text"}
-          onChange={(e) => setFirstName(e.target.value)}
+          placeholder={"Username"}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
-        />
-        <FormInput
-          label={"Last-Name"}
-          type={"text"}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-        <FormInput
-          label={"Phone"}
-          type={"tel"}
-          onChange={(e) => setPhone(e.target.value)}
-          required
-        />
-        <FormInput
-          label={"Address"}
-          type={"text"}
-          onChange={(e) => setAddress(e.target.value)}
-          required
-        />
-        <FormInput
-          label={"City"}
-          type={"text"}
-          onChange={(e) => setCity(e.target.value)}
-          required
-        />
-        <FormInput
-          label={"Country"}
-          type={"text"}
-          onChange={(e) => setCountry(e.target.value)}
-          required
-        />
-        <FormInput
-          label={"Postal-Code"}
-          type={"text"}
-          onChange={(e) => setPostalCode(e.target.value)}
-          required
-        />
-        <FormInput
-          label={"Date of Birth"}
-          type={"date"}
-          onChange={(e) => setDob(e.target.value)}
-          required
-        />
-        <FormInput
-          label={"Password"}
-          type={"password"}
-          placeholder={"Password"}
-          value={password}
-          onChange={passwordChange}
-          helperText={helperText.password.text}
-          helperTextColor={helperText.password.color}
-          required
-        />
-        <FormInput
-          label={"Password (again)"}
-          type={"password"}
-          placeholder={"Password (again)"}
-          value={passwordAgain}
-          onChange={passwordAgainChange}
-          helperText={helperText.passwordAgain.text}
-          helperTextColor={helperText.passwordAgain.color}
-          required
-        />
-        <Row className="d-flex justify-content-center">
-          <GreenButton
-            type="submit"
-            className={"m-1"}
-          >
-            Register
-          </GreenButton>
-        </Row>
-      </Form>
-    </Card>
+          />
+          <FormInput
+            label={"First-Name"}
+            type={"text"}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+          <FormInput
+            label={"Last-Name"}
+            type={"text"}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+          <FormInput
+            label={"Phone"}
+            type={"tel"}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+          />
+          <FormInput
+            label={"Address"}
+            type={"text"}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            required
+          />
+          <FormInput
+            label={"City"}
+            type={"text"}
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            required
+          />
+          <FormInput
+            label={"Country"}
+            type={"text"}
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            required
+          />
+          <FormInput
+            label={"Postal-Code"}
+            type={"text"}
+            value={postalCode}
+            onChange={(e) => setPostalCode(e.target.value)}
+            required
+          />
+          <FormInput
+            label={"Date of Birth"}
+            type={"date"}
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
+            required
+          />
+          <FormInput
+            label={"Password"}
+            type={"password"}
+            placeholder={"Password"}
+            value={password}
+            onChange={passwordChange}
+            helperText={helperText.password.text}
+            helperTextColor={helperText.password.color}
+            required
+          />
+          <FormInput
+            label={"Password (again)"}
+            type={"password"}
+            placeholder={"Password (again)"}
+            value={passwordAgain}
+            onChange={passwordAgainChange}
+            helperText={helperText.passwordAgain.text}
+            helperTextColor={helperText.passwordAgain.color}
+            required
+          />
+          <Row className="d-flex justify-content-center">
+            <GreenButton
+              type="submit"
+              className={`m-1 ${isLoading ? 'opacity-50' : ''}`}
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                    <>
+                      <span className="spinner-border spinner-border-sm me-2" />
+                      Registering...
+                    </>
+                    ) : (
+                    'Register'
+                    )}
+            </GreenButton>
+          </Row>
+        </Form>
+      </Card>
+    </div>
   );
 };
 
