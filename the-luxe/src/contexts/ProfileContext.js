@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
-
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { AlertContext } from "./Alert"
 export const ProfileContext = createContext();
 
 export const ProfileProvider = ({ children }) => {
@@ -7,6 +7,8 @@ export const ProfileProvider = ({ children }) => {
   const [isSignedIn, setIsSignedIn] = useState(() => {
     return JSON.parse(localStorage.getItem("isSignedIn")) || false;
   });
+
+  const { showAlertWithTimeout } = useContext( AlertContext )
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("isSignedIn"));
@@ -29,9 +31,16 @@ export const ProfileProvider = ({ children }) => {
     } else {
     }
   }, [profileData]);
+
+  const logOutUser = () => {
+    setIsSignedIn(false);
+    localStorage.removeItem("isSignedIn");
+    localStorage.removeItem("profileData")
+    showAlertWithTimeout("You have successfully logged out!", "alert-success");
+  };
   return (
     <ProfileContext.Provider
-      value={{ profileData, setProfileData, isSignedIn, setIsSignedIn }}
+      value={{ profileData, setProfileData, isSignedIn, setIsSignedIn, logOutUser }}
     >
       {children}
     </ProfileContext.Provider>
