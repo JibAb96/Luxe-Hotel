@@ -28,16 +28,17 @@ const UpdateProfile = ({ handleExit }) => {
   const userId = location.pathname.split("/")[2];
 
   useEffect(() => {
-      setFormData({
-        firstName: profileData.first_name,
-        lastName: profileData.last_name,
-        phone: profileData.phone,
-        address: profileData.address,
-        city: profileData.city,
-        country: profileData.country,
-        postalCode: profileData.postal_code,
-        dob: profileData.date_of_birth.substring(0, 10),
-      })
+      if(profileData){
+        setFormData({
+          firstName: profileData.first_name || "",
+          lastName: profileData.last_name || "",
+          phone: profileData.phone || "",
+          address: profileData.address || "",
+          city: profileData.city || "",
+          country: profileData.country || "",
+          postalCode: profileData.postal_code || "",
+          dob: profileData.date_of_birth.substring(0, 10) || "",
+      })}
     }, [profileData]);
 
   const setChange = (e) => {
@@ -63,9 +64,7 @@ const UpdateProfile = ({ handleExit }) => {
         },
         body: JSON.stringify(formData),
       });
-
-      const data = await response.json();
-      if (data === "Update successful") {
+      if(response.ok){
         showAlertWithTimeout("Profile updated successfully", "alert-success");
         setProfileData((prevData) => ({
           ...prevData,
@@ -80,8 +79,9 @@ const UpdateProfile = ({ handleExit }) => {
         }));
         handleExit();
       } else {
+        const error = await response.json();
         showAlertWithTimeout(
-          data.error || "An error occurred. Try again later.",
+          error.message || "An error occurred. Try again later.",
           "alert-danger",
         );
         handleExit();
