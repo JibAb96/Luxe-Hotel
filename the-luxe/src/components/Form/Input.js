@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 
 const FormInput = React.forwardRef(
   (
-    { label, type, placeholder, value, onChange, helperText, helperTextColor, rightElement },
+    { label, type, placeholder, value, onChange, helperText, helperTextColor, rightElement, name },
     ref,
   ) => {
     return (
@@ -16,6 +16,7 @@ const FormInput = React.forwardRef(
             value={value}
             onChange={onChange}
             ref={ref}
+            name={name}
             required
           />
           {rightElement}
