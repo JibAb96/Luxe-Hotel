@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -9,6 +9,7 @@ import { ProfileContext } from "../../contexts/ProfileContext";
 const DeleteProfile = ({ handleExit }) => {
   const { showAlertWithTimeout } = useContext(AlertContext);
   const { setIsSignedIn } = useContext(ProfileContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -16,15 +17,19 @@ const DeleteProfile = ({ handleExit }) => {
   const userId = location.pathname.split("/")[2];
 
   const deleteUser = async () => {
-    const apiURL = process.env.REACT_APP_API_BASE_URL;
+    
 
     try {
+      
+      const apiURL = process.env.REACT_APP_API_BASE_URL;
+      
+      setIsLoading(true);
+      
       const response = await fetch(`${apiURL}/delete-profile/${userId}`, {
         method: "DELETE",
       });
-
-      const data = await response.json();
-      if (data === "Profile and login deleted successfully") {
+      
+      if(response.ok){
         setIsSignedIn(false);
         navigate("/");
         showAlertWithTimeout(
@@ -32,6 +37,7 @@ const DeleteProfile = ({ handleExit }) => {
           "alert-success",
         );
         localStorage.removeItem("profileData");
+        localStorage.removeItem("isSignedIn")
       } else {
         showAlertWithTimeout(
           "An error occurred. Please try again.",
@@ -42,9 +48,11 @@ const DeleteProfile = ({ handleExit }) => {
       console.error(error.message);
       console.error("Error logging in:", error);
       showAlertWithTimeout(
-        "An error occurred. Please try again.",
+        error.message || "An error occurred. Please try again.",
         "alert-danger",
       );
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -70,11 +78,20 @@ const DeleteProfile = ({ handleExit }) => {
           <GreenButton
             onClick={deleteUser}
             className={"deleteProfile-button"}
+            ariaLabel={"Delete profile button"}
           >
-            Delete
+            {isLoading ? (
+                  <>
+                    <span className="spinner-border spinner-border-sm me-2" />
+                    Deleting...
+                  </>
+                  ) : (
+                  'Delete'
+                  )}
           </GreenButton>
           <GreenButton
             onClick={handleExit}
+            ariaLabel={"Keep profile button"}
           >
             Keep
           </GreenButton>
