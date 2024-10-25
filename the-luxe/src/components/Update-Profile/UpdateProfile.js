@@ -11,46 +11,47 @@ const UpdateProfile = ({ handleExit }) => {
   const { showAlertWithTimeout } = useContext(AlertContext);
   const { profileData, setProfileData } = useContext(ProfileContext);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [dob, setDob] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    address: "",
+    city: "",
+    country: "",
+    postalCode: "",
+    dob: "",
+  });
+ 
 
   const location = useLocation();
   const userId = location.pathname.split("/")[2];
 
   useEffect(() => {
-    setFirstName(profileData.first_name);
-    setLastName(profileData.last_name);
-    setPhone(profileData.phone);
-    setAddress(profileData.address);
-    setCity(profileData.city);
-    setCountry(profileData.country);
-    setPostalCode(profileData.postal_code);
-    setDob(profileData.date_of_birth.substring(0, 10));
-  }, [profileData]);
+      setFormData({
+        firstName: profileData.first_name,
+        lastName: profileData.last_name,
+        phone: profileData.phone,
+        address: profileData.address,
+        city: profileData.city,
+        country: profileData.country,
+        postalCode: profileData.postal_code,
+        dob: profileData.date_of_birth.substring(0, 10),
+      })
+    }, [profileData]);
 
-  const setChange = (e, setState) => {
-    setState(e.target.value);
-  };
+  const setChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = {
-      firstName,
-      lastName,
-      phone,
-      address,
-      city,
-      country,
-      postalCode,
-      dob,
-    };
+    setIsLoading(true);
 
     const apiURL = process.env.REACT_APP_API_BASE_URL;
 
@@ -68,19 +69,19 @@ const UpdateProfile = ({ handleExit }) => {
         showAlertWithTimeout("Profile updated successfully", "alert-success");
         setProfileData((prevData) => ({
           ...prevData,
-          first_name: firstName,
-          last_name: lastName,
-          phone,
-          address,
-          city,
-          country,
-          postal_code: postalCode,
-          date_of_birth: dob,
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          phone: formData.phone,
+          address: formData.address,
+          city: formData.city,
+          country: formData.country,
+          postal_code: formData.postalCode,
+          date_of_birth: formData.dob,
         }));
         handleExit();
       } else {
         showAlertWithTimeout(
-          "An error occurred. Try again later.",
+          data.error || "An error occurred. Try again later.",
           "alert-danger",
         );
         handleExit();
@@ -88,10 +89,12 @@ const UpdateProfile = ({ handleExit }) => {
     } catch (error) {
       console.error(error.message);
       showAlertWithTimeout(
-        "An error occurred. Try again later.",
+        error.message || "An error occurred. Try again later.",
         "alert-danger",
       );
       handleExit();
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -108,67 +111,83 @@ const UpdateProfile = ({ handleExit }) => {
         </button>
         <h1 className="h4 mb-2 text-center">Edit Profile</h1>
         <FormInput
-          value={firstName}
+          value={formData.firstName}
           label={"First Name"}
           type={"text"}
-          onChange={(e) => setChange(e, setFirstName)}
+          name={"firstName"}
+          onChange={setChange}
           required
         />
         <FormInput
-          value={lastName}
+          value={formData.lastName}
           label={"Last Name"}
           type={"text"}
-          onChange={(e) => setChange(e, setLastName)}
+          name={"lastName"}
+          onChange={setChange}
           required
         />
         <FormInput
-          value={phone}
+          value={formData.phone}
           label={"Phone"}
           type={"tel"}
-          onChange={(e) => setChange(e, setPhone)}
+          name={"phone"}
+          onChange={setChange}
           required
         />
         <FormInput
-          value={address}
+          value={formData.address}
           label={"Address"}
           type={"text"}
-          onChange={(e) => setChange(e, setAddress)}
+          name={"address"}
+          onChange={setChange}
           required
         />
         <FormInput
-          value={city}
+          value={formData.city}
           label={"City"}
           type={"text"}
-          onChange={(e) => setChange(e, setCity)}
+          name={"city"}
+          onChange={setChange}
           required
         />
         <FormInput
-          value={country}
+          value={formData.country}
           label={"Country"}
           type={"text"}
-          onChange={(e) => setChange(e, setCountry)}
+          name={"country"}
+          onChange={setChange}
           required
         />
         <FormInput
-          value={postalCode}
+          value={formData.postalCode}
           label={"Postal Code"}
           type={"text"}
-          onChange={(e) => setChange(e, setPostalCode)}
+          name={"postalCode"}
+          onChange={setChange}
           required
         />
         <FormInput
-          value={dob}
+          value={formData.dob}
           label={"Date of Birth"}
           type={"date"}
-          onChange={(e) => setChange(e, setDob)}
+          name={"dob"}
+          onChange={setChange}
           required
         />
         <Row className="d-flex justify-content-center">
           <GreenButton
             type="submit"
             className={"m-1"}
+            disabled={isLoading}
           >
-            Save Changes
+            {isLoading ? (
+                  <>
+                    <span className="spinner-border spinner-border-sm me-2" />
+                    Updating...
+                  </>
+                  ) : (
+                  'Save Changes'
+                  )}
           </GreenButton>
         </Row>
       </Form>
