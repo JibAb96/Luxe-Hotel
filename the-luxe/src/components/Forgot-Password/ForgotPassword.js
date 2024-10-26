@@ -22,7 +22,9 @@ const ForgotPassword = () => {
       setHelperText((prev) => ({ ...prev, [field]: { text, color } }));
     };
   
-  const validateEmail = (email) => EMAIL_REGEX.test(email.trim());
+  const validateEmail = (email) => {
+    if (!email?.trim()) return false;
+    return EMAIL_REGEX.test(email.trim());}
   
   const handleEmailChange = (e) => {
       setEmail(e.target.value);
@@ -41,18 +43,17 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if(!validateEmail){
-          return;
+    if(!validateEmail(email)){
+      showAlertWithTimeout("Please enter a valid email address", "alert-danger");
+      return;
         }
 
     setIsLoading(true);
 
-    const apiURL = process.env.REACT_APP_API_BASE_URL;
+    const apiURL = process.env.REACT_APP_API_BASE_URL || '/api';
 
     try {
-      if (!validateEmail(email)) {
-        return showAlertWithTimeout("Invalid email format", "alert-danger");
-      }
+
       const response = await fetch(`${apiURL}/forgot-password`, {
         method: "POST",
         headers: {
@@ -77,7 +78,7 @@ const ForgotPassword = () => {
         "alert-danger"
       );
     } finally {
-      setIsLoading(true);
+      setIsLoading(false);
     }
   };
 
