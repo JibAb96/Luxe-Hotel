@@ -46,7 +46,7 @@ const Reservations = () => {
       }
     };
     fetchBookings();
-  }, [profileData.id, haveReservations]);
+  }, [profileData.id]);
 
   // Callback function to update bookings
   const handleUpdateBooking = (updatedBooking) => {
@@ -63,10 +63,9 @@ const Reservations = () => {
       (booking) => booking.id !== deleteBooking.id,
     );
     setBookings(updatedBookings);
-    if (!updatedBookings.length > 0) {
+    if (updatedBookings.length === 0) {
       setHaveReservations(false);
     }
-    console.log("inside:", haveReservations);
   };
 
   const handleEditSwitch = (booking) => {
@@ -97,7 +96,7 @@ const Reservations = () => {
           <p>You don't have any reservations.</p>
           <p>
             Check out our rooms and book your stay{" "}
-            <a href="http://localhost:3001/rooms">here</a>.
+            <a href="/rooms">here</a>.
           </p>
         </div>
       </Container>
@@ -153,12 +152,14 @@ const Reservations = () => {
                 <GreenButton
                   className={"min-width"}
                   onClick={() => handleEditSwitch(booking)}
+                  ariaLabel="Edit reservations button"
                 >
                   Edit
                 </GreenButton>
                 <GreenButton
                   className={"min-width"}
                   onClick={() => handleCancelSwitch(booking)}
+                  ariaLabel="Cancel edit of reservations button"
                 >
                   Cancel
                 </GreenButton>
