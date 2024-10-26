@@ -53,9 +53,9 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
           type="button"
           className="leave-button"
           onClick={handleExit}
-          aria-label="Close"
+          aria-label="Close modal"
         >
-          &times;
+          <span aria-hidden="true">&times;</span>
         </button>
         <h1 className="delete-booking-title">Cancel Reservation</h1>
         <p>
@@ -75,7 +75,7 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
             Keep
           </GreenButton>
         </Row>
-        <h1 className="delete-booking-title"> We are sorry to see you go!</h1>
+        <h2 className="delete-booking-title"> We are sorry to see you go!</h2>
         <p>
           If there is anything we can do to assist you in the future, please
           don't hesitate to reach out.
