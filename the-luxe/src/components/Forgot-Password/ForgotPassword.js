@@ -22,7 +22,7 @@ const ForgotPassword = () => {
       setHelperText((prev) => ({ ...prev, [field]: { text, color } }));
     };
   
-  const validateEmail = (email) => EMAIL_REGEX.test(email);
+  const validateEmail = (email) => EMAIL_REGEX.test(email.trim());
   
   const handleEmailChange = (e) => {
       setEmail(e.target.value);
@@ -101,8 +101,8 @@ const ForgotPassword = () => {
             to reset it.
           </p>
           <FormInput
-            label={"Email"}
-            type={"text"}
+            label={"Email Address"}
+            type={"email"}
             placeholder={"Email address"}
             onChange={handleEmailChange}
             helperText={helperText.email.text}
