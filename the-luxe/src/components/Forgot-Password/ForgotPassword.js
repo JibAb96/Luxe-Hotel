@@ -10,6 +10,7 @@ const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [helperText, setHelperText] = useState({
       email: { text: "", color: "" }
     });
@@ -44,6 +45,8 @@ const ForgotPassword = () => {
           return;
         }
 
+    setIsLoading(true);
+
     const apiURL = process.env.REACT_APP_API_BASE_URL;
 
     try {
@@ -73,6 +76,8 @@ const ForgotPassword = () => {
         error.message || "An error occurred. Please try again later",
         "alert-danger"
       );
+    } finally {
+      setIsLoading(true);
     }
   };
 
@@ -108,8 +113,17 @@ const ForgotPassword = () => {
             <GreenButton
               type="submit"
               className={"m-1"}
+              disabled={isLoading}
+              aria-busy={isLoading}
             >
-              Reset Password
+              {isLoading ? (
+                  <>
+                    <span className="spinner-border spinner-border-sm me-2" />
+                    Sending...
+                  </>
+                  ) : (
+                  'Reset Password'
+                  )}
             </GreenButton>
           </Row>
           <p className="bold">
