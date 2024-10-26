@@ -47,41 +47,39 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
   };
 
   return (
-    <>
-      <Container className="delete-booking" fluid>
-        <button
-          type="button"
-          className="leave-button"
-          onClick={handleExit}
-          aria-label="Close modal"
+    <Container className="delete-booking" fluid>
+      <button
+        type="button"
+        className="leave-button"
+        onClick={handleExit}
+        aria-label="Close modal"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h1 className="delete-booking-title">Cancel Reservation</h1>
+      <p>
+        Are you sure you want to delete your
+        <span className="bold"> Reservation</span>?
+      </p>
+      <Row>
+        <GreenButton
+          onClick={deleteBooking}
+          className={"delete-button"}
         >
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h1 className="delete-booking-title">Cancel Reservation</h1>
-        <p>
-          Are you sure you want to delete your
-          <span className="bold"> Reservation</span>?
-        </p>
-        <Row>
-          <GreenButton
-            onClick={deleteBooking}
-            className={"delete-button"}
-          >
-            Delete
-          </GreenButton>
-          <GreenButton
-            onClick={handleExit}
-          >
-            Keep
-          </GreenButton>
-        </Row>
-        <h2 className="delete-booking-title"> We are sorry to see you go!</h2>
-        <p>
-          If there is anything we can do to assist you in the future, please
-          don't hesitate to reach out.
-        </p>
-      </Container>
-    </>
+          Delete
+        </GreenButton>
+        <GreenButton
+          onClick={handleExit}
+        >
+          Keep
+        </GreenButton>
+      </Row>
+      <h2 className="delete-booking-title"> We are sorry to see you go!</h2>
+      <p>
+        If there is anything we can do to assist you in the future, please
+        don't hesitate to reach out.
+      </p>
+    </Container>
   );
 };
 
