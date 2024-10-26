@@ -12,7 +12,15 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
     try {
       const response = await fetch(`${apiURL}/delete-booking/${booking.id}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete booking");
+      }
+
       const data = await response.json();
       if (data === "Booking was deleted successfully") {
         handleExit();
@@ -29,11 +37,12 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
         );
       }
     } catch (error) {
-      console.error("Error logging in:", error);
+      console.error("Error deleting booking:", error);
       showAlertWithTimeout(
         "An error occurred. Please try again.",
         "alert-danger",
       );
+      handleExit();
     }
   };
 
