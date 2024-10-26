@@ -6,18 +6,43 @@ import "./ForgotPassword.css";
 import { AlertContext } from "../../contexts/Alert";
 import { useNavigate } from "react-router-dom";
 
+const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
+  const [helperText, setHelperText] = useState({
+      email: { text: "", color: "" }
+    });
 
   const { showAlertWithTimeout, alertMessage, alertStyle, showAlert } =
     useContext(AlertContext);
+    
+  const updateHelperText = (field, text, color) => {
+      setHelperText((prev) => ({ ...prev, [field]: { text, color } }));
+    };
+  
+  const validateEmail = (email) => EMAIL_REGEX.test(email);
+  
+  const handleEmailChange = (e) => {
+      setEmail(e.target.value);
+      if (!validateEmail(e.target.value)) {
+        updateHelperText("email", "Oops! That doesn’t look like a valid email. Try again.", "text-danger");
+      } else {
+        updateHelperText("email", "Perfect! Your email is valid.", "text-success");
+  
+      }
+    };
 
+  
+  
   const navigate = useNavigate();
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const emailRegex = /\S+@\S+\.\S+/;
-
-    const validateEmail = (email) => emailRegex.test(email);
+    
+    if(!validateEmail){
+          return;
+        }
 
     const apiURL = process.env.REACT_APP_API_BASE_URL;
 
@@ -72,7 +97,9 @@ const ForgotPassword = () => {
             label={"Email"}
             type={"text"}
             placeholder={"Email address"}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmailChange}
+            helperText={helperText.email.text}
+            helperTextColor={helperText.email.color}
             required
           />
           <Row className="d-flex justify-content-center">
