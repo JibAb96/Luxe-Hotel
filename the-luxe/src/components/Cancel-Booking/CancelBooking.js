@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
 import { AlertContext } from "../../contexts/Alert";
@@ -6,9 +6,15 @@ import "./CancelBooking.css";
 
 const CancelBooking = ({ booking, handleExit, onDeletion }) => {
   const { showAlertWithTimeout } = useContext(AlertContext);
-
+  
+  const [isLoading, setIsLoading] = useState(false);
+  
   const deleteBooking = async () => {
+
     const apiURL = process.env.REACT_APP_API_BASE_URL;
+    
+    setIsLoading(true);
+    
     try {
       const response = await fetch(`${apiURL}/delete-booking/${booking.id}`, {
         method: "DELETE",
@@ -43,6 +49,8 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
         "alert-danger",
       );
       handleExit();
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -65,11 +73,20 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
         <GreenButton
           onClick={deleteBooking}
           className={"delete-button"}
+          disabled={isLoading}
         >
-          Delete
+          {isLoading ? (
+                  <>
+                    <span className="spinner-border spinner-border-sm me-2" />
+                    Deleting...
+                  </>
+                  ) : (
+                  'Delete'
+                  )}
         </GreenButton>
         <GreenButton
           onClick={handleExit}
+          disabled={isLoading}
         >
           Keep
         </GreenButton>
