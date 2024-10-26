@@ -58,18 +58,20 @@ const ForgotPassword = () => {
         body: JSON.stringify({ email }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        return showAlertWithTimeout("Invalid email", "alert-danger");
+        throw new Error(data.message || "Failed to reset password");  
       }
       navigate("/");
       showAlertWithTimeout(
-        "An email has been sent to reset your password",
-        "alert-success",
+        "Password reset instructions have been sent to your email",
+        "alert-success"
       );
     } catch (error) {
       showAlertWithTimeout(
-        "An error occurred with the server. Please try again later",
-        "alert-danger",
+        error.message || "An error occurred. Please try again later",
+        "alert-danger"
       );
     }
   };
