@@ -20,7 +20,7 @@ const Reservations = () => {
 
   const { profileData } = useContext(ProfileContext);
   const { showAlert, alertMessage, alertStyle } = useContext(AlertContext);
-
+  
   useEffect(() => {
     if (!profileData.id) {
       return;
