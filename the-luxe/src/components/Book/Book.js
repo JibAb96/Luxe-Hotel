@@ -15,6 +15,7 @@ const Book = () => {
   const [checkOut, setCheckOut] = useState("");
   const [roomType, setRoomType] = useState("");
   const [guests, setGuests] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const { profileData } = useContext(ProfileContext);
   const { showAlertWithTimeout, showAlert, alertMessage, alertStyle } =
@@ -34,11 +35,13 @@ const Book = () => {
     currentDate.setHours(0, 0, 0, 0);
 
     if (isNaN(checkIn.getTime()) || isNaN(checkOut.getTime())) {
+      setIsLoading(false);
       showAlertWithTimeout("Please provide valid dates.", "alert-danger");
       return false;
     }
 
     if (checkIn >= checkOut) {
+      setIsLoading(false);
       showAlertWithTimeout(
         "Check-in date must be before check-out date.",
         "alert-danger",
@@ -47,6 +50,7 @@ const Book = () => {
     }
 
     if (checkIn < currentDate) {
+      setIsLoading(false);
       showAlertWithTimeout(
         "Check-in date cannot be in the past",
         "alert-danger",
@@ -55,15 +59,18 @@ const Book = () => {
     }
 
     if ((roomType === "deluxe" || roomType === "standard") && guests > 2) {
+      setIsLoading(false);
       showAlertWithTimeout(
         "Maximum guests for selected room is 2",
         "alert-danger",
       );
       return false;
     } else if (guests > 4) {
+      setIsLoading(false);
       showAlertWithTimeout("Maximum guests for the suite is 4", "alert-danger");
       return false;
     } else if (guests <= 0) {
+      setIsLoading(false);
       showAlertWithTimeout(
         "Please state how many guests this booking is for",
         "alert-danger",
@@ -77,6 +84,7 @@ const Book = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setIsLoading(true);
     const checkInDate = checkIn ? parseISO(checkIn) : null;
     const checkOutDate = checkOut ? parseISO(checkOut) : null;
 
@@ -120,6 +128,8 @@ const Book = () => {
     } catch (error) {
       console.error(error.message);
       showAlertWithTimeout("There was an error making your booking");
+    } finally{
+      setIsLoading(true);
     }
   };
   return (
@@ -177,12 +187,17 @@ const Book = () => {
           <Row className="d-flex justify-content-center">
             <GreenButton
               type="submit"
-              style={{
-                margin: "1rem",
-                backgroundColor: "#455d58",
-              }}
+              className={"booking-button"}
+              disabled={isLoading}
             >
-              Book
+              {isLoading ? (
+                  <>
+                    <span className="spinner-border spinner-border-sm me-2" />
+                    Booking...
+                  </>
+                  ) : (
+                  'Book'
+                  )}
             </GreenButton>
           </Row>
         </Form>
