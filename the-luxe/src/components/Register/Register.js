@@ -10,7 +10,7 @@ const Register = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordAgain, setPasswordAgain] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
@@ -22,13 +22,10 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-
-
-
   const [helperText, setHelperText] = useState({
     email: { text: "", color: "" },
     password: { text: "", color: "text-danger" },
-    passwordAgain: { text: "", color: "text-danger" },
+    confirmPassword: { text: "", color: "text-danger" },
   });
 
   const updateHelperText = (field, text, color) => {
@@ -58,12 +55,12 @@ const Register = () => {
     }
   };
 
-  const passwordAgainChange = (e) => {
-    setPasswordAgain(e.target.value);
-    if (!validatePasswordAgain(password, e.target.value)) {
-      updateHelperText("passwordAgain", "Your passwords do not match", "text-danger");
+  const confirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+    if (!validateConfirmPassword(password, e.target.value)) {
+      updateHelperText("confirmPassword", "Your passwords do not match", "text-danger");
     } else {
-      updateHelperText("passwordAgain", "Your password match!", "text-success");
+      updateHelperText("confirmPassword", "Your password match!", "text-success");
     }
   };
 
@@ -71,8 +68,8 @@ const Register = () => {
 
   const validatePassword = (password) => passwordRegex.test(password);
 
-  const validatePasswordAgain = (password, passwordAgain) =>
-    password === passwordAgain;
+  const validateConfirmPassword = (password, confirmPassword) =>
+    password === confirmPassword;
 
   const emailRegex = /\S+@\S+\.\S+/;
 
@@ -83,9 +80,9 @@ const Register = () => {
   const validateForm = () => {
     const isEmailValid = validateEmail(email);
     const isPasswordValid = validatePassword(password);
-    const isPasswordAgainValid = validatePasswordAgain(password, passwordAgain);
+    const isConfirmPasswordValid = validateConfirmPassword(password, confirmPassword);
   
-    if (!isEmailValid || !isPasswordValid || !isPasswordAgainValid) {
+    if (!isEmailValid || !isPasswordValid || !isConfirmPasswordValid) {
       const invalidInput = document.querySelector(".text-danger");
       invalidInput?.scrollIntoView({ behavior: "smooth", block: "center" });
       return false;
@@ -141,7 +138,7 @@ const Register = () => {
       window.scrollTo(0, 0);
       console.error("Error registering in:", error);
       showAlertWithTimeout(
-        "An error occurred. Please try again.",
+        error.message || "An error occurred. Please try again.",
         "alert-danger",
       );
     } finally{
@@ -263,10 +260,10 @@ const Register = () => {
             label={"Password (again)"}
             type={"password"}
             placeholder={"Password (again)"}
-            value={passwordAgain}
-            onChange={passwordAgainChange}
-            helperText={helperText.passwordAgain.text}
-            helperTextColor={helperText.passwordAgain.color}
+            value={confirmPassword}
+            onChange={confirmPasswordChange}
+            helperText={helperText.confirmPassword.text}
+            helperTextColor={helperText.confirmPassword.color}
             required
           />
           <Row className="d-flex justify-content-center">
