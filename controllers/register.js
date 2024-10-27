@@ -44,7 +44,7 @@ const handleRegistration = async (req, res, pool, bcrypt) => {
         );
 
         // Use the returned id to insert into profiles
-        const resultUser = await pool.query(
+        await pool.query(
             `INSERT INTO profiles (id, email, username, first_name, last_name, phone, address, city, country, postal_code, date_of_birth) 
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`,
             [resultLogin.rows[0].id, email, username, firstName, lastName, phone, address, city, country, postalCode, dobDate]
