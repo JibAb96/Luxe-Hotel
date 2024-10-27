@@ -3,7 +3,17 @@ const resetPassword = async (req, res, pool, bcrypt) => {
     const { id } = req.params;
 
     const { password } = req.body;
+    if(!password){
+        return res.status(400).json({message: "Password is required"})
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+    const validatePassword = (password) => passwordRegex.test(password)
     
+    if(!validatePassword(password)){
+        return res.status(400).json({message: "Password does not match requirements"})
+    }
     try{
 
         const selectUser = await pool.query("SELECT * FROM login WHERE id = $1 AND reset_requested = true", [id]);
@@ -19,7 +29,7 @@ const resetPassword = async (req, res, pool, bcrypt) => {
         res.json({ message: "Password has been reset successfully" });
         
     } catch (error){
-        res.status(500).json({ message: error })
+        res.status(500).json({ message: error.message ||"Internal Server Error"})
     }
 }
 
