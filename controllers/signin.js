@@ -4,9 +4,10 @@ const handleSignIn = async (req, res, pool, bcrypt) => {
         return res.status(400).json({ message:"Email and password required"});
     }
 
+    const client = await pool.connect();
     try {
 
-        const loginResults = await pool.query('SELECT email, hash FROM login WHERE email = $1', [email])
+        const loginResults = await client.query('SELECT email, hash FROM login WHERE email = $1', [email])
     
         if(loginResults.rows.length === 0){
             return res.status(400).json({ message:"Invalid Credential" })
@@ -19,7 +20,7 @@ const handleSignIn = async (req, res, pool, bcrypt) => {
             return res.status(400).json({ messsage:"Invalid credentials" })
         }
     
-        const profileResult = await pool.query('SELECT * FROM profiles WHERE email = $1', [email])
+        const profileResult = await client.query('SELECT * FROM profiles WHERE email = $1', [email])
     
         if(profileResult.rows.length === 0){
             return res.status(400).json({message: "Unable to get user profile" })
@@ -28,6 +29,8 @@ const handleSignIn = async (req, res, pool, bcrypt) => {
     } catch (err) {
         console.error('Database query error:', err);
         res.status(500).json({ message:"Internal server error" });
+    } finally {
+        client.release();
     }
 
 

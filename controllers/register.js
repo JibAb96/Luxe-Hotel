@@ -25,10 +25,11 @@ const handleRegistration = async (req, res, pool, bcrypt) => {
     const saltRounds = 10;
     const hash = await bcrypt.hash(password, saltRounds);
 
+    const client = await pool.connect(); 
     try {
-        await pool.query('BEGIN');
+        await client.query('BEGIN');
 
-        const existingUser = await pool.query(
+        const existingUser = await client.query(
             'SELECT email FROM login WHERE email = $1', // Check in the login table instead of profiles
             [email]
         );
@@ -37,29 +38,29 @@ const handleRegistration = async (req, res, pool, bcrypt) => {
             return res.status(400).json({ error: 'Email already exists' });
         }
 
-        const existingUsername = await pool.query('SELECT username FROM profiles WHERE username = $1', [username]);
+        const existingUsername = await client.query('SELECT username FROM profiles WHERE username = $1', [username]);
 
         if (existingUsername.rows.length > 0) {
             return res.status(400).json({ error: 'Username already exists' });
         }
         
         // Insert into the login table and retrieve the id
-        const resultLogin = await pool.query(
+        const resultLogin = await client.query(
             `INSERT INTO login (email, hash) VALUES ($1, $2) RETURNING id`, // Change to return id
             [email, hash]
         );
 
         // Use the returned id to insert into profiles
-        await pool.query(
+        await client.query(
             `INSERT INTO profiles (id, email, username, first_name, last_name, phone, address, city, country, postal_code, date_of_birth) 
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`,
             [resultLogin.rows[0].id, email, username, firstName, lastName, phone, address, city, country, postalCode, dobDate]
         );
 
-        await pool.query('COMMIT');
+        await client.query('COMMIT');
         res.status(201).json("success");
     } catch (error) {
-        await pool.query('ROLLBACK');
+        await client.query('ROLLBACK');
 
         if (error.code === '23505') {
             return res.status(409).json({ error: 'Username already exists' });
@@ -67,6 +68,8 @@ const handleRegistration = async (req, res, pool, bcrypt) => {
 
         console.error(error);
         res.status(500).json({ error: 'Internal server error' });
+    } finally {
+        client.release();
     }
 };
 

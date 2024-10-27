@@ -40,14 +40,15 @@ const forgotPassword = async (req, res, pool) => {
     
     const { email } = req.body;
 
+    const client = await pool.connect();
     try {
-        const findUser = await pool.query("SELECT * FROM login WHERE email = $1", [email])
+        const findUser = await client.query("SELECT * FROM login WHERE email = $1", [email])
 
         if (!findUser.rows.length) {
             return res.status(200).json({ message: 'If the email exists, a password reset email has been sent.' });
           }
         try {  
-            await pool.query("UPDATE login SET reset_requested = true WHERE email = $1", [email]);
+            await client.query("UPDATE login SET reset_requested = true WHERE email = $1", [email]);
         } catch (error) {
             return res.status(500).json({ error: 'Failed to update reset request' });
           }
@@ -59,6 +60,8 @@ const forgotPassword = async (req, res, pool) => {
             return res.status(200).json({ message: 'If the email exists, a password reset email has been sent.' });
         } catch (error) {
             return res.status(500).json({ message: 'Error sending email. Please try again later.' });
+        } finally {
+          client.release();
         }
     }
     catch(error){
