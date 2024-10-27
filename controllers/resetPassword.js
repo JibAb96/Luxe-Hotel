@@ -4,8 +4,6 @@ const resetPassword = async (req, res, pool, bcrypt) => {
 
     const { password } = req.body;
     
-    console.log(password);
-    
     try{
 
         const selectUser = await pool.query("SELECT * FROM login WHERE id = $1 AND reset_requested = true", [id]);
@@ -15,8 +13,6 @@ const resetPassword = async (req, res, pool, bcrypt) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-
-        console.log(hashedPassword)
 
         await pool.query("UPDATE login SET hash = $1, reset_requested = false WHERE id = $2", [hashedPassword, id]);
 
