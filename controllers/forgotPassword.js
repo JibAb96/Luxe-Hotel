@@ -1,7 +1,11 @@
 import sgMail from "@sendgrid/mail"
-import dotnev from "dotenv";
+import dotenv from "dotenv";
 
-dotnev.config();
+dotenv.config();
+
+if (!process.env.SGMAIL_API_KEY || !process.env.SGMAIL_EMAIL) {
+  throw new Error("SendGrid API key or email is missing from environment variables");
+}
 
 sgMail.setApiKey(process.env.SGMAIL_API_KEY);
 
@@ -28,7 +32,7 @@ const sendPasswordResetEmail = async (email, resetURL) => {
       await sgMail.send(msg);
     } catch (error) {
       console.error("Error sending email:", error);
-      throw error
+      res.status(500).json({message: "Unable to send email"})
     }
   };
 
@@ -47,8 +51,8 @@ const forgotPassword = async (req, res, pool) => {
         } catch (error) {
             return res.status(500).json({ error: 'Failed to update reset request' });
           }
-        
-        const resetURL = `http://localhost:3001/reset-password/${findUser.rows[0].id}`;
+        const appURL = process.env.REACT_APP_FRONT_END_URL
+        const resetURL = `${appURL}/reset-password/${findUser.rows[0].id}`;
 
         try {
             await sendPasswordResetEmail(email, resetURL);
@@ -58,7 +62,7 @@ const forgotPassword = async (req, res, pool) => {
         }
     }
     catch(error){
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).json({ error: 'There is an internal server error' });
     }
 }
 
