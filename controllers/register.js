@@ -36,6 +36,12 @@ const handleRegistration = async (req, res, pool, bcrypt) => {
         if (existingUser.rows.length > 0) {
             return res.status(400).json({ error: 'Email already exists' });
         }
+
+        const existingUsername = await pool.query('SELECT username FROM profiles WHERE username = $1', [username]);
+
+        if (existingUsername.rows.length > 0) {
+            return res.status(400).json({ error: 'Username already exists' });
+        }
         
         // Insert into the login table and retrieve the id
         const resultLogin = await pool.query(
