@@ -47,10 +47,10 @@ const editBooking = async (req, res, pool) => {
         if (update.rowCount === 0) {
             throw new Error('No booking found with the given ID');
         }
-        res.staus(200).json({ message:"Update successful" });
+        res.status(200).json({ message:"Update successful" });
     } catch (error) {
         console.error(error.message);
-        res.status(500).json({ message: error.message || "Server Error. Please try again later." });
+        res.status(500).json({ message: "Server Error. Please try again later." });
     } finally{
         client.release();
     }}
