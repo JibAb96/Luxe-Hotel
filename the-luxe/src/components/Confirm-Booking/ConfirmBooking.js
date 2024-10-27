@@ -43,7 +43,7 @@ const ConfirmBooking = () => {
       }
     };
     fetchBooking();
-  }, [id]);
+  }, [id, profileData]);
 
   const formatDate = (dateString) => {
     const date = parseISO(dateString);
