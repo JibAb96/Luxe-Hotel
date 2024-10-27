@@ -56,7 +56,7 @@ const handleRegistration = async (req, res, pool, bcrypt) => {
         await pool.query('ROLLBACK');
 
         if (error.code === '23505') {
-            return res.status(409).json({ error: 'Email already exists' });
+            return res.status(409).json({ error: 'Username already exists' });
         }    
 
         console.error(error);
