@@ -4,7 +4,7 @@ const reservations = async (req, res, pool) => {
         const selectBookings = await pool.query("SELECT * FROM bookings WHERE profile_id = $1", [id]);
         
         if (selectBookings.rows.length === 0) {
-            return res.status(404).json("No bookings found for this user");
+            return res.status(404).json({ message: "No bookings found for this user" });
         }
 
         const adjustedBookings = selectBookings.rows.map(booking => {
@@ -21,7 +21,7 @@ const reservations = async (req, res, pool) => {
         res.json(adjustedBookings);
     } catch (error) {
         console.error('Database query error:', error);
-        res.status(500).json("Internal server error");
+        res.status(500).json({ error: "Internal server error" });
     }
 }
 
