@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Col, Container } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import "./ConfirmBooking.css";
 import GreenButton from "../Buttons/GreenButton";
@@ -13,18 +13,31 @@ const ConfirmBooking = () => {
   const [booking, setBooking] = useState(null);
   const { profileData } = useContext(ProfileContext);
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!profileData) {
+      navigate('/login');
+    }
+  }, [profileData, navigate]);
+  
   useEffect(() => {
     const fetchBooking = async () => {
       const apiURL = process.env.REACT_APP_API_BASE_URL;
+      if(!apiURL){
+        throw new Error("API URL not configured")
+      }
       try {
         const response = await fetch(`${apiURL}/confirm-booking/${id}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch booking");
-        }
         const data = await response.json();
-        setBooking(data);
+        if (!response.ok) {
+          throw new Error(data.message || "Failed to fetch booking");
+        }
+        if (!data) throw new Error("No booking data received");
+        if(profileData.id === data.profile_id){
+          setBooking(data)
+        };
       } catch (error) {
-        console.error(error);
+        console.error('Booking fetch error:', error);
       } finally {
         setLoading(false);
       }
