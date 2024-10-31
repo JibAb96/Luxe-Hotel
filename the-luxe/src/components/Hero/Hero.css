@@ -3,8 +3,8 @@
       to right bottom,
       rgba(40, 180, 133, 0.8),
       rgb(69, 93, 88, 0.5)
-    ),url("../../images/new-hero-image.webp"),
-    url("../../images/new-hero-image.jpg");
+    ),url("../../images/hero-image-TPNG.webp"),
+    url("../../images/hero-image-TPNG.jpg");
   background-size: cover;
   background-position: center;
   height: calc(100vh - 7.5rem);

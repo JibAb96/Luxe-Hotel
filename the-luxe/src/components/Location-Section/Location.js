@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Lobby from "../../images/Hotel-lobby.webp"
-import LobbyJPG from "../../images/Hotel-lobby.jpg";
+import Lobby from "../../images/Hotel-lobby-TPNG.webp"
+import LobbyJPG from "../../images/Hotel-lobby-TPNG.jpg";
 import "./Location.css";
 import OptimizedImage from "../Optimized-Image/OptimizedImage";
 const Location = () => {

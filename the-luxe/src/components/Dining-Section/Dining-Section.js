@@ -1,6 +1,6 @@
 import React from "react";
-import Dining from "../../images/hotel-dining.webp";
-import DiningJPG from "../../images/hotel-dining.jpg"; 
+import Dining from "../../images/hotel-dining-TPNG.webp";
+import DiningJPG from "../../images/hotel-dining-TPNG.jpg"; 
 import { Container, Row, Col } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
 import "./Dining-Section.css";

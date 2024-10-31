@@ -1,8 +1,8 @@
 import React from "react";
 import "./AboutSection.css"
 import { Col, Row } from "react-bootstrap";
-import Reception from "../../images/hotel-reception-2.webp";
-import ReceptionJPG from "../../images/hotel-reception-2.jpg"
+import Reception from "../../images/hotel-reception-TPNG.webp";
+import ReceptionJPG from "../../images/hotel-reception-TPNG.jpg"
 import OptimizedImage from "../Optimized-Image/OptimizedImage";
 
 const AboutSection = () => {

@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import OptimizedImage from "../Optimized-Image/OptimizedImage"
-import Room from "../../images/hotel-room.webp"
-import RoomBackUp from "../../images/hotel-room.jpg";
+import Room from "../../images/hotel-room-TPNG.webp"
+import RoomBackUp from "../../images/hotel-room-TPNG.jpg";
 import GreenButton from "../Buttons/GreenButton";
 import "./RoomsSection.css";
 import { Link } from "react-router-dom";
