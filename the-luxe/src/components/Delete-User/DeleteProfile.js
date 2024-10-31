@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Alert } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
@@ -7,7 +7,7 @@ import "./DeleteProfile.css";
 import { ProfileContext } from "../../contexts/ProfileContext";
 
 const DeleteProfile = ({ handleExit }) => {
-  const { showAlertWithTimeout } = useContext(AlertContext);
+  const { showAlertWithTimeout, showAlert, alertMessage, alertStyle } = useContext(AlertContext);
   const { setIsSignedIn } = useContext(ProfileContext);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,7 +17,6 @@ const DeleteProfile = ({ handleExit }) => {
   const userId = location.pathname.split("/")[2];
 
   const deleteUser = async () => {
-    
 
     try {
       
@@ -28,7 +27,7 @@ const DeleteProfile = ({ handleExit }) => {
       const response = await fetch(`${apiURL}/delete-profile/${userId}`, {
         method: "DELETE",
       });
-      
+      const data = await response.json();
       if(response.ok){
         setIsSignedIn(false);
         navigate("/");
@@ -40,7 +39,7 @@ const DeleteProfile = ({ handleExit }) => {
         localStorage.removeItem("isSignedIn")
       } else {
         showAlertWithTimeout(
-          "An error occurred. Please try again.",
+          data.message || "An error occurred. Please try again.",
           "alert-danger",
         );
       }
@@ -67,6 +66,11 @@ const DeleteProfile = ({ handleExit }) => {
         >
           &times;
         </button>
+        {showAlert && (
+        <Alert className={`alert ${alertStyle}`} role="alert">
+          {alertMessage}
+        </Alert>
+        )}
         <h1 className="deleteProfile-title">Delete Profile</h1>
         <p className="deleteProfile-p">
           Are you sure you want to delete your
