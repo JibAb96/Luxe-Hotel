@@ -129,7 +129,7 @@ const Book = () => {
       console.error(error.message);
       showAlertWithTimeout("There was an error making your booking");
     } finally{
-      setIsLoading(true);
+      setIsLoading(false);
     }
   };
   return (
