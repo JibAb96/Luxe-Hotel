@@ -124,11 +124,12 @@ const EditBooking = ({ booking, handleExit, onUpdate }) => {
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(formData),
       });
+      const data = await response.json();
 
       if (!response.ok) {
         handleExit();
         return showAlertWithTimeout(
-          response.status || "There was an error making your booking.",
+          data.message || "There was an error making your booking.",
           "alert-danger",
         );
       }
@@ -148,7 +149,7 @@ const EditBooking = ({ booking, handleExit, onUpdate }) => {
       handleExit();
       console.error(error.message);
       showAlertWithTimeout(
-        error.message || "There was an error making your booking",
+        "There was an error making your booking",
         "alert-danger",
       );
     } finally{
