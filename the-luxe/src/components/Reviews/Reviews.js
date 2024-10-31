@@ -23,18 +23,21 @@ const Reviews = () => {
 
   const reviews = [
     {
+      id: 1,
       name: "Allison Dubravka",
       review: "Beautifully furnished rooms, top-tier amenities, and an outstanding restaurant. The staff made our stay memorable with their warmth and professionalism.",
       image: UserOne,
       backupImage: UserOneBackUp
     },
     {
+      id: 2,
       name: "Muhammad Arifagic",
       review: "From the moment we arrived, we were treated like royalty. The rooms were elegantly designed, and the view was breathtaking.",
       image: UserTwo,
       backupImage: UserTwoBackUp
     },
     {
+      id: 3,
       name: "Jake Humpfrey",
       review: "The attention to detail at this hotel is unmatched. The spa, dining, and service were impeccable. Every corner of the hotel exudes elegance.",
       image: UserThree,
@@ -53,10 +56,15 @@ const Reviews = () => {
         <FontAwesomeIcon icon={faQuoteLeft} className="quote" />
         <Carousel data-bs-theme="dark" indicators={false}>
           {reviews.map((review) => 
-              <Carousel.Item className="cons">
+              <Carousel.Item key={review.id} className="cons">
                 <p className="p">{review.review}</p>
-                <div> {renderStarIcons()} </div>
-                <img src={review.image} onError={(e) => handleImageError(e, review.backupImage)} alt="user" className="user" />
+                <div>{renderStarIcons()}</div>
+                <img 
+                  src={review.image} 
+                  onError={(e) => handleImageError(e, review.backupImage)} 
+                  alt="user" 
+                  className="user" 
+                />
                 <h3 className="name">{review.name}</h3>
               </Carousel.Item>
             )
