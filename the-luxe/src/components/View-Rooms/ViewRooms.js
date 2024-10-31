@@ -1,9 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import StandardRoom from "../../images/double-room.jpg";
-import DeluxeRoom from "../../images/deluxe-room.jpg";
-import Suite from "../../images/hotel-suite.jpg";
+import StandardRoom from "../../images/double-room-TPNG.webp";
+import DeluxeRoom from "../../images/deluxe-room-TPNG.webp";
+import Suite from "../../images/hotel-suite-TPNG.webp";
+import StandardRoomFB from "../../images/double-room-TPNG.jpg";
+import DeluxeRoomFB from "../../images/deluxe-room-TPNG.jpg";
+import SuiteFB from "../../images/hotel-suite-TPNG.jpg";
 import GreenButton from "../Buttons/GreenButton";
 import "./ViewRooms.css";
 import { ProfileContext } from "../../contexts/ProfileContext";
@@ -24,6 +27,7 @@ const roomDetails = {
       "Complimentary toiletries",
     ],
     image: StandardRoom,
+    fallbacksrc: StandardRoomFB
   },
   deluxe: {
     title: "Deluxe",
@@ -40,6 +44,7 @@ const roomDetails = {
       "Complimentary toiletries",
     ],
     image: DeluxeRoom,
+    fallbacksrc: DeluxeRoomFB
   },
   suite: {
     title: "Suite",
@@ -56,6 +61,7 @@ const roomDetails = {
       "Complimentary toiletries",
     ],
     image: Suite,
+    fallbacksrc: SuiteFB
   },
 };
 
@@ -106,7 +112,11 @@ const ViewRooms = () => {
             />
           </a>
           <Card>
-            <Card.Img variant="top" src={room.image} alt="Picture of room" />
+            <Card.Img 
+              variant="top" 
+              src={room.image} 
+              alt="Picture of room"
+              onError={room.fallbacksrc} />
           </Card>
         </Col>
         <Col md={6} className="text-color">
