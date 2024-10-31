@@ -3,12 +3,12 @@ import "./Reviews.css";
 import { Carousel, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faStar } from "@fortawesome/free-solid-svg-icons";
-import UserOne from "../../images/user-pic-one.webp";
-import UserTwo from "../../images/user-pic-two.webp";
-import UserThree from "../../images/user-pic-three.webp";
-import UserOneBackUp from "../../images/user-pic-one.jpg";
-import UserTwoBackUp from "../../images/user-pic-two.jpg";
-import UserThreeBackUp from "../../images/user-pic-three.jpg";
+import UserOne from "../../images/user-pic-one-TPNG.webp";
+import UserTwo from "../../images/user-pic-two-TPNG.webp";
+import UserThree from "../../images/user-pic-three-TPNG.webp";
+import UserOneBackUp from "../../images/user-pic-one-TPNG.jpg";
+import UserTwoBackUp from "../../images/user-pic-two-TPNG.jpg";
+import UserThreeBackUp from "../../images/user-pic-three-TPNG.jpg";
 
 const Reviews = () => {
   const icons = Array(5).fill(<FontAwesomeIcon icon={faStar} />);
@@ -53,14 +53,12 @@ const Reviews = () => {
         <FontAwesomeIcon icon={faQuoteLeft} className="quote" />
         <Carousel data-bs-theme="dark" indicators={false}>
           {reviews.map((review) => 
-            {
-             return <Carousel.Item className="cons">
+              <Carousel.Item className="cons">
                 <p className="p">{review.review}</p>
                 <div> {renderStarIcons()} </div>
                 <img src={review.image} onError={(e) => handleImageError(e, review.backupImage)} alt="user" className="user" />
                 <h3 className="name">{review.name}</h3>
               </Carousel.Item>
-              }
             )
           }
         </Carousel>
