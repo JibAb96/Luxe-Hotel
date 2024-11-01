@@ -1,9 +1,11 @@
-.register {
+.card {
   margin: 4rem auto 7rem;
-  max-width: 40rem;
+  max-width: 25rem;
 }
-
-.register-form {
+.form {
   color: #455d58;
   border: #455d58 5px solid;
+}
+.anchor{
+  color: inherit;
 }

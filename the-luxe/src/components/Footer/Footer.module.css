@@ -1,15 +1,18 @@
-.footer {
+.container {
   padding: 5rem;
   background-color: #455d58;
   color: aliceblue;
 }
-.footer-h {
+.title {
   font-weight: 400;
   text-transform: uppercase;
   font-size: 1.1rem;
   letter-spacing: 0.1rem;
 }
-.payment-methods {
+.text{
+  letter-spacing: 0.1rem;
+}
+.payment {
   list-style-type: none;
   display: flex;
   margin-left: -2rem;
@@ -21,4 +24,20 @@
 .icons:hover {
   cursor: pointer;
   opacity: 0.5;
+}
+
+.anchor{
+  color: inherit;
+}
+
+@media (min-width: 768px) {
+  .left{
+    margin-left: -3rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .space{
+    margin-left: -3rem;
+  }
 }

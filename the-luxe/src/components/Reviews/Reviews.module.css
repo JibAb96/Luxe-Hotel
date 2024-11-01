@@ -1,14 +1,15 @@
-.reviews {
+.container {
   padding-bottom: 2rem;
 }
-.sec-title {
+.title {
   font-size: 2.3rem;
   padding-top: 5rem;
   color: #455d58;
   font-weight: 650;
+  text-align: center;
 }
 
-.sec-title::after {
+.title::after {
   content: "";
   display: block;
   width: 7rem;
@@ -24,7 +25,7 @@
   color: #455d58;
   font-size: 2.8rem;
 }
-.cons {
+.center {
   text-align: center;
 }
 .star {
@@ -40,7 +41,7 @@
   margin-top: 2rem;
 }
 
-.p {
+.paragraph {
   max-width: 40rem;
   font-size: larger;
   font-weight: 300;

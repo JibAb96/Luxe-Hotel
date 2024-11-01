@@ -8,7 +8,7 @@ import StandardRoomFB from "../../images/double-room-TPNG.jpg";
 import DeluxeRoomFB from "../../images/deluxe-room-TPNG.jpg";
 import SuiteFB from "../../images/hotel-suite-TPNG.jpg";
 import GreenButton from "../Buttons/GreenButton";
-import "./ViewRooms.css";
+import styles from "./ViewRooms.module.css";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -80,9 +80,9 @@ const ViewRooms = () => {
   if (!room) {
     return (
       <Container 
-        className="error-handling" 
+        className={`${styles.error}`} 
          fluid>
-        <h1 className="room-type">Room Not Found</h1>
+        <h1 className={`${styles.title}`}>Room Not Found</h1>
         <p>
           The room you are looking for does not exist. Please check the URL or
           choose from our available rooms:
@@ -95,20 +95,20 @@ const ViewRooms = () => {
           ))}
         </ul>
         <Link to="/rooms">
-          <GreenButton style={{backgroundColor: "#455d58"}}>View Rooms</GreenButton>
+          <GreenButton>View Rooms</GreenButton>
         </Link>
       </Container>
       )
   }
 
   return (
-    <Container className="pad" fluid>
-      <Row className="outer">
+    <Container className={`${styles.container}`} fluid>
+      <Row className={`${styles.outer}`}>
         <Col md={6}>
           <a href="/rooms">
             <FontAwesomeIcon
               icon={faArrowLeft}
-              style={{ fontSize: "1.5rem", margin: "1rem", color: "#455d58" }}
+              className={`${styles.icon}`}
             />
           </a>
           <Card>
@@ -119,19 +119,19 @@ const ViewRooms = () => {
               onError={room.fallbacksrc} />
           </Card>
         </Col>
-        <Col md={6} className="text-color">
-          <h1 className="room-type">{room.title}</h1>
+        <Col md={6} className={`${styles.color}`}>
+          <h1 className={`${styles.title}`}>{room.title}</h1>
           <h2>Price: {room.price}</h2>
-          <p className="pg">{room.description}</p>
+          <p className={`${styles.font}`}>{room.description}</p>
           <h3>Breakfast Included</h3>
-          <p className="pg">
+          <p className={`${styles.font}`}>
             Start your day with an exquisite breakfast experience at our luxury
             hotel in Luxembourg. Indulge in a gourmet selection of freshly baked
             pastries, seasonal fruits, artisanal cheeses, and delicacies sourced
             from local farms.
           </p>
           <h3>Amenities:</h3>
-          <ul className="pg">
+          <ul className={`${styles.font}`}>
             {room.amenities.map((amenity, index) => (
               <li key={index}>{amenity}</li>
             ))}

@@ -1,17 +1,17 @@
-.rooms {
+.container {
   padding: 7rem 0;
   background-color: #455d58;
   height: 100%;
   overflow: hidden;
 }
 
-.hotel-room {
+.img {
   width: 80%;
   height: auto;
   margin-left: 2rem;
 }
 
-.text-box {
+.box {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -20,7 +20,7 @@
   padding-left: 3rem;
 }
 
-.headline {
+.title {
   font-size: 2.2rem;
   font-weight: 600;
 }

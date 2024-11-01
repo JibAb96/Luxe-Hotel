@@ -1,4 +1,4 @@
-.room-option {
+.roomcard {
   transition: transform 0.3s ease;
 }
 
@@ -7,24 +7,24 @@
   transition: transform 0.3s ease;
 }
 
-.room-option-body {
+.body {
   min-height: 20rem;
   background-color: #455d58;
   color: aliceblue;
 }
 
-.room-card-button{
+.button{
   position: absolute;
   bottom: 1rem;
   left: 28%;
   background-color: transparent;
 }
-.room-card-img{
+.img{
   object-fit: cover;
   height: 40vh;
 }
-@media (max-width: 768px) {
-  .room-option:hover {
+@media (min-width: 768px) {
+  .roomcard:hover {
     transition: none;
     transform: none;
   }

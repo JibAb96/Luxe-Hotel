@@ -7,7 +7,7 @@ import Suite from "../../images/hotel-suite-TPNG.webp";
 import DoubleRoomFB from "../../images/double-room-TPNG.jpg";
 import DeluxeRoomFB from "../../images/deluxe-room-TPNG.jpg";
 import SuiteFB from "../../images/hotel-suite-TPNG.jpg";
-import "./RoomsPage.css";
+import styles from "./RoomsPage.module.css";
 
 const roomsData = [
   {
@@ -48,9 +48,9 @@ const RoomsPage = () => {
   }, []);
 
   return (
-    <Container className="pad" fluid>
-      <h1 className="title">Rooms</h1>
-      <Row className="card-container">
+    <Container className={`${styles.container}`} fluid>
+      <h1 className={`${styles.title}`}>Rooms</h1>
+      <Row>
         {roomsData.map((room) => {
           return (
             <RoomCard

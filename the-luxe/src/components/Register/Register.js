@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Form, Card, Row, Alert } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
-import "./Register.css";
+import styles from "./Register.module.css"
 import { useNavigate } from "react-router-dom";
 import FormInput from "../Form/Input";
 import { AlertContext } from "../../contexts/Alert";
@@ -152,9 +152,9 @@ const Register = () => {
           {alertMessage}
         </Alert>
       )}  
-      <Card className="register">
+      <Card className={`${styles.card}`}>
         <Form
-          className="shadow p-4 rounded register-form"
+          className={`${styles.form} shadow p-4 rounded `}
           onSubmit={handleSubmit}
         >
           <h1 className="h4 mb-2 text-center">Register</h1>
@@ -183,12 +183,12 @@ const Register = () => {
             required
           />
           <FormInput
-          label={"Username"}
-          type={"text"}
-          placeholder={"Username"}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
+            label={"Username"}
+            type={"text"}
+            placeholder={"Username"}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
           />
           <FormInput
             label={"First-Name"}

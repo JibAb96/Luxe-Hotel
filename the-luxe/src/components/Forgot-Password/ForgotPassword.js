@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Card, Form, Row, Alert } from "react-bootstrap";
 import FormInput from "../Form/Input";
 import GreenButton from "../Buttons/GreenButton";
-import "./ForgotPassword.css";
+import styles from "./ForgotPassword.module.css";
 import { AlertContext } from "../../contexts/Alert";
 import { useNavigate } from "react-router-dom";
 
@@ -89,9 +89,9 @@ const ForgotPassword = () => {
           {alertMessage}
         </Alert>
       )}
-      <Card className="f-password">
+      <Card className={`${styles.card}`}>
         <Form
-          className="shadow p-4 rounded signin-form f-password-form"
+          className={`shadow p-4 rounded ${styles.form}`}
           onSubmit={handleSubmit}
         >
           <h1 className="h4 mb-2 text-center">Password Reset</h1>
@@ -127,7 +127,7 @@ const ForgotPassword = () => {
                   )}
             </GreenButton>
           </Row>
-          <p className="bold">
+          <p className={`${styles.bold}`}>
             Contact us if you have any trouble resetting your password.
           </p>
         </Form>

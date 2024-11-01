@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
-import "./Hero.css";
+import styles from "./Hero.module.css";
 import GreenButton from "../Buttons/GreenButton";
 import { Link } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
@@ -8,9 +8,9 @@ import { ProfileContext } from "../../contexts/ProfileContext";
 const Hero = () => {
   const { isSignedIn } = useContext(ProfileContext);
   return (
-    <Container className="hero" fluid>
-      <Row className="hero__text-box">
-        <h1 className="hero__text">
+    <Container className={`${styles.container}`} fluid>
+      <Row className={`${styles.box}`}>
+        <h1 className={`${styles.text}`}>
           <span>Luxury</span>
           <span>Comfort</span>
         </h1>
@@ -18,7 +18,7 @@ const Hero = () => {
           <GreenButton
             as={Link}
             to={"/book"}
-            className={"hero-button"}
+            className={`${styles.button}`}
           >
             Book a Room
           </GreenButton>
@@ -26,7 +26,7 @@ const Hero = () => {
           <GreenButton
             as={Link}
             to={"/signin"}
-            className={"hero-button"}
+            className={`${styles.button}`}
           >
             Book a Room
           </GreenButton>

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import TextCard from "../Cards/TextCard";
-import "./Reserve-Section.css";
+import styles from "./Reserve-Section.module.css";
 import GreenButton from "../Buttons/GreenButton";
 import { Link } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
@@ -10,22 +10,22 @@ const ReserveSection = () => {
   const { isSignedIn } = useContext(ProfileContext);
 
   return (
-    <Container className="reservations" fluid>
-      <h1 className="reservation-title">Manage Your Booking</h1>
+    <Container className={`${styles.container}`} fluid>
+      <h1 className={`${styles.title}`}>Manage Your Booking</h1>
       <Row className="d-flex justify-content-center p-5 ">
         <TextCard
-          className={"reservation-card"}
+          className={`${styles.card}`}
           Title={"1. Review Details"}
           Text={"View details of your reservation."}
         />
         <TextCard
-          className={"reservation-card"}
+          className={`${styles.card}`}
           Title={"2. Modify Reservations"}
           Text={"Make changes to your reservation."}
         />
 
         <TextCard
-          className={"reservation-card"}
+          className={`${styles.card}`}
           Title={"3. Cancel Reservations"}
           Text={"Cancel your existing booking up to 24h before check in."}
         />
@@ -34,7 +34,7 @@ const ReserveSection = () => {
         {isSignedIn ? (
           <>
             <GreenButton
-              className={"reserve-s-button"}
+              className={`${styles.button}`}
               as={Link}
               to={"/reservations"}
             >
@@ -44,7 +44,7 @@ const ReserveSection = () => {
         ) : (
           <>
             <GreenButton
-              className={"reserve-s-button"}
+              className={`${styles.button}`}
               as={Link}
               to={"/signin"}
             >

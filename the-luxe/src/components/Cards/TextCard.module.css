@@ -1,24 +1,24 @@
-.text-card {
+.card {
   color: #455d58;
   border: 2px solid #455d58;
 }
 
-.text-card:hover {
+.card:hover {
   transform: scale(1.03);
   transition: transform 0.3s ease;
 }
 
-.text-card .card-text {
+.card{
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-.structure-card-body {
+.body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.elements-container {
+.elements {
   display: flex;
   justify-content: center;
   margin-top: auto;

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import TextCard from "../Cards/TextCard";
-import "./Profile.css";
+import styles from "./Profile.module.css"
 import GreenButton from "../Buttons/GreenButton";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { AlertContext } from "../../contexts/Alert";
@@ -41,12 +41,12 @@ const Profile = () => {
           {alertMessage}
         </Alert>
       )}
-      <Container className="profile-container" fluid>
-        <h1 className="profile-title">Profile</h1>
+      <Container className={`${styles.container}`} fluid>
+        <h1 className={`${styles.title}`}>Profile</h1>
         <Row className="d-flex justify-content-center">
           <TextCard
             lg={6}
-            style={{ width: "30rem", minHeight: "10rem" }}
+            className={`${styles.card}`}
             Title={name}
             Text={
               <>
@@ -62,18 +62,18 @@ const Profile = () => {
                 </p>
               </>
             }
-            titleClass={"titleClass"}
+            titleClass={`${styles.titleClass}`}
             Element={
               <div>
                 <GreenButton
-                  className={"min-w"}
+                  className={`${styles.width}`}
                   onClick={handleEditSwitch}
                   disabled={ showEditProfile || showDeleteProfile }
                 >
                   Edit
                 </GreenButton>
                 <GreenButton
-                  className={"min-w"}
+                  className={`${styles.width}`}
                   onClick={handleDeleteSwitch}
                   disabled={ showDeleteProfile || showEditProfile }
                 >
@@ -84,26 +84,26 @@ const Profile = () => {
           />
           <TextCard
             lg={6}
-            className={"profile-card"}
+            className={`${styles.card}`}
             Text={
               <>
                 <p>
-                  <span className="bold">Email:</span> {email}
+                  <span className={`${styles.bold}`}>Email:</span> {email}
                 </p>
                 <p>
-                  <span className="bold">Phone:</span> {phone}
+                  <span className={`${styles.bold}`}>Phone:</span> {phone}
                 </p>
                 <p>
-                  <span className="bold">Country:</span> {country}
+                  <span className={`${styles.bold}`}>Country:</span> {country}
                 </p>
                 <p>
-                  <span className="bold">City:</span> {city}
+                  <span className={`${styles.bold}`}>City:</span> {city}
                 </p>
                 <p>
-                  <span className="bold">Address:</span> {address}
+                  <span className={`${styles.bold}`}>Address:</span> {address}
                 </p>
                 <p>
-                  <span className="bold">Postal Code:</span>{" "}
+                  <span className={`${styles.bold}`}>Postal Code:</span>{" "}
                   {postalCode}
                 </p>
               </>
@@ -111,12 +111,12 @@ const Profile = () => {
           />
         </Row>
         {showDeleteProfile && (
-          <div className="overlay">
+          <div className={`${styles.overlay}`}>
             <DeleteProfile handleExit={handleDeleteSwitch} />
           </div>
         )}
         {showEditProfile && (
-          <div className="overlay">
+          <div className={`${styles.overlay}`}>
             <UpdateProfile handleExit={handleEditSwitch} />
           </div>
         )}

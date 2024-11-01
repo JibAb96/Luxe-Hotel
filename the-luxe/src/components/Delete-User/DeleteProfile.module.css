@@ -1,4 +1,4 @@
-.deleteProfile {
+.container{
   margin: 4rem auto 7rem;
   overflow-y: auto;
   width: 80vw;
@@ -12,13 +12,16 @@
   justify-content: center;
 }
 
-.deleteProfile-title {
+.title {
   color: #455d58;
   letter-spacing: 0.2rem;
   margin-top: 2rem;
 }
-
-.deleteProfile-p {
+.bold{
+  font-weight: 700;
+  color: black;
+}
+.paragraph {
   color: #455d58;
   max-width: 40rem;
   color: #455d58;
@@ -26,7 +29,7 @@
   font-size: 1.5rem;
 }
 
-.exit-button {
+.exit {
   position: relative;
   background: none;
   border: none;
@@ -37,11 +40,11 @@
   top: 2rem;
 }
 
-.exit-button:hover {
+.exit:hover {
   color: #ff7875;
 }
 
-.deleteProfile-button{
+.delete{
   background-color: #800020;
   margin-bottom: 1rem;
 }

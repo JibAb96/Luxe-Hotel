@@ -8,17 +8,14 @@
 .description {
   margin-top: 0;
 }
-.info-text {
+.text {
   max-width: 40rem;
   padding-left: 3rem;
   color: #455d58;
   font-weight: 350;
 }
 
-.padding-right {
-  padding-right: 8rem;
-}
-.hotel-lobby {
+.lobby {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -31,7 +28,7 @@
 }
 
 @media (max-width:600px) {
-  .info-text{
+  .text{
     margin-left: 0;
   }
 }

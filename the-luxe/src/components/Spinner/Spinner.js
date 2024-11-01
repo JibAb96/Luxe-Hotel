@@ -1,9 +1,9 @@
 import { Container, Spinner } from "react-bootstrap";
-import "./Spinner.css"
+import styles from "./Spinner.module.css"
 const Loader = () => {
   return (
     <Container
-      className="d-flex justify-content-center align-items-center height"
+      className={`${styles.height} d-flex justify-content-center align-items-center`}
       fluid
     >
       <Spinner animation="border" role="status">

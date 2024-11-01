@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import "./ResetPassword.css";
+import styles from "./ResetPassword.module.css";
 import { Card, Form, Alert, Row } from "react-bootstrap";
 import FormInput from "../Form/Input";
 import GreenButton from "../Buttons/GreenButton";
@@ -124,9 +124,9 @@ const ResetPassword = () => {
           {alertMessage}
         </Alert>
       )}
-      <Card className="r-password">
+      <Card className={`${styles.card}`}>
         <Form
-          className="shadow p-4 rounded signin-form r-password-form"
+          className={`${styles.form} shadow p-4 rounded`}
           onSubmit={handleSubmit}
         >
           <h1 className="h4 mb-2 text-center">Change Password</h1>

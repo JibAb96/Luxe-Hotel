@@ -1,11 +1,11 @@
-.page-heading {
-  color: #455d58;
-  padding-top: 3rem;
-  letter-spacing: 0.2rem;
-  text-align: center;
+.heading {
+  color: #455d58 !important;
+  padding-top: 3rem !important;
+  letter-spacing: 0.2rem !important;
+  text-align: center !important;
 }
 
-.heading {
+.title {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.5rem;
   letter-spacing: 2px;
@@ -14,7 +14,7 @@
   font-weight: 600;
 }
 
-.overlay-r {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,16 +27,16 @@
   z-index: 1000;
 }
 
-.overlay-r > * {
+.overlay > * {
   background-color: white;
   padding: 2rem;
   border-radius: 10px;
 }
 
-.min-width{
+.width{
   min-width: 7rem;
 }
 
-.reservations-p{
-  padding: 2rem 0 7rem
+.padding{
+  padding: 2rem 0 7rem;
 }

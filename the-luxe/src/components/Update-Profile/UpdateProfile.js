@@ -5,7 +5,7 @@ import { AlertContext } from "../../contexts/Alert";
 import FormInput from "../Form/Input";
 import GreenButton from "../Buttons/GreenButton";
 import { ProfileContext } from "../../contexts/ProfileContext";
-import "./UpdateProfile.css";
+import styles from "./UpdateProfile.module.css";
 
 const UpdateProfile = ({ handleExit }) => {
   const { showAlertWithTimeout } = useContext(AlertContext);
@@ -99,11 +99,11 @@ const UpdateProfile = ({ handleExit }) => {
   };
 
   return (
-    <Card className="update">
-      <Form className="shadow p-4 rounded update-form" onSubmit={handleSubmit}>
+    <Card className={`${styles.card}`}>
+      <Form className={`${styles.form} shadow p-4 rounded`} onSubmit={handleSubmit}>
         <button
           type="button"
-          className="close-button"
+          className={`${styles.exit}`}
           onClick={handleExit}
           aria-label="Close"
         >

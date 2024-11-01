@@ -1,4 +1,4 @@
-.not-found {
+.content {
   margin: 5rem auto 7rem;
   width: 80vw;
   max-width: 90vw;
@@ -9,7 +9,7 @@
   justify-content: center;
 }
 
-.not-found-title {
+.title {
   color: #455d58;
   letter-spacing: 0.2rem;
   margin-top: 2rem;

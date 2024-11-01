@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
 import { AlertContext } from "../../contexts/Alert";
-import "./CancelBooking.css";
+import styles from "./CancelBooking.module.css";
 
 const CancelBooking = ({ booking, handleExit, onDeletion }) => {
   const { showAlertWithTimeout } = useContext(AlertContext);
@@ -55,24 +55,24 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
   };
 
   return (
-    <Container className="delete-booking" fluid>
+    <Container className={`${styles.container}`} fluid>
       <button
         type="button"
-        className="leave-button"
+        className={`${styles.exit}`}
         onClick={handleExit}
         aria-label="Close modal"
       >
         <span aria-hidden="true">&times;</span>
       </button>
-      <h1 className="delete-booking-title">Cancel Reservation</h1>
+      <h1 className={`${styles.title}`}>Cancel Reservation</h1>
       <p>
         Are you sure you want to delete your
-        <span className="bold"> Reservation</span>?
+        <span className={`${styles.bold}`}> Reservation</span>?
       </p>
       <Row>
         <GreenButton
           onClick={deleteBooking}
-          className={"delete-button"}
+          className={`${styles.delete}`}
           disabled={isLoading}
         >
           {isLoading ? (
@@ -91,7 +91,7 @@ const CancelBooking = ({ booking, handleExit, onDeletion }) => {
           Keep
         </GreenButton>
       </Row>
-      <h2 className="delete-booking-title"> We are sorry to see you go!</h2>
+      <h2 className={`${styles.title}`}> We are sorry to see you go!</h2>
       <p>
         If there is anything we can do to assist you in the future, please
         don't hesitate to reach out.

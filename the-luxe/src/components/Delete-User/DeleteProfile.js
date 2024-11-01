@@ -3,7 +3,7 @@ import { Container, Row, Alert } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
-import "./DeleteProfile.css";
+import styles from "./DeleteProfile.module.css";
 import { ProfileContext } from "../../contexts/ProfileContext";
 
 const DeleteProfile = ({ handleExit }) => {
@@ -57,10 +57,10 @@ const DeleteProfile = ({ handleExit }) => {
 
   return (
     <>
-      <Container className="deleteProfile" fluid>
+      <Container className={`${styles.container}`} fluid>
         <button
           type="button"
-          className="exit-button"
+          className={`${styles.exit}`}
           onClick={handleExit}
           aria-label="Close"
         >
@@ -71,17 +71,17 @@ const DeleteProfile = ({ handleExit }) => {
           {alertMessage}
         </Alert>
         )}
-        <h1 className="deleteProfile-title">Delete Profile</h1>
-        <p className="deleteProfile-p">
+        <h1 className={`${styles.title}`}>Delete Profile</h1>
+        <p className={`${styles.paragraph}`}>
           Are you sure you want to delete your
-          <span className="bold"> Profile</span>,
-          <span className="bold"> Account</span> and
-          <span className="bold"> Reservations</span>?
+          <span className={`${styles.bold}`}> Profile</span>,
+          <span className={`${styles.bold}`}> Account</span> and
+          <span className={`${styles.bold}`}> Reservations</span>?
         </p>
         <Row>
           <GreenButton
             onClick={deleteUser}
-            className={"deleteProfile-button"}
+            className={`${styles.delete}`}
             ariaLabel={"Delete profile button"}
           >
             {isLoading ? (
@@ -100,11 +100,11 @@ const DeleteProfile = ({ handleExit }) => {
             Keep
           </GreenButton>
         </Row>
-        <h1 className="deleteProfile-title">
+        <h1 className={`${styles.title}`}>
           {" "}
           It's been a pleasure having you here!
         </h1>
-        <p className="deleteProfile-p">We hope to see you again soon.</p>
+        <p className={`${styles.paragraph}`}>We hope to see you again soon.</p>
       </Container>
     </>
   );

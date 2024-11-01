@@ -1,12 +1,12 @@
 import React from "react";
 import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
-import "./Layout.css";
+import styles from "./Layout.module.css";
 const Layout = ({ children }) => {
   return (
-    <div className="wrapper">
+    <div className={`${styles.wrapper}`}>
       <Navigation />
-      <div className="content">{children}</div>
+      <div className={`${styles.content}`}>{children}</div>
       <Footer />
     </div>
   );

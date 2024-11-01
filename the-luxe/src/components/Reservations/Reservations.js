@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Container, Row, Alert } from "react-bootstrap";
 import TextCard from "../Cards/TextCard";
-import "./Reservations.css";
+import styles from "./Reservations.module.css";
 import GreenButton from "../Buttons/GreenButton";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { AlertContext } from "../../contexts/Alert";
@@ -77,6 +77,7 @@ const Reservations = () => {
     setShowCancelBooking(!showCancelBooking);
   };
 
+  
   if (loading) {
     return <Loader />;
   }
@@ -90,7 +91,7 @@ const Reservations = () => {
           </Alert>
         )}
         <Row className="d-flex justify-content-center">
-          <h1 className="page-heading">Your Reservations</h1>
+          <h1 className={`${styles.heading}`}>Your Reservations</h1>
         </Row>
         <div className="text-center p-5 m-5">
           <p>You don't have any reservations.</p>
@@ -116,48 +117,48 @@ const Reservations = () => {
         </Alert>
       )}
       <Row className="d-flex justify-content-center">
-        <h1 className="page-heading">Your Reservations</h1>
+        <h1 className={`${styles.heading}`}>Your Reservations</h1>
       </Row>
       <Row
-        className="d-flex justify-content-center reservations-p"
+        className={`${styles.padding} d-flex justify-content-center`}
       >
         {bookings.map((booking, index) => (
           <TextCard
             key={index}
-            titleClass={"heading"}
+            titleClass={`${styles.title}`}
             Title={booking.room_type}
             Text={
               <>
                 <p>
-                  <span className="bold">Booking Id:</span> {booking.id}
+                  <span className={`${styles.bold}`}>Booking Id:</span> {booking.id}
                 </p>
                 <p>
-                  <span className="bold">Check-In:</span>{" "}
+                  <span className={`${styles.bold}`}>Check-In:</span>{" "}
                   {formatDate(booking.check_in)}
                 </p>
                 <p>
-                  <span className="bold">Check-Out:</span>{" "}
+                  <span className={`${styles.bold}`}>Check-Out:</span>{" "}
                   {formatDate(booking.check_out)}
                 </p>
                 <p>
-                  <span className="bold">Guests:</span> {booking.guests}
+                  <span className={`${styles.bold}`}>Guests:</span> {booking.guests}
                 </p>
                 <p>
-                  <span className="bold">Total-price:</span> €{booking.price}
+                  <span className={`${styles.bold}`}>Total-price:</span> €{booking.price}
                 </p>
               </>
             }
             Element={
               <div>
                 <GreenButton
-                  className={"min-width"}
+                  className={`${styles.width}`}
                   onClick={() => handleEditSwitch(booking)}
                   ariaLabel="Edit reservations button"
                 >
                   Edit
                 </GreenButton>
                 <GreenButton
-                  className={"min-width"}
+                  className={`${styles.width}`}
                   onClick={() => handleCancelSwitch(booking)}
                   ariaLabel="Cancel edit of reservations button"
                 >
@@ -168,7 +169,7 @@ const Reservations = () => {
           />
         ))}
         {showEditBooking && (
-          <div className="overlay-r">
+          <div className={`${styles.overlay}`}>
             <EditBooking
               booking={selectedBooking}
               handleExit={handleEditSwitch}
@@ -177,7 +178,7 @@ const Reservations = () => {
           </div>
         )}
         {showCancelBooking && (
-          <div className="overlay-r">
+          <div className={`${styles.overlay}`}>
             <CancelBooking
               booking={selectedBooking}
               handleExit={handleCancelSwitch}

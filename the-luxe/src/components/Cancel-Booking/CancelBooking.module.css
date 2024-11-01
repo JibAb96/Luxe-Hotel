@@ -1,4 +1,4 @@
-.delete-booking {
+.container {
   margin: 4rem auto 7rem;
   overflow-y: auto;
   width: 80vw;
@@ -12,7 +12,7 @@
   justify-content: center;
 }
 
-.delete-booking-title {
+.title {
   color: #455d58;
   letter-spacing: 0.2rem;
   margin-top: 2rem;
@@ -21,7 +21,7 @@
   font-size: 1.5rem;
 }
 
-.leave-button {
+.exit {
   position: relative;
   background: none;
   border: none;
@@ -32,10 +32,14 @@
   top: 2rem;
 }
 
-.leave-button:hover {
+.exit:hover {
   color: #ff7875;
 }
-.delete-button{
+.delete{
   background-color: #800020;
   margin-bottom: 1rem
+}
+
+.bold{
+  font-weight: 500;
 }

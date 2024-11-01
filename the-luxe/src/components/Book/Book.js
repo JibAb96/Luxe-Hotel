@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Form, Card, Row, Alert } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
-import "./Book.css";
+import styles from "./Book.module.css";
 import FormInput from "../Form/Input";
 import { ProfileContext } from "../../contexts/ProfileContext";
 import { AlertContext } from "../../contexts/Alert";
@@ -139,9 +139,9 @@ const Book = () => {
           {alertMessage}
         </Alert>
       )}
-      <Card className="booking">
+      <Card className={`${styles.card}`}>
         <Form
-          className="shadow p-4 rounded booking-form"
+          className={`shadow p-4 rounded ${styles.form}`}
           onSubmit={handleSubmit}
         >
           <h1 className="h4 mb-2 text-center">Book Your Stay</h1>
@@ -187,7 +187,7 @@ const Book = () => {
           <Row className="d-flex justify-content-center">
             <GreenButton
               type="submit"
-              className={"booking-button"}
+              className={`${styles.button}`}
               disabled={isLoading}
             >
               {isLoading ? (

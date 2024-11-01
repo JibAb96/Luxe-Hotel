@@ -1,8 +1,12 @@
-.f-password {
+.card {
   margin: 4rem auto 7rem;
   max-width: 25rem;
 }
-.f-password-form {
+.form {
   color: #455d58;
   border: #455d58 5px solid;
+}
+
+.button{
+  margin: 1rem;
 }

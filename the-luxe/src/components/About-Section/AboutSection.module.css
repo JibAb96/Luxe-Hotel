@@ -2,7 +2,7 @@
     padding: 2rem 0;
   }
   
-  .about-us-p {
+  .description {
     color: #455d58;
     max-width: 40rem;
     padding-top: 2rem;
@@ -10,19 +10,19 @@
     font-weight: 350;
   }
 
-  .about-img {
+  .img {
     max-height: 20rem;
     object-fit: cover;
   }
   
   @media (max-width:500px) {
-    .about-us-p{
+    .description{
         padding: 0;
     }
   }
 
   @media (max-width:800px) {
-    .about-us-p{
+    .description{
         padding-top: 0;
     }
   }

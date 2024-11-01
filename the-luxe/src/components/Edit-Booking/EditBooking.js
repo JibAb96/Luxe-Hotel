@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Form, Card, Row, Alert } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
-import "./EditBooking.css";
+import styles from "./EditBooking.module.css";
 import FormInput from "../Form/Input";
 import { AlertContext } from "../../contexts/Alert";
 
@@ -164,14 +164,14 @@ const EditBooking = ({ booking, handleExit, onUpdate }) => {
             {alertMessage}
           </Alert>
         )}
-      <Card className="edit-booking">
+      <Card className={`${styles.card}`}>
         <Form
-          className="shadow p-4 rounded edit-booking-form"
+          className={`shadow p-4 rounded ${styles.form}`}
           onSubmit={handleSubmit}
         >
           <button
             type="button"
-            className="x-button"
+            className={`${styles.exit}`}
             onClick={handleExit}
             aria-label="Close"
           >

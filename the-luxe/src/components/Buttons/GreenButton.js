@@ -1,11 +1,11 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import "./GreenButton.css";
+import styles from "./GreenButton.module.css"
 
 const GreenButton = ({ children, type, ariaLabel = "button", disabled, className, ...rest }) => {
   return (
     <Button 
-      className={`button ${className || ""}`} 
+      className={`${styles.buttons} ${className || ""}`} 
       {...rest} 
       type={type}
       disabled={disabled}

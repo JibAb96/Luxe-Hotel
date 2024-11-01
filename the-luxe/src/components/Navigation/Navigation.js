@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import "./Navigation.css";
+import styles from "./Navigation.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -12,40 +12,44 @@ const Navigation = () => {
   const { isSignedIn, profileData } = useContext(ProfileContext);
 
   return (
-    <Navbar expand="lg" className="custom-navbar">
+    <Navbar expand="lg" className={`${styles.customise}`}>
       <Container fluid>
-        <Navbar.Brand as={Link} to="/" className="logo">
+        <Navbar.Brand as={Link} to="/" className={`${styles.logo}`}>
           Luxe Hotel
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="nav-links ms-auto">
-            <Nav.Link as={Link} to="/" className="nav-item">
+          <Nav className={`${styles.links} ms-auto`}>
+            <Nav.Link as={Link} to="/" className={`${styles.item}`}>
               HOME
             </Nav.Link>
-            <Nav.Link as={Link} to="/rooms" className="nav-item">
+            <Nav.Link as={Link} to="/rooms" className={`${styles.item}`}>
               ROOMS
             </Nav.Link>
-            <Nav.Link as={Link} to={"/about"} className="nav-item">
+            <Nav.Link as={Link} to={"/about"} className={`${styles.item}`}>
               ABOUT
             </Nav.Link>
             {isSignedIn ? (
               <Nav.Link
                 as={Link}
                 to={`/book/${profileData ? profileData.id : ""}`}
-                className="nav-item book"
+                className={`${styles.item} ${styles.book}`}
               >
                 BOOK
               </Nav.Link>
             ) : (
-              <Nav.Link as={Link} to={"/signin"} className="nav-item book">
+              <Nav.Link  
+                as={Link} 
+                to={"/signin"} 
+                className={`${styles.item} ${styles.book}`}
+              >
                 BOOK
               </Nav.Link>
             )}
             <NavDropdown
               title={element}
               id="basic-nav-dropdown"
-              className="nav-item fs-5"
+              className={`${styles.item} fs-5`}
               align="end"
             >
               {isSignedIn ? (

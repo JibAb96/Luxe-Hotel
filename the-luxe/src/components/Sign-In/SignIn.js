@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Form, Button, Card, Row, Alert } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
-import "./SignIn.css";
+import styles from "./SignIn.module.css";
 import { useNavigate } from "react-router-dom";
 import { AlertContext } from "../../contexts/Alert";
 import FormInput from "../Form/Input";
@@ -152,15 +152,15 @@ const SignIn = () => {
           {alertMessage}
         </Alert>
       )}
-      <Card className="signin">
+      <Card className={`${styles.card}`}>
         <Form
-          className="shadow p-4 rounded signin-form"
+          className={`${styles.form} shadow p-4 rounded`}
           onSubmit={handleSubmit}
         >
           <h1 className="h4 mb-2 text-center">Sign In</h1>
           <p>
             If you have not created an account yet, then please{" "}
-            <a href="/register" className="anchor">
+            <a href="/register" className={`${styles.anchor}`}>
               {" "}
               Register
             </a>

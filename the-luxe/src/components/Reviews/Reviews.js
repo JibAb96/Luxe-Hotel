@@ -1,5 +1,5 @@
 import React from "react";
-import "./Reviews.css";
+import styles from "./Reviews.module.css";
 import { Carousel, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft, faStar } from "@fortawesome/free-solid-svg-icons";
@@ -50,28 +50,26 @@ const Reviews = () => {
   };  
 
   return (
-    <div className="reviews">
-      <Container fluid>
-        <h2 className="text-center sec-title">CUSTOMERS REVIEWS</h2>
-        <FontAwesomeIcon icon={faQuoteLeft} className="quote" />
-        <Carousel data-bs-theme="dark" indicators={false}>
-          {reviews.map((review) => 
-              <Carousel.Item key={review.id} className="cons">
-                <p className="p">{review.review}</p>
-                <div>{renderStarIcons()}</div>
-                <img 
-                  src={review.image} 
-                  onError={(e) => handleImageError(e, review.backupImage)} 
-                  alt="user" 
-                  className="user" 
-                />
-                <h3 className="name">{review.name}</h3>
-              </Carousel.Item>
-            )
-          }
-        </Carousel>
-      </Container>
-    </div>
+    <Container className={`${styles.container}`} fluid>
+      <h2 className={`${styles.title}`}>CUSTOMERS REVIEWS</h2>
+      <FontAwesomeIcon icon={faQuoteLeft} className={`${styles.quote}`} />
+      <Carousel data-bs-theme="dark" indicators={false}>
+        {reviews.map((review) => 
+            <Carousel.Item key={review.id} className="text-center">
+              <p className={`${styles.paragraph}`}>{review.review}</p>
+              <div>{renderStarIcons()}</div>
+              <img 
+                src={review.image} 
+                onError={(e) => handleImageError(e, review.backupImage)} 
+                alt="user" 
+                className={`${styles.user}`}
+              />
+              <h3 className={`${styles.name}`}>{review.name}</h3>
+            </Carousel.Item>
+          )
+        }
+      </Carousel>
+    </Container>
   );
 };
 
