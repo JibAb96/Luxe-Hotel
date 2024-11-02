@@ -1,60 +1,38 @@
-.wrapper {
-  position: relative;
-  height: calc(100vh - 7.5rem);
-  contain: layout size;  /* Optimize browser rendering */
-}
-
 .container {
-  position: absolute;
-  inset: 0;
-  background-image: url("../../images/hero-image-TPNG.webp");
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(40, 180, 133, 0.8),
+      rgb(69, 93, 88, 0.5)
+    ),url("../../images/hero-image-TPNG.webp"),
+    url("../../images/hero-image-TPNG.jpg");
   background-size: cover;
   background-position: center;
+  height: calc(100vh - 7.5rem);
   clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
-  will-change: transform; /* Hint to browser about animations */
-  contain: paint; /* Optimize paint operations */
+  position: relative;
 }
-
-.content {
+.box {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 100%;
-  padding: 0 1rem;
-  z-index: 2;
 }
 
-.heading {
+.text {
   text-transform: uppercase;
   color: aliceblue;
-  font-size: clamp(2rem, 5vw, 3.4rem); /* Responsive font size */
-  font-weight: 700;
+  font-size: 3.4rem;
+  font-weight: bolder;
   letter-spacing: 0.2rem;
   line-height: 1.4;
-  margin-bottom: clamp(2rem, 8vh, 5rem);
+  margin-bottom: 5rem;
 }
 
-.heading span {
+.text span {
   display: block;
-  transform: translateZ(0); /* Create new stacking context */
 }
-
-.button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
+.button{
+  background-color: transparent !important;
   margin-left: 1rem;
-  color: white;
-  border: 2px solid white;
-  border-radius: 0.5rem;
-  background-color: transparent;
-  transition: background-color 0.2s ease;
-  text-decoration: none;
-  transform: translateZ(0); /* Optimize animations */
-  backface-visibility: hidden;
-}
-
-.button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 800px) {
