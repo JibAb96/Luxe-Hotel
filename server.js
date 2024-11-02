@@ -14,6 +14,7 @@ import deleteBooking from "./controllers/deleteBooking.js";
 import resetPassword from "./controllers/resetPassword.js";
 import forgotPassword from "./controllers/forgotPassword.js";
 import confirmBookings from "./controllers/confirmBooking.js";
+import handleAuthStatus from "./controllers/authentication.js";
 
 const { Pool } = pg;
 
@@ -48,6 +49,8 @@ app.post("/signin", (req, res) =>  handleSignIn(req, res, pool, bcrypt));
 app.post("/book/:id", (req, res) => booking(req, res, pool));
 
 app.post("/forgot-password", (req, res) => forgotPassword(req, res, pool));
+
+app.post("/auth/status", (req, res) => handleAuthStatus(req, res, pool))
 
 app.put("/update-profile/:id", (req, res) => updateProfile(req, res, pool));
 
