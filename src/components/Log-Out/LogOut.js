@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import GreenButton from "../Buttons/GreenButton";
 import { Link } from "react-router-dom";
 import styles from "./LogOut.module.css";
