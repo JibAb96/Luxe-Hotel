@@ -1,42 +1,65 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { AlertContext } from "./Alert"
+
 export const ProfileContext = createContext();
 
 export const ProfileProvider = ({ children }) => {
   const [profileData, setProfileData] = useState(null);
-  const [isSignedIn, setIsSignedIn] = useState(() => {
-    return JSON.parse(localStorage.getItem("isSignedIn")) || false;
-  });
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   const { showAlertWithTimeout } = useContext( AlertContext )
-
+  
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("isSignedIn"));
-    if (saved !== isSignedIn) {
-      localStorage.setItem("isSignedIn", JSON.stringify(isSignedIn));
-    }
-  }, [isSignedIn]);
-
-  useEffect(() => {
-    const savedData = localStorage.getItem("profileData");
-    if (savedData) {
-      setProfileData(JSON.parse(savedData));
-    }
+    checkAuthStatus();
   }, []);
 
-  useEffect(() => {
-    if (profileData) {
-      localStorage.setItem("profileData", JSON.stringify(profileData));
-      localStorage.setItem("userID", JSON.stringify(profileData.id));
-    } else {
-    }
-  }, [profileData]);
+  const checkAuthStatus = async () => {
+    try {
+      const token = localStorage.getItem('authToken');
+      if (!token) {
+        setIsSignedIn(false);
+        return;
+      }
 
-  const logOutUser = () => {
-    setIsSignedIn(false);
-    localStorage.removeItem("isSignedIn");
-    localStorage.removeItem("profileData")
-    showAlertWithTimeout("You have successfully logged out!", "alert-success");
+
+      const apiURL = process.env.REACT_APP_API_BASE_URL;
+      
+      const response = await fetch(`${apiURL}/auth/status`, {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setIsSignedIn(data.isSignedIn);
+        if (data.isSignedIn) {
+          setProfileData(data.user);
+        }
+      } else {
+        // Clear invalid auth state
+        setIsSignedIn(false);
+        setProfileData(null);
+        localStorage.removeItem('authToken');
+      }
+    } catch (error) {
+      console.error("Error checking auth status:", error);
+      setIsSignedIn(false);
+      setProfileData(null);
+      localStorage.removeItem('authToken');
+    } 
+  };
+
+  const logOutUser = async () => {
+    try {
+      localStorage.removeItem('authToken');
+      setIsSignedIn(false);
+      setProfileData(null);
+      showAlertWithTimeout("You have successfully logged out!", "alert-success");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
   return (
     <ProfileContext.Provider
