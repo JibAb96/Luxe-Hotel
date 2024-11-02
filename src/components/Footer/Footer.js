@@ -52,22 +52,45 @@ const Footer = () => {
           </p>
           <ul className={`${styles.payment}`}>
             <li>
-              <a rel="noreferrer" target="_blank" className={`${styles.anchor}`} href="http://www.facebook.com">
+              <a 
+                rel="noreferrer" 
+                target="_blank" 
+                className={`${styles.anchor}`} 
+                href="http://www.facebook.com"
+                aria-label="Follow us on Facebook">
                 <FontAwesomeIcon icon={faFacebook} className={`${styles.icons}`} />
               </a>     
             </li>
             <li>
-              <a rel="noreferrer" target="_blank" className={`${styles.anchor}`} href="http://www.twitter.com">
+              <a 
+                rel="noreferrer" 
+                target="_blank" 
+                className={`${styles.anchor}`} 
+                href="http://www.twitter.com"
+                aria-label="Follow us on Twitter"
+              >
                 <FontAwesomeIcon icon={faTwitter} className={`${styles.icons}`} />
               </a>
             </li>
             <li>
-              <a rel="noreferrer" target="_blank" className={`${styles.anchor}`} href="http://www.linkedin.com">
+              <a 
+                rel="noreferrer" 
+                target="_blank" 
+                className={`${styles.anchor}`} 
+                href="http://www.linkedin.com"
+                aria-label="Follow us on LinkedIn"
+              >
                 <FontAwesomeIcon icon={faLinkedinIn} className={`${styles.icons}`} />
               </a>
             </li>
             <li>
-              <a rel="noreferrer" target="_blank" className={`${styles.anchor}`} href="http://www.instagram.com">
+              <a 
+                rel="noreferrer" 
+                target="_blank" 
+                className={`${styles.anchor}`} 
+                href="http://www.instagram.com"
+                aria-label="Follow us on Instagram"
+              >
                 <FontAwesomeIcon icon={faInstagram} className={`${styles.icons}`} />
               </a>
             </li>
