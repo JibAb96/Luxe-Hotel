@@ -12,7 +12,7 @@ const LOCKOUT_TIME = 15 * 60 * 1000;
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(""); // eslint-disable-next-line
   const [loginAttempts, setLoginAttempts] = useState(0);
   const [lockedUntil, setLockedUntil] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -107,7 +107,8 @@ const SignIn = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setProfileData(data);
+        setProfileData(data.user);
+        localStorage.setItem('authToken', data.token);
         setIsSignedIn(true);
         showAlertWithTimeout(
           "You have successfully logged in!",
