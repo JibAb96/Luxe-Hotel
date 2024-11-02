@@ -57,7 +57,8 @@ const Footer = () => {
                 target="_blank" 
                 className={`${styles.anchor}`} 
                 href="http://www.facebook.com"
-                aria-label="Follow us on Facebook">
+                aria-label="Follow us on Facebook"
+              >
                 <FontAwesomeIcon icon={faFacebook} className={`${styles.icons}`} />
               </a>     
             </li>
