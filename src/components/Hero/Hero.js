@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
-import "./Hero.css";
 import styles from "./Hero.module.css";
 import GreenButton from "../Buttons/GreenButton";
 import { Link } from "react-router-dom";
