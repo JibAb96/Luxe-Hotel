@@ -8,6 +8,7 @@ import { AlertContext } from "../../contexts/Alert";
 import DeleteProfile from "../Delete-User/DeleteProfile";
 import UpdateProfile from "../Update-Profile/UpdateProfile";
 import { Alert } from "react-bootstrap";
+
 const Profile = () => {
   const [showDeleteProfile, setShowDeleteProfile] = useState(false);
   const [showEditProfile, setShowEditProfile] = useState(false);
@@ -32,7 +33,7 @@ const Profile = () => {
   const city = profileData?.city || "N/A";
   const address = profileData?.address || "N/A";
   const postalCode = profileData?.postal_code || "N/A";
-  
+ 
 
   return (
     <>
