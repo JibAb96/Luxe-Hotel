@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
+:root{
+  --green: #455d58;
+  --white: aliceblue;
+  --red: #800020;
+  --black: black;
+  --gold: #FFD700;
+}
+
 html,
 body {
   height: 100%;

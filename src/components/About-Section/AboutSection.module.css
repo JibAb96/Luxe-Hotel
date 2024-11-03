@@ -3,7 +3,7 @@
   }
   
   .description {
-    color: #455d58;
+    color: var(--green);
     max-width: 40rem;
     padding-top: 2rem;
     padding-left: 2rem;

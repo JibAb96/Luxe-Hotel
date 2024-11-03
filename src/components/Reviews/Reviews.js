@@ -16,7 +16,7 @@ const Reviews = () => {
   const renderStarIcons = () => (
     <div>
       {icons.map((icon, index) => (
-        <FontAwesomeIcon key={index} icon={faStar} className="star" />
+        <FontAwesomeIcon key={index} icon={faStar} className={styles.star} />
       ))}
     </div>
   );
@@ -50,21 +50,21 @@ const Reviews = () => {
   };  
 
   return (
-    <Container className={`${styles.container}`} fluid>
-      <h2 className={`${styles.title}`}>CUSTOMERS REVIEWS</h2>
-      <FontAwesomeIcon icon={faQuoteLeft} className={`${styles.quote}`} />
+    <Container className={styles.container} fluid>
+      <h2 className={styles.title}>CUSTOMERS REVIEWS</h2>
+      <FontAwesomeIcon icon={faQuoteLeft} className={styles.quote} />
       <Carousel data-bs-theme="dark" indicators={false}>
         {reviews.map((review) => 
             <Carousel.Item key={review.id} className="text-center">
-              <p className={`${styles.paragraph}`}>{review.review}</p>
+              <p className={styles.paragraph}>{review.review}</p>
               <div>{renderStarIcons()}</div>
               <img 
                 src={review.image} 
                 onError={(e) => handleImageError(e, review.backupImage)} 
                 alt="user" 
-                className={`${styles.user}`}
+                className={styles.user}
               />
-              <h3 className={`${styles.name}`}>{review.name}</h3>
+              <h3 className={styles.name}>{review.name}</h3>
             </Carousel.Item>
           )
         }

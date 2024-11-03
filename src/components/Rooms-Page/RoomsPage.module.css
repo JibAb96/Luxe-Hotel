@@ -1,6 +1,6 @@
 .title {
   text-align: center;
-  color: #455d58;
+  color: var(--green);
   letter-spacing: 0.2rem;
   padding-bottom: 2rem;
 }

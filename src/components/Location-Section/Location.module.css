@@ -11,7 +11,7 @@
 .text {
   max-width: 40rem;
   padding-left: 3rem;
-  color: #455d58;
+  color: var(--green);
   font-weight: 350;
 }
 

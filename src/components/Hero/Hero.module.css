@@ -19,7 +19,7 @@
 
 .text {
   text-transform: uppercase;
-  color: aliceblue;
+  color: var(--white);
   font-size: 3.4rem;
   font-weight: bolder;
   letter-spacing: 0.2rem;

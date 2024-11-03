@@ -1,6 +1,6 @@
 .buttons {
   max-width: 12rem;
-  background-color: #455d58;
+  background-color: var(--green);
   border: 0.1rem solid aliceblue;
   border-radius: 0.2rem;
   padding: 1rem 1.5rem;
@@ -10,7 +10,7 @@
   letter-spacing: 0.15rem;
   font-weight: 400;
   position: relative;
-  color: aliceblue;
+  color: var(--white);
   transition:
     color 0.5s,
     background-color 0.5s;

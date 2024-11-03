@@ -1,5 +1,5 @@
 .heading {
-  color: #455d58;
+  color: var(--green);
   padding-top: 3rem;
   letter-spacing: 0.2rem;
   text-align: center;

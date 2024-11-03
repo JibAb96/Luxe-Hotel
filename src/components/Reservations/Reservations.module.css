@@ -1,5 +1,5 @@
 .heading {
-  color: #455d58 !important;
+  color: var(--green) !important;
   padding-top: 3rem !important;
   letter-spacing: 0.2rem !important;
   text-align: center !important;
@@ -9,7 +9,7 @@
   font-family: "Cormorant Garamond", serif;
   font-size: 1.5rem;
   letter-spacing: 2px;
-  color: #455d58;
+  color: var(--green);
   text-transform: uppercase;
   font-weight: 600;
 }

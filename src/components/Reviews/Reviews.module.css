@@ -4,7 +4,7 @@
 .title {
   font-size: 2.3rem;
   padding-top: 5rem;
-  color: #455d58;
+  color: var(--green);
   font-weight: 650;
   text-align: center;
 }
@@ -14,7 +14,7 @@
   display: block;
   width: 7rem;
   height: 0.1rem;
-  background-color: #455d58;
+  background-color: var(--green);
   margin: 0 auto;
   margin-top: 2rem;
 }
@@ -22,14 +22,14 @@
   position: relative;
   margin-top: 3rem;
   left: 48.5%;
-  color: #455d58;
+  color: var(--green);
   font-size: 2.8rem;
 }
 .center {
   text-align: center;
 }
 .star {
-  color: gold;
+  color: var(--gold);
   padding-right: 0.2rem;
   font-size: 0.8rem;
 }
@@ -48,7 +48,7 @@
   margin: 2rem auto;
 }
 .name {
-  color: #455d58;
+  color: var(--green);
   font-size: larger;
   font-weight: 600;
   margin-top: 0.5rem;

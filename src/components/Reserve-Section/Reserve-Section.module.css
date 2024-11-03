@@ -3,7 +3,7 @@
 }
 
 .title {
-  color: #455d58;
+  color: var(--green);
   padding: 3rem 0;
   letter-spacing: 0.2rem;
   text-align: center;

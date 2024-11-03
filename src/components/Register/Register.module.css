@@ -4,6 +4,6 @@
 }
 
 .form {
-  color: #455d58;
-  border: #455d58 5px solid;
+  color: var(--green);
+  border: var(--green) 5px solid;
 }

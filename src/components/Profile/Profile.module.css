@@ -1,5 +1,5 @@
 .title {
-  color: #455d58;
+  color: var(--green);
   padding-bottom: 3rem;
   letter-spacing: 0.2rem;
   text-align: center;
@@ -12,7 +12,7 @@
 
 .bold {
   font-weight: 650;
-  color: black;
+  color: var(--black);
 }
 
 .overlay {
@@ -29,7 +29,7 @@
 }
 
 .overlay > * {
-  background-color: white;
+  background-color: var(--white);
   padding: 2rem;
   border-radius: 10px;
 }

@@ -1,7 +1,7 @@
 .container {
   padding: 5rem;
-  background-color: #455d58;
-  color: aliceblue;
+  background-color: var(--green);
+  color: var(--white);
 }
 .title {
   font-weight: 400;

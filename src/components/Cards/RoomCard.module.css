@@ -9,8 +9,8 @@
 
 .body {
   min-height: 20rem;
-  background-color: #455d58;
-  color: aliceblue;
+  background-color: var(--green);
+  color: var(--white);
 }
 
 .button{

@@ -4,7 +4,7 @@
   width: 80vw;
   max-width: 90vw;
   max-height: 80vh;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
 }
 
 .title {
-  color: #455d58;
+  color: var(--green);
   letter-spacing: 0.2rem;
   margin-top: 2rem;
   max-width: 40rem;
@@ -26,17 +26,17 @@
   background: none;
   border: none;
   font-size: 2.3rem;
-  color: #455d58;
+  color: var(--green);
   cursor: pointer;
   right: 28rem;
   top: 2rem;
 }
 
 .exit:hover {
-  color: #ff7875;
+  color: var(--red);
 }
 .delete{
-  background-color: #800020;
+  background-color: var(--red);
   margin-bottom: 1rem
 }
 
