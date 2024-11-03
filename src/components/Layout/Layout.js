@@ -4,9 +4,9 @@ import Footer from "../Footer/Footer";
 import styles from "./Layout.module.css";
 const Layout = ({ children }) => {
   return (
-    <div className={`${styles.wrapper}`}>
+    <div className={styles.wrapper}>
       <Navigation />
-      <div className={`${styles.content}`}>{children}</div>
+      <div className={styles.content}>{children}</div>
       <Footer />
     </div>
   );

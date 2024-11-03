@@ -139,7 +139,7 @@ const Book = () => {
           {alertMessage}
         </Alert>
       )}
-      <Card className={`${styles.card}`}>
+      <Card className={styles.card}>
         <Form
           className={`shadow p-4 rounded ${styles.form}`}
           onSubmit={handleSubmit}
@@ -187,7 +187,7 @@ const Book = () => {
           <Row className="d-flex justify-content-center">
             <GreenButton
               type="submit"
-              className={`${styles.button}`}
+              className={styles.button}
               disabled={isLoading}
             >
               {isLoading ? (

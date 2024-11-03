@@ -164,14 +164,14 @@ const EditBooking = ({ booking, handleExit, onUpdate }) => {
             {alertMessage}
           </Alert>
         )}
-      <Card className={`${styles.card}`}>
+      <Card className={styles.card}>
         <Form
           className={`shadow p-4 rounded ${styles.form}`}
           onSubmit={handleSubmit}
         >
           <button
             type="button"
-            className={`${styles.exit}`}
+            className={styles.exit}
             onClick={handleExit}
             aria-label="Close"
           >

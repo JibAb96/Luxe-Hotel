@@ -8,7 +8,7 @@ import ReserveSection from "../Reserve-Section/Reserve-Section";
 const About = ({ isSignedIn }) => {
   return (
     <Container fluid>
-      <h1 className={`${styles.heading}`}>About us</h1>
+      <h1 className={styles.heading}>About us</h1>
       <section>
         <AboutSection />
       </section>

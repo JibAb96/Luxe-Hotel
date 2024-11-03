@@ -56,8 +56,8 @@ const ConfirmBooking = () => {
 
   if (!booking) {
     return (
-      <Container className={`${styles.coontainer}`} fluid>
-        <h1 className={`${styles.title}`}>Booking Not Found</h1>
+      <Container className={styles.coontainer} fluid>
+        <h1 className={styles.title}>Booking Not Found</h1>
         <p>We're sorry, but we couldn't find the booking you're looking for.</p>
       </Container>
     );
@@ -66,23 +66,23 @@ const ConfirmBooking = () => {
   const capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
 
   return (
-    <Container className={`${styles.container}`} fluid>
-      <h1 className={`${styles.title}`}>Booking Successful</h1>
+    <Container className={styles.container} fluid>
+      <h1 className={styles.title}>Booking Successful</h1>
       <p>Thanks for booking with us, {profileData.first_name}!</p>
       <p>
-        Your booking reference is <span className={`${styles.bold}`}>{booking.id}</span>.
+        Your booking reference is <span className={styles.bold}>{booking.id}</span>.
       </p>
       <p>
         You booked a{" "}
-        <span className={`${styles.bold}`}>{capitalize(booking.room_type)}</span> room from{" "}
+        <span className={styles.bold}>{capitalize(booking.room_type)}</span> room from{" "}
         {formatDate(booking.check_in)} to {formatDate(booking.check_out)} for{" "}
         {booking.guests} guests.
       </p>
       <p>Total price: €{booking.price}</p>
-      <h2 className={`${styles.title}`}>
+      <h2 className={styles.title}>
         We look forward to welcoming you to our hotel!
       </h2>
-      <p className={`${styles.bold}`}>Check-in time is at 15:00 (3PM)</p>
+      <p className={styles.bold}>Check-in time is at 15:00 (3PM)</p>
       <p>If you have any questions or need any support, please contact us!</p>
       <p>We hope you'll enjoy your stay!</p>
       <p>

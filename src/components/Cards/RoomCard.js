@@ -14,20 +14,20 @@ const RoomCard = ({ picture, title, text, subtitle, route, fallbackSrc }) => {
   };  
   return (
     <Col xs={12} sm={6} lg={4} className="p-1">
-      <Card className={`${styles.roomcard}`}>
+      <Card className={styles.roomcard}>
         <Card.Img
           variant="top"
           src={picture}
           className={`${styles.img} image-fluid`}
           onError={handleImageError}
         />
-        <Card.Body className={`${styles.body}`}>
+        <Card.Body className={styles.body}>
           <Card.Title>{title}</Card.Title>
           <Card.Subtitle className="mb-2">{subtitle}</Card.Subtitle>
           <Card.Text>{text}</Card.Text>
           <GreenButton
             onClick={handleClick}
-            className={`${styles.button}`}
+            className={styles.button}
           >
             View Room
           </GreenButton>

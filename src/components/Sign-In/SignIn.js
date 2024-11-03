@@ -153,7 +153,7 @@ const SignIn = () => {
           {alertMessage}
         </Alert>
       )}
-      <Card className={`${styles.card}`}>
+      <Card className={styles.card}>
         <Form
           className={`${styles.form} shadow p-4 rounded`}
           onSubmit={handleSubmit}
@@ -161,7 +161,7 @@ const SignIn = () => {
           <h1 className="h4 mb-2 text-center">Sign In</h1>
           <p>
             If you have not created an account yet, then please{" "}
-            <a href="/register" className={`${styles.anchor}`}>
+            <a href="/register" className={styles.anchor}>
               {" "}
               Register
             </a>

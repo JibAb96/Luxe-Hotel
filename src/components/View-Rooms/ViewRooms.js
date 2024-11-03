@@ -80,9 +80,9 @@ const ViewRooms = () => {
   if (!room) {
     return (
       <Container 
-        className={`${styles.error}`} 
+        className={styles.error} 
          fluid>
-        <h1 className={`${styles.title}`}>Room Not Found</h1>
+        <h1 className={styles.title}>Room Not Found</h1>
         <p>
           The room you are looking for does not exist. Please check the URL or
           choose from our available rooms:
@@ -102,13 +102,13 @@ const ViewRooms = () => {
   }
 
   return (
-    <Container className={`${styles.container}`} fluid>
-      <Row className={`${styles.outer}`}>
+    <Container className={styles.container} fluid>
+      <Row className={styles.outer}>
         <Col md={6}>
           <a href="/rooms">
             <FontAwesomeIcon
               icon={faArrowLeft}
-              className={`${styles.icon}`}
+              className={styles.icon}
             />
           </a>
           <Card>
@@ -119,19 +119,19 @@ const ViewRooms = () => {
               onError={room.fallbacksrc} />
           </Card>
         </Col>
-        <Col md={6} className={`${styles.color}`}>
-          <h1 className={`${styles.title}`}>{room.title}</h1>
+        <Col md={6} className={styles.color}>
+          <h1 className={styles.title}>{room.title}</h1>
           <h2>Price: {room.price}</h2>
-          <p className={`${styles.font}`}>{room.description}</p>
+          <p className={styles.font}>{room.description}</p>
           <h3>Breakfast Included</h3>
-          <p className={`${styles.font}`}>
+          <p className={styles.font}>
             Start your day with an exquisite breakfast experience at our luxury
             hotel in Luxembourg. Indulge in a gourmet selection of freshly baked
             pastries, seasonal fruits, artisanal cheeses, and delicacies sourced
             from local farms.
           </p>
           <h3>Amenities:</h3>
-          <ul className={`${styles.font}`}>
+          <ul className={styles.font}>
             {room.amenities.map((amenity, index) => (
               <li key={index}>{amenity}</li>
             ))}

@@ -42,39 +42,39 @@ const Profile = () => {
           {alertMessage}
         </Alert>
       )}
-      <Container className={`${styles.container}`} fluid>
-        <h1 className={`${styles.title}`}>Profile</h1>
+      <Container className={styles.container} fluid>
+        <h1 className={styles.title}>Profile</h1>
         <Row className="d-flex justify-content-center">
           <TextCard
             lg={6}
-            className={`${styles.card}`}
+            className={styles.card}
             Title={name}
             Text={
               <>
                 <p>
-                  <span className="bold">Full Name:</span>{" "}
+                  <span className={styles.bold}>Full Name:</span>{" "}
                   {name}
                 </p>
                 <p>
-                  <span className="bold">Date of Birth:</span> {dob}
+                  <span className={styles.bold}>Date of Birth:</span> {dob}
                 </p>
                 <p>
-                  <span className="bold">Joined:</span> {joined}
+                  <span className={styles.bold}>Joined:</span> {joined}
                 </p>
               </>
             }
-            titleClass={`${styles.titleClass}`}
+            titleClass={styles.titleClass}
             Element={
               <div>
                 <GreenButton
-                  className={`${styles.width}`}
+                  className={styles.width}
                   onClick={handleEditSwitch}
                   disabled={ showEditProfile || showDeleteProfile }
                 >
                   Edit
                 </GreenButton>
                 <GreenButton
-                  className={`${styles.width}`}
+                  className={styles.width}
                   onClick={handleDeleteSwitch}
                   disabled={ showDeleteProfile || showEditProfile }
                 >
@@ -85,20 +85,20 @@ const Profile = () => {
           />
           <TextCard
             lg={6}
-            className={`${styles.card}`}
+            className={styles.card}
             Text={
               <>
                 <p>
-                  <span className={`${styles.bold}`}>Email:</span> {email}
+                  <span className={styles.bold}>Email:</span> {email}
                 </p>
                 <p>
-                  <span className={`${styles.bold}`}>Phone:</span> {phone}
+                  <span className={styles.bold}>Phone:</span> {phone}
                 </p>
                 <p>
-                  <span className={`${styles.bold}`}>Country:</span> {country}
+                  <span className={styles.bold}>Country:</span> {country}
                 </p>
                 <p>
-                  <span className={`${styles.bold}`}>City:</span> {city}
+                  <span className={styles.bold}>City:</span> {city}
                 </p>
                 <p>
                   <span className={`${styles.bold}`}>Address:</span> {address}
@@ -112,12 +112,12 @@ const Profile = () => {
           />
         </Row>
         {showDeleteProfile && (
-          <div className={`${styles.overlay}`}>
+          <div className={styles.overlay}>
             <DeleteProfile handleExit={handleDeleteSwitch} />
           </div>
         )}
         {showEditProfile && (
-          <div className={`${styles.overlay}`}>
+          <div className={styles.overlay}>
             <UpdateProfile handleExit={handleEditSwitch} />
           </div>
         )}

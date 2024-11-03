@@ -15,7 +15,7 @@ import {
 
 const Footer = () => {
   return (
-    <Container className={`${styles.container}`} fluid>
+    <Container className={styles.container} fluid>
       <Row className={styles.space}>
         <Col xs={12} md={4}>
           <h3 className={`${styles.title} ${styles.left}`}>Contact us</h3>
@@ -26,73 +26,73 @@ const Footer = () => {
           </p>
         </Col>
         <Col xs={12} md={4}>
-          <h3 className={`${styles.title}`}>Payment Methods</h3>
-          <p className={`${styles.text}`}>
+          <h3 className={styles.title}>Payment Methods</h3>
+          <p className={styles.text}>
             Pay any way you choose, we support all payment options
           </p>
-          <ul className={`${styles.payment}`}>
+          <ul className={styles.payment}>
             <li>
-              <FontAwesomeIcon icon={faPaypal} className={`${styles.icons}`} />
+              <FontAwesomeIcon icon={faPaypal} className={styles.icons} />
             </li>
             <li>
-              <FontAwesomeIcon icon={faCcVisa} className={`${styles.icons}`} />
+              <FontAwesomeIcon icon={faCcVisa} className={styles.icons} />
             </li>
             <li>
-              <FontAwesomeIcon icon={faApplePay} className={`${styles.icons}`} />
+              <FontAwesomeIcon icon={faApplePay} className={styles.icons} />
             </li>
             <li>
-              <FontAwesomeIcon icon={faCcMastercard} className={`${styles.icons}`} />
+              <FontAwesomeIcon icon={faCcMastercard} className={styles.icons} />
             </li>
           </ul>
         </Col>
         <Col xs={12} md={4}>
-          <h3 className={`${styles.title}`}>Social Networks</h3>
-          <p className={`${styles.text}`}>
+          <h3 className={styles.title}>Social Networks</h3>
+          <p className={styles.text}>
             Follow us on social media and keep in touch with Luxe Hotel.
           </p>
-          <ul className={`${styles.payment}`}>
+          <ul className={styles.payment}>
             <li>
               <a 
                 rel="noreferrer" 
                 target="_blank" 
-                className={`${styles.anchor}`} 
+                className={styles.anchor} 
                 href="http://www.facebook.com"
                 aria-label="Follow us on Facebook"
               >
-                <FontAwesomeIcon icon={faFacebook} className={`${styles.icons}`} />
+                <FontAwesomeIcon icon={faFacebook} className={styles.icons} />
               </a>     
             </li>
             <li>
               <a 
                 rel="noreferrer" 
                 target="_blank" 
-                className={`${styles.anchor}`} 
+                className={styles.anchor} 
                 href="http://www.twitter.com"
                 aria-label="Follow us on Twitter"
               >
-                <FontAwesomeIcon icon={faTwitter} className={`${styles.icons}`} />
+                <FontAwesomeIcon icon={faTwitter} className={styles.icons} />
               </a>
             </li>
             <li>
               <a 
                 rel="noreferrer" 
                 target="_blank" 
-                className={`${styles.anchor}`} 
+                className={styles.anchor} 
                 href="http://www.linkedin.com"
                 aria-label="Follow us on LinkedIn"
               >
-                <FontAwesomeIcon icon={faLinkedinIn} className={`${styles.icons}`} />
+                <FontAwesomeIcon icon={faLinkedinIn} className={styles.icons} />
               </a>
             </li>
             <li>
               <a 
                 rel="noreferrer" 
                 target="_blank" 
-                className={`${styles.anchor}`} 
+                className={styles.anchor} 
                 href="http://www.instagram.com"
                 aria-label="Follow us on Instagram"
               >
-                <FontAwesomeIcon icon={faInstagram} className={`${styles.icons}`} />
+                <FontAwesomeIcon icon={faInstagram} className={styles.icons} />
               </a>
             </li>
           </ul>

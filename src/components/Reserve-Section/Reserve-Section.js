@@ -10,22 +10,22 @@ const ReserveSection = () => {
   const { isSignedIn } = useContext(ProfileContext);
 
   return (
-    <Container className={`${styles.container}`} fluid>
-      <h1 className={`${styles.title}`}>Manage Your Booking</h1>
+    <Container className={styles.container} fluid>
+      <h1 className={styles.title}>Manage Your Booking</h1>
       <Row className="d-flex justify-content-center p-5 ">
         <TextCard
-          className={`${styles.card}`}
+          className={styles.card}
           Title={"1. Review Details"}
           Text={"View details of your reservation."}
         />
         <TextCard
-          className={`${styles.card}`}
+          className={styles.card}
           Title={"2. Modify Reservations"}
           Text={"Make changes to your reservation."}
         />
 
         <TextCard
-          className={`${styles.card}`}
+          className={styles.card}
           Title={"3. Cancel Reservations"}
           Text={"Cancel your existing booking up to 24h before check in."}
         />
@@ -34,7 +34,7 @@ const ReserveSection = () => {
         {isSignedIn ? (
           <>
             <GreenButton
-              className={`${styles.button}`}
+              className={styles.button}
               as={Link}
               to={"/reservations"}
             >
@@ -44,7 +44,7 @@ const ReserveSection = () => {
         ) : (
           <>
             <GreenButton
-              className={`${styles.button}`}
+              className={styles.button}
               as={Link}
               to={"/signin"}
             >

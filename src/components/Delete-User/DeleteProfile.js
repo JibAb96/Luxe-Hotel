@@ -57,10 +57,10 @@ const DeleteProfile = ({ handleExit }) => {
 
   return (
     <>
-      <Container className={`${styles.container}`} fluid>
+      <Container className={styles.container} fluid>
         <button
           type="button"
-          className={`${styles.exit}`}
+          className={styles.exit}
           onClick={handleExit}
           aria-label="Close"
         >
@@ -71,17 +71,17 @@ const DeleteProfile = ({ handleExit }) => {
           {alertMessage}
         </Alert>
         )}
-        <h1 className={`${styles.title}`}>Delete Profile</h1>
-        <p className={`${styles.paragraph}`}>
+        <h1 className={styles.title}>Delete Profile</h1>
+        <p className={styles.paragraph}>
           Are you sure you want to delete your
-          <span className={`${styles.bold}`}> Profile</span>,
-          <span className={`${styles.bold}`}> Account</span> and
-          <span className={`${styles.bold}`}> Reservations</span>?
+          <span className={styles.bold}> Profile</span>,
+          <span className={styles.bold}> Account</span> and
+          <span className={styles.bold}> Reservations</span>?
         </p>
         <Row>
           <GreenButton
             onClick={deleteUser}
-            className={`${styles.delete}`}
+            className={styles.delete}
             ariaLabel={"Delete profile button"}
           >
             {isLoading ? (
@@ -100,11 +100,11 @@ const DeleteProfile = ({ handleExit }) => {
             Keep
           </GreenButton>
         </Row>
-        <h1 className={`${styles.title}`}>
+        <h1 className={styles.title}>
           {" "}
           It's been a pleasure having you here!
         </h1>
-        <p className={`${styles.paragraph}`}>We hope to see you again soon.</p>
+        <p className={styles.paragraph}>We hope to see you again soon.</p>
       </Container>
     </>
   );

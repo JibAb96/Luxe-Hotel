@@ -7,9 +7,9 @@ import OptimizedImage from "../Optimized-Image/OptimizedImage";
 
 const AboutSection = () => {
     return(
-        <Row className={`${styles.about}`}>
+        <Row className={styles.about}>
           <Col xs={12} md={6}>
-            <p className={`${styles.description}`}>
+            <p className={styles.description}>
               Located in Luxembourg, our luxury hotel offers an exquisite escape
               for discerning travelers. With elegantly designed rooms, world-class
               amenities, and personalized service, we cater to guests seeking the
@@ -20,7 +20,7 @@ const AboutSection = () => {
           </Col>
           <Col xs={12} md={6}>
             <OptimizedImage 
-              className={`${styles.img}`} 
+              className={styles.img} 
               src={Reception}
               alt="Hotel Reception" 
               fluid

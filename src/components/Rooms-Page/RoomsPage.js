@@ -48,8 +48,8 @@ const RoomsPage = () => {
   }, []);
 
   return (
-    <Container className={`${styles.container}`} fluid>
-      <h1 className={`${styles.title}`}>Rooms</h1>
+    <Container className={styles.container} fluid>
+      <h1 className={styles.title}>Rooms</h1>
       <Row>
         {roomsData.map((room) => {
           return (

@@ -89,7 +89,7 @@ const ForgotPassword = () => {
           {alertMessage}
         </Alert>
       )}
-      <Card className={`${styles.card}`}>
+      <Card className={styles.card}>
         <Form
           className={`shadow p-4 rounded ${styles.form}`}
           onSubmit={handleSubmit}
@@ -127,7 +127,7 @@ const ForgotPassword = () => {
                   )}
             </GreenButton>
           </Row>
-          <p className={`${styles.bold}`}>
+          <p className={styles.bold}>
             Contact us if you have any trouble resetting your password.
           </p>
         </Form>

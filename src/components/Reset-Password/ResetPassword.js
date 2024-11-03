@@ -124,7 +124,7 @@ const ResetPassword = () => {
           {alertMessage}
         </Alert>
       )}
-      <Card className={`${styles.card}`}>
+      <Card className={styles.card}>
         <Form
           className={`${styles.form} shadow p-4 rounded`}
           onSubmit={handleSubmit}

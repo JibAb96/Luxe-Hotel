@@ -8,9 +8,9 @@ import { ProfileContext } from "../../contexts/ProfileContext";
 const Hero = () => {
   const { isSignedIn } = useContext(ProfileContext);
   return (
-    <Container className={`${styles.container}`} fluid>
-      <Row className={`${styles.box}`}>
-        <h1 className={`${styles.text}`}>
+    <Container className={styles.container} fluid>
+      <Row className={styles.box}>
+        <h1 className={styles.text}>
           <span>Luxury</span>
           <span>Comfort</span>
         </h1>
@@ -18,7 +18,7 @@ const Hero = () => {
           <GreenButton
             as={Link}
             to={"/book"}
-            className={`${styles.button}`}
+            className={styles.button}
           >
             Book a Room
           </GreenButton>
@@ -26,7 +26,7 @@ const Hero = () => {
           <GreenButton
             as={Link}
             to={"/signin"}
-            className={`${styles.button}`}
+            className={styles.button}
           >
             Book a Room
           </GreenButton>
