@@ -12,21 +12,21 @@ const Navigation = () => {
   const { isSignedIn, profileData } = useContext(ProfileContext);
 
   return (
-    <Navbar expand="lg" className={`${styles.customise}`}>
+    <Navbar expand="lg" className={styles.customise}>
       <Container fluid>
-        <Navbar.Brand as={Link} to="/" className={`${styles.logo}`}>
+        <Navbar.Brand as={Link} to="/" className={styles.logo}>
           Luxe Hotel
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${styles.links} ms-auto`}>
-            <Nav.Link as={Link} to="/" className={`${styles.item}`}>
+            <Nav.Link as={Link} to="/" className={styles.item}>
               HOME
             </Nav.Link>
-            <Nav.Link as={Link} to="/rooms" className={`${styles.item}`}>
+            <Nav.Link as={Link} to="/rooms" className={styles.item}>
               ROOMS
             </Nav.Link>
-            <Nav.Link as={Link} to={"/about"} className={`${styles.item}`}>
+            <Nav.Link as={Link} to={"/about"} className={styles.item}>
               ABOUT
             </Nav.Link>
             {isSignedIn ? (
