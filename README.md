@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# Luxe Hotel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Icon Keys
 
-## Available Scripts
+## User Experience
 
-In the project directory, you can run:
+### Initial Discussion
 
-### `npm start`
+### User Stories
+#### Epics
+#### User Stories
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Project Goals
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<hr>
 
-### `npm test`
+## Design
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Color Scheme
 
-### `npm run build`
+### Typography
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Imagery
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<hr>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `npm run eject`
+### Home page
+#### User profile registration
+#### Login
+#### User Profile Page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Room Category Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Room Detail Page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Booking Page
+#### Reservation Confirmation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Reservation Page
 
-## Learn More
+### Navigation Bar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### About Section
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Contact Section
 
-### Code Splitting
+### Footer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Future Features
 
-### Analyzing the Bundle Size
+### Defensive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Database Design
 
-### Making a Progressive Web App
+<hr>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Agile Development
 
-### Advanced Configuration
+### Overview of Agile Methodology
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### MoSCoW Prioritization
 
-### Deployment
+<hr>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Techonologies Used
 
-### `npm run build` fails to minify
+### Languages Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Workspace
+
+### Version Control
+
+### Responsive Deign
+
+### Documentation
+
+### Site Design
+
+### Tiny PNG
+
+### Coolors
+
+### Packages
+
+### Hosting
+
+### Framework, Libraries and Others
+
+<hr>
+
+## Deployment
+
+### Testing
+
+### Solved Bugs
+
+### Known Bugs
+
+<hr>
+
+## Credits
+### Code 
+### Content
+### Acknowledgements 
+
