@@ -101,11 +101,12 @@ const ViewRooms = () => {
       )
   }
 
+  const appURL = process.env.REACT_FRONT_END_URL  
   return (
     <Container className={styles.container} fluid>
       <Row className={styles.outer}>
         <Col md={6}>
-          <a href="/rooms">
+          <a href={`${appURL}#/rooms`}>
             <FontAwesomeIcon
               icon={faArrowLeft}
               className={styles.icon}
