@@ -22,6 +22,10 @@ const Reservations = () => {
   const { showAlert, alertMessage, alertStyle } = useContext(AlertContext);
   
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (!profileData.id) {
       return;
     }
