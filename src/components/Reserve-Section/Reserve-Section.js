@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { ProfileContext } from "../../contexts/ProfileContext";
 
 const ReserveSection = () => {
-  const { isSignedIn } = useContext(ProfileContext);
+  const { isSignedIn, profileData } = useContext(ProfileContext);
 
   return (
     <Container className={styles.container} fluid>
@@ -36,7 +36,7 @@ const ReserveSection = () => {
             <GreenButton
               className={styles.button}
               as={Link}
-              to={"/reservations"}
+              to={`/reservations/${profileData.id}`}
             >
               Your Reservations
             </GreenButton>
