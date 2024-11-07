@@ -64,6 +64,8 @@ const ConfirmBooking = () => {
   }
 
   const capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+  
+  const appURL = process.env.REACT_APP_FRONT_END_URL
 
   return (
     <Container className={styles.container} fluid>
@@ -87,7 +89,7 @@ const ConfirmBooking = () => {
       <p>We hope you'll enjoy your stay!</p>
       <p>
         You can view your booking{" "}
-        <a href={`http://localhost:3001/reservations/${id}`}>here</a>.
+        <a href={`${appURL}#/reservations/${profileData.id}`}>here</a>.
       </p>
       <Col>
         <GreenButton
