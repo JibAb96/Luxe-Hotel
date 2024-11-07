@@ -4,7 +4,6 @@
   width: 80vw;
   max-width: 90vw;
   max-height: 80vh;
-  background-color: var(--white);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -41,5 +40,6 @@
 }
 
 .bold{
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--black);
 }
