@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import StandardRoom from "../../images/double-room-TPNG.webp";
 import DeluxeRoom from "../../images/deluxe-room-TPNG.webp";
 import Suite from "../../images/hotel-suite-TPNG.webp";
@@ -76,7 +76,12 @@ const ViewRooms = () => {
     window.scrollTo(0, 0);
   }, []);
   
-  
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   if (!room) {
     return (
       <Container 
@@ -105,18 +110,18 @@ const ViewRooms = () => {
     <Container className={styles.container} fluid>
       <Row className={styles.outer}>
         <Col md={6}>
-          <a href="#/rooms">
+          <Button className={styles.button} onClick={goBack}>
             <FontAwesomeIcon
               icon={faArrowLeft}
               className={styles.icon}
             />
-          </a>
+          </Button>
           <Card>
             <Card.Img 
               variant="top" 
               src={room.image} 
               alt="Picture of room"
-              onError={room.fallbacksrc} />
+              onError={(e) => e.target.src = room.fallbacksrc} />
           </Card>
         </Col>
         <Col md={6} className={styles.color}>
