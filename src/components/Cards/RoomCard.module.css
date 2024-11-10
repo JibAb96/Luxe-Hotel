@@ -14,7 +14,7 @@
 }
 
 .button{
-  position: absolute;
+  position: absolute !important;
   bottom: 1rem;
   left: 28%;
   background-color: transparent;
