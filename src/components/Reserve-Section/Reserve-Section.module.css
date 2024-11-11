@@ -18,3 +18,7 @@
 .button{
   margin: 3rem auto 0;
 }
+
+.button:hover{
+  background-color: var(--green);
+}
