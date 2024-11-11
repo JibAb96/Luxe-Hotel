@@ -42,3 +42,9 @@
   background-color: transparent;
   border: none; 
 }
+
+@media (max-width: 500px) {
+  .title{
+    font-size: 2rem;
+  }
+}
