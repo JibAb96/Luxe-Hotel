@@ -191,7 +191,7 @@ The navigation bar changes based on user status and screen size:
 | Profile          | &#10060;  | &#9989;   |
 | Reservations     | &#10060;  | &#9989;   |
 | Log Out          | &#10060;  | &#9989;   |
-| Sign In           | &#9989;   | &#10060;  |
+| Sign In          | &#9989;   | &#10060;  |
 
 ![Luxe Hotel navigation when signed out screenshot](./src/docs-images/Luxe-Hotel-Logged-Out-Nav.png)
 
@@ -264,7 +264,6 @@ systematically addressing and resolving issues.
 
 - User feedback is actively collected and reviewed to find improvement areas, ensuring that the 
 project evolves to meet user needs and expectations effectively.
-### MoSCoW Prioritization
 
 <hr>
 
@@ -466,7 +465,7 @@ Testing the Setup
 
 ### Testing
 
-[Click here to view the full testing steps](/TESTING.md), which were completed on Google Chrome, Firefox, Abdroid, iOS and MUIU operative systems.
+[Click here to view the full testing steps](), which were completed on Google Chrome, Firefox, Abdroid, iOS and MUIU operative systems.
 
 ### Solved Bugs
 - Styling and Layout Adjustments: Addressed various issues with component layout and styling, particularly in ensuring responsive design across different devices and fixing specific CSS issues such as unwanted scrollbars and inconsistent padding/margins in certain sections.
