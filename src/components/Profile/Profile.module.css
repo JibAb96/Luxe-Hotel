@@ -29,7 +29,7 @@
 }
 
 .overlay > * {
-  background-color: var(--white);
+  background-color: var(--background);
   padding: 2rem;
   border-radius: 10px;
 }
