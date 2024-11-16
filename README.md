@@ -8,6 +8,8 @@ This site is a fully responsive hotel reservation system designed for an enhance
 
 This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, Express.js and it uses a PostgreSQL database.
 
+![Am I Responsive Screenshot](./src/docs-images/Am-I-Resp-Luxe.png)
+
 ## Icon Keys
 👤 <-- Logged In Only
 
@@ -361,7 +363,7 @@ project evolves to meet user needs and expectations effectively.
 
 <hr>
 
-## Deployment
+### Deployment
 
 <details id="local-deployment">
 <summary style="font-size: 1.2em; font-weight: bold;">Local Deployment</summary>
@@ -425,20 +427,76 @@ Install Dependencies
 Testing the Setup
 - With both the React frontend and Node.js backend running, check if the app functions correctly by accessing http://localhost:3000 in your browser.
 
-[Back to the top](# Luxe Hotel) 
+
 
 </details>
 
+[Back to the top](#luxe-hotel)
+
 ### Testing
 
-### Solved Bugs
+[Click here to view the full testing steps](/TESTING.md), which were completed on Google Chrome, Firefox, Abdroid, iOS and MUIU operative systems.
 
+### Solved Bugs
+- Styling and Layout Adjustments: Addressed various issues with component layout and styling, particularly in ensuring responsive design across different devices and fixing specific CSS issues such as unwanted scrollbars and inconsistent padding/margins in certain sections.
+
+- Backend and API Connection Issues: Resolved bugs related to backend connectivity, including CORS issues, server port conflicts, and data inconsistencies in API responses. This included ensuring smooth communication between the React frontend and Node.js backend.
+
+- Authentication and Security: Troubleshot issues around authentication flow, including session handling and token management. These fixes involved configuring secure handling of sensitive data, such as improving the usage of tokens and managing user sessions effectively.
+
+- Database and Data Handling: Fixed issues in data retrieval and storage, such as ensuring correct database queries and handling edge cases with null or undefined data. This included adjustments to database queries to improve efficiency and correct data output for frontend display.
+
+- Conditional Rendering and Routing: Addressed bugs in the conditional rendering of components, ensuring correct display logic across routes based on user state and data availability. Improved routing flows to enhance user experience and prevent unnecessary re-renders or errors when accessing certain pages.
 ### Known Bugs
 
+- If you discover any bugs in my project, please let me know so that I can promptly address them.
+
+[Back to the top](#luxe-hotel)
 <hr>
 
 ## Credits
 ### Code 
-### Content
-### Acknowledgements 
+- **Bootstrap**: 
+  - Extensively used for styling and responsive design to ensure accessibility across diverse devices. - [Bootstrap documentation](https://getbootstrap.com/).
+- **React**:
+  - React's documentation has been crucial for front-end development, providing the core framework for the platform's interface. - [React documentation](https://react.dev/)
+- **Node**:
+  - Node's documentation has been invaluable for backend development, forming the foundation of the platform. - [Node documentation](https://nodejs.org/docs/latest/api/).
+- **MDN Server-async functions**:
+  - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) -  How to use async functions.
+- **JWT-Tokens**:
+  - Gaining an understanding of exactly how jwt-tokens work and there usage in the back-end of applications.
+  - [jwt-tokens](https://jwt.io/introduction)
+- **Sources of inspiration and guidance in general**:
+    - Complete Web Developer in 2024: Zero to Mastery tutorial creating a react app front-end - [Inspecting Faces Repo](https://github.com/JibAb96/Inspecting-Faces-Front-End).
+    - [Inspecting Faces Back-End Repo](https://github.com/JibAb96/Inspecting-Faces-Back-End) Complete Web Developer in 2024: Zero to Mastery tutorial creating a back-end server with node. 
+- **W3 Schools**:
+  - [W3Schools](https://www.w3schools.com/) - Providing HTML and JavaScript refreshers for particular syntax. 
+- **Gork Coder**:
+  - [Gork Coder](https://www.youtube.com/watch?v=hyATLBn6EM8&ab_channel=GorkCoder) - Providing inspiration with a hotel reservation management tutorial. 
 
+- **Lucid Software**:
+  - [Diagramming in Lucidcharts](https://www.youtube.com/watch?v=xsg9BDiwiJE&t=25s) -  Offers a foundational overview of ERDs, followed by step-by-step guidance on creating an ER diagram with accurate cardinality
+### Content
+#### Hompage
+- [Hero Image](https://www.zfu.com/nature-is-home/)
+- [Hotel Lobby](https://www.destinationfrance.org/latest-travel-news/new-sindhorn-kempinski-hotel-opens-restaurants-bar-fitness-studios/)
+- [Hotel Room](https://vacayvoice.com/blog/famous-tourist-hotels-in-venice-a-guide-to-luxurious-stays)
+- [Photos for reviews](https://unsplash.com/s/photos/profile-picture)
+
+#### Rooms
+- [Suite](https://gulfhotelbahrain.com/rooms)
+- [Deluxe](https://in.hotels.com/ho2933571648/the-peninsula-london-london-united-kingdom/)
+- [Standard](https://enchantedinteriorsandsolar.com/product/design-three/)
+
+#### About
+- [Hotel Reception](https://jamessupply.com/hospitality-project-tracker-week-of-august-23rd-2021/)
+- [Dining Room](https://se.pinterest.com/pin/409827634817392907/)
+
+- All text content was generated with ChatGPT.
+### Acknowledgements 
+- I would like to thank the Zero To Mastery academy for helping understand how to use
+the technologies in this project.
+- Special thanks to the Zero To Mastery discord group for always being available for help.
+- I would like to also thank the Caawi(translation is Help) platform created by the organisation
+Somalis in Tech for also being available for support.
