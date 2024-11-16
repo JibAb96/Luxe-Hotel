@@ -10,6 +10,8 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
 
 ![Am I Responsive Screenshot](./src/docs-images/Am-I-Resp-Luxe.png)
 
+<br>
+
 ## Icon Keys
 👤 <-- Logged In Only
 
@@ -49,6 +51,8 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
 - A dark red has been used for all delete buttons and light red for error messages, to signify that this is a destructive action.
 - The gold yellow has been used for the star-ratings from the reviews of past users.
 
+![Coloors image with color palette](./src/docs-images/Color%20Palette%20(1).png)
+
 ### Typography
 
 - I chose Josefin Sans for the Luxe Hotel majority and Cormorant Garamond for specifc 
@@ -65,6 +69,8 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
   fully adhering to the <a href="https://webaim.org/techniques/fonts/">WCAG Guidelines</a> on 
   font accessibility.
 
+![Google Fonts screenshot](./src/docs-images/Luxe-Hotel-fonts.png)
+
 ### Imagery
 
 - Subtle box shadows have been artfully applied. These design elements echo the hotel's graphic styling, characterized by neutral, soft colors and refined lines, enhancing the app's aesthetic appeal.
@@ -72,6 +78,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
 - All interactable objects have hover and focus styles applied to make it clear to the user that those objects are interactable.
 - Icons from Font Awesome have been used on the site to add meaning where relevant and suitable. These icons are accompanied by either visible text or descriptive aria-labels, ensuring inclusivity and accessibility.
 - Button colors have been used to convey meaning, mainly in the use of the color dark red to convey 'Delete' or 'Cancel' as dangerous actions.
+
 <hr>
 
 ## Features
@@ -81,6 +88,8 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - Get a sense of the hotel's ambiance through images and engaging text, giving visitors an immersive glimpse into what the hotel offers.
     - Browse through guest reviews in a carousel, each linking to a detailed review page, helping prospective visitors learn from others' experiences.
     - Access contact information and view the hotel's location for easy planning and inquiries.
+
+![Luxe Hotel homepage screenshot](./src/docs-images/Luxe-Hotel-Homepage.png)
 #### User profile registration
 - This feature allows users to:
     - Create an account by entering personal details, streamlining future room reservations. Required details include:
@@ -98,7 +107,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
 - 👤 Save personal information for quicker booking.
 - 👤 Maintain a record of past reservations.
 
-
+![Luxe Hotel registration screenshot](./src/docs-images/Luxe-Hotel-Registration-cropped.png)
 #### Login
 - This feature allows users to:
     - Sign in to the site using their email and password.
@@ -110,7 +119,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - Review their room reservations(if any)
     - Update or cancel room reservations as needed
 
-
+![Luxe Hotel login page screenshot](./src/docs-images/Luxe-Hotel-Login-Page.png)
 #### User Profile Page
 - This feature allows users to:
     - View their personal information provided during registration.
@@ -119,6 +128,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - Delete their profile and account.
     - See a confirmation page upon selecting delete, prompting them to confirm the account deletion.
 
+![Luxe Hotel profile page screenshot](./src/docs-images/Luxe-Hotel-Profile.png)
 ### Room Category Page
 - This feature allows user to:
     - View all hotel room categories available on the website.
@@ -126,6 +136,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - Get an overview of each room category, including an image, brief description of features and amenities, capacity, and price.    
 - Click on a room card to navigate to a detailed page with full room information.
 
+![Luxe Hotel room options page screenshot](./src/docs-images/Luxe-Hotel-Rooms.png)
 ### Room Detail Page
 - This feature allows user to:
     - View detailed information about each room category, including:          
@@ -137,6 +148,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
         - Booking Option: Users can proceed to book the selected room by clicking the "Book" button.
     - Clicking "Book" takes users to a dedicated reservation page to complete their booking details.
 
+![Luxe Hotel detailed room info page screenshot](./src/docs-images/Luxe-Hotel-ViewRoom.png)
 ### Booking Page
 - This feature allows users:
     - Make a reservation while logged in.
@@ -147,6 +159,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
         - Room Category
         - Number of guests    
 
+![Luxe Hotel booking page screenshot](./src/docs-images/Luxe-Hotel-Book.png)
 #### Reservation Confirmation
 - In case the reservation fails:
     - The user is redirected back to the reservation form.
@@ -155,13 +168,17 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - The user sees a confirmation page displaying their reservation details.
     - The confirmation page includes complete booking information and a unique booking ID.
     - 👤 The reservation is added to the user’s reservations page.
-### Reservation Page
+
+![Luxe Hotel reservation confirmation screenshot](./src/docs-images/Luxe-Hotel-BookingConfirmation.png)
+### Reservations Page
 - This feature allows users to:
-    - View their reservation details.
-    - Edit their reservation information.
-    - Receive a success message upon submitting reservation changes.
-    - Delete their reservation.
-    - See a confirmation page when deleting a reservation, asking for confirmation before finalizing the deletion.
+    - View their reservations details.
+    - Edit their reservations information.
+    - Receive a success message upon submitting reservations changes.
+    - Delete their reservations.
+    - See a confirmation page when deleting a reservations, asking for confirmation before finalizing the deletion.
+
+![Luxe Hotel reservations page screentshot](./src/docs-images/Luxe-Hotel-Reservations.png)
 ### Navigation Bar
 The navigation bar changes based on user status and screen size:
 | Nav Link         | &#128683; | &#128100; |
@@ -175,15 +192,23 @@ The navigation bar changes based on user status and screen size:
 | Reservations     | &#10060;  | &#9989;   |
 | Log Out          | &#10060;  | &#9989;   |
 | Sign In           | &#9989;   | &#10060;  |
+
+![Luxe Hotel navigation when signed out screenshot](./src/docs-images/Luxe-Hotel-Logged-Out-Nav.png)
+
+![Luxe Hotel navigation when signed in screenshot](./src/docs-images/Luxe-Hotel-Logged-In-Nav.png)
+
+![Luxe Hotel navigation bar on smaller devices screenshot](./src/docs-images/Luxe-Hotel-Mobile-Nav.png)
 ### About Section
 - This feature allows the user to:
     - Read about the hotel and it's offers.
-
+![Luxe Hotel about page screenshot](./src/docs-images/Luxe-Hotel-About-Page.png)
 ### Footer
 - This feature allows the user to:
     - Navigate to any of the hotel's social media pages.
     - See the payment methods the hotel accepts
     - See the hotels contact details
+
+![Luxe Hotel footer screenshot](./src/docs-images/Luxe-Hotel-Footer.png)
 ### Future Features
 - Future features would include:
     - Enhanced Room Customization: Provide a more tailored experience by allowing guests to 
@@ -204,14 +229,20 @@ guidance and transparency.
  - When a form is submitted or an action completes successfully, users receive clear 
    confirmation messages to assure them that their request has been processed. This transparency 
    builds trust and keeps users informed about the status of their actions.
+
+![Luxe Hotel success alert message screenshot](./src/docs-images/Luxe-Hotel-Success-Alert.png)
 - Error Handling:
  - If a form contains invalid data or an action fails due to system constraints, users are 
    immediately notified with specific and actionable error messages or a confirmation page. 
    These messages provide guidance on how to resolve issues, helping users continue their 
    tasks smoothly.
+ - Also users are warned before deleting bookings or a profile to avoid mistakes.
+![Luxe Hotel error alert message screenshot](./src/docs-images/Luxe-Hotel-Danger-Alert.png)
+
+![Luxe Hotel confirmation of deletion screenshot](./src/docs-images/Luxe-Hotel-Delete-Profile.png)
 ### Database Design
 This database uses a PostgreSQL database.
-<a href="">ER Diagram</a> for this project.
+<a href="./src/docs-images/Luxe-Hotel-ER-Diagram.png">ER Diagram</a> for this project.
 
 <hr>
 
