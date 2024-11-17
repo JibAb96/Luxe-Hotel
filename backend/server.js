@@ -15,16 +15,20 @@ import resetPassword from "./controllers/resetPassword.js";
 import forgotPassword from "./controllers/forgotPassword.js";
 import confirmBookings from "./controllers/confirmBooking.js";
 import handleAuthStatus from "./controllers/authentication.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const { Pool } = pg;
 
 const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "Luxe-Hotel",
-    password: "Jibstaar96",
-    port: 5432
+    user: process.env.DATABASE_USER,
+    host: process.env.DATABASE_HOST,
+    database: process.env.DATABASE,
+    password: process.env.DATABASE_PASSWORD,
+    port: process.env.DATABASE_PORT
 });
+
 
 const app = express();
 
@@ -62,6 +66,6 @@ app.delete("/delete-profile/:id", (req, res) => deleteProfile(req, res, pool));
 
 app.delete("/delete-booking/:id", (req, res) => deleteBooking(req, res, pool));
 
-app.listen(3000,() => { console.log("Server is running on port 3000"); })
+app.listen(process.env.SERVER_PORT,() => { console.log("Server is running on port 3001"); })
 
  
