@@ -29,7 +29,6 @@ const pool = new Pool({
     port: process.env.DATABASE_PORT
 });
 
-
 const app = express();
 
 app.use(cors());
@@ -41,29 +40,20 @@ const { json } = pkg;
 app.use(json());
 
 app.get("/", (req, res) => { res.send("success") });
-
 app.get("/confirm-booking/:id", (req, res) => confirmBookings(req, res, pool));
-
 app.get("/reservations/:id", (req, res) => reservations(req, res, pool));
 
 app.post("/register", (req, res) => handleRegistration(req, res, pool, bcrypt));
-
 app.post("/signin", (req, res) =>  handleSignIn(req, res, pool, bcrypt));
-
 app.post("/book/:id", (req, res) => booking(req, res, pool));
-
 app.post("/forgot-password", (req, res) => forgotPassword(req, res, pool));
-
 app.post("/auth/status", (req, res) => handleAuthStatus(req, res, pool))
 
 app.put("/update-profile/:id", (req, res) => updateProfile(req, res, pool));
-
 app.put("/edit-booking/:id", (req, res) => editBooking(req, res, pool));
-
 app.put("/reset-password/:id", (req, res) => resetPassword(req, res, pool, bcrypt));
 
 app.delete("/delete-profile/:id", (req, res) => deleteProfile(req, res, pool));
-
 app.delete("/delete-booking/:id", (req, res) => deleteBooking(req, res, pool));
 
 const PORT = process.env.PORT || 3001
