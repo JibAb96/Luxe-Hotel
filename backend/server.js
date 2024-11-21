@@ -33,6 +33,26 @@ const app = express();
 
 app.use(cors());
 
+app.use(cors({
+    origin: 'https://luxe-hotel.netlify.app', // Replace with your frontend's URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true, // Allow cookies and credentials if needed
+}));
+
+app.options('*', cors({
+    origin: 'https://luxe-hotel.netlify.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+}));
+
+app.use((req, res, next) => {
+    console.log(`${req.method} request to ${req.url}`);
+    console.log('Request Headers:', req.headers);
+    next();
+});
+
 app.use(express.json());
 
 const { json } = pkg;
