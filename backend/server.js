@@ -22,30 +22,16 @@ dotenv.config();
 const { Pool } = pg;
 
 const pool = new Pool({
-    user: process.env.DATABASE_USER,
-    host: process.env.DATABASE_HOST,
-    database: process.env.DATABASE,
-    password: process.env.DATABASE_PASSWORD,
-    port: process.env.DATABASE_PORT
-});
+    connectionString: process.env.DATABASE_URL,  // Using the connection string from the .env
+    ssl: {
+      rejectUnauthorized: false  // Required to connect securely to Render's managed database
+    }
+  });
+  
 
 const app = express();
 
 app.use(cors());
-
-app.use(cors({
-    origin: 'https://luxe-hotel.netlify.app', // Replace with your frontend's URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-    credentials: true, // Allow cookies and credentials if needed
-}));
-
-app.options('*', cors({
-    origin: 'https://luxe-hotel.netlify.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-}));
 
 app.use((req, res, next) => {
     console.log(`${req.method} request to ${req.url}`);
