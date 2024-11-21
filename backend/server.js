@@ -33,12 +33,6 @@ const app = express();
 
 app.use(cors());
 
-app.use((req, res, next) => {
-    console.log(`${req.method} request to ${req.url}`);
-    console.log('Request Headers:', req.headers);
-    next();
-});
-
 app.use(express.json());
 
 const { json } = pkg;
