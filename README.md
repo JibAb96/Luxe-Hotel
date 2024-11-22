@@ -360,13 +360,12 @@ project evolves to meet user needs and expectations effectively.
 | `pg`             | PostgreSQL database adapter for Node.js      |
 
 ### Hosting
-- Heroku
-    - Github Pages was used to deploy the live site.
-### Framework, Libraries and Others
-#### Heroku
 
-- [Heroku](https://www.heroku.com) was used to deploy the live site.
+#### Netlify
+- [Netlify](https://www.netlify.com) was used to deploy the live site.
 
+#### Render
+    - [Render](https://www.render.com) was used to deploy the back end and databse.
 ### Frameworks, Libraries, and Others
 
 #### Google DevTools
@@ -530,7 +529,7 @@ Install Dependencies
 - Start the Node.js server on the specified port:
   - nodemon server.js
 ###### Connecting Frontend and Backend
-
+- npm start from the root directory will start both the frontend and backend.
 - In your React frontend, update any API endpoints to use http://localhost:3001 (or the port you specified in the .env file) to point to the locally running backend.
 Testing the Setup
 - With both the React frontend and Node.js backend running, check if the app functions correctly by accessing http://localhost:3000 in your browser.
