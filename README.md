@@ -1,6 +1,6 @@
 # Luxe Hotel
 
-<a href="https://jibab96.github.io/Luxe-Hotel-Front-End/">Here is a link to the full website</a>
+<a href="https://luxe-hotel.netlify.app" target="_blank">Here is a link to the full website</a>
 
 This platform is a complete hotel reservation system crafted to simplify operations for both hotel owners and guests. It’s designed to elevate the experience of users looking for accommodations, providing a smooth journey from browsing to booking.
 
@@ -394,6 +394,84 @@ project evolves to meet user needs and expectations effectively.
 <hr>
 
 ### Deployment
+<details id="netifly-deployment">
+<summary style="font-size: 1.2em; font-weight: bold;">Netifly Deployment</summary>
+1. Netlify Account
+  - Create or log in to a Netlify account.
+2. GitHub Repository
+  - Ensure your frontend project is hosted on GitHub and is production-ready.
+  - Your repository should include a build script in package.json (e.g., "build": "react-scripts build" for React).
+3. Create a New Site
+  - In the Netlify dashboard, click Add New Site > Import an Existing Project.
+  - Connect your GitHub account and authorize access.
+  - Select your frontend repository.
+4. Configure Build Settings
+  - Set up the following:
+    - Branch to Deploy: Choose your main branch (e.g., main or master).
+    - Build Command: Enter the command to build your app (e.g., npm run build or yarn build).
+    - Publish Directory: Specify the build output directory (e.g., build for React).
+5. Add Environment Variables
+  - In the Site Settings, go to Environment Variables.
+  - Add variables your frontend needs, such as:
+  - REACT_APP_API_URL for your backend URL.
+  - Any other environment-specific variables.
+6. Deploy the Site
+  - Click Deploy Site.
+  - Netlify automatically builds your project and deploys it.
+  - Monitor the deployment logs for errors.
+7. Test the Site
+  - Once deployed, Netlify provides a unique domain (e.g., https://luxe-hotel.netlify.app).
+  - Test your site functionality to ensure everything works as expected.
+8. Configure Custom Domain (Optional)
+  - If you have a custom domain:
+    - Go to the Domain Settings in Netlify.
+    - Add your custom domain and update your DNS settings to point to Netlify.
+9. Enable Continuous Deployment
+  - Netlify will automatically rebuild and deploy your site whenever you push changes to the selected branch on GitHub.
+10. Optimize for Production
+  - Enable optimizations in Site Settings, such as:
+  - Asset Optimization: Minify CSS, JavaScript, and images.
+  - Redirects: Create a _redirects file in the public folder if your site has routing.
+</details>
+
+<details id="render-deployment">
+<summary style="font-size: 1.2em; font-weight: bold;">Render Deployment</summary>
+1. Render Account
+  - Create a Render account if you don’t already have one: render.com.
+2. GitHub Repository
+  - Ensure your backend project is hosted on GitHub and contains a package.json file specifying dependencies.
+  - Add .env to .gitignore to avoid pushing sensitive data.
+3. Create a New Web Service on Render
+  - Log in to Render and navigate to Dashboard.
+  - Click New > Web Service.
+4. Link Repository
+  - Select Connect a GitHub Repo and grant permissions if prompted.
+  - Choose your backend repository.
+5. Configure the Web Service
+  - Name: Give a unique name to your service (e.g., luxe-hotel-backend).
+  - Environment: Select Node.js.
+  - Region: Pick a region closest to your target audience.
+  - Start Command: Enter the command to start your app (e.g., node index.js or npm start).
+  - Environment Variables: Add the necessary environment variables (DATABASE_URL, SECRET_KEY, etc.).
+6. Deploy Database on Render
+  - Go to the Render Dashboard > Databases > Create Database.
+  - Select PostgreSQL and configure the database settings.
+  - Copy the DATABASE_URL provided after creation.
+7. Update Environment Variables
+  - Return to your Web Service and update the DATABASE_URL with the one from your Render database.
+  - Add other production-ready environment variables (e.g., CLOUDINARY_URL, SECRET_KEY).
+8. Push Code to GitHub
+  - Ensure your backend code is production-ready and pushed to GitHub.
+  - Include a Dockerfile if you're using Docker, or configure your service as necessary.
+9. Build and Deploy
+  - Render automatically builds and deploys your app after linking the repository.
+  - Monitor build logs for errors and resolve them if necessary.
+10. Verify and Test
+  - Once deployed, Render provides a unique domain for your service (e.g., https://luxe-hotel-backend.onrender.com).
+  - Test the endpoints and confirm database connectivity.
+11. Enable Continuous Deployment
+  - In the Render dashboard, enable Auto Deploy for updates from your GitHub repository.
+</details>
 
 <details id="local-deployment">
 <summary style="font-size: 1.2em; font-weight: bold;">Local Deployment</summary>
