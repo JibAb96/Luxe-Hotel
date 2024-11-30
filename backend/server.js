@@ -22,9 +22,9 @@ dotenv.config();
 const { Pool } = pg;
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,  // Using the connection string from the .env
+    connectionString: process.env.DATABASE_URL, 
     ssl: {
-      rejectUnauthorized: false  // Required to connect securely to Render's managed database
+      rejectUnauthorized: false  
     }
   });
   
