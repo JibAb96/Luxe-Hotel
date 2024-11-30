@@ -43,9 +43,8 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
 ## Design
 
 ### Color Scheme
-
-- The main colors used in this site are Feldgrau Green, Aliceblue and Cloudy White.
-- These main colors are the colors in the hotels's logo, and they permeate through the site 
+- The main colors used in this site are Feldgrau Green and a Light Greyish Pink.
+- The Feldgrau Green color is used in the hotels's logo, and is permeated throughout the site 
 - The color palette of the website captures the luxury and nature-inspired ambiance of the hotel, evoking a sense of refined tranquility and sophisticated charm.
 - A light green has been used for the sucess messages, to signify that this is a successful action.
 - A dark red has been used for all delete buttons and light red for error messages, to signify that this is a destructive action.
@@ -55,8 +54,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
 
 ### Typography
 
-- I chose Josefin Sans for the Luxe Hotel majority and Cormorant Garamond for specifc 
-  headings, both accessible through Google Fonts. 
+- I chose Josefin Sans for the majority of the websites headings/text and Cormorant Garamond for  specifc headings, both accessible through Google Fonts. 
 - These fonts were carefully selected for their readability and accessibility, especially to 
   provide a comfortable experience for users with dyslexia or partial visual impairments.
 - The combination of elegance and legibility enhances the app’s sophistication and usability.
@@ -86,7 +84,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
 ### Home page
 - This feature allows users to:
     - Get a sense of the hotel's ambiance through images and engaging text, giving visitors an immersive glimpse into what the hotel offers.
-    - Browse through guest reviews in a carousel, each linking to a detailed review page, helping prospective visitors learn from others' experiences.
+    - Browse through guest reviews in a carousel, helping prospective visitors learn from others' experiences.
     - Access contact information and view the hotel's location for easy planning and inquiries.
 
 ![Luxe Hotel homepage screenshot](/frontend/src/docs-images/Luxe-Hotel-Homepage.png)
@@ -114,10 +112,10 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - Select "Remember me" for easier access on future logins.
     - Reset their password if forgotten through a quick link.
     - Show the passowrd to check for errors.
-    - Access their profile page
-    - View, update or delete their profile information
-    - Review their room reservations(if any)
-    - Update or cancel room reservations as needed
+    - Access their profile page.
+    - View, update or delete their profile information.
+    - Review their room reservations(if any).
+    - Update or cancel room reservations as needed.
 
 ![Luxe Hotel login page screenshot](/frontend/src/docs-images/Luxe-Hotel-Login-Page.png)
 #### User Profile Page
@@ -126,7 +124,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - Edit and update their personal details.
     - Receive a success message upon submitting profile edits.
     - Delete their profile and account.
-    - See a confirmation page upon selecting delete, prompting them to confirm the account deletion.
+    - See a confirmation modal upon selecting delete, prompting them to confirm the account deletion.
 
 ![Luxe Hotel profile page screenshot](/frontend/src/docs-images/Luxe-Hotel-Profile.png)
 ### Room Category Page
@@ -134,7 +132,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - View all hotel room categories available on the website.
     - Access room categories via the main navigation bar or directly from the homepage.
     - Get an overview of each room category, including an image, brief description of features and amenities, capacity, and price.    
-- Click on a room card to navigate to a detailed page with full room information.
+    - Click on a room card to navigate to a detailed page with full room information.
 
 ![Luxe Hotel room options page screenshot](/frontend/src/docs-images/Luxe-Hotel-Rooms.png)
 ### Room Detail Page
@@ -146,7 +144,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
         - Image: High-quality photo showcasing the room.
         - Description: In-depth details on the room’s features, amenities, and unique highlights.
         - Booking Option: Users can proceed to book the selected room by clicking the "Book" button.
-    - Clicking "Book" takes users to a dedicated reservation page to complete their booking details.
+    - Clicking "Book" takes users to a dedicated booking page to complete their booking details.
 
 ![Luxe Hotel detailed room info page screenshot](/frontend/src/docs-images/Luxe-Hotel-ViewRoom.png)
 ### Booking Page
@@ -154,16 +152,16 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - Make a reservation while logged in.
     - 👤 Automatically use their profile details for the reservation.
     - In the booking form, users will fill out:
-        - Check-in date
-        - Check-out date
-        - Room Category
-        - Number of guests    
+        - Check-in date.
+        - Check-out date.
+        - Room Category.
+        - Number of guests.    
 
 ![Luxe Hotel booking page screenshot](/frontend/src/docs-images/Luxe-Hotel-Book.png)
 #### Reservation Confirmation
 - In case the reservation fails:
     - The user is redirected back to the reservation form.
-    - A message appears explaining the failure, such as "Check-in date must be before check-out date"
+    - A message appears explaining the failure, such as "Check-in date must be before check-out date".
 - If the reservation succeeds:
     - The user sees a confirmation page displaying their reservation details.
     - The confirmation page includes complete booking information and a unique booking ID.
@@ -176,7 +174,7 @@ This site was built using HTML, CSS, Bootstrap, JavaScript, React.js, Node.js, E
     - Edit their reservations information.
     - Receive a success message upon submitting reservations changes.
     - Delete their reservations.
-    - See a confirmation page when deleting a reservations, asking for confirmation before finalizing the deletion.
+    - See a confirmation modal when deleting a reservations, asking for confirmation before finalizing the deletion.
 
 ![Luxe Hotel reservations page screentshot](/frontend/src/docs-images/Luxe-Hotel-Reservations.png)
 ### Navigation Bar
@@ -205,8 +203,8 @@ The navigation bar changes based on user status and screen size:
 ### Footer
 - This feature allows the user to:
     - Navigate to any of the hotel's social media pages.
-    - See the payment methods the hotel accepts
-    - See the hotels contact details
+    - See the payment methods the hotel accepts.
+    - See the hotels contact details.
 
 ![Luxe Hotel footer screenshot](/frontend/src/docs-images/Luxe-Hotel-Footer.png)
 ### Future Features
@@ -233,7 +231,7 @@ guidance and transparency.
 ![Luxe Hotel success alert message screenshot](/frontend/src/docs-images/Luxe-Hotel-Success-Alert.png)
 - Error Handling:
  - If a form contains invalid data or an action fails due to system constraints, users are 
-   immediately notified with specific and actionable error messages or a confirmation page. 
+   immediately notified with specific and actionable error messages or a confirmation modal. 
    These messages provide guidance on how to resolve issues, helping users continue their 
    tasks smoothly.
  - Also users are warned before deleting bookings or a profile to avoid mistakes.
@@ -293,7 +291,7 @@ project evolves to meet user needs and expectations effectively.
 
 #### Git
 
-- [Git](https://git-scm.com/) Git was used for version control. The Gitpod and VS Code terminals were utilized to add, commit to Git and pushed to GitHub.
+- [Git](https://git-scm.com/) was used for version control. The Gitpod and VS Code terminals were utilized to add, commit to Git and pushed to GitHub.
 
 #### GitHub
 
@@ -366,11 +364,12 @@ project evolves to meet user needs and expectations effectively.
 
 #### Render
     - [Render](https://www.render.com) was used to deploy the back end and databse.
+
 ### Frameworks, Libraries, and Others
 
 #### Google DevTools
 
-- [Google DevTools](https://developer.chrome.com/docs/devtools/)was used to identify the code corresponding to specific features.
+- [Google DevTools](https://developer.chrome.com/docs/devtools/) was used to identify the code corresponding to specific features.
 
 #### Lighthouse
 
@@ -395,6 +394,7 @@ project evolves to meet user needs and expectations effectively.
 ### Deployment
 <details id="netifly-deployment">
 <summary style="font-size: 1.2em; font-weight: bold;">Netifly Deployment</summary>
+
 1. Netlify Account
   - Create or log in to a Netlify account.
 2. GitHub Repository
@@ -435,6 +435,7 @@ project evolves to meet user needs and expectations effectively.
 
 <details id="render-deployment">
 <summary style="font-size: 1.2em; font-weight: bold;">Render Deployment</summary>
+
 1. Render Account
   - Create a Render account if you don’t already have one: render.com.
 2. GitHub Repository
@@ -478,7 +479,6 @@ project evolves to meet user needs and expectations effectively.
 <br>
 
 #### How to Fork
-
 1. Log in (or sign up) to Github.
 2. Go to the [repository](https://github.com/JibAb96/Luxe-Hotel-Front-End) for this project, 
 3. Click the Fork button in the top right corner and select create a fork.
@@ -534,8 +534,6 @@ Install Dependencies
 Testing the Setup
 - With both the React frontend and Node.js backend running, check if the app functions correctly by accessing http://localhost:3000 in your browser.
 
-
-
 </details>
 
 [Back to the top](#luxe-hotel)
@@ -554,6 +552,7 @@ Testing the Setup
 - Database and Data Handling: Fixed issues in data retrieval and storage, such as ensuring correct database queries and handling edge cases with null or undefined data. This included adjustments to database queries to improve efficiency and correct data output for frontend display.
 
 - Conditional Rendering and Routing: Addressed bugs in the conditional rendering of components, ensuring correct display logic across routes based on user state and data availability. Improved routing flows to enhance user experience and prevent unnecessary re-renders or errors when accessing certain pages.
+
 ### Known Bugs
 
 - If you discover any bugs in my project, please let me know so that I can promptly address them.
@@ -586,19 +585,23 @@ Testing the Setup
   - [Diagramming in Lucidcharts](https://www.youtube.com/watch?v=xsg9BDiwiJE&t=25s) -  Offers a foundational overview of ERDs, followed by step-by-step guidance on creating an ER diagram with accurate cardinality
 ### Content
 #### Hompage
-- [Hero Image](https://www.zfu.com/nature-is-home/)
-- [Hotel Lobby](https://www.destinationfrance.org/latest-travel-news/new-sindhorn-kempinski-hotel-opens-restaurants-bar-fitness-studios/)
-- [Hotel Room](https://vacayvoice.com/blog/famous-tourist-hotels-in-venice-a-guide-to-luxurious-stays)
-- [Photos for reviews](https://unsplash.com/s/photos/profile-picture)
+- [Hero Image](https://www.zfu.com/nature-is-home/) was taken from zfu.com showcasing a hotel in Singapore.
+- [Hotel Lobby](https://www.destinationfrance.org/latest-travel-news/new-sindhorn-kempinski-hotel-opens-restaurants-bar-fitness-studios/) an image of a hotel lobby in Bangkok.
+- [Hotel Room](https://vacayvoice.com/blog/famous-tourist-hotels-in-venice-a-guide-to-luxurious-stays) taken from a list of luxury hotels in Venice.
+- [Photos for reviews](https://unsplash.com/s/photos/profile-picture) I picked public photos from 
+unsplash.com for the reviews.
 
 #### Rooms
-- [Suite](https://gulfhotelbahrain.com/rooms)
-- [Deluxe](https://in.hotels.com/ho2933571648/the-peninsula-london-london-united-kingdom/)
-- [Standard](https://enchantedinteriorsandsolar.com/product/design-three/)
+- [Suite](https://gulfhotelbahrain.com/rooms) found the image from a luxury hotel site in Bahrain.
+- [Deluxe](https://in.hotels.com/ho2933571648/the-peninsula-london-london-united-kingdom/) found this
+image from a luxury hotel site in London.
+- [Standard](https://enchantedinteriorsandsolar.com/product/design-three/) found this image from a 
+website selling interior designs.
 
 #### About
-- [Hotel Reception](https://jamessupply.com/hospitality-project-tracker-week-of-august-23rd-2021/)
-- [Dining Room](https://se.pinterest.com/pin/409827634817392907/)
+- [Hotel Reception](https://jamessupply.com/hospitality-project-tracker-week-of-august-23rd-2021/) found this image on an online article about Mariott Hotel development plans in the US.
+- [Dining Room](https://se.pinterest.com/pin/409827634817392907/) found this image on pinterest 
+advertising Four Seasons Hotel in Beijing.
 
 - All text content was generated with ChatGPT.
 ### Acknowledgements 
